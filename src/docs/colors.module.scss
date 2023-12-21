@@ -1,0 +1,6 @@
+@use "../settings/color_alias";
+:export {
+  element1: color_alias.$primary-color-1000;
+  element2: color_alias.$primary-color-700;
+  element3: color_alias.$neutral-color-1000;
+}

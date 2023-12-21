@@ -1,0 +1,24 @@
+@use "../settings/color_alias";
+@use "../settings/typography";
+
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  &.rotate {
+    animation: rotate 2s linear infinite;
+  }
+}
+
+
+
+

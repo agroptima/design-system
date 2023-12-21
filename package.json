@@ -1,0 +1,42 @@
+{
+  "name": "agroptima-design-system",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npm run storybook",
+    "storybook": "storybook dev -p 6006",
+    "build": "npm run build-storybook",
+    "build-storybook": "storybook build",
+    "lint": "eslint",
+    "lint:fix": "eslint src --fix",
+    "chromatic": "npx chromatic --exit-zero-on-changes"
+  },
+  "dependencies": {
+    "@storybook/addon-designs": "^7.0.5",
+    "next": "^14.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.4"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^7.5.1",
+    "@storybook/addon-essentials": "^7.5.0",
+    "@storybook/addon-interactions": "^7.5.0",
+    "@storybook/addon-links": "^7.5.0",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.0",
+    "@storybook/nextjs": "^7.5.0",
+    "@storybook/react": "^7.5.0",
+    "@storybook/testing-library": "^0.2.2",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20.9.4",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
+    "eslint": "^8",
+    "eslint-config-next": "^14.0.3",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-storybook": "^0.6.15",
+    "storybook": "^7.6.6",
+    "typescript": "^5"
+  }
+}
