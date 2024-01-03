@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "npm run storybook",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --ci",
     "build": "npm run build-storybook",
     "build-storybook": "storybook build",
     "lint": "eslint",
