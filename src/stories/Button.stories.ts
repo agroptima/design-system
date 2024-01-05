@@ -5,6 +5,9 @@ const meta = {
   title: 'Design System/Atoms/Button',
   component: Button,
   tags: ['autodocs'],
+  args: {
+    label: 'Button',
+  },
   argTypes: {
     leftIcon: {
       control: { type: 'select' },
@@ -62,7 +65,6 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    label: 'Button',
     variant: 'primary',
     disabled: false,
     loading: false,
@@ -72,7 +74,6 @@ export const Primary: Story = {
 
 export const PrimaryWithLeftIcon: Story = {
   args: {
-    label: 'Button',
     variant: 'primary',
     disabled: false,
     leftIcon: 'AngleLeft',
@@ -82,7 +83,6 @@ export const PrimaryWithLeftIcon: Story = {
 
 export const PrimaryOutlined: Story = {
   args: {
-    label: 'Button',
     variant: 'primary-outlined',
   },
   parameters: figmaPrimaryDesign,
@@ -90,7 +90,6 @@ export const PrimaryOutlined: Story = {
 
 export const PrimaryGhost: Story = {
   args: {
-    label: 'Button',
     variant: 'primary-ghost',
   },
   parameters: figmaPrimaryDesign,
@@ -98,7 +97,6 @@ export const PrimaryGhost: Story = {
 
 export const Neutral: Story = {
   args: {
-    label: 'Button',
     variant: 'neutral',
   },
   parameters: figmaNeutralDesign,
@@ -106,7 +104,6 @@ export const Neutral: Story = {
 
 export const Error: Story = {
   args: {
-    label: 'Button',
     variant: 'error',
   },
   parameters: figmaErrorDesign,
@@ -114,7 +111,6 @@ export const Error: Story = {
 
 export const Success: Story = {
   args: {
-    label: 'Button',
     variant: 'success',
   },
   parameters: figmaSuccessDesign,
@@ -122,7 +118,6 @@ export const Success: Story = {
 
 export const Warning: Story = {
   args: {
-    label: 'Button',
     variant: 'warning',
   },
   parameters: figmaWarningDesign,
@@ -130,7 +125,6 @@ export const Warning: Story = {
 
 export const Info: Story = {
   args: {
-    label: 'Button',
     variant: 'info',
   },
   parameters: figmaInfoDesign,
