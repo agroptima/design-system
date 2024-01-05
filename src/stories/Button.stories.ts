@@ -9,10 +9,24 @@ const meta = {
     label: 'Button',
   },
   argTypes: {
+    label: {
+      description: 'Button text content',
+    },
+    variant: {
+      description: 'Button variant used from a list of values',
+    },
+    disabled: {
+      description: 'Is the button in disabled state?',
+    },
+    loading: {
+      description: 'Is the button in loading state?',
+    },
     leftIcon: {
+      description: 'Button left icon from a list of values',
       control: { type: 'select' },
     },
     rightIcon: {
+      description: 'Button right icon from a list of values',
       control: { type: 'select' },
     },
   },
