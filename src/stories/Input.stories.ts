@@ -21,8 +21,7 @@ export const Primary: Story = {
   args: {
     placeholder: 'Email...',
     variant: 'primary',
-    disabled: true,
-    leftIcon: 'AngleLeft',
+    disabled: false,
     helpText: 'This text can help you',
     name: 'email',
     type: 'email',

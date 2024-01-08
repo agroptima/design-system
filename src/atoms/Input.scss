@@ -2,36 +2,45 @@
 @use '../settings/typography';
 @use '../settings/config';
 
-// :required -> required and invalid are the same styles?
-// :valid
-
-// estil del text escrit?
-
-.input-container {
+.input-group {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  flex-shrink: 0;
+  gap: 0.625rem;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  .icon {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.7rem;
+    width: config.$icon-size-3x;
+    height: config.$icon-size-3x;
+    > svg {
+      width: 100%;
+      height: 100%;
+      fill: color_alias.$neutral-color-300;
+      path {
+        fill: color_alias.$neutral-color-300;
+      }
+    }
+  }
 }
 
 .input {
-  padding: config.$space-2x config.$space-3x;
-  align-items: center;
-  gap: config.$space-2x;
-  flex-shrink: 0;
+  width: 100%;
+  padding: config.$space-2x config.$space-3x config.$space-2x;
   border-radius: config.$corner-radius-m;
   border: 1px solid color_alias.$neutral-color-300;
   background: color_alias.$neutral-white;
 
+  @include typography.input-text;
+
   &::placeholder {
-    font-style: typography.$text-base-style;
-    font-variant: typography.$text-base-style;
-    font-weight: 400;
-    font-family: typography.$font-base-family;
-    color: color_alias.$neutral-color-300;
-    // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
+    @include typography.input-placeholder-text;
   }
 
   &:focus {
@@ -40,12 +49,10 @@
   }
 
   &:invalid {
-    outline: color_alias.$primary-color-1000;
     border: 1px solid color_alias.$error-color-1000;
   }
 
   &:disabled {
-    outline: color_alias.$primary-color-1000;
     border: 1px solid color_alias.$neutral-color-200;
     background: color_alias.$neutral-color-50;
 
@@ -55,12 +62,14 @@
   }
 }
 
+.with-icon {
+  padding-left: 28px;
+}
+
+.without-icon {
+  padding-left: 12px;
+}
+
 .input-help-text {
-  font: typography.$font-primary;
-  font-weight: 300;
-  color: color_alias.$neutral-color-400;
-  // We need to apply a relation between font-size and line-height so the box envoloping the span
-  // is the most accurate in terms of top and bottom blank space
-  font-size: 12px;
-  line-height: 11px;
+  @include typography.input-help-text;
 }

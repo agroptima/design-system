@@ -20,18 +20,21 @@ export function Input({
   name,
   ...props
 }: InputProps): React.JSX.Element {
-  const cssClasses = ['input', variant].join(' ')
+  const hasLeftIconClass = leftIcon ? 'with-icon' : 'without-icon'
+  const cssClasses = ['input', variant, hasLeftIconClass].join(' ')
   return (
-    <div className="input-container">
-      {leftIcon && <Icon name={leftIcon} />}
-      <input
-        className={cssClasses}
-        placeholder={placeholder}
-        disabled={disabled}
-        type="email"
-        name={name}
-        {...props}
-      />
+    <div className="input-group">
+      <div className="input-container">
+        {leftIcon && <Icon name={leftIcon} />}
+        <input
+          className={cssClasses}
+          placeholder={placeholder}
+          disabled={disabled}
+          type="email"
+          name={name}
+          {...props}
+        />
+      </div>
       {helpText && <span className="input-help-text">{helpText}</span>}
     </div>
   )
