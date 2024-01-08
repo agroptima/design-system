@@ -1,5 +1,5 @@
-@use "../settings/color_alias";
-@use "../settings/typography";
+@use '../settings/color_alias';
+@use '../settings/typography';
 
 .icon {
   display: inline-flex;
@@ -18,7 +18,3 @@
     animation: rotate 2s linear infinite;
   }
 }
-
-
-
-
