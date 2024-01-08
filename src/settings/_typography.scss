@@ -1,11 +1,14 @@
 // 87.5 = SemiCondensed , 400..600 normal, medium, semibold
-@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@87.5,400..600';
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@87.5,100..600';
 
-$font-base-family: Noto Sans, sans-serif;
+$font-base-family:
+  Noto Sans,
+  sans-serif;
 $text-base-size: 16px;
 $text-base-style: normal;
 $font-base-weight: 600;
 $line-height-base: normal;
 $font-base-stretch: semi-condensed;
 
-$font-primary: $font-base-stretch $text-base-style $font-base-weight $text-base-size/$line-height-base $font-base-family; 
+$font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-base-size}/#{$line-height-base}
+  $font-base-family;
