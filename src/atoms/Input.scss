@@ -1,0 +1,66 @@
+@use '../settings/color_alias';
+@use '../settings/typography';
+@use '../settings/config';
+
+// :required -> required and invalid are the same styles?
+// :valid
+
+// estil del text escrit?
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.input {
+  padding: config.$space-2x config.$space-3x;
+  align-items: center;
+  gap: config.$space-2x;
+  flex-shrink: 0;
+  border-radius: config.$corner-radius-m;
+  border: 1px solid color_alias.$neutral-color-300;
+  background: color_alias.$neutral-white;
+
+  &::placeholder {
+    font-style: typography.$text-base-style;
+    font-variant: typography.$text-base-style;
+    font-weight: 400;
+    font-family: typography.$font-base-family;
+    color: color_alias.$neutral-color-300;
+    // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
+  }
+
+  &:focus {
+    outline: color_alias.$primary-color-1000;
+    border: 1px solid color_alias.$primary-color-1000;
+  }
+
+  &:invalid {
+    outline: color_alias.$primary-color-1000;
+    border: 1px solid color_alias.$error-color-1000;
+  }
+
+  &:disabled {
+    outline: color_alias.$primary-color-1000;
+    border: 1px solid color_alias.$neutral-color-200;
+    background: color_alias.$neutral-color-50;
+
+    &::placeholder {
+      color: color_alias.$neutral-color-200;
+    }
+  }
+}
+
+.input-help-text {
+  font: typography.$font-primary;
+  font-weight: 300;
+  color: color_alias.$neutral-color-400;
+  // We need to apply a relation between font-size and line-height so the box envoloping the span
+  // is the most accurate in terms of top and bottom blank space
+  font-size: 12px;
+  line-height: 11px;
+}
