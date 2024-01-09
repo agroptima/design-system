@@ -5,6 +5,29 @@ const meta = {
   title: 'Design System/Atoms/Input',
   component: Input,
   tags: ['autodocs'],
+  argTypes: {
+    placeholder: {
+      description: 'Optional input placeholder text',
+    },
+    variant: {
+      description: 'Input variant used',
+    },
+    disabled: {
+      description: 'Is the input in disabled state?',
+    },
+    helpText: {
+      description: 'Optional help text',
+    },
+    name: {
+      description: 'Input name property',
+    },
+    type: {
+      description: 'Input type property',
+    },
+    leftIcon: {
+      description: 'Input left icon from a list of values',
+    },
+  },
 }
 
 const figmaPrimaryDesign = {
