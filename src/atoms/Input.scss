@@ -55,6 +55,7 @@
   &:disabled {
     border: 1px solid color_alias.$neutral-color-200;
     background: color_alias.$neutral-color-50;
+    color: color_alias.$neutral-color-200;
 
     &::placeholder {
       color: color_alias.$neutral-color-200;
