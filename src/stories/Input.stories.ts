@@ -6,6 +6,9 @@ const meta = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
+    label: {
+      description: 'Optional label for the input',
+    },
     placeholder: {
       description: 'Optional input placeholder text',
     },
@@ -42,6 +45,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
+    label: 'Email:',
     placeholder: 'Email...',
     variant: 'primary',
     disabled: false,
