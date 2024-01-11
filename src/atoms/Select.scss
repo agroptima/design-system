@@ -1,0 +1,56 @@
+@use '../settings/color_alias';
+@use '../settings/typography';
+@use '../settings/config';
+
+// Change arrow colour
+// OK When selecting an option, text colour changes
+// On invalid state, the help text changes colour to red -> input is missing this too
+// ^ OK if select & helptext are siblings, if select passes to be contained it will be broken
+// Style dropdown
+
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.select {
+  width: 100%;
+  padding: config.$space-2x config.$space-3x;
+  border-radius: config.$corner-radius-m;
+  border: 1px solid color_alias.$neutral-color-300;
+  background: color_alias.$neutral-white;
+
+  @include typography.select-text;
+
+  &:has(option[value='']:not(:checked)) {
+    @include typography.select-option-text;
+  }
+
+  &:focus {
+    outline: color_alias.$primary-color-1000;
+    border: 1px solid color_alias.$primary-color-1000;
+  }
+
+  &:invalid {
+    border: 1px solid color_alias.$error-color-1000;
+
+    & + .select-help-text {
+      color: color_alias.$error-color-1000;
+    }
+  }
+
+  &:disabled {
+    border: 1px solid color_alias.$neutral-color-200;
+    background: color_alias.$neutral-color-50;
+    color: color_alias.$neutral-color-200;
+  }
+
+  .option {
+    @include typography.select-option-text;
+  }
+}
+
+.select-help-text {
+  @include typography.form-help-text;
+}
