@@ -80,7 +80,7 @@ export function Select({
                   role="option"
                   aria-selected={defaultSelectText === option.label}
                   data-id={option.id}
-                  data-name={option.label} // Be sure the Form can access to the Select value
+                  data-name={name} // Be sure the Form can access to the Select value
                   key={option.id}
                   onClick={selectOption}
                 >
