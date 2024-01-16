@@ -9,6 +9,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   leftIcon?: IconType
   helpText?: string
   variant?: InputVariant
+  id: string
 }
 
 export function Input({
@@ -20,24 +21,24 @@ export function Input({
   disabled,
   type = 'text',
   name,
+  id,
   ...props
 }: InputProps): React.JSX.Element {
-  const ariaLabel = type === 'search' ? placeholder : ''
   const hasLeftIconClass = leftIcon ? 'with-icon' : 'without-icon'
   const cssClasses = ['input', variant, hasLeftIconClass].join(' ')
   return (
     <div className="input-group">
-      {label && <label htmlFor="form-input">{label}</label>}
+      {label && <label htmlFor={id}>{label}</label>}
       <div className="input-container">
         {leftIcon && <Icon name={leftIcon} />}
         <input
-          id="form-input"
+          id={id}
           className={cssClasses}
           placeholder={placeholder}
           disabled={disabled}
           type={type}
           name={name}
-          aria-label={ariaLabel}
+          aria-label={placeholder}
           {...props}
         />
       </div>
