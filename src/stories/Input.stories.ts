@@ -30,6 +30,9 @@ const meta = {
     leftIcon: {
       description: 'Input left icon from a list of values',
     },
+    id: {
+      description: 'Value needed for the label relation',
+    },
   },
 }
 
@@ -52,6 +55,7 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'email',
     type: 'email',
+    id: 'email_input',
   },
   parameters: figmaPrimaryDesign,
 }
