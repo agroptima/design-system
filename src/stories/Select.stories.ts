@@ -5,6 +5,35 @@ const meta = {
   title: 'Design System/Atoms/Select',
   component: Select,
   tags: ['autodocs'],
+  argTypes: {
+    label: {
+      description: 'Optional label for the select',
+    },
+    variant: {
+      description: 'Select variant used',
+    },
+    disabled: {
+      description: 'Is the select in disabled state?',
+    },
+    required: {
+      description: 'Is the select in required state?',
+    },
+    invalid: {
+      description: 'Is the select in disabled state?',
+    },
+    helpText: {
+      description: 'Optional help text',
+    },
+    name: {
+      description: 'Select name property',
+    },
+    selectOptionText: {
+      description: 'Select initial text',
+    },
+    options: {
+      description: 'Array of values to be displayed on the select list',
+    },
+  },
 }
 
 const figmaPrimaryDesign = {
