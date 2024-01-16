@@ -6,6 +6,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
+
+  &:has(.input:invalid, .input:required) {
+    & .input-help-text {
+      color: color_alias.$error-color-1000;
+    }
+  }
 }
 
 .input-container {
