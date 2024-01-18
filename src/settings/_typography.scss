@@ -5,7 +5,7 @@
 $font-base-family:
   Noto Sans,
   sans-serif;
-$text-base-size: 16px;
+$text-base-size: 1rem;
 $text-base-style: normal;
 $font-base-weight: 600;
 $line-height-base: normal;
@@ -21,9 +21,9 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-family: $font-base-family;
   color: color_alias.$neutral-color-400;
   // We need to apply a relation between font-size and line-height so the box envoloping the span
-  // is the most accurate in terms of top and bottom blank space. We'll check this with rem units.
-  font-size: 12px;
-  line-height: 11px;
+  // is the most accurate in terms of top and bottom blank space.
+  font-size: 0.75rem;
+  line-height: 0.6875rem;
 }
 @mixin select-text {
   font-style: $text-base-style;
@@ -40,4 +40,13 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-family: $font-base-family;
   font-size: 1em;
   color: color_alias.$neutral-color-1000;
+}
+@mixin form-label {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 300;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-1000;
+  font-size: 0.875rem;
+  line-height: 0.775rem;
 }

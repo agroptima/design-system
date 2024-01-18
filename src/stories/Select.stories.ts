@@ -7,7 +7,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     label: {
-      description: 'Optional label for the select',
+      description: 'Label for the select',
     },
     variant: {
       description: 'Select variant used',
@@ -54,6 +54,7 @@ export const Primary: Story = {
     invalid: false,
     helpText: 'This text can help you',
     name: 'example',
+    label: 'Videogames',
     selectOptionText: 'Select your favourite gaming system...',
     options: [
       { id: '1', label: 'Nintendo Switch' },

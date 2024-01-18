@@ -11,6 +11,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
   variant?: SelectVariant
   options: SelectOption[]
   invalid?: boolean
+  label: string
 }
 
 export function Select({
@@ -22,6 +23,7 @@ export function Select({
   name,
   options,
   required,
+  label,
   ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
@@ -59,6 +61,9 @@ export function Select({
 
   return (
     <div className="select-group">
+      <label className="select-label" htmlFor="selected-option">
+        {label}
+      </label>
       <div className="select-container">
         <div
           id="selected-option"
