@@ -2,10 +2,6 @@
 @use '../settings/typography';
 @use '../settings/config';
 
-// De cara a deixar-ho llest per a noves variants (primary, secondary...) Preguntar a Laura quines
-// propietats dels inputs i selects són les que canviarien d'una variant a una altra
-// només colors? o també paddings? per exemple
-
 .select-group {
   display: flex;
   flex-direction: column;
@@ -98,7 +94,7 @@
     @include typography.select-option-text;
 
     &:hover {
-      background-color: color_alias.$neutral-color-200;
+      background-color: color_alias.$primary-color-50;
     }
   }
 }
