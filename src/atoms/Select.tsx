@@ -38,7 +38,6 @@ export function Select({
 
   const cssClasses = [
     'selected-option',
-    variant,
     optionsListOpenClass,
     filledSelectClass,
     disabledClass,
@@ -60,7 +59,7 @@ export function Select({
   }
 
   return (
-    <div className="select-group">
+    <div className={`select-group ${variant}`}>
       <label className="select-label" htmlFor="selected-option">
         {label}
       </label>
