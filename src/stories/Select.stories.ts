@@ -50,7 +50,7 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     disabled: false,
-    required: true,
+    required: false,
     invalid: false,
     helpText: 'This text can help you',
     name: 'example',

@@ -49,7 +49,7 @@ export function Select({
   }
 
   function selectOption(e) {
-    setDefaultSelectText(e.target.getAttribute('data-name'))
+    setDefaultSelectText(e.target.getAttribute('data-value'))
     setShowOptionsList(false)
   }
 
@@ -80,7 +80,7 @@ export function Select({
                   role="option"
                   aria-selected={defaultSelectText === option.label}
                   data-id={option.id}
-                  data-name={name} // Be sure the Form can access to the Select value
+                  data-value={option.label}
                   key={option.id}
                   onClick={selectOption}
                 >
@@ -96,6 +96,11 @@ export function Select({
           {helpText}
         </span>
       )}
+      <input
+        type="hidden"
+        name={name}
+        value={hasOptionSelected ? defaultSelectText : ''}
+      />
     </div>
   )
 }
