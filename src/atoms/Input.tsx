@@ -25,10 +25,14 @@ export function Input({
   ...props
 }: InputProps): React.JSX.Element {
   const hasLeftIconClass = leftIcon ? 'with-icon' : 'without-icon'
-  const cssClasses = ['input', variant, hasLeftIconClass].join(' ')
+  const cssClasses = ['input', hasLeftIconClass].join(' ')
   return (
-    <div className="input-group">
-      {label && <label htmlFor={id}>{label}</label>}
+    <div className={`input-group ${variant}`}>
+      {label && (
+        <label className="input-label" htmlFor={id}>
+          {label}
+        </label>
+      )}
       <div className="input-container">
         {leftIcon && <Icon name={leftIcon} />}
         <input
