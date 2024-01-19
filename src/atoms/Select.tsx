@@ -12,7 +12,6 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
   options: SelectOption[]
   invalid?: boolean
   label: string
-  id: string
 }
 
 export function Select({
@@ -25,14 +24,11 @@ export function Select({
   options,
   required,
   label,
-  id,
   ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [defaultSelectText, setDefaultSelectText] = useState<string | null>(
-    selectOptionText,
-  )
-  const hasOptionSelected = !(defaultSelectText === selectOptionText)
+  const [selectedOption, setSelectedOption] = useState<SelectOption>()
+  const hasOptionSelected = selectedOption !== null
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = hasOptionSelected ? 'filled' : ''
@@ -55,7 +51,8 @@ export function Select({
 
   function selectOption(e: React.MouseEvent<HTMLLIElement>) {
     const target = e.target as HTMLLIElement
-    setDefaultSelectText(target.getAttribute('data-value'))
+    const option = JSON.parse(target.getAttribute('data-option') as string)
+    setSelectedOption(option)
     setShowOptionsList(false)
   }
 
@@ -65,19 +62,17 @@ export function Select({
 
   return (
     <div className={`select-group ${variant}`}>
-      <label className="select-label" htmlFor={id}>
-        {label}
-      </label>
+      <span className="select-label">{label}</span>
       <div className="select-container">
         <div
-          id={id}
           className={cssClasses}
           tabIndex={0}
           onClick={handleOptionsList}
+          aria-label={label}
           aria-live="assertive"
           role="alert"
         >
-          {defaultSelectText}
+          {selectedOption ? selectedOption.label : selectOptionText}
           <Icon name={handleSelectIcon()} />
         </div>
         {showOptionsList && (
@@ -87,9 +82,8 @@ export function Select({
                 <li
                   className="option"
                   role="option"
-                  aria-selected={defaultSelectText === option.label}
-                  data-id={option.id}
-                  data-value={option.label}
+                  aria-selected={selectedOption?.label === option.label}
+                  data-option={JSON.stringify(option)}
                   key={option.id}
                   onClick={selectOption}
                 >
@@ -108,7 +102,7 @@ export function Select({
       <input
         type="hidden"
         name={name}
-        value={hasOptionSelected ? defaultSelectText : ''}
+        value={hasOptionSelected ? selectedOption?.id : ''}
       />
     </div>
   )
