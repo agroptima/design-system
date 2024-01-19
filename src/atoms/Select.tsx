@@ -16,7 +16,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
 }
 
 export function Select({
-  selectOptionText,
+  selectOptionText = 'Select...',
   helpText,
   variant = 'primary',
   disabled,
@@ -29,7 +29,9 @@ export function Select({
   ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [defaultSelectText, setDefaultSelectText] = useState(selectOptionText)
+  const [defaultSelectText, setDefaultSelectText] = useState<string | null>(
+    selectOptionText,
+  )
   const hasOptionSelected = !(defaultSelectText === selectOptionText)
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''
@@ -51,8 +53,9 @@ export function Select({
     if (!disabled) setShowOptionsList(!showOptionsList)
   }
 
-  function selectOption(e) {
-    setDefaultSelectText(e.target.getAttribute('data-value'))
+  function selectOption(e: React.MouseEvent<HTMLLIElement>) {
+    const target = e.target as HTMLLIElement
+    setDefaultSelectText(target.getAttribute('data-value'))
     setShowOptionsList(false)
   }
 
