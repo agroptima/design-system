@@ -64,35 +64,35 @@
       @include typography.form-label;
     }
   }
-}
 
-.input-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
+  .input-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
 
-  .icon {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.7rem;
-    width: config.$icon-size-3x;
-    height: config.$icon-size-3x;
-    > svg {
-      width: 100%;
-      height: 100%;
+    .icon {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.7rem;
+      width: config.$icon-size-3x;
+      height: config.$icon-size-3x;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
-}
 
-.input {
-  width: 100%;
-  padding: config.$space-2x config.$space-3x config.$space-2x;
-}
+  .input {
+    width: 100%;
+    padding: config.$space-2x config.$space-3x config.$space-2x;
+  }
 
-.with-icon {
-  padding-left: 28px;
-}
+  .with-icon {
+    padding-left: 28px;
+  }
 
-.without-icon {
-  padding-left: 12px;
+  .without-icon {
+    padding-left: 12px;
+  }
 }
