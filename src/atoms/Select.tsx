@@ -12,6 +12,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
   options: SelectOption[]
   invalid?: boolean
   label: string
+  id: string
 }
 
 export function Select({
@@ -24,6 +25,7 @@ export function Select({
   options,
   required,
   label,
+  id,
   ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
@@ -60,12 +62,12 @@ export function Select({
 
   return (
     <div className={`select-group ${variant}`}>
-      <label className="select-label" htmlFor="selected-option">
+      <label className="select-label" htmlFor={id}>
         {label}
       </label>
       <div className="select-container">
         <div
-          id="selected-option"
+          id={id}
           className={cssClasses}
           tabIndex={0}
           onClick={handleOptionsList}

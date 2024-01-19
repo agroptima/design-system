@@ -55,6 +55,7 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
+    id: 'select-videogames',
     selectOptionText: 'Select your favourite gaming system...',
     options: [
       { id: '1', label: 'Nintendo Switch' },
