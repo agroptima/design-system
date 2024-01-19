@@ -76,7 +76,11 @@ export function Select({
           <Icon name={handleSelectIcon()} />
         </div>
         {showOptionsList && (
-          <ul className="options" role="listbox" aria-label={selectOptionText}>
+          <ul
+            className="select-options"
+            role="listbox"
+            aria-label={selectOptionText}
+          >
             {options.map((option) => {
               return (
                 <li

@@ -61,7 +61,7 @@
       }
     }
 
-    .options {
+    .select-options {
       border-radius: config.$corner-radius-xxs;
       background: color_alias.$neutral-white;
       box-shadow:
@@ -87,41 +87,41 @@
       }
     }
   }
-}
 
-.select-container {
-  display: inline-block;
-  text-align: left;
-  position: relative;
-}
+  .select-container {
+    display: inline-block;
+    text-align: left;
+    position: relative;
+  }
 
-.selected-option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: config.$space-2x config.$space-3x;
-  cursor: default;
+  .selected-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: config.$space-2x config.$space-3x;
+    cursor: default;
 
-  > .icon {
-    width: config.$icon-size-3x;
-    height: config.$icon-size-3x;
-    > svg {
-      width: 100%;
-      height: 100%;
+    > .icon {
+      width: config.$icon-size-3x;
+      height: config.$icon-size-3x;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
-}
 
-.options {
-  margin: 0;
-  padding: config.$space-1x 0rem;
-  text-align: left;
-  position: absolute;
-  width: 100%;
+  .select-options {
+    margin: 0;
+    padding: config.$space-1x 0rem;
+    text-align: left;
+    position: absolute;
+    width: 100%;
 
-  .option {
-    cursor: default;
-    list-style-type: none;
-    padding: config.$space-2x config.$space-3x;
+    .option {
+      cursor: default;
+      list-style-type: none;
+      padding: config.$space-2x config.$space-3x;
+    }
   }
 }
