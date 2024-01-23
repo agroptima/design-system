@@ -7,6 +7,10 @@
   flex-direction: column;
   gap: 0.625rem;
 
+  .input {
+    padding-left: 12px;
+  }
+
   &:has(.input:invalid, .input:required) {
     & .input-help-text {
       color: color_alias.$error-color-1000;
@@ -90,9 +94,5 @@
 
   .with-icon {
     padding-left: 28px;
-  }
-
-  .without-icon {
-    padding-left: 12px;
   }
 }

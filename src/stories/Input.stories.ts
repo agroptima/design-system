@@ -7,7 +7,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     label: {
-      description: 'Optional label for the input',
+      description: 'Label for the input',
     },
     placeholder: {
       description: 'Optional input placeholder text',

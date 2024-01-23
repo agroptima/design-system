@@ -4,9 +4,9 @@ import { Icon, IconType } from './Icon'
 export type InputVariant = 'primary'
 
 export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
-  label?: string
-  placeholder?: string
-  leftIcon?: IconType
+  label: string
+  hideLabel?: boolean
+  icon?: IconType
   helpText?: string
   variant?: InputVariant
   id: string
@@ -14,8 +14,8 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
 
 export function Input({
   label,
-  placeholder,
-  leftIcon,
+  hideLabel = false,
+  icon,
   helpText,
   variant = 'primary',
   disabled,
@@ -24,25 +24,24 @@ export function Input({
   id,
   ...props
 }: InputProps): React.JSX.Element {
-  const hasLeftIconClass = leftIcon ? 'with-icon' : 'without-icon'
-  const cssClasses = ['input', hasLeftIconClass].join(' ')
+  const iconClass = icon ? 'with-icon' : ''
+  const cssClasses = ['input', iconClass].join(' ')
   return (
     <div className={`input-group ${variant}`}>
-      {label && (
+      {!hideLabel && (
         <label className="input-label" htmlFor={id}>
           {label}
         </label>
       )}
       <div className="input-container">
-        {leftIcon && <Icon name={leftIcon} />}
+        {icon && <Icon name={icon} />}
         <input
           id={id}
           className={cssClasses}
-          placeholder={placeholder}
           disabled={disabled}
           type={type}
           name={name}
-          aria-label={placeholder}
+          aria-label={label}
           {...props}
         />
       </div>
