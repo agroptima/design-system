@@ -1,0 +1,46 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Component creation workflow" />
+# Component creation workflow
+
+## How does the Design Team work
+
+🌈  <b>The Figma design system is the only source of truth and the collaboration, teamwork and regard among 
+Designers, Programmers and Product Owners</b> 🌈
+
+- All components, variants and states must be designed on the Figma file and consumed by our projects. 
+
+- At the code projects <b>we must not imply any component property because of the 
+existence of a similar component variant</b>: If you find something missing on the Figma file, ask for it to the design team. 
+The designer will be glad to add it.
+
+- The animations won’t be part of the design system, preferably, they will be added through code libraries or done manually 
+by the programmers. Nevertheless, if needed, the designer will be happy to prepare a new Figma document with the components 
+animation behaviour.
+
+- When defining new aliases or variables names of the components in the code, take into account the recommended nomenclature 
+shown on this [template](https://groupeisagri-my.sharepoint.com/:x:/p/vvalls/EVaZh6_UNHdGqUuulxvTdbIBXuZKUkW1SvF6vPenbkr8AQ?e=rKb81D).
+
+- We recommend to work with the VScode editor where you can use the [Figma VS code plugin](https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension) 
+to check the designs and copy the components styles and links.
+
+- A design task is created where Laura creates and finishes a component on the Figma design system.
+
+- When a component is ready on the Figma design system, a design team programmer can begin the task to add it to the Storybook code project. 
+When the component is ready on Storybook, it can be consumed on the needed project on a new task because of the 
+design system being on an independent repo.
+
+- Each component story defined on Storybook will have the preview of its Figma design on the [Design tab](https://storybook.js.org/docs/sharing/design-integrations#view-designs-in-storybook).
+<img width='70%' src='https://storybook.js.org/25231d61af791e6586689324e02460e3/design-addon-panel.png'/>
+
+- When the component is finished on Storybook code project, the task will be deployed to Chromatic. 
+On Jira, it will move to the Design System column, so the designer reviews that everything is ok.
+
+- The accessibility tab which shows issues related with the design of the component will be reviewed by the designer. 
+The design team programmers also need to keep an eye on this when setting aria properties.
+<img width='80%' src='https://storybook.js.org/2920682a0a74969419ca80ef277ffdca/storybook-a11y-addon-optimized.png' />
+
+- When the designer gives us the ok, it will follow the common Jira workflow, so it will move to In Consensus to review the code.
+
+
+
