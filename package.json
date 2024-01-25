@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "npm run storybook",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --ci",
     "build": "npm run build-storybook",
     "build-storybook": "storybook build",
     "lint": "eslint",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@storybook/addon-designs": "^7.0.5",
+    "@storybook/addon-viewport": "^7.6.7",
     "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

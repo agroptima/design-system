@@ -1,11 +1,51 @@
+@use '../settings/color_alias';
 // 87.5 = SemiCondensed , 400..600 normal, medium, semibold
-@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@87.5,400..600';
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@87.5,100..600';
 
-$font-base-family: Noto Sans, sans-serif;
+$font-base-family:
+  Noto Sans,
+  sans-serif;
 $text-base-size: 16px;
 $text-base-style: normal;
 $font-base-weight: 600;
 $line-height-base: normal;
 $font-base-stretch: semi-condensed;
 
-$font-primary: $font-base-stretch $text-base-style $font-base-weight $text-base-size/$line-height-base $font-base-family; 
+$font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-base-size}/#{$line-height-base}
+  $font-base-family;
+
+@mixin input-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-1000;
+}
+@mixin input-placeholder-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-300;
+  // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
+}
+@mixin input-help-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 300;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-400;
+  // We need to apply a relation between font-size and line-height so the box envoloping the span
+  // is the most accurate in terms of top and bottom blank space. We'll check this with rem units.
+  font-size: 12px;
+  line-height: 11px;
+}
+@mixin form-label {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 300;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-1000;
+  font-size: 0.875rem;
+  line-height: 0.775rem;
+}
