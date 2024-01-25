@@ -37,7 +37,7 @@
       }
 
       &.invalid,
-      .required {
+      &.required {
         border: 1px solid color_alias.$error-color-1000;
 
         & + .select-help-text {
@@ -82,7 +82,8 @@
     .select-help-text {
       @include typography.form-help-text;
 
-      &.invalid {
+      &.invalid,
+      &.required {
         color: color_alias.$error-color-1000;
       }
     }

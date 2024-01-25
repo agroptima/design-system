@@ -6,7 +6,7 @@ export type SelectVariant = 'primary'
 export type SelectOption = { id: string; label: string }
 
 export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
-  selectOptionText?: string
+  placeholder?: string
   helpText?: string
   variant?: SelectVariant
   options: SelectOption[]
@@ -15,7 +15,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
 }
 
 export function Select({
-  selectOptionText = 'Select...',
+  placeholder,
   helpText,
   variant = 'primary',
   disabled,
@@ -24,7 +24,6 @@ export function Select({
   options,
   required,
   label,
-  ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOption, setSelectedOption] = useState<SelectOption>()
@@ -34,7 +33,7 @@ export function Select({
   const filledSelectClass = hasOptionSelected ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
   const invalidClass = invalid ? 'invalid' : ''
-  const requiredClass = required ? 'invalid' : ''
+  const requiredClass = required ? 'required' : ''
 
   const cssClasses = [
     'selected-option',
@@ -72,15 +71,11 @@ export function Select({
           aria-live="assertive"
           role="alert"
         >
-          {selectedOption ? selectedOption.label : selectOptionText}
+          <span>{selectedOption ? selectedOption.label : placeholder}</span>
           <Icon name={handleSelectIcon()} />
         </div>
         {showOptionsList && (
-          <ul
-            className="select-options"
-            role="listbox"
-            aria-label={selectOptionText}
-          >
+          <ul className="select-options" role="listbox">
             {options.map((option) => {
               return (
                 <li
