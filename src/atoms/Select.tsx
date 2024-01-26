@@ -2,14 +2,14 @@ import './Select.scss'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
 
-export type SelectVariant = 'primary'
-export type SelectOption = { id: string; label: string }
+export type Variant = 'primary'
+export type Option = { id: string; label: string }
 
 export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
   placeholder?: string
   helpText?: string
-  variant?: SelectVariant
-  options: SelectOption[]
+  variant?: Variant
+  options: Option[]
   invalid?: boolean
   label: string
 }
@@ -26,11 +26,13 @@ export function Select({
   label,
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [selectedOption, setSelectedOption] = useState<SelectOption>()
-  const hasOptionSelected = selectedOption !== undefined
+  const [selectedOption, setSelectedOption] = useState<Option>({
+    id: '',
+    label: '',
+  })
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''
-  const filledSelectClass = hasOptionSelected ? 'filled' : ''
+  const filledSelectClass = selectedOption.id ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
   const invalidClass = invalid ? 'invalid' : ''
   const requiredClass = required ? 'required' : ''
@@ -48,9 +50,7 @@ export function Select({
     if (!disabled) setShowOptionsList(!showOptionsList)
   }
 
-  function selectOption(e: React.MouseEvent<HTMLLIElement>) {
-    const target = e.target as HTMLLIElement
-    const option = JSON.parse(target.getAttribute('data-option') as string)
+  function selectOption(option: Option) {
     setSelectedOption(option)
     setShowOptionsList(false)
   }
@@ -71,7 +71,7 @@ export function Select({
           aria-live="assertive"
           role="alert"
         >
-          <span>{selectedOption ? selectedOption.label : placeholder}</span>
+          <span>{selectedOption.label || placeholder}</span>
           <Icon name={handleSelectIcon()} />
         </div>
         {showOptionsList && (
@@ -81,10 +81,10 @@ export function Select({
                 <li
                   className="option"
                   role="option"
-                  aria-selected={selectedOption?.label === option.label}
-                  data-option={JSON.stringify(option)}
+                  aria-selected={selectedOption.id === option.id}
+                  data-option={option}
                   key={option.id}
-                  onClick={selectOption}
+                  onClick={() => selectOption(option)}
                 >
                   {option.label}
                 </li>
@@ -98,11 +98,7 @@ export function Select({
           {helpText}
         </span>
       )}
-      <input
-        type="hidden"
-        name={name}
-        value={hasOptionSelected ? selectedOption?.id : ''}
-      />
+      <input type="hidden" name={name} value={selectedOption.id} />
     </div>
   )
 }
