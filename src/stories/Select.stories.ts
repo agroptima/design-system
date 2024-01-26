@@ -25,10 +25,10 @@ const meta = {
       description: 'Optional help text',
     },
     name: {
-      description: 'Select name property',
+      description: 'Set name property',
     },
-    selectOptionText: {
-      description: 'Select initial text',
+    placeholder: {
+      description: 'Set select placeholder text',
     },
     options: {
       description: 'Array of values to be displayed on the select list',

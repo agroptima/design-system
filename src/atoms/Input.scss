@@ -61,7 +61,7 @@
     }
 
     .input-help-text {
-      @include typography.input-help-text;
+      @include typography.form-help-text;
     }
 
     .input-label {

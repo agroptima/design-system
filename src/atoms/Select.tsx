@@ -27,7 +27,7 @@ export function Select({
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOption, setSelectedOption] = useState<SelectOption>()
-  const hasOptionSelected = selectedOption !== null
+  const hasOptionSelected = selectedOption !== undefined
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = hasOptionSelected ? 'filled' : ''
