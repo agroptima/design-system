@@ -39,5 +39,20 @@
     "eslint-plugin-storybook": "^0.6.15",
     "storybook": "^7.6.6",
     "typescript": "^5"
-  }
+  },
+  "description": "Agroptima design system",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agroptima/design-system.git"
+  },
+  "keywords": [
+    "design-system"
+  ],
+  "author": "Isagri",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/agroptima/design-system/issues"
+  },
+  "homepage": "https://github.com/agroptima/design-system#readme"
 }
