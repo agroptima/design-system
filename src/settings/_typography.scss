@@ -25,6 +25,21 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-size: 0.75rem;
   line-height: 0.6875rem;
 }
+@mixin input-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-1000;
+}
+@mixin input-placeholder-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-300;
+  // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
+}
 @mixin select-text {
   font-style: $text-base-style;
   font-variant: $text-base-style;
