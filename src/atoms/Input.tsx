@@ -1,4 +1,5 @@
 import './Input.scss'
+import React, { useState } from 'react'
 import { Icon, IconType } from './Icon'
 
 export type InputVariant = 'primary'
@@ -24,8 +25,24 @@ export function Input({
   id,
   ...props
 }: InputProps): React.JSX.Element {
+  const [showPassword, setShowPassword] = useState(false)
   const iconClass = icon ? 'with-icon' : ''
   const cssClasses = ['input', iconClass].join(' ')
+
+  function handlePasswordIcon() {
+    return showPassword ? 'ShowOff' : 'Show'
+  }
+
+  function handleInputType() {
+    if (type !== 'password') return type
+
+    return showPassword ? 'text' : 'password'
+  }
+
+  function handlePasswordVisibility() {
+    setShowPassword(!showPassword)
+  }
+
   return (
     <div className={`input-group ${variant}`}>
       {!hideLabel && (
@@ -34,16 +51,23 @@ export function Input({
         </label>
       )}
       <div className="input-container">
-        {icon && <Icon name={icon} />}
+        {icon && <Icon className="left-icon" name={icon} />}
         <input
           id={id}
           className={cssClasses}
           disabled={disabled}
-          type={type}
+          type={handleInputType()}
           name={name}
           aria-label={label}
           {...props}
         />
+        {type === 'password' && (
+          <Icon
+            className="password-icon"
+            name={handlePasswordIcon()}
+            onClick={handlePasswordVisibility}
+          />
+        )}
       </div>
       {helpText && <span className="input-help-text">{helpText}</span>}
     </div>

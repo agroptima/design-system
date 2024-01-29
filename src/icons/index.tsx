@@ -12,6 +12,8 @@ import Export from './export.svg'
 import Info from './info.svg'
 import Loading from './loading.svg'
 import Search from './search.svg'
+import Show from './show.svg'
+import ShowOff from './show-off.svg'
 import Warning from './warning.svg'
 
 export {
@@ -29,5 +31,7 @@ export {
   Info,
   Loading,
   Search,
+  Show,
+  ShowOff,
   Warning,
 }
