@@ -59,3 +59,17 @@ export const Primary: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const Password: Story = {
+  args: {
+    label: 'Password:',
+    placeholder: 'Password...',
+    variant: 'primary',
+    disabled: false,
+    helpText: 'This text can help you',
+    name: 'login_password',
+    type: 'password',
+    id: 'password_input',
+  },
+  parameters: figmaPrimaryDesign,
+}
