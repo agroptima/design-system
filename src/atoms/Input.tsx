@@ -11,6 +11,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   helpText?: string
   variant?: InputVariant
   id: string
+  invalid?: boolean
 }
 
 export function Input({
@@ -23,11 +24,13 @@ export function Input({
   type = 'text',
   name,
   id,
+  invalid,
   ...props
 }: InputProps): React.JSX.Element {
   const [showPassword, setShowPassword] = useState(false)
   const iconClass = icon ? 'with-icon' : ''
-  const cssClasses = ['input', iconClass].join(' ')
+  const invalidClass = invalid ? 'invalid' : ''
+  const cssClasses = ['input', iconClass, invalidClass].join(' ')
 
   function handlePasswordIcon() {
     return showPassword ? 'ShowOff' : 'Show'
