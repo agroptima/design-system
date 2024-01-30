@@ -4,6 +4,8 @@ import AngleLeft from './angle-left.svg'
 import AngleRight from './angle-right.svg'
 import AngleUp from './angle-up.svg'
 import Check from './check.svg'
+import CheckboxActive from './checkbox-active.svg'
+import CheckboxInactive from './checkbox-inactive.svg'
 import Close from './close.svg'
 import Done from './done.svg'
 import EditColumns from './edit-columns.svg'
@@ -23,6 +25,8 @@ export {
   AngleRight,
   AngleUp,
   Check,
+  CheckboxActive,
+  CheckboxInactive,
   Close,
   Done,
   EditColumns,
