@@ -1,0 +1,33 @@
+name: Publish design system on Github Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies and build
+        run: |
+          npm install --workspace=@wineries/design-system
+          npm run design-system:build
+      - name: Add robots.txt
+        run: |
+          touch apps/design-system/storybook-static/robots.txt
+          echo "User-agent: *" >> apps/design-system/storybook-static/robots.txt
+          echo "Disallow: /" >> apps/design-system/storybook-static/robots.txt
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: apps/design-system/storybook-static
