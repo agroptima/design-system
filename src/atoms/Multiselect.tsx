@@ -28,7 +28,7 @@ export function Multiselect({
   selectedLabel = 'items selected',
 }: MultiselectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [selectedOptionsIds, setSelectedOptionsIds] = useState<[]>([])
+  const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>([])
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = selectedOptionsIds.length > 0 ? 'filled' : ''
@@ -64,7 +64,7 @@ export function Multiselect({
     return showOptionsList ? 'AngleUp' : 'AngleDown'
   }
 
-  function isOptionSelected(optionId) {
+  function isOptionSelected(optionId: string) {
     return selectedOptionsIds.includes(optionId)
   }
 
