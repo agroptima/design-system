@@ -22,7 +22,6 @@ export function Select({
   invalid,
   name,
   options,
-  required,
   label,
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
@@ -35,7 +34,6 @@ export function Select({
   const filledSelectClass = selectedOption.id ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
   const invalidClass = invalid ? 'invalid' : ''
-  const requiredClass = required ? 'required' : ''
 
   const cssClasses = [
     'selected-option',
@@ -43,7 +41,6 @@ export function Select({
     filledSelectClass,
     disabledClass,
     invalidClass,
-    requiredClass,
   ].join(' ')
 
   function handleOptionsList() {
@@ -93,11 +90,7 @@ export function Select({
           </ul>
         )}
       </div>
-      {helpText && (
-        <span className={`select-help-text ${invalidClass} ${requiredClass}`}>
-          {helpText}
-        </span>
-      )}
+      {helpText && <span className="select-help-text">{helpText}</span>}
       <input type="hidden" name={name} value={selectedOption.id} />
     </div>
   )
