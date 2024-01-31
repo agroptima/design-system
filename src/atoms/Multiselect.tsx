@@ -24,7 +24,6 @@ export function Multiselect({
   invalid,
   name,
   options,
-  required,
   label,
   selectedLabel = 'items selected',
 }: MultiselectProps): React.JSX.Element {
@@ -35,7 +34,6 @@ export function Multiselect({
   const filledSelectClass = selectedOptionsIds.length > 0 ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
   const invalidClass = invalid ? 'invalid' : ''
-  const requiredClass = required ? 'required' : ''
 
   const cssClasses = [
     'selected-option',
@@ -43,7 +41,6 @@ export function Multiselect({
     filledSelectClass,
     disabledClass,
     invalidClass,
-    requiredClass,
   ].join(' ')
 
   function handleOptionsList() {
@@ -117,9 +114,7 @@ export function Multiselect({
         )}
       </div>
       {helpText && (
-        <span
-          className={`multiselect-help-text ${invalidClass} ${requiredClass}`}
-        >
+        <span className={`multiselect-help-text ${invalidClass}`}>
           {helpText}
         </span>
       )}

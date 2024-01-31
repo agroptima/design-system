@@ -7,6 +7,12 @@
   flex-direction: column;
   gap: config.$space-2x;
 
+  &:has(.selected-option.invalid) {
+    & .multiselect-help-text {
+      color: color_alias.$error-color-1000;
+    }
+  }
+
   &.primary {
     .multiselect-label {
       @include typography.form-label;
@@ -36,13 +42,8 @@
         border: 1px solid color_alias.$primary-color-1000;
       }
 
-      &.invalid,
-      &.required {
+      &.invalid {
         border: 1px solid color_alias.$error-color-1000;
-
-        & + .select-help-text {
-          color: color_alias.$error-color-1000;
-        }
       }
 
       &.disabled {
@@ -90,11 +91,6 @@
 
     .multiselect-help-text {
       @include typography.form-help-text;
-
-      &.invalid,
-      &.required {
-        color: color_alias.$error-color-1000;
-      }
     }
   }
 

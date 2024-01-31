@@ -18,9 +18,6 @@ const meta = {
     disabled: {
       description: 'Is the select in disabled state?',
     },
-    required: {
-      description: 'Is the select in required state?',
-    },
     invalid: {
       description: 'Is the select in disabled state?',
     },
@@ -53,7 +50,6 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     disabled: false,
-    required: false,
     invalid: false,
     helpText: 'This text can help you',
     name: 'example',
