@@ -80,9 +80,12 @@
 
         > .icon {
           > svg {
-            .checkbox-active_svg__border,
-            .checkbox-inactive_svg__border {
+            border-radius: config.$corner-radius-xxs;
+            .checkbox-active_svg__border {
               fill: color_alias.$primary-color-1000;
+            }
+            .checkbox-inactive_svg__border {
+              fill: color_alias.$neutral-color-300;
             }
           }
         }
