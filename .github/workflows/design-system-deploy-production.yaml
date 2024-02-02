@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  chromatic-deployment:
+  github-pages-deployment:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,15 +19,15 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          npm install --workspace=@wineries/design-system
-          npm run design-system:build
+          npm install
+          npm run build
       - name: Add robots.txt
         run: |
-          touch apps/design-system/storybook-static/robots.txt
-          echo "User-agent: *" >> apps/design-system/storybook-static/robots.txt
-          echo "Disallow: /" >> apps/design-system/storybook-static/robots.txt
+          touch storybook-static/robots.txt
+          echo "User-agent: *" >> storybook-static/robots.txt
+          echo "Disallow: /" >> storybook-static/robots.txt
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: apps/design-system/storybook-static
+          folder: storybook-static
