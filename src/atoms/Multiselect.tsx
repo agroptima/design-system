@@ -118,7 +118,7 @@ export function Multiselect({
           {helpText}
         </span>
       )}
-      <input type="hidden" name={name} value={selectedOptionsIds.join(' ')} />
+      <input type="hidden" name={name} value={selectedOptionsIds.toString()} />
     </div>
   )
 }
