@@ -1,0 +1,121 @@
+@use '../settings/color_alias';
+@use '../settings/typography';
+@use '../settings/config';
+
+.cards-table-list {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 config.$space-3x;
+
+  thead {
+    background: transparent;
+  }
+
+  th,
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  th {
+    padding: config.$space-2x config.$space-3x;
+    white-space: nowrap;
+    text-align: left;
+
+    .icon {
+      width: config.$icon-size-3x;
+      height: config.$icon-size-3x;
+      margin-left: config.$space-1x;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  td {
+    padding: config.$space-5x;
+  }
+
+  &.primary {
+    thead > tr {
+      @include typography.cards-table-list-header;
+    }
+
+    th {
+      background: color_alias.$primary-color-600;
+
+      .icon {
+        > svg {
+          fill: color_alias.$neutral-white;
+          path {
+            fill: color_alias.$neutral-white;
+          }
+        }
+
+        &.order-asc {
+          > svg {
+            .sorter_svg__up {
+              fill: color_alias.$primary-color-1000;
+            }
+            .sorter_svg__down {
+              fill: color_alias.$neutral-white;
+            }
+          }
+        }
+
+        &.order-desc {
+          > svg {
+            .sorter_svg__up {
+              fill: color_alias.$neutral-white;
+            }
+            .sorter_svg__down {
+              fill: color_alias.$primary-color-1000;
+            }
+          }
+        }
+      }
+    }
+
+    th:first-child {
+      border-radius: config.$corner-radius-xxs 0px 0px config.$corner-radius-xxs;
+    }
+
+    th:last-child {
+      border-radius: 0px config.$corner-radius-xxs config.$corner-radius-xxs 0px;
+    }
+
+    tr {
+      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    tr {
+      td {
+        @include typography.cards-table-list-text;
+      }
+    }
+
+    tr:not(.disabled):hover {
+      background: color_alias.$primary-color-50;
+    }
+
+    tr.disabled {
+      background: color_alias.$neutral-color-50;
+
+      td {
+        @include typography.cards-table-list-disabled-text;
+      }
+    }
+
+    tr > td:first-child {
+      @include typography.cards-table-list-highlight-text;
+    }
+  }
+}

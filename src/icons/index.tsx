@@ -16,6 +16,7 @@ import Loading from './loading.svg'
 import Search from './search.svg'
 import Show from './show.svg'
 import ShowOff from './show-off.svg'
+import Sorter from './sorter.svg'
 import Warning from './warning.svg'
 
 export {
@@ -37,5 +38,6 @@ export {
   Search,
   Show,
   ShowOff,
+  Sorter,
   Warning,
 }
