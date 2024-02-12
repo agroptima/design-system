@@ -40,11 +40,20 @@ export const Primary: Story = {
       {
         label: 'Game title',
         icon: 'Info',
+        dataProp: 'name',
+        isSortable: true,
       },
-      { label: 'Company address', icon: 'Info' },
+      {
+        label: 'Company address',
+        icon: 'Info',
+        dataProp: 'address',
+        isSortable: false,
+      },
       {
         label: 'Customer service email',
+        dataProp: 'email',
         icon: 'Info',
+        isSortable: true,
       },
     ],
     rows: [
