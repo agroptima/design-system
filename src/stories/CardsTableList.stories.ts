@@ -9,6 +9,10 @@ const meta = {
     variant: {
       description: 'Select variant used',
     },
+    summary: {
+      description:
+        'Summary of the table purpose and structure for assistive technologies',
+    },
     headers: {
       description: 'Array of values to be displayed on the headers',
     },
@@ -31,42 +35,47 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     variant: 'primary',
+    summary: 'Videogames companies contact information',
     headers: [
       {
-        label: 'Nombre comercial',
+        label: 'Game title',
         icon: 'Info',
         sorter: SorterState.Inactive,
       },
-      { label: 'Dirección', icon: 'Info', sorter: SorterState.Ascending },
-      { label: 'Email', icon: 'Info', sorter: SorterState.Descending },
+      { label: 'Company address', icon: 'Info' },
+      {
+        label: 'Customer service email',
+        icon: 'Info',
+      },
     ],
     rows: [
       {
         id: '1',
         isDisabled: false,
         data: {
-          name: 'Bodegas Viladellops',
+          name: 'Metal Gear Solid 5: The Phantom Pain',
           address:
-            'Finca Viladellops - Celler Gran, Viladellops, 08734 (Olèrdola, Vilafranca del Penedès)',
-          email: 'bodegaviladellops@gmail.com',
+            'Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku, Tokyo, 104-0061 Japan',
+          email: 'konami@fakemail.com',
         },
       },
       {
         id: '2',
         isDisabled: false,
         data: {
-          name: 'Bodega Albet i Noya',
-          address: 'Albet i Noya - Vins ecològics del Penedés',
-          email: 'albetinoya_vinsecologics@gmail.com',
+          name: 'The Witcher 3',
+          address: 'CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland',
+          email: 'cdprojekt@fakemail.com',
         },
       },
       {
         id: '3',
         isDisabled: true,
         data: {
-          name: 'Can Bas',
-          address: 'Can Bas',
-          email: 'bodegacanbas@gmail.com',
+          name: 'Tekken 8',
+          address:
+            'Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo 135-0034, Japan',
+          email: 'namco@fakemail.com',
         },
       },
     ],
