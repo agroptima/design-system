@@ -65,3 +65,42 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-size: 0.875rem;
   line-height: 0.775rem;
 }
+
+@mixin cards-table-list-header {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 700;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-white;
+  font-size: 1rem;
+  line-height: 1.375rem; /* 137.5% */
+}
+
+@mixin cards-table-list-highlight-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 700;
+  font-family: $font-base-family;
+  font-size: 1rem;
+  line-height: 1.5rem; /* 150% */
+}
+
+@mixin cards-table-list-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem; /* 150% */
+}
+
+@mixin cards-table-list-disabled-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-200;
+  font-size: 1rem;
+  line-height: 1.5rem; /* 150% */
+}
