@@ -59,28 +59,6 @@
             fill: color_alias.$neutral-white;
           }
         }
-
-        &.order-asc {
-          > svg {
-            .sorter_svg__up {
-              fill: color_alias.$primary-color-1000;
-            }
-            .sorter_svg__down {
-              fill: color_alias.$neutral-white;
-            }
-          }
-        }
-
-        &.order-desc {
-          > svg {
-            .sorter_svg__up {
-              fill: color_alias.$neutral-white;
-            }
-            .sorter_svg__down {
-              fill: color_alias.$primary-color-1000;
-            }
-          }
-        }
       }
     }
 
