@@ -1,4 +1,4 @@
-import { CardsTableList, SorterState } from '../atoms/CardsTableList'
+import { CardsTableList } from '../atoms/CardsTableList'
 import { StoryObj } from '@storybook/react'
 
 const meta = {
@@ -40,7 +40,6 @@ export const Primary: Story = {
       {
         label: 'Game title',
         icon: 'Info',
-        sorter: SorterState.Inactive,
       },
       { label: 'Company address', icon: 'Info' },
       {

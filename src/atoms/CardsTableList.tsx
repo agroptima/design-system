@@ -2,12 +2,7 @@ import './CardsTableList.scss'
 import { Icon, IconType } from './Icon'
 
 export type Variant = 'primary'
-export enum SorterState {
-  Ascending = 'order-asc',
-  Descending = 'order-desc',
-  Inactive = 'no-order',
-}
-export type Header = { label: string; icon?: IconType; sorter?: SorterState }
+export type Header = { label: string; icon?: IconType }
 export type Data = {
   [key: string]: string
 }
@@ -33,7 +28,7 @@ export function CardsTableList({
       <thead role="rowgroup">
         <tr role="row">
           {headers.map((header) => {
-            const { icon, sorter } = header
+            const { icon } = header
             return (
               <th
                 scope="col"
@@ -46,7 +41,6 @@ export function CardsTableList({
                     <span>{header.label}</span>
                     {icon && <Icon name={icon} />}
                   </div>
-                  {sorter && <Icon name="Sorter" className={sorter} />}
                 </div>
               </th>
             )
