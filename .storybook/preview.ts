@@ -11,6 +11,17 @@ const preview: Preview = {
       },
       expanded: true,
     },
+    options: {
+      storySort: {
+        order: [
+          'Welcome',
+          'Changelog',
+          'Component creation workflow',
+          'Programmers start guide',
+          '*',
+        ],
+      },
+    },
     viewport: {
       viewports: INITIAL_VIEWPORTS,
     },
