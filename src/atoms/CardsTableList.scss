@@ -41,7 +41,7 @@
   }
 
   td {
-    padding: config.$space-5x;
+    padding: config.$space-5x config.$space-3x;
   }
 
   &.primary {
