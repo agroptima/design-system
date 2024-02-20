@@ -14,7 +14,8 @@ const meta = {
         'Summary of the table purpose and structure for assistive technologies',
     },
     headers: {
-      description: 'Array of values to be displayed on the headers',
+      description:
+        'Array of values to be displayed on the headers. columnId value must match with rows columns ids.',
     },
     rows: {
       description: 'Array of values to be displayed as the data',
@@ -32,7 +33,7 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const WithSorting: Story = {
   args: {
     variant: 'primary',
     summary: 'Videogames companies contact information',
@@ -40,18 +41,18 @@ export const Primary: Story = {
       {
         label: 'Game title',
         icon: 'Info',
-        dataProp: 'name',
+        columnId: 'name',
         isSortable: true,
       },
       {
         label: 'Company address',
         icon: 'Info',
-        dataProp: 'address',
+        columnId: 'address',
         isSortable: false,
       },
       {
         label: 'Customer service email',
-        dataProp: 'email',
+        columnId: 'email',
         icon: 'Info',
         isSortable: true,
       },
@@ -59,8 +60,7 @@ export const Primary: Story = {
     rows: [
       {
         id: '1',
-        isDisabled: false,
-        data: {
+        columns: {
           name: 'Metal Gear Solid 5: The Phantom Pain',
           address:
             'Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku, Tokyo, 104-0061 Japan',
@@ -69,8 +69,7 @@ export const Primary: Story = {
       },
       {
         id: '2',
-        isDisabled: false,
-        data: {
+        columns: {
           name: 'The Witcher 3',
           address: 'CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland',
           email: 'cdprojekt@fakemail.com',
@@ -79,7 +78,61 @@ export const Primary: Story = {
       {
         id: '3',
         isDisabled: true,
-        data: {
+        columns: {
+          name: 'Tekken 8',
+          address:
+            'Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo 135-0034, Japan',
+          email: 'namco@fakemail.com',
+        },
+      },
+    ],
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const NoSorting: Story = {
+  args: {
+    variant: 'primary',
+    summary: 'Videogames companies contact information',
+    headers: [
+      {
+        label: 'Game title',
+        icon: 'Info',
+        columnId: 'name',
+      },
+      {
+        label: 'Company address',
+        icon: 'Info',
+        columnId: 'address',
+      },
+      {
+        label: 'Customer service email',
+        columnId: 'email',
+        icon: 'Info',
+      },
+    ],
+    rows: [
+      {
+        id: '1',
+        columns: {
+          name: 'Metal Gear Solid 5: The Phantom Pain',
+          address:
+            'Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku, Tokyo, 104-0061 Japan',
+          email: 'konami@fakemail.com',
+        },
+      },
+      {
+        id: '2',
+        columns: {
+          name: 'The Witcher 3',
+          address: 'CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland',
+          email: 'cdprojekt@fakemail.com',
+        },
+      },
+      {
+        id: '3',
+        isDisabled: true,
+        columns: {
           name: 'Tekken 8',
           address:
             'Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo 135-0034, Japan',

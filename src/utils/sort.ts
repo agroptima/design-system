@@ -20,10 +20,10 @@ export function sortBy({
   const sortOrder = order === Order.Descending ? -1 : 1
   return rows.sort((a: Row, b: Row) => {
     let result = 0
-    if (parse(a.data[prop]) < parse(b.data[prop])) {
+    if (parse(a.columns[prop]) < parse(b.columns[prop])) {
       result = -1
     }
-    if (parse(a.data[prop]) > parse(b.data[prop])) {
+    if (parse(a.columns[prop]) > parse(b.columns[prop])) {
       result = 1
     }
     return result * sortOrder
