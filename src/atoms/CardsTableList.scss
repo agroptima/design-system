@@ -29,6 +29,10 @@
     white-space: nowrap;
     text-align: left;
 
+    &.sortable {
+      cursor: pointer;
+    }
+
     .icon {
       width: config.$icon-size-3x;
       height: config.$icon-size-3x;
@@ -57,6 +61,28 @@
           fill: color_alias.$neutral-white;
           path {
             fill: color_alias.$neutral-white;
+          }
+        }
+
+        &.ascending {
+          > svg {
+            .sorter_svg__up {
+              fill: color_alias.$primary-color-1000;
+            }
+            .sorter_svg__down {
+              fill: color_alias.$neutral-white;
+            }
+          }
+        }
+
+        &.descending {
+          > svg {
+            .sorter_svg__up {
+              fill: color_alias.$neutral-white;
+            }
+            .sorter_svg__down {
+              fill: color_alias.$primary-color-1000;
+            }
           }
         }
       }
