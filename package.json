@@ -8,7 +8,8 @@
     "build-storybook": "storybook build",
     "lint": "eslint",
     "lint:fix": "eslint src --fix",
-    "publish-chromatic": "npx chromatic --exit-zero-on-changes"
+    "publish-chromatic": "npx chromatic --exit-zero-on-changes",
+    "chromatic": "npx chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@storybook/addon-designs": "^7.0.5",
@@ -49,7 +50,9 @@
   "keywords": [
     "design-system"
   ],
-  "author": "Isagri",
+  "author": {
+    "name": "Isagri"
+  },
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/agroptima/design-system/issues"
