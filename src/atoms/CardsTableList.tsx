@@ -1,12 +1,30 @@
 import './CardsTableList.scss'
-import { Icon, IconType } from './Icon'
+import React, { useState } from 'react'
+import { sortBy } from '../utils/sort'
+import { IconType } from './Icon'
+import { CardsTableListHeader } from './CardsTableListHeader'
+import { CardsTableListRow } from './CardsTableListRow'
 
 export type Variant = 'primary'
-export type Header = { label: string; icon?: IconType }
-export type Data = {
+
+export type Header = {
+  label: string
+  icon?: IconType
+  columnId: string
+  isSortable?: boolean
+}
+export type Column = {
   [key: string]: string
 }
-export type Row = { id: string; isDisabled: boolean; data: Data }
+export type Row = { id: string; isDisabled?: boolean; columns: Column }
+
+export enum Order {
+  Ascending = 'ascending',
+  Descending = 'descending',
+  None = 'none',
+}
+
+export type SortState = { columnId: string; order: Order }
 
 export interface CardsTableListProps
   extends React.ComponentPropsWithoutRef<'table'> {
@@ -21,48 +39,59 @@ export function CardsTableList({
   summary,
   variant = 'primary',
 }: CardsTableListProps): React.JSX.Element {
+  const [sortState, setSortState] = useState<SortState | null>(() => {
+    return headers[0]?.isSortable
+      ? { columnId: headers[0].columnId, order: Order.Ascending }
+      : null
+  })
+
   const cssClasses = ['cards-table-list', variant].join(' ')
 
+  function checkColumnOrder(columnId: string) {
+    if (sortState?.columnId === columnId) {
+      return sortState.order
+    }
+    return Order.None
+  }
+
+  function applySort(columnId: string) {
+    if (!headers.find((header) => header.columnId === columnId)?.isSortable) {
+      return
+    }
+
+    setSortState({
+      columnId,
+      order:
+        checkColumnOrder(columnId) === Order.Ascending
+          ? Order.Descending
+          : Order.Ascending,
+    })
+  }
+  const sortedRows = sortState?.columnId
+    ? sortBy({
+        rows,
+        prop: sortState?.columnId,
+        order: sortState?.order,
+      })
+    : rows
   return (
     <table summary={summary} role="table" className={cssClasses}>
       <thead role="rowgroup">
         <tr role="row">
-          {headers.map((header) => {
-            const { icon } = header
-            return (
-              <th
-                scope="col"
-                role="columnheader"
-                className="header"
-                key={header.label}
-              >
-                <div className="container">
-                  <div className="title-container">
-                    <span>{header.label}</span>
-                    {icon && <Icon name={icon} />}
-                  </div>
-                </div>
-              </th>
-            )
-          })}
+          {headers.map((header) => (
+            <CardsTableListHeader
+              key={header.columnId}
+              header={header}
+              order={checkColumnOrder(header.columnId)}
+              onClick={() => applySort(header.columnId)}
+            />
+          ))}
         </tr>
       </thead>
       <tbody role="rowgroup">
-        {rows.map((row) => {
-          const { data, isDisabled } = row
-          const disabledClass = isDisabled ? 'disabled' : ''
-          return (
-            <tr role="row" className={`row ${disabledClass}`} key={row.id}>
-              {Object.getOwnPropertyNames(data).map((property) => {
-                return (
-                  <td role="cell" key={row.id + property} className="cell">
-                    {data[property]}
-                  </td>
-                )
-              })}
-            </tr>
-          )
-        })}
+        {sortedRows.map((row: Row) => (
+          <CardsTableListRow key={row.id} {...row} />
+        ))}
       </tbody>
     </table>
   )
