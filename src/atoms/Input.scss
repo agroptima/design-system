@@ -21,9 +21,18 @@
     .input-container {
       .icon {
         > svg {
-          fill: color_alias.$neutral-color-300;
+          fill: color_alias.$neutral-color-400;
           path {
-            fill: color_alias.$neutral-color-300;
+            fill: color_alias.$neutral-color-400;
+          }
+        }
+      }
+
+      .password-icon {
+        > svg {
+          fill: color_alias.$neutral-color-600;
+          path {
+            fill: color_alias.$neutral-color-600;
           }
         }
       }
@@ -31,7 +40,7 @@
 
     .input {
       border-radius: config.$corner-radius-m;
-      border: 1px solid color_alias.$neutral-color-300;
+      border: 1px solid color_alias.$neutral-color-400;
       background: color_alias.$neutral-white;
 
       @include typography.input-text;
@@ -41,8 +50,8 @@
       }
 
       &:focus {
-        outline: color_alias.$primary-color-1000;
-        border: 1px solid color_alias.$primary-color-1000;
+        outline: color_alias.$primary-color-600;
+        border: 1px solid color_alias.$primary-color-600;
       }
 
       &.invalid {
@@ -50,12 +59,12 @@
       }
 
       &:disabled {
-        border: 1px solid color_alias.$neutral-color-200;
+        border: 1px solid color_alias.$neutral-color-400;
         background: color_alias.$neutral-color-50;
-        color: color_alias.$neutral-color-200;
+        color: color_alias.$neutral-color-400;
 
         &::placeholder {
-          color: color_alias.$neutral-color-200;
+          color: color_alias.$neutral-color-400;
         }
       }
     }
