@@ -15,11 +15,11 @@
   &.error,
   &.error-outlined,
   &.error-ghost {
-    --color-bg: #{color_alias.$error-color-1000};
-    --color-bg-hover: #{color_alias.$error-color-700};
+    --color-bg: #{color_alias.$error-color-600};
+    --color-bg-hover: #{color_alias.$error-color-900};
     --color-bg-hover-outlined: #{color_alias.$error-color-50};
     --color-fg: #{color_alias.$neutral-white};
-    --color-fg-reversed: #{color_alias.$error-color-1000};
+    --color-fg-reversed: #{color_alias.$error-color-600};
   }
   &.success,
   &.success-outlined,
