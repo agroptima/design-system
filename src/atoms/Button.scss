@@ -36,7 +36,7 @@
     --color-bg: #{color_alias.$warning-color-1000};
     --color-bg-hover: #{color_alias.$warning-color-700};
     --color-bg-hover-outlined: #{color_alias.$warning-color-50};
-    --color-fg: #{color_alias.$neutral-white};
+    --color-fg: #{color_alias.$neutral-color-900};
     --color-fg-reversed: #{color_alias.$warning-color-1000};
   }
   &.info,
@@ -88,7 +88,8 @@
   &:not(:disabled):active {
     background: var(--color-bg-hover);
 
-    &.success {
+    &.success,
+    &.warning {
       color: color_alias.$neutral-white;
       svg,
       svg path {
@@ -108,7 +109,6 @@
 
   &.primary-outlined,
   &.error-outlined,
-  &.warning-outlined,
   &.info-outlined,
   &.neutral-outlined {
     background: color_alias.$neutral-white;
@@ -120,7 +120,8 @@
     }
   }
 
-  &.success-outlined {
+  &.success-outlined,
+  &.warning-outlined {
     background: color_alias.$neutral-white;
     color: var(--color-fg);
     border: 1px solid var(--color-bg);
@@ -163,14 +164,6 @@
     svg path {
       fill: var(--color-fg-reversed);
     }
-  }
-
-  &.primary-ghost,
-  &.error-ghost,
-  &.success-ghost,
-  &.warning-ghost,
-  &.info-ghost,
-  &.neutral-ghost {
     &:not(:disabled):hover,
     &:not(:disabled):active {
       background: transparent;
