@@ -54,7 +54,7 @@
     }
 
     th {
-      background: color_alias.$primary-color-600;
+      background: color_alias.$primary-color-1000;
 
       .icon {
         > svg {
@@ -67,7 +67,7 @@
         &.ascending {
           > svg {
             .sorter_svg__up {
-              fill: color_alias.$primary-color-1000;
+              fill: color_alias.$primary-color-600;
             }
             .sorter_svg__down {
               fill: color_alias.$neutral-white;
@@ -81,7 +81,7 @@
               fill: color_alias.$neutral-white;
             }
             .sorter_svg__down {
-              fill: color_alias.$primary-color-1000;
+              fill: color_alias.$primary-color-600;
             }
           }
         }

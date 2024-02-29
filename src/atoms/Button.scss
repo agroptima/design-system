@@ -6,20 +6,20 @@
   &.primary,
   &.primary-outlined,
   &.primary-ghost {
-    --color-bg: #{color_alias.$primary-color-1000};
-    --color-bg-hover: #{color_alias.$primary-color-700};
+    --color-bg: #{color_alias.$primary-color-600};
+    --color-bg-hover: #{color_alias.$primary-color-1000};
     --color-bg-hover-outlined: #{color_alias.$primary-color-50};
     --color-fg: #{color_alias.$neutral-white};
-    --color-fg-reversed: #{color_alias.$primary-color-1000};
+    --color-fg-reversed: #{color_alias.$primary-color-600};
   }
   &.error,
   &.error-outlined,
   &.error-ghost {
-    --color-bg: #{color_alias.$error-color-1000};
-    --color-bg-hover: #{color_alias.$error-color-700};
+    --color-bg: #{color_alias.$error-color-600};
+    --color-bg-hover: #{color_alias.$error-color-900};
     --color-bg-hover-outlined: #{color_alias.$error-color-50};
     --color-fg: #{color_alias.$neutral-white};
-    --color-fg-reversed: #{color_alias.$error-color-1000};
+    --color-fg-reversed: #{color_alias.$error-color-600};
   }
   &.success,
   &.success-outlined,
@@ -27,7 +27,7 @@
     --color-bg: #{color_alias.$success-color-1000};
     --color-bg-hover: #{color_alias.$success-color-700};
     --color-bg-hover-outlined: #{color_alias.$success-color-50};
-    --color-fg: #{color_alias.$neutral-white};
+    --color-fg: #{color_alias.$neutral-color-900};
     --color-fg-reversed: #{color_alias.$success-color-1000};
   }
   &.warning,
@@ -36,17 +36,17 @@
     --color-bg: #{color_alias.$warning-color-1000};
     --color-bg-hover: #{color_alias.$warning-color-700};
     --color-bg-hover-outlined: #{color_alias.$warning-color-50};
-    --color-fg: #{color_alias.$neutral-white};
+    --color-fg: #{color_alias.$neutral-color-900};
     --color-fg-reversed: #{color_alias.$warning-color-1000};
   }
   &.info,
   &.info-outlined,
   &.info-ghost {
-    --color-bg: #{color_alias.$info-color-1000};
-    --color-bg-hover: #{color_alias.$info-color-700};
+    --color-bg: #{color_alias.$info-color-600};
+    --color-bg-hover: #{color_alias.$info-color-900};
     --color-bg-hover-outlined: #{color_alias.$info-color-50};
     --color-fg: #{color_alias.$neutral-white};
-    --color-fg-reversed: #{color_alias.$info-color-1000};
+    --color-fg-reversed: #{color_alias.$info-color-600};
   }
   &.neutral,
   &.neutral-outlined,
@@ -87,14 +87,47 @@
   &:not(:disabled):hover,
   &:not(:disabled):active {
     background: var(--color-bg-hover);
+
+    &.success,
+    &.warning {
+      color: color_alias.$neutral-white;
+      svg,
+      svg path {
+        fill: color_alias.$neutral-white;
+      }
+    }
   }
 
   &:disabled {
-    background: color_alias.$neutral-color-200;
-    color: var(--color-fg-disabled, var(--color-fg));
+    background: color_alias.$neutral-color-50;
+    color: color_alias.$neutral-color-400;
     svg,
     svg path {
-      fill: var(--color-fg-disabled, var(--color-fg));
+      fill: color_alias.$neutral-color-400;
+    }
+  }
+
+  &.primary-outlined,
+  &.error-outlined,
+  &.info-outlined,
+  &.neutral-outlined {
+    background: color_alias.$neutral-white;
+    color: var(--color-bg);
+    border: 1px solid var(--color-bg);
+    svg,
+    svg path {
+      fill: var(--color-bg);
+    }
+  }
+
+  &.success-outlined,
+  &.warning-outlined {
+    background: color_alias.$neutral-white;
+    color: var(--color-fg);
+    border: 1px solid var(--color-bg);
+    svg,
+    svg path {
+      fill: var(--color-fg);
     }
   }
 
@@ -104,24 +137,17 @@
   &.warning-outlined,
   &.info-outlined,
   &.neutral-outlined {
-    background: color_alias.$neutral-white;
-    color: var(--color-fg-reversed);
-    border: 1px solid var(--color-bg);
-    svg,
-    svg path {
-      fill: var(--color-fg-reversed);
-    }
     &:not(:disabled):hover,
     &:not(:disabled):active {
       background: var(--color-bg-hover-outlined);
     }
     &:disabled {
       background: color_alias.$neutral-color-50;
-      border: 1px solid color_alias.$neutral-color-200;
-      color: color_alias.$neutral-color-300;
+      border: 1px solid color_alias.$neutral-color-400;
+      color: color_alias.$neutral-color-400;
       svg,
       svg path {
-        fill: color_alias.$neutral-color-300;
+        fill: color_alias.$neutral-color-400;
       }
     }
   }
@@ -144,10 +170,10 @@
       border: 1px solid var(--color-bg);
     }
     &:disabled {
-      color: color_alias.$neutral-color-300;
+      color: color_alias.$neutral-color-400;
       svg,
       svg path {
-        fill: color_alias.$neutral-color-300;
+        fill: color_alias.$neutral-color-400;
       }
     }
   }

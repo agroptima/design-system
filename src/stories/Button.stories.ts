@@ -98,6 +98,7 @@ export const PrimaryWithLeftIcon: Story = {
 export const PrimaryOutlined: Story = {
   args: {
     variant: 'primary-outlined',
+    disabled: false,
   },
   parameters: figmaPrimaryDesign,
 }
@@ -105,6 +106,7 @@ export const PrimaryOutlined: Story = {
 export const PrimaryGhost: Story = {
   args: {
     variant: 'primary-ghost',
+    disabled: false,
   },
   parameters: figmaPrimaryDesign,
 }
@@ -112,6 +114,7 @@ export const PrimaryGhost: Story = {
 export const Neutral: Story = {
   args: {
     variant: 'neutral',
+    disabled: false,
   },
   parameters: figmaNeutralDesign,
 }
@@ -119,6 +122,7 @@ export const Neutral: Story = {
 export const Error: Story = {
   args: {
     variant: 'error',
+    disabled: false,
   },
   parameters: figmaErrorDesign,
 }
@@ -126,6 +130,7 @@ export const Error: Story = {
 export const Success: Story = {
   args: {
     variant: 'success',
+    disabled: false,
   },
   parameters: figmaSuccessDesign,
 }
@@ -133,6 +138,7 @@ export const Success: Story = {
 export const Warning: Story = {
   args: {
     variant: 'warning',
+    disabled: false,
   },
   parameters: figmaWarningDesign,
 }
@@ -140,6 +146,7 @@ export const Warning: Story = {
 export const Info: Story = {
   args: {
     variant: 'info',
+    disabled: false,
   },
   parameters: figmaInfoDesign,
 }

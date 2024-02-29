@@ -19,7 +19,7 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-variant: $text-base-style;
   font-weight: 300;
   font-family: $font-base-family;
-  color: color_alias.$neutral-color-400;
+  color: color_alias.$neutral-color-600;
   // We need to apply a relation between font-size and line-height so the box envoloping the span
   // is the most accurate in terms of top and bottom blank space.
   font-size: 0.75rem;
@@ -37,7 +37,7 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-variant: $text-base-style;
   font-weight: 400;
   font-family: $font-base-family;
-  color: color_alias.$neutral-color-300;
+  color: color_alias.$neutral-color-400;
   // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
 }
 @mixin select-text {
