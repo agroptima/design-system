@@ -6,11 +6,11 @@
   &.primary,
   &.primary-outlined,
   &.primary-ghost {
-    --color-bg: #{color_alias.$primary-color-1000};
-    --color-bg-hover: #{color_alias.$primary-color-700};
+    --color-bg: #{color_alias.$primary-color-600};
+    --color-bg-hover: #{color_alias.$primary-color-1000};
     --color-bg-hover-outlined: #{color_alias.$primary-color-50};
     --color-fg: #{color_alias.$neutral-white};
-    --color-fg-reversed: #{color_alias.$primary-color-1000};
+    --color-fg-reversed: #{color_alias.$primary-color-600};
   }
   &.error,
   &.error-outlined,
@@ -90,11 +90,11 @@
   }
 
   &:disabled {
-    background: color_alias.$neutral-color-200;
-    color: var(--color-fg-disabled, var(--color-fg));
+    background: color_alias.$neutral-color-50;
+    color: color_alias.$neutral-color-400;
     svg,
     svg path {
-      fill: var(--color-fg-disabled, var(--color-fg));
+      fill: color_alias.$neutral-color-400;
     }
   }
 
@@ -105,11 +105,11 @@
   &.info-outlined,
   &.neutral-outlined {
     background: color_alias.$neutral-white;
-    color: var(--color-fg-reversed);
+    color: var(--color-bg);
     border: 1px solid var(--color-bg);
     svg,
     svg path {
-      fill: var(--color-fg-reversed);
+      fill: var(--color-bg);
     }
     &:not(:disabled):hover,
     &:not(:disabled):active {
@@ -117,11 +117,11 @@
     }
     &:disabled {
       background: color_alias.$neutral-color-50;
-      border: 1px solid color_alias.$neutral-color-200;
-      color: color_alias.$neutral-color-300;
+      border: 1px solid color_alias.$neutral-color-400;
+      color: color_alias.$neutral-color-400;
       svg,
       svg path {
-        fill: color_alias.$neutral-color-300;
+        fill: color_alias.$neutral-color-400;
       }
     }
   }
@@ -144,10 +144,10 @@
       border: 1px solid var(--color-bg);
     }
     &:disabled {
-      color: color_alias.$neutral-color-300;
+      color: color_alias.$neutral-color-400;
       svg,
       svg path {
-        fill: color_alias.$neutral-color-300;
+        fill: color_alias.$neutral-color-400;
       }
     }
   }
