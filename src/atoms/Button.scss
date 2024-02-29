@@ -42,11 +42,11 @@
   &.info,
   &.info-outlined,
   &.info-ghost {
-    --color-bg: #{color_alias.$info-color-1000};
-    --color-bg-hover: #{color_alias.$info-color-700};
+    --color-bg: #{color_alias.$info-color-600};
+    --color-bg-hover: #{color_alias.$info-color-900};
     --color-bg-hover-outlined: #{color_alias.$info-color-50};
     --color-fg: #{color_alias.$neutral-white};
-    --color-fg-reversed: #{color_alias.$info-color-1000};
+    --color-fg-reversed: #{color_alias.$info-color-600};
   }
   &.neutral,
   &.neutral-outlined,
