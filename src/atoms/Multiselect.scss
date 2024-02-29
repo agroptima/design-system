@@ -82,10 +82,13 @@
           > svg {
             border-radius: config.$corner-radius-xxs;
             .checkbox-active_svg__border {
-              fill: color_alias.$primary-color-1000;
+              fill: color_alias.$primary-color-600;
+            }
+            .checkbox-active_svg__background {
+              fill: color_alias.$primary-color-600;
             }
             .checkbox-inactive_svg__border {
-              fill: color_alias.$neutral-color-300;
+              fill: color_alias.$neutral-color-600;
             }
           }
         }
