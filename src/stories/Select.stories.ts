@@ -51,6 +51,7 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
+    hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
     options: [
       { id: '1', label: 'Nintendo Switch' },

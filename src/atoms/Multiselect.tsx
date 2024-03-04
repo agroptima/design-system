@@ -14,6 +14,7 @@ export interface MultiselectProps
   invalid?: boolean
   label: string
   selectedLabel?: string
+  hideLabel?: boolean
 }
 
 export function Multiselect({
@@ -26,6 +27,7 @@ export function Multiselect({
   options,
   label,
   selectedLabel = 'items selected',
+  hideLabel = false,
 }: MultiselectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>([])
@@ -70,7 +72,7 @@ export function Multiselect({
 
   return (
     <div className={`multiselect-group ${variant}`}>
-      <span className="multiselect-label">{label}</span>
+      {!hideLabel && <span className="multiselect-label">{label}</span>}
       <div className="multiselect-container">
         <div
           className={cssClasses}

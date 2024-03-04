@@ -51,6 +51,7 @@ export const Primary: Story = {
     variant: 'primary',
     disabled: false,
     invalid: false,
+    hideLabel: false,
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
