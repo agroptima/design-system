@@ -15,6 +15,7 @@ export interface MultiselectProps
   label: string
   selectedLabel?: string
   hideLabel?: boolean
+  selected?: Option[]
 }
 
 export function Multiselect({
@@ -28,9 +29,12 @@ export function Multiselect({
   label,
   selectedLabel = 'items selected',
   hideLabel = false,
+  selected,
 }: MultiselectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>([])
+  const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>(
+    selected?.map((option) => option.id) || [],
+  )
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = selectedOptionsIds.length > 0 ? 'filled' : ''

@@ -13,6 +13,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
   invalid?: boolean
   label: string
   hideLabel?: boolean
+  selected?: Option
 }
 
 export function Select({
@@ -25,11 +26,12 @@ export function Select({
   options,
   label,
   hideLabel = false,
+  selected,
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option>({
-    id: '',
-    label: '',
+    id: selected?.id || '',
+    label: selected?.label || '',
   })
 
   const optionsListOpenClass = showOptionsList ? 'open' : ''

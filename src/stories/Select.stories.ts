@@ -30,6 +30,9 @@ const meta = {
     options: {
       description: 'Array of values to be displayed on the select list',
     },
+    selected: {
+      description: 'Value to be displayed as selected',
+    },
   },
 }
 
@@ -58,6 +61,26 @@ export const Primary: Story = {
       { id: '2', label: 'PlayStation 5' },
       { id: '3', label: 'Xbox Series S/X' },
     ],
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const PrimaryWithSelectedOptions: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    invalid: false,
+    helpText: 'This text can help you',
+    name: 'example',
+    label: 'Videogames',
+    hideLabel: false,
+    placeholder: 'Select your favourite gaming system...',
+    options: [
+      { id: '1', label: 'Nintendo Switch' },
+      { id: '2', label: 'PlayStation 5' },
+      { id: '3', label: 'Xbox Series S/X' },
+    ],
+    selected: { id: '2', label: 'PlayStation 5' },
   },
   parameters: figmaPrimaryDesign,
 }
