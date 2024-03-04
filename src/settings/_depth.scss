@@ -1,0 +1,8 @@
+// Source: https://www.smashingmagazine.com/2021/02/css-z-index-large-projects/
+
+// Utils
+$base: 0;
+$above: 1; // use this for all values above the base
+$below: -1; // and this for all values below the base
+
+$z-dropdown-options: $base + $above;
