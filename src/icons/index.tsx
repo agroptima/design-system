@@ -9,6 +9,7 @@ import CheckboxInactive from './checkbox-inactive.svg'
 import Close from './close.svg'
 import Done from './done.svg'
 import EditColumns from './edit-columns.svg'
+import EmptyState from './empty-customize.svg'
 import Error from './error.svg'
 import Export from './export.svg'
 import Info from './info.svg'
@@ -31,6 +32,7 @@ export {
   Close,
   Done,
   EditColumns,
+  EmptyState,
   Error,
   Export,
   Info,
