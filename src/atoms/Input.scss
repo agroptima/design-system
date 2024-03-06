@@ -5,7 +5,7 @@
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: config.$space-2x;
 
   .input {
     padding-left: 12px;
@@ -94,12 +94,12 @@
     }
 
     .left-icon {
-      top: 0.75rem;
+      top: 0.9rem;
       left: 0.7rem;
     }
 
     .password-icon {
-      top: 0.75rem;
+      top: 0.9rem;
       right: 0.7rem;
     }
   }
