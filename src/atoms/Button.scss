@@ -60,6 +60,7 @@
   }
 
   display: inline-flex;
+  height: fit-content;
   background: var(--color-bg);
   border: 1px solid transparent;
   padding: config.$space-2x config.$space-3x;
