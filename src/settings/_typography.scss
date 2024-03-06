@@ -106,3 +106,13 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-size: 1rem;
   line-height: 1.5rem; /* 150% */
 }
+
+@mixin empty-state-text {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  text-align: center;
+}
