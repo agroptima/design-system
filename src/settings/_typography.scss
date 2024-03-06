@@ -30,6 +30,7 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-variant: $text-base-style;
   font-weight: 400;
   font-family: $font-base-family;
+  font-size: 1em;
   color: color_alias.$neutral-color-1000;
 }
 @mixin input-placeholder-text {
@@ -37,6 +38,7 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   font-variant: $text-base-style;
   font-weight: 400;
   font-family: $font-base-family;
+  font-size: 1em;
   color: color_alias.$neutral-color-400;
   // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
 }

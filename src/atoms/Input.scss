@@ -5,7 +5,7 @@
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: config.$space-2x;
 
   .input {
     padding-left: 12px;
