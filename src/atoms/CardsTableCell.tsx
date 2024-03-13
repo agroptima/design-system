@@ -1,4 +1,4 @@
-import './CardsTableList.scss'
+import './CardsTable.scss'
 import React from 'react'
 
 export enum Alignment {

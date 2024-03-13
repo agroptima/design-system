@@ -1,5 +1,5 @@
 import React from 'react'
-import './CardsTableList.scss'
+import './CardsTable.scss'
 
 export interface CardsTableRowProps
   extends React.ComponentPropsWithoutRef<'tr'> {

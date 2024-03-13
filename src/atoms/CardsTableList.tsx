@@ -1,4 +1,4 @@
-import './CardsTableList.scss'
+import './CardsTable.scss'
 import React, { useState } from 'react'
 import { sortBy } from '../utils/sort'
 import { CardsTableHeader } from './CardsTableHeader'

@@ -1,4 +1,4 @@
-import './CardsTableList.scss'
+import './CardsTable.scss'
 
 export type Variant = 'primary'
 
