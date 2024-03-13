@@ -77,6 +77,16 @@ const figmaInfoDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+export const Link: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    loading: false,
+    href: 'link.com',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
 export const Primary: Story = {
   args: {
     variant: 'primary',
