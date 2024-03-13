@@ -48,6 +48,22 @@
     padding: config.$space-5x config.$space-3x;
   }
 
+  .no-wrap {
+    white-space: nowrap;
+  }
+
+  .alignment-left {
+    text-align: left;
+  }
+
+  .alignment-center {
+    text-align: center;
+  }
+
+  .alignment-right {
+    text-align: right;
+  }
+
   &.primary {
     thead > tr {
       @include typography.cards-table-list-header;
