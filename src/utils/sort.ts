@@ -1,4 +1,5 @@
-import { Order, Row } from '../atoms/CardsTableList'
+import { Row } from '../atoms/CardsTableList'
+import { Order } from '../atoms/CardsTableList'
 
 interface Parse {
   (x: string): string

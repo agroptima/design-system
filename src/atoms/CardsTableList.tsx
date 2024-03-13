@@ -1,11 +1,21 @@
 import './CardsTableList.scss'
 import React, { useState } from 'react'
 import { sortBy } from '../utils/sort'
-import { IconType } from './Icon'
-import { CardsTableListHeader } from './CardsTableListHeader'
-import { CardsTableListRow } from './CardsTableListRow'
+import { CardsTableHeader } from './CardsTableHeader'
+import { CardsTableCell } from './CardsTableCell'
+import { CardsTableRow } from './CardsTableRow'
+import { Icon, IconType } from './Icon'
+import { CardsTable } from './CardsTable'
+import { CardsTableHead } from './CardsTableHead'
+import { CardsTableBody } from './CardsTableBody'
 
 export type Variant = 'primary'
+
+export enum Order {
+  Ascending = 'ascending',
+  Descending = 'descending',
+  None = 'none',
+}
 
 export type Header = {
   label: string
@@ -13,16 +23,11 @@ export type Header = {
   columnId: string
   isSortable?: boolean
 }
+
 export type Column = {
   [key: string]: string
 }
 export type Row = { id: string; isDisabled?: boolean; columns: Column }
-
-export enum Order {
-  Ascending = 'ascending',
-  Descending = 'descending',
-  None = 'none',
-}
 
 export type SortState = { columnId: string; order: Order }
 
@@ -44,8 +49,6 @@ export function CardsTableList({
       ? { columnId: headers[0].columnId, order: Order.Ascending }
       : null
   })
-
-  const cssClasses = ['cards-table-list', variant].join(' ')
 
   function checkColumnOrder(columnId: string) {
     if (sortState?.columnId === columnId) {
@@ -74,25 +77,48 @@ export function CardsTableList({
         order: sortState?.order,
       })
     : rows
+
   return (
-    <table summary={summary} role="table" className={cssClasses}>
-      <thead role="rowgroup">
-        <tr role="row">
+    <CardsTable summary={summary} variant={variant}>
+      <CardsTableHead>
+        <CardsTableRow>
           {headers.map((header) => (
-            <CardsTableListHeader
+            <CardsTableHeader
               key={header.columnId}
-              header={header}
-              order={checkColumnOrder(header.columnId)}
+              aria-sort={checkColumnOrder(header.columnId)}
+              className={header.isSortable ? 'sortable' : ''}
               onClick={() => applySort(header.columnId)}
-            />
+            >
+              <div className="container">
+                <div>
+                  <span>{header.label}</span>
+                  {header.icon && <Icon name={header.icon} />}
+                </div>
+                {header.isSortable && (
+                  <Icon
+                    name="Sorter"
+                    className={checkColumnOrder(header.columnId)}
+                  />
+                )}
+              </div>
+            </CardsTableHeader>
           ))}
-        </tr>
-      </thead>
-      <tbody role="rowgroup">
-        {sortedRows.map((row: Row) => (
-          <CardsTableListRow key={row.id} {...row} />
-        ))}
-      </tbody>
-    </table>
+        </CardsTableRow>
+      </CardsTableHead>
+      <CardsTableBody>
+        {sortedRows.map((row: Row) => {
+          const cells = Object.entries(row.columns)
+          return (
+            <CardsTableRow key={row.id} isDisabled={row.isDisabled}>
+              {cells.map(([columnId, value]) => (
+                <CardsTableCell key={`${row.id}${columnId}`}>
+                  {value}
+                </CardsTableCell>
+              ))}
+            </CardsTableRow>
+          )
+        })}
+      </CardsTableBody>
+    </CardsTable>
   )
 }
