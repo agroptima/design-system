@@ -38,8 +38,10 @@ export const PrimaryCustom: Story = {
   args: {
     variant: 'primary',
     text: 'There are no videogames yet. You can import videogames to your list.',
-    buttonLabel: 'Import videogames',
-    action: (event) => console.log('click: ', event),
+    button: {
+      label: 'Import videogames',
+      onClick: () => alert('click'),
+    },
   },
   parameters: figmaPrimaryDesign,
 }

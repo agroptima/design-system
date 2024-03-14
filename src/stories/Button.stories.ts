@@ -29,6 +29,10 @@ const meta = {
       description: 'Button right icon from a list of values',
       control: { type: 'select' },
     },
+    href: {
+      description:
+        'If a link is provided, the component will be rendered as NextLink, otherwise as button',
+    },
   },
 }
 
@@ -76,6 +80,16 @@ const figmaInfoDesign = {
 
 export default meta
 type Story = StoryObj<typeof meta>
+
+export const Link: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    loading: false,
+    href: 'link.com',
+  },
+  parameters: figmaPrimaryDesign,
+}
 
 export const Primary: Story = {
   args: {

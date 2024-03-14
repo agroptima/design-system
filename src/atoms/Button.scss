@@ -59,6 +59,8 @@
     --color-fg-disabled: #{color_alias.$neutral-color-50};
   }
 
+  text-decoration: none;
+
   display: inline-flex;
   height: fit-content;
   background: var(--color-bg);

@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
@@ -8,7 +8,7 @@
     "build-storybook": "storybook build",
     "lint": "eslint",
     "lint:fix": "eslint src --fix",
-    "publish-chromatic": "npx chromatic --exit-zero-on-changes"
+    "chromatic": "npx chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@storybook/addon-designs": "^7.0.5",
@@ -23,7 +23,6 @@
     "@storybook/addon-essentials": "^7.5.0",
     "@storybook/addon-interactions": "^7.5.0",
     "@storybook/addon-links": "^7.5.0",
-    "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/blocks": "^7.5.0",
     "@storybook/nextjs": "^7.5.0",
     "@storybook/react": "^7.5.0",
