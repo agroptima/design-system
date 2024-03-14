@@ -29,6 +29,10 @@ const meta = {
       description: 'Button right icon from a list of values',
       control: { type: 'select' },
     },
+    href: {
+      description:
+        'If a link is provided, the component will be rendered as NextLink, otherwise as button',
+    },
   },
 }
 

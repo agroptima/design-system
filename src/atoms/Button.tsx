@@ -63,7 +63,7 @@ export const Button: Overload = ({
 
   if (hasHref(props)) {
     return (
-      <NextLink className={cssClasses} {...props}>
+      <NextLink className={cssClasses} href={props.href || ''} {...props}>
         {leftIcon && <Icon name={leftIcon} />}
         {label}
         {rightIcon && <Icon name={rightIcon} />}
