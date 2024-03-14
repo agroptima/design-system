@@ -12,13 +12,6 @@ const meta = {
   title: 'Design System/Atoms/CardsTable',
   component: CardsTable,
   tags: ['autodocs'],
-  subcomponents: {
-    CardsTableHead,
-    CardsTableHeader,
-    CardsTableRow,
-    CardsTableBody,
-    CardsTableCell,
-  },
 }
 
 export default meta
