@@ -15,10 +15,9 @@ type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
 
-export interface ButtonProps {
-  (props: HtmlButtonProps & BaseButtonProps): JSX.Element
-  (props: AnchorProps & BaseButtonProps): JSX.Element
-}
+export type ButtonProps =
+  | (HtmlButtonProps & BaseButtonProps)
+  | (AnchorProps & BaseButtonProps)
 
 const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
   'href' in props
@@ -43,7 +42,7 @@ export type ButtonVariant =
   | 'warning-ghost'
   | 'warning-outlined'
 
-export const Button: ButtonProps = ({
+export function Button({
   label,
   leftIcon,
   rightIcon,
@@ -51,7 +50,7 @@ export const Button: ButtonProps = ({
   variant = 'primary',
   loading = false,
   ...props
-}) => {
+}: ButtonProps) {
   if (loading) {
     leftIcon = 'Loading'
   }
