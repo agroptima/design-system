@@ -2,15 +2,7 @@ import NextLink from 'next/link'
 import './Button.scss'
 import { Icon, IconType } from './Icon'
 
-type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  href?: undefined
-}
-
-type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href?: string
-}
-
-export interface ButtonProps {
+export interface BaseButtonProps {
   label: string
   leftIcon?: IconType
   rightIcon?: IconType
@@ -19,9 +11,13 @@ export interface ButtonProps {
   disabled?: boolean
 }
 
-export interface Overload {
-  (props: HtmlButtonProps & ButtonProps): JSX.Element
-  (props: AnchorProps & ButtonProps): JSX.Element
+type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
+
+type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
+
+export interface ButtonProps {
+  (props: HtmlButtonProps & BaseButtonProps): JSX.Element
+  (props: AnchorProps & BaseButtonProps): JSX.Element
 }
 
 const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
@@ -47,7 +43,7 @@ export type ButtonVariant =
   | 'warning-ghost'
   | 'warning-outlined'
 
-export const Button: Overload = ({
+export const Button: ButtonProps = ({
   label,
   leftIcon,
   rightIcon,
@@ -63,7 +59,7 @@ export const Button: Overload = ({
 
   if (hasHref(props)) {
     return (
-      <NextLink className={cssClasses} href={props.href || ''} {...props}>
+      <NextLink href={props.href || ''} className={cssClasses} {...props}>
         {leftIcon && <Icon name={leftIcon} />}
         {label}
         {rightIcon && <Icon name={rightIcon} />}
