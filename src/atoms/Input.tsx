@@ -6,6 +6,7 @@ export type InputVariant = 'primary'
 
 export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   label: string
+  ariaLabel?: string
   hideLabel?: boolean
   icon?: IconType
   helpText?: string
@@ -16,6 +17,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
 
 export function Input({
   label,
+  ariaLabel,
   hideLabel = false,
   icon,
   helpText,
@@ -61,7 +63,7 @@ export function Input({
           disabled={disabled}
           type={handleInputType()}
           name={name}
-          aria-label={label}
+          aria-label={ariaLabel || label}
           {...props}
         />
         {type === 'password' && (

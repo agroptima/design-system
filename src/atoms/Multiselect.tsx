@@ -13,6 +13,7 @@ export interface MultiselectProps
   options: Option[]
   invalid?: boolean
   label: string
+  ariaLabel?: string
   selectedLabel?: string
   hideLabel?: boolean
   selected?: Option[]
@@ -27,6 +28,7 @@ export function Multiselect({
   name,
   options,
   label,
+  ariaLabel,
   selectedLabel = 'items selected',
   hideLabel = false,
   selected,
@@ -82,7 +84,7 @@ export function Multiselect({
           className={cssClasses}
           tabIndex={0}
           onClick={handleOptionsList}
-          aria-label={label}
+          aria-label={ariaLabel || label}
           aria-live="assertive"
           role="alert"
         >

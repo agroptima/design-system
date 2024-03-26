@@ -9,6 +9,10 @@ const meta = {
     label: {
       description: 'Label for the input',
     },
+    ariaLabel: {
+      description:
+        'Describes the input purpose. If empty, label content will be used',
+    },
     placeholder: {
       description: 'Optional input placeholder text',
     },
@@ -49,6 +53,7 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     label: 'Email:',
+    ariaLabel: 'Fill the form email',
     placeholder: 'Email...',
     variant: 'primary',
     disabled: false,

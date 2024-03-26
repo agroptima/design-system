@@ -9,6 +9,10 @@ const meta = {
     label: {
       description: 'Label for the select',
     },
+    ariaLabel: {
+      description:
+        'Describes the select purpose. If empty, label content will be used',
+    },
     variant: {
       description: 'Select variant used',
     },
@@ -54,6 +58,7 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
+    ariaLabel: 'Select your favourite gaming system options',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
     options: [
