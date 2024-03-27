@@ -37,6 +37,10 @@ const meta = {
     id: {
       description: 'Value needed for the label relation',
     },
+    errors: {
+      description:
+        'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
+    },
   },
 }
 
@@ -75,6 +79,22 @@ export const Password: Story = {
     name: 'login_password',
     type: 'password',
     id: 'password_input',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithErrors: Story = {
+  args: {
+    label: 'Email:',
+    ariaLabel: 'Fill the form email',
+    placeholder: 'Email...',
+    variant: 'primary',
+    disabled: false,
+    helpText: 'This text can help you',
+    name: 'email',
+    type: 'email',
+    id: 'email_input',
+    errors: ['error1', 'error2'],
   },
   parameters: figmaPrimaryDesign,
 }

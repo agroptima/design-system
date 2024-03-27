@@ -12,7 +12,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   helpText?: string
   variant?: InputVariant
   id: string
-  invalid?: boolean
+  errors?: string[]
 }
 
 export function Input({
@@ -26,12 +26,12 @@ export function Input({
   type = 'text',
   name,
   id,
-  invalid,
+  errors,
   ...props
 }: InputProps): React.JSX.Element {
   const [showPassword, setShowPassword] = useState(false)
   const iconClass = icon ? 'with-icon' : ''
-  const invalidClass = invalid ? 'invalid' : ''
+  const invalidClass = errors ? 'invalid' : ''
   const cssClasses = ['input', iconClass, invalidClass].join(' ')
 
   function handlePasswordIcon() {
@@ -74,7 +74,17 @@ export function Input({
           />
         )}
       </div>
-      {helpText && <span className="input-help-text">{helpText}</span>}
+      {helpText && !errors && (
+        <span className="input-help-text">{helpText}</span>
+      )}
+      {errors &&
+        errors?.map((error, index) => {
+          return (
+            <span key={`error-${index}`} className="input-help-text">
+              {error}
+            </span>
+          )
+        })}
     </div>
   )
 }
