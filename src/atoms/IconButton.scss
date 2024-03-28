@@ -1,0 +1,50 @@
+@use '../settings/color_alias';
+@use '../settings/typography';
+@use '../settings/config';
+
+.icon-button {
+  border: none;
+  background: none;
+
+  > .icon {
+    width: config.$icon-size-5x;
+    height: config.$icon-size-5x;
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.primary {
+    > .icon {
+      > svg {
+        fill: color_alias.$primary-color-600;
+        path {
+          fill: color_alias.$primary-color-600;
+        }
+      }
+    }
+
+    &:hover {
+      > .icon {
+        > svg {
+          fill: color_alias.$primary-color-1000;
+          path {
+            fill: color_alias.$primary-color-1000;
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-color-400;
+          path {
+            fill: color_alias.$neutral-color-400;
+          }
+        }
+      }
+    }
+  }
+}

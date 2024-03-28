@@ -3,6 +3,19 @@ import { Meta } from "@storybook/addon-docs";
 <Meta title="Changelog" />
 # Changelog
 
+## 0.5.0
+
+- IconButton component is added to Storybook.
+- Edit and Delete icons have been added.
+- Button outlined disabled styles have been changed to make them look the same as the filled disabled styles.
+- `accessibilityLabel` specific prop has been added as optional to Button, Input, Select and Multiselect components.
+- Select and Multiselect can be closed too when losing focus.
+- Select and Multiselect accept native props.
+- Select component triggers `onChange` event prop.
+
+BREAKING CHANGES
+- Input, Select and Multiselect components accept an `errors` array prop. Previous `invalid` prop is deprecated.
+
 ## 0.4.0
 
 - CardsTable component suitable to create custom tables is added to Storybook.

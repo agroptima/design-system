@@ -146,7 +146,7 @@
     }
     &:disabled {
       background: color_alias.$neutral-color-50;
-      border: 1px solid color_alias.$neutral-color-400;
+      border: none;
       color: color_alias.$neutral-color-400;
       svg,
       svg path {

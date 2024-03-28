@@ -6,13 +6,14 @@ export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
 export interface MultiselectProps
-  extends React.ComponentPropsWithoutRef<'select'> {
+  extends React.ComponentPropsWithoutRef<'input'> {
   placeholder?: string
   helpText?: string
   variant?: Variant
   options: Option[]
-  invalid?: boolean
+  errors?: string[]
   label: string
+  accessibilityLabel?: string
   selectedLabel?: string
   hideLabel?: boolean
   selected?: Option[]
@@ -23,13 +24,15 @@ export function Multiselect({
   helpText,
   variant = 'primary',
   disabled,
-  invalid,
+  errors,
   name,
   options,
   label,
+  accessibilityLabel,
   selectedLabel = 'items selected',
   hideLabel = false,
   selected,
+  ...props
 }: MultiselectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>(
@@ -39,7 +42,7 @@ export function Multiselect({
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = selectedOptionsIds.length > 0 ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
-  const invalidClass = invalid ? 'invalid' : ''
+  const invalidClass = errors ? 'invalid' : ''
 
   const cssClasses = [
     'selected-option',
@@ -74,15 +77,22 @@ export function Multiselect({
     return selectedOptionsIds.includes(optionId)
   }
 
+  function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
+    const isAComponentElement = event.relatedTarget
+    if (!isAComponentElement) {
+      setShowOptionsList(false)
+    }
+  }
+
   return (
     <div className={`multiselect-group ${variant}`}>
       {!hideLabel && <span className="multiselect-label">{label}</span>}
-      <div className="multiselect-container">
+      <div className="multiselect-container" onBlur={handleBlur}>
         <div
           className={cssClasses}
           tabIndex={0}
           onClick={handleOptionsList}
-          aria-label={label}
+          aria-label={accessibilityLabel || label}
           aria-live="assertive"
           role="alert"
         >
@@ -99,6 +109,7 @@ export function Multiselect({
               return (
                 <li
                   className="option"
+                  tabIndex={0}
                   role="option"
                   aria-selected={isOptionSelected(option.id)}
                   data-option={option}
@@ -119,12 +130,25 @@ export function Multiselect({
           </ul>
         )}
       </div>
-      {helpText && (
+      {helpText && !errors && (
         <span className={`multiselect-help-text ${invalidClass}`}>
           {helpText}
         </span>
       )}
-      <input type="hidden" name={name} value={selectedOptionsIds.toString()} />
+      {errors &&
+        errors?.map((error, index) => {
+          return (
+            <span key={`error-${index}`} className="multiselect-help-text">
+              {error}
+            </span>
+          )
+        })}
+      <input
+        type="hidden"
+        name={name}
+        value={selectedOptionsIds.toString()}
+        {...props}
+      />
     </div>
   )
 }

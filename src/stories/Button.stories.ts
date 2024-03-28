@@ -12,6 +12,10 @@ const meta = {
     label: {
       description: 'Button text content',
     },
+    accessibilityLabel: {
+      description:
+        'Describes the button action. If empty, label content will be used',
+    },
     variant: {
       description: 'Button variant used from a list of values',
     },
@@ -96,6 +100,7 @@ export const Primary: Story = {
     variant: 'primary',
     disabled: false,
     loading: false,
+    accessibilityLabel: 'Triggers a custom action',
   },
   parameters: figmaPrimaryDesign,
 }
