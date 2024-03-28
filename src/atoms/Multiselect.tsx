@@ -11,7 +11,7 @@ export interface MultiselectProps
   helpText?: string
   variant?: Variant
   options: Option[]
-  invalid?: boolean
+  errors?: string[]
   label: string
   accessibilityLabel?: string
   selectedLabel?: string
@@ -24,7 +24,7 @@ export function Multiselect({
   helpText,
   variant = 'primary',
   disabled,
-  invalid,
+  errors,
   name,
   options,
   label,
@@ -42,7 +42,7 @@ export function Multiselect({
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = selectedOptionsIds.length > 0 ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
-  const invalidClass = invalid ? 'invalid' : ''
+  const invalidClass = errors ? 'invalid' : ''
 
   const cssClasses = [
     'selected-option',
@@ -130,11 +130,19 @@ export function Multiselect({
           </ul>
         )}
       </div>
-      {helpText && (
+      {helpText && !errors && (
         <span className={`multiselect-help-text ${invalidClass}`}>
           {helpText}
         </span>
       )}
+      {errors &&
+        errors?.map((error, index) => {
+          return (
+            <span key={`error-${index}`} className="multiselect-help-text">
+              {error}
+            </span>
+          )
+        })}
       <input
         type="hidden"
         name={name}

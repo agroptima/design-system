@@ -37,6 +37,10 @@ const meta = {
     selected: {
       description: 'Value to be displayed as selected',
     },
+    errors: {
+      description:
+        'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
+    },
   },
 }
 
@@ -54,7 +58,6 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     disabled: false,
-    invalid: false,
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
@@ -76,7 +79,6 @@ export const PrimaryWithSelectedOptions: Story = {
   args: {
     variant: 'primary',
     disabled: false,
-    invalid: false,
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
@@ -89,6 +91,28 @@ export const PrimaryWithSelectedOptions: Story = {
     ],
     selected: { id: '2', label: 'PlayStation 5' },
     id: 'select-videogames',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const PrimaryWithErrors: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    helpText: 'This text can help you',
+    name: 'example',
+    label: 'Videogames',
+    accessibilityLabel: 'Select your favourite gaming system options',
+    hideLabel: false,
+    placeholder: 'Select your favourite gaming system...',
+    options: [
+      { id: '1', label: 'Nintendo Switch' },
+      { id: '2', label: 'PlayStation 5' },
+      { id: '3', label: 'Xbox Series S/X' },
+    ],
+    id: 'select-videogames',
+    errors: ['error1', 'error2'],
+    onChange: (optionId) => console.log('onChange optionId:', optionId),
   },
   parameters: figmaPrimaryDesign,
 }

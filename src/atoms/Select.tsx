@@ -10,7 +10,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'input'> {
   helpText?: string
   variant?: Variant
   options: Option[]
-  invalid?: boolean
+  errors?: string[]
   label: string
   accessibilityLabel?: string
   hideLabel?: boolean
@@ -22,7 +22,7 @@ export function Select({
   helpText,
   variant = 'primary',
   disabled,
-  invalid,
+  errors,
   name,
   options,
   label,
@@ -40,7 +40,7 @@ export function Select({
   const optionsListOpenClass = showOptionsList ? 'open' : ''
   const filledSelectClass = selectedOption.id ? 'filled' : ''
   const disabledClass = disabled ? 'disabled' : ''
-  const invalidClass = invalid ? 'invalid' : ''
+  const invalidClass = errors ? 'invalid' : ''
 
   const cssClasses = [
     'selected-option',
@@ -108,7 +108,17 @@ export function Select({
           </ul>
         )}
       </div>
-      {helpText && <span className="select-help-text">{helpText}</span>}
+      {helpText && !errors && (
+        <span className="select-help-text">{helpText}</span>
+      )}
+      {errors &&
+        errors?.map((error, index) => {
+          return (
+            <span key={`error-${index}`} className="select-help-text">
+              {error}
+            </span>
+          )
+        })}
       <input type="hidden" name={name} value={selectedOption.id} {...props} />
     </div>
   )
