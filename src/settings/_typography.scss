@@ -68,6 +68,16 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   line-height: 0.775rem;
 }
 
+@mixin form-disabled-label {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 300;
+  font-family: $font-base-family;
+  color: color_alias.$neutral-color-400;
+  font-size: 0.875rem;
+  line-height: 0.775rem;
+}
+
 @mixin cards-table-list-header {
   font-style: $text-base-style;
   font-variant: $text-base-style;
