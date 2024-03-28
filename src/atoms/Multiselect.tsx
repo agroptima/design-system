@@ -76,10 +76,17 @@ export function Multiselect({
     return selectedOptionsIds.includes(optionId)
   }
 
+  function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
+    const isAComponentElement = event.relatedTarget
+    if (!isAComponentElement) {
+      setShowOptionsList(false)
+    }
+  }
+
   return (
     <div className={`multiselect-group ${variant}`}>
       {!hideLabel && <span className="multiselect-label">{label}</span>}
-      <div className="multiselect-container">
+      <div className="multiselect-container" onBlur={handleBlur}>
         <div
           className={cssClasses}
           tabIndex={0}
@@ -101,6 +108,7 @@ export function Multiselect({
               return (
                 <li
                   className="option"
+                  tabIndex={0}
                   role="option"
                   aria-selected={isOptionSelected(option.id)}
                   data-option={option}

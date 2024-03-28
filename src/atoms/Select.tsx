@@ -62,10 +62,17 @@ export function Select({
     return showOptionsList ? 'AngleUp' : 'AngleDown'
   }
 
+  function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
+    const isAComponentElement = event.relatedTarget
+    if (!isAComponentElement) {
+      setShowOptionsList(false)
+    }
+  }
+
   return (
     <div className={`select-group ${variant}`}>
       {!hideLabel && <span className="select-label">{label}</span>}
-      <div className="select-container">
+      <div className="select-container" onBlur={handleBlur}>
         <div
           className={cssClasses}
           tabIndex={0}
@@ -83,6 +90,7 @@ export function Select({
               return (
                 <li
                   className="option"
+                  tabIndex={0}
                   role="option"
                   aria-selected={selectedOption.id === option.id}
                   data-option={option}
