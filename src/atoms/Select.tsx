@@ -55,8 +55,11 @@ export function Select({
   }
 
   function selectOption(option: Option) {
+    const { onChange } = props
     setSelectedOption(option)
     setShowOptionsList(false)
+
+    if (onChange !== undefined) onChange(option.id)
   }
 
   function handleSelectIcon() {

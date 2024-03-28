@@ -67,6 +67,7 @@ export const Primary: Story = {
       { id: '3', label: 'Xbox Series S/X' },
     ],
     id: 'select-videogames',
+    onChange: (optionId) => console.log('onChange optionId:', optionId),
   },
   parameters: figmaPrimaryDesign,
 }
