@@ -5,7 +5,7 @@ import { Icon } from './Icon'
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
+export interface SelectProps extends React.ComponentPropsWithoutRef<'input'> {
   placeholder?: string
   helpText?: string
   variant?: Variant
@@ -29,6 +29,7 @@ export function Select({
   accessibilityLabel,
   hideLabel = false,
   selected,
+  ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option>({
@@ -105,7 +106,7 @@ export function Select({
         )}
       </div>
       {helpText && <span className="select-help-text">{helpText}</span>}
-      <input type="hidden" name={name} value={selectedOption.id} />
+      <input type="hidden" name={name} value={selectedOption.id} {...props} />
     </div>
   )
 }

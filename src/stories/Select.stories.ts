@@ -66,6 +66,7 @@ export const Primary: Story = {
       { id: '2', label: 'PlayStation 5' },
       { id: '3', label: 'Xbox Series S/X' },
     ],
+    id: 'select-videogames',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -86,6 +87,7 @@ export const PrimaryWithSelectedOptions: Story = {
       { id: '3', label: 'Xbox Series S/X' },
     ],
     selected: { id: '2', label: 'PlayStation 5' },
+    id: 'select-videogames',
   },
   parameters: figmaPrimaryDesign,
 }

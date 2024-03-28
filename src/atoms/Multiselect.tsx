@@ -6,7 +6,7 @@ export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
 export interface MultiselectProps
-  extends React.ComponentPropsWithoutRef<'select'> {
+  extends React.ComponentPropsWithoutRef<'input'> {
   placeholder?: string
   helpText?: string
   variant?: Variant
@@ -32,6 +32,7 @@ export function Multiselect({
   selectedLabel = 'items selected',
   hideLabel = false,
   selected,
+  ...props
 }: MultiselectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>(
@@ -134,7 +135,12 @@ export function Multiselect({
           {helpText}
         </span>
       )}
-      <input type="hidden" name={name} value={selectedOptionsIds.toString()} />
+      <input
+        type="hidden"
+        name={name}
+        value={selectedOptionsIds.toString()}
+        {...props}
+      />
     </div>
   )
 }

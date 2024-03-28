@@ -73,6 +73,7 @@ export const Primary: Story = {
       { id: '5', label: 'Super Mario Bros' },
       { id: '6', label: 'Red Dead Redemption' },
     ],
+    id: 'multiselect-videogames',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -100,6 +101,7 @@ export const PrimaryWithSelectedOptions: Story = {
       { id: '2', label: 'Spyro the Dragon' },
       { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
     ],
+    id: 'multiselect-videogames',
   },
   parameters: figmaPrimaryDesign,
 }
