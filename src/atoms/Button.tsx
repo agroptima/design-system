@@ -4,7 +4,7 @@ import { Icon, IconType } from './Icon'
 
 export interface BaseButtonProps {
   label: string
-  ariaLabel?: string
+  accessibilityLabel?: string
   leftIcon?: IconType
   rightIcon?: IconType
   variant?: ButtonVariant
@@ -45,7 +45,7 @@ export type ButtonVariant =
 
 export function Button({
   label,
-  ariaLabel,
+  accessibilityLabel,
   leftIcon,
   rightIcon,
   disabled,
@@ -63,7 +63,7 @@ export function Button({
       <NextLink
         href={props.href || ''}
         className={cssClasses}
-        aria-label={ariaLabel || label}
+        aria-label={accessibilityLabel || label}
         {...props}
       >
         {leftIcon && <Icon name={leftIcon} />}
@@ -77,7 +77,7 @@ export function Button({
     <button
       className={cssClasses}
       disabled={loading || disabled}
-      aria-label={ariaLabel || label}
+      aria-label={accessibilityLabel || label}
       {...props}
     >
       {leftIcon && <Icon name={leftIcon} />}

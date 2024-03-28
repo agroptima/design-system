@@ -8,7 +8,7 @@ export interface BaseIconButtonProps {
   icon: IconType
   variant?: Variant
   disabled?: boolean
-  ariaLabel: string
+  accessibilityLabel: string
 }
 
 type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -23,7 +23,7 @@ const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
   'href' in props
 
 export function IconButton({
-  ariaLabel,
+  accessibilityLabel,
   icon,
   disabled,
   variant = 'primary',
@@ -36,7 +36,7 @@ export function IconButton({
       <NextLink
         href={props.href || ''}
         className={cssClasses}
-        aria-label={ariaLabel}
+        aria-label={accessibilityLabel}
         {...props}
       >
         <Icon name={icon} />
@@ -48,7 +48,7 @@ export function IconButton({
     <button
       className={cssClasses}
       disabled={disabled}
-      aria-label={ariaLabel}
+      aria-label={accessibilityLabel}
       {...props}
     >
       <Icon name={icon} />

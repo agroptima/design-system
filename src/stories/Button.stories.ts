@@ -12,7 +12,7 @@ const meta = {
     label: {
       description: 'Button text content',
     },
-    ariaLabel: {
+    accessibilityLabel: {
       description:
         'Describes the button action. If empty, label content will be used',
     },
@@ -100,7 +100,7 @@ export const Primary: Story = {
     variant: 'primary',
     disabled: false,
     loading: false,
-    ariaLabel: 'Triggers a custom action',
+    accessibilityLabel: 'Triggers a custom action',
   },
   parameters: figmaPrimaryDesign,
 }

@@ -9,7 +9,7 @@ const meta = {
     label: {
       description: 'Label for the input',
     },
-    ariaLabel: {
+    accessibilityLabel: {
       description:
         'Describes the input purpose. If empty, label content will be used',
     },
@@ -57,7 +57,7 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     label: 'Email:',
-    ariaLabel: 'Fill the form email',
+    accessibilityLabel: 'Fill the form email',
     placeholder: 'Email...',
     variant: 'primary',
     disabled: false,
@@ -86,7 +86,7 @@ export const Password: Story = {
 export const WithErrors: Story = {
   args: {
     label: 'Email:',
-    ariaLabel: 'Fill the form email',
+    accessibilityLabel: 'Fill the form email',
     placeholder: 'Email...',
     variant: 'primary',
     disabled: false,

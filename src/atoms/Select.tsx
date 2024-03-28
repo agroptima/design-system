@@ -12,7 +12,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
   options: Option[]
   invalid?: boolean
   label: string
-  ariaLabel?: string
+  accessibilityLabel?: string
   hideLabel?: boolean
   selected?: Option
 }
@@ -26,7 +26,7 @@ export function Select({
   name,
   options,
   label,
-  ariaLabel,
+  accessibilityLabel,
   hideLabel = false,
   selected,
 }: SelectProps): React.JSX.Element {
@@ -70,7 +70,7 @@ export function Select({
           className={cssClasses}
           tabIndex={0}
           onClick={handleOptionsList}
-          aria-label={ariaLabel || label}
+          aria-label={accessibilityLabel || label}
           aria-live="assertive"
           role="alert"
         >

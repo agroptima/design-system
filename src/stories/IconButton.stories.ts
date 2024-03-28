@@ -6,7 +6,7 @@ const meta = {
   component: IconButton,
   tags: ['autodocs'],
   argTypes: {
-    ariaLabel: {
+    accessibilityLabel: {
       description: 'Accessible name & description of the element',
     },
     variant: {
@@ -40,7 +40,7 @@ export const Link: Story = {
   args: {
     icon: 'Edit',
     variant: 'primary',
-    ariaLabel: 'Edit game',
+    accessibilityLabel: 'Edit game',
     href: 'link.com',
     disabled: false,
   },
@@ -51,7 +51,7 @@ export const Primary: Story = {
   args: {
     icon: 'Delete',
     variant: 'primary',
-    ariaLabel: 'Delete game',
+    accessibilityLabel: 'Delete game',
     disabled: false,
   },
   parameters: figmaPrimaryDesign,

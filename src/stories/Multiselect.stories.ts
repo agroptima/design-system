@@ -9,7 +9,7 @@ const meta = {
     label: {
       description: 'Label for the select',
     },
-    ariaLabel: {
+    accessibilityLabel: {
       description:
         'Describes the select purpose. If empty, label content will be used',
     },
@@ -62,7 +62,7 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
-    ariaLabel: 'Select your favourite videogames options',
+    accessibilityLabel: 'Select your favourite videogames options',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
     options: [
