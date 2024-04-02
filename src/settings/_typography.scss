@@ -68,6 +68,24 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
   line-height: 0.775rem;
 }
 
+@mixin checkbox-label {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  font-size: 1rem;
+  color: color_alias.$neutral-color-1000;
+}
+
+@mixin checkbox-disabled-label {
+  font-style: $text-base-style;
+  font-variant: $text-base-style;
+  font-weight: 400;
+  font-family: $font-base-family;
+  font-size: 1rem;
+  color: color_alias.$neutral-color-400;
+}
+
 @mixin cards-table-list-header {
   font-style: $text-base-style;
   font-variant: $text-base-style;

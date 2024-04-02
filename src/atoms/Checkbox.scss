@@ -1,0 +1,71 @@
+@use '../settings/color_alias';
+@use '../settings/typography';
+@use '../settings/config';
+
+.checkbox-group {
+  .checkbox-label-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: config.$space-1x;
+
+    .background-icon {
+      width: config.$icon-size-4x;
+      height: config.$icon-size-4x;
+    }
+
+    .label {
+      @include typography.checkbox-label;
+    }
+  }
+
+  &.primary {
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    input[type='checkbox'] + .checkbox-label-container .background-icon {
+      background: url('../icons/checkbox-primary-inactive.svg') left top
+        no-repeat;
+    }
+
+    input[type='checkbox']:checked
+      + .checkbox-label-container
+      .background-icon {
+      background: url('../icons/checkbox-primary-active.svg') left top no-repeat;
+    }
+
+    // Disabled
+    input[type='checkbox']
+      + .checkbox-label-container.disabled
+      .background-icon {
+      background: url('../icons/checkbox-disabled-inactive.svg') left top
+        no-repeat;
+    }
+
+    input[type='checkbox']:checked
+      + .checkbox-label-container.disabled
+      .background-icon {
+      background: url('../icons/checkbox-disabled-active.svg') left top
+        no-repeat;
+    }
+
+    .checkbox-label-container {
+      &.disabled {
+        .label {
+          @include typography.checkbox-disabled-label;
+        }
+      }
+    }
+
+    // Hover
+    &:hover {
+      input[type='checkbox']:not(:checked)
+        + .checkbox-label-container:not(.disabled)
+        .background-icon {
+        background: url('../icons/checkbox-primary-hover-inactive.svg') left top
+          no-repeat;
+      }
+    }
+  }
+}
