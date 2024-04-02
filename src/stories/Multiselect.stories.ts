@@ -9,6 +9,10 @@ const meta = {
     label: {
       description: 'Label for the select',
     },
+    accessibilityLabel: {
+      description:
+        'Describes the select purpose. If empty, label content will be used',
+    },
     selectedLabel: {
       description: 'Label used when having selected values',
     },
@@ -16,9 +20,6 @@ const meta = {
       description: 'Select variant used',
     },
     disabled: {
-      description: 'Is the select in disabled state?',
-    },
-    invalid: {
       description: 'Is the select in disabled state?',
     },
     helpText: {
@@ -35,6 +36,10 @@ const meta = {
     },
     selected: {
       description: 'Array of values to be displayed as selected',
+    },
+    errors: {
+      description:
+        'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
   },
 }
@@ -53,11 +58,11 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     disabled: false,
-    invalid: false,
     hideLabel: false,
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
+    accessibilityLabel: 'Select your favourite videogames options',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
     options: [
@@ -68,6 +73,7 @@ export const Primary: Story = {
       { id: '5', label: 'Super Mario Bros' },
       { id: '6', label: 'Red Dead Redemption' },
     ],
+    id: 'multiselect-videogames',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -76,7 +82,6 @@ export const PrimaryWithSelectedOptions: Story = {
   args: {
     variant: 'primary',
     disabled: false,
-    invalid: false,
     hideLabel: false,
     helpText: 'This text can help you',
     name: 'example',
@@ -95,6 +100,32 @@ export const PrimaryWithSelectedOptions: Story = {
       { id: '2', label: 'Spyro the Dragon' },
       { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
     ],
+    id: 'multiselect-videogames',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const PrimaryWithErrors: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    hideLabel: false,
+    helpText: 'This text can help you',
+    name: 'example',
+    label: 'Videogames',
+    accessibilityLabel: 'Select your favourite videogames options',
+    selectedLabel: 'videogames selected',
+    placeholder: 'Select your favourite videogames...',
+    options: [
+      { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
+      { id: '2', label: 'Spyro the Dragon' },
+      { id: '3', label: 'Halo' },
+      { id: '4', label: 'Tetris' },
+      { id: '5', label: 'Super Mario Bros' },
+      { id: '6', label: 'Red Dead Redemption' },
+    ],
+    id: 'multiselect-videogames',
+    errors: ['error1', 'error2'],
   },
   parameters: figmaPrimaryDesign,
 }
