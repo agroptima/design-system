@@ -15,7 +15,7 @@
     }
 
     .label {
-      @include typography.form-label;
+      @include typography.checkbox-label;
     }
   }
 
@@ -53,7 +53,7 @@
     .checkbox-label-container {
       &.disabled {
         .label {
-          @include typography.form-disabled-label;
+          @include typography.checkbox-disabled-label;
         }
       }
     }

@@ -3,7 +3,7 @@ import './Checkbox.scss'
 export type Variant = 'primary'
 
 export interface CheckboxProps extends React.ComponentPropsWithoutRef<'input'> {
-  label: string
+  label?: string
   hideLabel?: boolean
   variant?: Variant
   id: string
