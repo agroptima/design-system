@@ -14,5 +14,9 @@ export const Icon: React.FC<IconProps> = ({ name, className, ...props }) => {
     className,
     name === 'Loading' ? 'rotate' : '',
   ].join(' ')
-  return <span className={cssClasses}>{icons[name](props)}</span>
+  return (
+    <span role="img" title={name} className={cssClasses}>
+      {icons[name](props)}
+    </span>
+  )
 }
