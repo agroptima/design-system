@@ -1,5 +1,5 @@
 @use '../settings/color_alias';
-@use '../settings/typography';
+@use '../settings/typography/form' as typography;
 @use '../settings/config';
 
 .checkbox-group {

@@ -1,5 +1,5 @@
 @use '../settings/color_alias';
-@use '../settings/typography';
+@use '../settings/typography/cards_table' as typography;
 @use '../settings/config';
 
 .cards-table-list {

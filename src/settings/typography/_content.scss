@@ -1,0 +1,132 @@
+@use '../color_alias';
+// 87.5 = SemiCondensed , 400..600 normal, medium, semibold
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@87.5,100..600';
+
+@mixin base {
+  font-style: 1rem;
+  font-variant: normal;
+  font-weight: 400;
+  font-family:
+    Noto Sans,
+    sans-serif;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+@mixin h1 {
+  @include base;
+  font-weight: 700;
+  color: color_alias.$neutral-color-1000;
+  font-size: 2.375rem;
+  line-height: 2.875rem;
+  margin: 0;
+}
+
+@mixin h2 {
+  @include base;
+  font-weight: 700;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1.875rem;
+  line-height: 2.375rem;
+  margin: 0;
+}
+
+@mixin h3 {
+  @include base;
+  font-weight: 700;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0;
+}
+
+@mixin h4 {
+  @include base;
+  font-weight: 700;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin: 0;
+}
+
+@mixin body-regular-primary {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-regular-secondary {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$neutral-color-600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-regular-disabled {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$neutral-color-400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-regular-error {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$error-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-regular-warning {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$warning-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-medium {
+  @include base;
+  font-weight: 600;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-bold {
+  @include base;
+  font-weight: 700;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin body-underline {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$neutral-color-1000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-decoration-line: underline;
+}
+
+@mixin footnote-primary {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$neutral-color-600;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+@mixin footnote-error {
+  @include base;
+  font-weight: 400;
+  color: color_alias.$error-color-1000;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
