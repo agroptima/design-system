@@ -13,7 +13,7 @@
 
   &:has(.input.invalid) {
     & .input-help-text {
-      color: color_alias.$error-color-1000;
+      @include typography.form-help-text-error;
     }
   }
 

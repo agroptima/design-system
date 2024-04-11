@@ -10,7 +10,7 @@
 
   &:has(.selected-option.invalid) {
     & .multiselect-help-text {
-      color: color_alias.$error-color-1000;
+      @include typography.form-help-text-error;
     }
   }
 

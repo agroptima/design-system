@@ -26,6 +26,16 @@ $font-primary: $font-base-stretch $text-base-style $font-base-weight #{$text-bas
     // line-height: 0.6875rem;
 ;
 }
+
+@mixin form-help-text-error {
+  @include footnote-error
+    // We need to apply a relation between font-size and line-height so the box envoloping the span
+    // is the most accurate in terms of top and bottom blank space.
+    // font-size: 0.75rem;
+    // line-height: 0.6875rem;
+;
+}
+
 @mixin input-text {
   @include body-regular-primary;
 }
