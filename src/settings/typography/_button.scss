@@ -1,6 +1,0 @@
-@use '../color_alias';
-@use './content';
-
-@mixin button-text {
-  @include content.body-medium;
-}

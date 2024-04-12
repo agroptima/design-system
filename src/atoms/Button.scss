@@ -1,5 +1,5 @@
 @use '../settings/color_alias';
-@use '../settings/typography/button' as typography;
+@use '../settings/typography/content' as typography;
 @use '../settings/config';
 
 @mixin button-style($main-color, $secondary-color, $hover-color) {
@@ -42,7 +42,7 @@
     }
   }
 
-  @include typography.button-text;
+  @include typography.body-medium;
 
   &.primary {
     @include button-style(
