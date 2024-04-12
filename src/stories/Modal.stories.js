@@ -1,7 +1,13 @@
 import React from 'react'
 
 import { Modal } from '../atoms/Modal'
-import { Button } from '../atoms/Button'
+
+const figmaPrimaryDesign = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/DN2ova21vWqCRvPspBXgI1/Design-System?type=design&node-id=1992-142&mode=dev',
+  },
+}
 
 const meta = {
   title: 'Design System/Atoms/Modal',
@@ -24,6 +30,7 @@ const meta = {
       description: 'Boolean to control the component visibility state',
     },
   },
+  parameters: figmaPrimaryDesign,
 }
 
 export default meta
