@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
@@ -8,6 +8,7 @@
     "build-storybook": "storybook build",
     "lint": "eslint",
     "lint:fix": "eslint src --fix",
+    "types": "tsc --noEmit",
     "chromatic": "npx chromatic --exit-zero-on-changes",
     "test": "jest"
   },
