@@ -1,5 +1,5 @@
 @use '../settings/color_alias';
-@use '../settings/typography';
+@use '../settings/typography/content' as typography;
 @use '../settings/config';
 @use '../settings/depth';
 
@@ -30,7 +30,8 @@
     }
 
     > p {
-      @include typography.empty-state-text;
+      @include typography.body-regular-primary;
+      text-align: center;
     }
   }
 }

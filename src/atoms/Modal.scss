@@ -1,0 +1,134 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+
+  .modal {
+    display: flex;
+    position: relative;
+    padding: config.$space-5x;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: config.$space-2x;
+    flex-grow: 1;
+    border-radius: config.$corner-radius-xxs;
+    background: color_alias.$neutral-white;
+    max-width: 34.5rem;
+    z-index: depth.$z-modal;
+    box-shadow:
+      0px 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+      0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    .header {
+      display: flex;
+      gap: config.$space-2x;
+      align-items: center;
+
+      .icon {
+        width: config.$icon-size-5x;
+        height: config.$icon-size-5x;
+        > svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .title {
+        @include typography.h4;
+      }
+    }
+
+    .body {
+      @include typography.body-regular-primary;
+    }
+
+    .footer {
+      display: flex;
+      align-self: flex-end;
+      gap: config.$space-3x;
+    }
+
+    &.info {
+      .header {
+        .icon {
+          > svg {
+            fill: color_alias.$info-color-1000;
+            path {
+              fill: color_alias.$info-color-1000;
+            }
+          }
+        }
+      }
+    }
+
+    &.success {
+      .header {
+        .icon {
+          > svg {
+            fill: color_alias.$success-color-1000;
+            path {
+              fill: color_alias.$success-color-1000;
+            }
+          }
+        }
+      }
+    }
+
+    &.warning {
+      .header {
+        .icon {
+          > svg {
+            fill: color_alias.$warning-color-1000;
+            path {
+              fill: color_alias.$warning-color-1000;
+            }
+          }
+        }
+      }
+    }
+
+    &.discard {
+      .header {
+        .icon {
+          > svg {
+            fill: color_alias.$warning-color-1000;
+            path {
+              fill: color_alias.$warning-color-1000;
+            }
+          }
+        }
+      }
+    }
+
+    &.error {
+      .header {
+        .icon {
+          > svg {
+            fill: color_alias.$error-color-1000;
+            path {
+              fill: color_alias.$error-color-1000;
+            }
+          }
+        }
+      }
+    }
+
+    + .backdrop {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+      background: color_alias.$neutral-color-900;
+      z-index: depth.$z-modal-backdrop;
+    }
+  }
+}

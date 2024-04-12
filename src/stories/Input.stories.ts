@@ -56,7 +56,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    label: 'Email:',
+    label: 'Email',
     accessibilityLabel: 'Fill the form email',
     placeholder: 'Email...',
     variant: 'primary',
@@ -71,7 +71,7 @@ export const Primary: Story = {
 
 export const Password: Story = {
   args: {
-    label: 'Password:',
+    label: 'Password',
     placeholder: 'Password...',
     variant: 'primary',
     disabled: false,
@@ -85,7 +85,7 @@ export const Password: Story = {
 
 export const WithErrors: Story = {
   args: {
-    label: 'Email:',
+    label: 'Email',
     accessibilityLabel: 'Fill the form email',
     placeholder: 'Email...',
     variant: 'primary',

@@ -1,0 +1,19 @@
+@use '../color_alias';
+@use './content';
+
+@mixin cards-table-list-header {
+  @include content.body-medium;
+  color: color_alias.$neutral-white;
+}
+
+@mixin cards-table-list-highlight-text {
+  @include content.body-bold;
+}
+
+@mixin cards-table-list-text {
+  @include content.body-regular-primary;
+}
+
+@mixin cards-table-list-disabled-text {
+  @include content.body-regular-disabled;
+}

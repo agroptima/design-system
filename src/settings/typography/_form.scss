@@ -1,0 +1,40 @@
+@use '../color_alias';
+@use './content';
+
+@mixin form-help-text {
+  @include content.footnote-primary;
+}
+
+@mixin form-help-text-error {
+  @include content.footnote-error;
+}
+
+@mixin input-text {
+  @include content.body-regular-primary;
+}
+
+@mixin input-placeholder-text {
+  @include content.body-regular-secondary
+    // We shouldn't define a font-size for the placeholder: https://stackoverflow.com/questions/30916387/placeholder-font-size-bigger-than-16px
+;
+}
+
+@mixin select-text {
+  @include content.body-regular-secondary;
+}
+
+@mixin select-option-text {
+  @include content.body-regular-primary;
+}
+
+@mixin form-label {
+  @include content.body-regular-primary;
+}
+
+@mixin checkbox-label {
+  @include content.body-regular-primary;
+}
+
+@mixin checkbox-disabled-label {
+  @include content.body-regular-disabled;
+}
