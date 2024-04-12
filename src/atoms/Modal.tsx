@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Button, ButtonProps } from './Button'
 import { Icon } from './Icon'
 import './Modal.scss'
@@ -34,11 +34,12 @@ export function Modal({
 
   const cssClasses = ['modal', variant].join(' ')
 
-  function hideModal(button: ButtonProps) {
-    const { onClick } = button
-    setIsModalShown(false)
+  function withHideModal(onClick?: React.MouseEventHandler | undefined) {
+    return function (event: React.MouseEvent<Element, MouseEvent>) {
+      setIsModalShown(false)
 
-    if (onClick !== undefined) onClick()
+      if (onClick !== undefined) onClick(event)
+    }
   }
 
   return (
@@ -62,11 +63,11 @@ export function Modal({
               {children}
             </div>
             <div className="footer">
-              {buttons.map((button) => (
+              {buttons.map(({ onClick, ...button }) => (
                 <Button
                   key={button.label}
                   {...button}
-                  onClick={() => hideModal(button)}
+                  onClick={withHideModal(onClick)}
                 />
               ))}
             </div>
