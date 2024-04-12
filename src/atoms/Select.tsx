@@ -5,7 +5,11 @@ import { Icon } from './Icon'
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-export interface SelectProps extends React.ComponentPropsWithoutRef<'input'> {
+type InputPropsWithoutOnChange = Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  'onChange'
+>
+export interface SelectProps extends InputPropsWithoutOnChange {
   placeholder?: string
   helpText?: string
   variant?: Variant
@@ -15,6 +19,7 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'input'> {
   accessibilityLabel?: string
   hideLabel?: boolean
   selected?: Option
+  onChange?: (value: string) => void
 }
 
 export function Select({
@@ -29,6 +34,7 @@ export function Select({
   accessibilityLabel,
   hideLabel = false,
   selected,
+  onChange,
   ...props
 }: SelectProps): React.JSX.Element {
   const [showOptionsList, setShowOptionsList] = useState(false)
@@ -55,7 +61,6 @@ export function Select({
   }
 
   function selectOption(option: Option) {
-    const { onChange } = props
     setSelectedOption(option)
     setShowOptionsList(false)
 
