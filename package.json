@@ -8,6 +8,7 @@
     "build-storybook": "storybook build",
     "lint": "eslint",
     "lint:fix": "eslint src --fix",
+    "types": "tsc --noEmit",
     "chromatic": "npx chromatic --exit-zero-on-changes",
     "test": "jest"
   },
