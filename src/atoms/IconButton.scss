@@ -4,6 +4,7 @@
 .icon-button {
   border: none;
   background: none;
+  cursor: default;
 
   > .icon {
     width: config.$icon-size-5x;

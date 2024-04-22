@@ -1,0 +1,61 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 config.$space-2x 0.063rem config.$space-2x;
+  border: 1px solid transparent;
+  border-radius: config.$corner-radius-xxl;
+  width: fit-content;
+  text-align: center;
+
+  @include typography.footnote-primary;
+
+  &.info {
+    background: color_alias.$info-color-600;
+    color: color_alias.$neutral-white;
+  }
+
+  &.success {
+    background: color_alias.$success-color-1000;
+    color: color_alias.$neutral-color-900;
+  }
+
+  &.warning {
+    background: color_alias.$warning-color-1000;
+    color: color_alias.$neutral-color-900;
+  }
+
+  &.error {
+    background: color_alias.$error-color-600;
+    color: color_alias.$neutral-white;
+  }
+
+  &.info-outlined {
+    background: color_alias.$info-color-50;
+    color: color_alias.$neutral-color-1000;
+    border: 1px solid color_alias.$info-color-1000;
+  }
+
+  &.success-outlined {
+    background: color_alias.$success-color-50;
+    color: color_alias.$neutral-color-1000;
+    border: 1px solid color_alias.$success-color-300;
+  }
+
+  &.warning-outlined {
+    background: color_alias.$warning-color-50;
+    color: color_alias.$neutral-color-1000;
+    border: 1px solid color_alias.$warning-color-1000;
+  }
+
+  &.error-outlined {
+    background: color_alias.$error-color-50;
+    color: color_alias.$neutral-color-1000;
+    border: 1px solid color_alias.$error-color-1000;
+  }
+}
