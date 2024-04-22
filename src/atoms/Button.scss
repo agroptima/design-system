@@ -27,6 +27,7 @@
   align-items: center;
   flex-shrink: 0;
   gap: config.$space-1x;
+  cursor: default;
   height: fit-content;
   padding: config.$space-2x config.$space-3x;
   border-radius: config.$corner-radius-m;
