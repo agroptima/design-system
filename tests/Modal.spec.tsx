@@ -60,27 +60,4 @@ describe('Modal', () => {
     expect(screen.getAllByRole('button')[1]).toHaveTextContent('Delete')
     expect(screen.getAllByRole('button')[1]).toHaveClass('error')
   })
-
-  it('does not render the modal when showModal is false', () => {
-    const title = 'Info modal'
-    const content = 'Info modal content'
-    const { queryByText, queryByRole } = render(
-      <Modal
-        id="shy-modal"
-        title={title}
-        showModal={false}
-        buttons={[
-          {
-            label: 'Done',
-          },
-        ]}
-      >
-        {content}
-      </Modal>,
-    )
-    expect(queryByRole('img')).not.toBeInTheDocument()
-    expect(queryByText(title)).not.toBeInTheDocument()
-    expect(queryByText(content)).not.toBeInTheDocument()
-    expect(queryByRole('button')).not.toBeInTheDocument()
-  })
 })

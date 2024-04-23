@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Button, ButtonProps } from './Button'
 import { Icon } from './Icon'
 import './Modal.scss'
@@ -18,7 +17,6 @@ export interface ModalProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   title: string
   buttons: ButtonProps[]
-  showModal?: boolean
 }
 
 export function Modal({
@@ -26,55 +24,36 @@ export function Modal({
   variant = 'info',
   title,
   buttons,
-  showModal = true,
   children,
   ...props
 }: ModalProps): React.JSX.Element {
-  const [isModalShown, setIsModalShown] = useState(showModal)
-
   const cssClasses = ['modal', variant].join(' ')
 
-  function withHideModal(onClick?: React.MouseEventHandler | undefined) {
-    return function (event: React.MouseEvent<Element, MouseEvent>) {
-      setIsModalShown(false)
-
-      if (onClick !== undefined) onClick(event)
-    }
-  }
-
   return (
-    <>
-      {isModalShown && (
-        <div className="modal-container">
-          <div
-            role="dialog"
-            aria-labelledby={`${id}-title`}
-            aria-describedby={`${id}-body`}
-            className={cssClasses}
-            {...props}
-          >
-            <div className="header">
-              <Icon name={IconVariant[variant]} className={variant} />
-              <h4 id={`${id}-title`} className="title">
-                {title}
-              </h4>
-            </div>
-            <div id={`${id}-body`} className="body">
-              {children}
-            </div>
-            <div className="footer">
-              {buttons.map(({ onClick, ...button }) => (
-                <Button
-                  key={button.label}
-                  {...button}
-                  onClick={withHideModal(onClick)}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="backdrop"></div>
+    <div className="modal-container">
+      <div className="backdrop"></div>
+      <div
+        role="dialog"
+        aria-labelledby={`${id}-title`}
+        aria-describedby={`${id}-body`}
+        className={cssClasses}
+        {...props}
+      >
+        <div className="header">
+          <Icon name={IconVariant[variant]} className={variant} />
+          <h4 id={`${id}-title`} className="title">
+            {title}
+          </h4>
         </div>
-      )}
-    </>
+        <div id={`${id}-body`} className="body">
+          {children}
+        </div>
+        <div className="footer">
+          {buttons.map(({ ...button }) => (
+            <Button key={button.label} {...button} />
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }

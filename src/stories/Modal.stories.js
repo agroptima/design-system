@@ -26,9 +26,6 @@ const meta = {
     buttons: {
       description: 'Array of button to be shown on the footer',
     },
-    showModal: {
-      description: 'Boolean to control the component visibility state',
-    },
   },
   parameters: figmaPrimaryDesign,
 }
@@ -36,84 +33,97 @@ const meta = {
 export default meta
 
 export const Info = {
-  render: () => 
-    <Modal 
-      id='info-dangerous-alone'
-      variant='info'
-      title= "It's dangerous to go alone!"
-      buttons= {[{
-        label: 'Done',
-        onClick: () => alert('click'),
-      }]}
+  render: () => (
+    <Modal
+      id="info-dangerous-alone"
+      variant="info"
+      title="It's dangerous to go alone!"
+      buttons={[
+        {
+          label: 'Done',
+          onClick: () => alert('click'),
+        },
+      ]}
     >
-        Take this 🗡️
+      Take this 🗡️
     </Modal>
+  ),
 }
 
 export const Success = {
-  render: () => 
-    <Modal 
-      id='success-dangerous-alone'
-      variant='success'
-      title= "It's dangerous to go alone!"
-      buttons= {[{
-        label: 'Done',
-        onClick: () => alert('click'),
-      }]}
+  render: () => (
+    <Modal
+      id="success-dangerous-alone"
+      variant="success"
+      title="It's dangerous to go alone!"
+      buttons={[
+        {
+          label: 'Done',
+          onClick: () => alert('click'),
+        },
+      ]}
     >
-        Take this 🗡️
+      Take this 🗡️
     </Modal>
+  ),
 }
 
 export const Warning = {
-  render: () => 
-    <Modal 
-      id='warning-dangerous-alone'
-      variant='warning'
-      title= "It's dangerous to go alone!"
-      buttons= {[{
-        label: 'Done',
-        onClick: () => alert('click'),
-      }]}
+  render: () => (
+    <Modal
+      id="warning-dangerous-alone"
+      variant="warning"
+      title="It's dangerous to go alone!"
+      buttons={[
+        {
+          label: 'Done',
+          onClick: () => alert('click'),
+        },
+      ]}
     >
-        Take this 🗡️
+      Take this 🗡️
     </Modal>
+  ),
 }
 
 export const Error = {
-  render: () => 
-    <Modal 
-      id='error-dangerous-alone'
-      variant='error'
-      title= "It's dangerous to go alone!"
-      buttons= {[{
-        label: 'Done',
-        onClick: () => alert('click'),
-      }]}
+  render: () => (
+    <Modal
+      id="error-dangerous-alone"
+      variant="error"
+      title="It's dangerous to go alone!"
+      buttons={[
+        {
+          label: 'Done',
+          onClick: () => alert('click'),
+        },
+      ]}
     >
-        Take this 🗡️
+      Take this 🗡️
     </Modal>
+  ),
 }
 
 export const DeleteOrDiscard = {
-  render: () => 
-    <Modal 
-      id='discard-dangerous-alone'
-      variant='discard'
-      title= "It's dangerous to go alone!"
-      buttons= {[{
-        label: 'Cancel',
-        variant: 'neutral',
-        onClick: () => alert('click'),
-      },
-      {
-        label: 'Delete',
-        variant: 'error',
-        onClick: () => alert('click'),
-      }]}
+  render: () => (
+    <Modal
+      id="discard-dangerous-alone"
+      variant="discard"
+      title="It's dangerous to go alone!"
+      buttons={[
+        {
+          label: 'Cancel',
+          variant: 'neutral',
+          onClick: () => alert('click'),
+        },
+        {
+          label: 'Delete',
+          variant: 'error',
+          onClick: () => alert('click'),
+        },
+      ]}
     >
-        Take this 🗡️
+      Take this 🗡️
     </Modal>
+  ),
 }
-
-
