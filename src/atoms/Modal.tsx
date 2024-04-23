@@ -49,7 +49,7 @@ export function Modal({
           {children}
         </div>
         <div className="footer">
-          {buttons.map(({ onClick, ...button }) => (
+          {buttons.map(({ ...button }) => (
             <Button key={button.label} {...button} />
           ))}
         </div>

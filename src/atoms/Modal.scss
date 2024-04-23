@@ -7,6 +7,7 @@
   position: fixed;
   inset: 0;
   z-index: depth.$z-modal;
+
   .backdrop {
     position: fixed;
     height: 100%;
@@ -14,8 +15,9 @@
     background: color_alias.$neutral-color-900;
     inset: 0;
   }
+
   .modal {
-    top: 100px;
+    top: 6.25rem;
     margin: auto;
     display: flex;
     position: relative;
