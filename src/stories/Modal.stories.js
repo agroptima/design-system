@@ -26,9 +26,6 @@ const meta = {
     buttons: {
       description: 'Array of button to be shown on the footer',
     },
-    showModal: {
-      description: 'Boolean to control the component visibility state',
-    },
   },
   parameters: figmaPrimaryDesign,
 }
