@@ -3,46 +3,54 @@
 @use '../settings/config';
 @use '../settings/depth';
 
-.alert-container {
-  position: fixed;
-  inset: config.$space-5x 0 0 0;
-  z-index: depth.$z-alert;
+.alert {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+  padding: config.$space-2x config.$space-3x;
+  align-items: center;
+  gap: config.$space-2x;
+  border-radius: config.$corner-radius-xxs;
 
-  .alert {
-    display: flex;
-    justify-content: space-between;
+  &.fit-content {
     width: fit-content;
-    margin: auto;
-    padding: config.$space-2x config.$space-3x;
+  }
+
+  .information-container {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: config.$space-2x;
-    border-radius: config.$corner-radius-xxs;
+  }
 
-    .information-container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: config.$space-2x;
+  .text {
+    @include typography.body-regular-primary;
+  }
+
+  .icon {
+    width: config.$icon-size-5x;
+    height: config.$icon-size-5x;
+    > svg {
+      width: 100%;
+      height: 100%;
     }
+  }
 
-    .text {
-      @include typography.body-regular-primary;
-    }
-
+  .icon-button {
     .icon {
-      width: config.$icon-size-5x;
-      height: config.$icon-size-5x;
+      width: config.$icon-size-2x;
+      height: config.$icon-size-2x;
+
       > svg {
-        width: 100%;
-        height: 100%;
+        fill: color_alias.$neutral-color-400;
+        path {
+          fill: color_alias.$neutral-color-400;
+        }
       }
     }
-
-    .icon-button {
+    &:hover {
       .icon {
-        width: config.$icon-size-2x;
-        height: config.$icon-size-2x;
-
         > svg {
           fill: color_alias.$neutral-color-400;
           path {
@@ -50,73 +58,63 @@
           }
         }
       }
-      &:hover {
-        .icon {
-          > svg {
-            fill: color_alias.$neutral-color-400;
-            path {
-              fill: color_alias.$neutral-color-400;
-            }
-          }
-        }
-      }
     }
+  }
 
-    &.info {
-      border: 1px solid color_alias.$info-color-600;
-      background: color_alias.$info-color-50;
-      .information-container {
-        .icon {
-          > svg {
+  &.info {
+    border: 1px solid color_alias.$info-color-600;
+    background: color_alias.$info-color-50;
+    .information-container {
+      .icon {
+        > svg {
+          fill: color_alias.$info-color-1000;
+          path {
             fill: color_alias.$info-color-1000;
-            path {
-              fill: color_alias.$info-color-1000;
-            }
           }
         }
       }
     }
+  }
 
-    &.success {
-      border: 1px solid color_alias.$success-color-300;
-      background: color_alias.$success-color-50;
-      .information-container {
-        .icon {
-          > svg {
+  &.success {
+    border: 1px solid color_alias.$success-color-300;
+    background: color_alias.$success-color-50;
+    .information-container {
+      .icon {
+        > svg {
+          fill: color_alias.$success-color-1000;
+          path {
             fill: color_alias.$success-color-1000;
-            path {
-              fill: color_alias.$success-color-1000;
-            }
           }
         }
       }
     }
+  }
 
-    &.warning {
-      border: 1px solid color_alias.$warning-color-300;
-      background: color_alias.$warning-color-50;
-      .information-container {
-        .icon {
-          > svg {
+  &.warning {
+    border: 1px solid color_alias.$warning-color-300;
+    background: color_alias.$warning-color-50;
+    .information-container {
+      .icon {
+        > svg {
+          fill: color_alias.$warning-color-1000;
+          path {
             fill: color_alias.$warning-color-1000;
-            path {
-              fill: color_alias.$warning-color-1000;
-            }
           }
         }
       }
     }
+  }
 
-    &.error {
-      border: 1px solid color_alias.$error-color-600;
-      background: color_alias.$error-color-50;
-      .information-container {
-        .icon {
-          > svg {
+  &.error {
+    border: 1px solid color_alias.$error-color-600;
+    background: color_alias.$error-color-50;
+    .information-container {
+      .icon {
+        > svg {
+          fill: color_alias.$error-color-1000;
+          path {
             fill: color_alias.$error-color-1000;
-            path {
-              fill: color_alias.$error-color-1000;
-            }
           }
         }
       }
