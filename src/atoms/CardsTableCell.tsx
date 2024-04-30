@@ -17,12 +17,14 @@ export function CardsTableCell({
   noWrap = false,
   align = Alignment.Left,
   children,
+  className,
   ...props
 }: CardsTableCellProps): React.JSX.Element {
   const cssClasses = [
     'cell',
     noWrap ? 'no-wrap' : '',
     `alignment-${align}`,
+    className,
   ].join(' ')
   return (
     <td role="cell" className={cssClasses} {...props}>
