@@ -6,8 +6,8 @@ import { CardsTableHeader } from '../atoms/CardsTableHeader'
 import { CardsTableRow } from '../atoms/CardsTableRow'
 import { CardsTableBody } from '../atoms/CardsTableBody'
 import { CardsTableCell } from '../atoms/CardsTableCell'
-import { Button } from '../atoms/Button'
 import { IconButton } from '../atoms/IconButton'
+import { Badge } from '../atoms/Badge'
 
 const meta = {
   title: 'Design System/Atoms/CardsTable',
@@ -31,7 +31,14 @@ export const Primary = {
       </CardsTableHead>
       <CardsTableBody>
         <CardsTableRow>
-          <CardsTableCell>Metal Gear Solid 5: The Phantom Pain</CardsTableCell>
+          <CardsTableCell>
+            <span>Metal Gear Solid 5: The Phantom Pain</span>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="Bought"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
           <CardsTableCell>
             Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku,
             Tokyo, 104-0061 Japan

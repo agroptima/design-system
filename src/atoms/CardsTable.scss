@@ -151,6 +151,7 @@ $large: 1200px;
   tr {
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
   }
 
   td {
@@ -170,6 +171,11 @@ $large: 1200px;
       justify-content: flex-end;
     }
   }
+
+  .badge {
+    position: absolute;
+    inset: auto config.$space-3x config.$space-3x auto;
+  }
 }
 // Desktop case
 @media only screen and (min-width: $large) {
@@ -185,7 +191,7 @@ $large: 1200px;
   td {
     display: flex;
     justify-content: flex-start;
-    width: min-content;
+    align-items: center;
     flex: 2;
   }
 
@@ -198,7 +204,16 @@ $large: 1200px;
     flex: 1;
   }
 
+  td:has(.badge) {
+    gap: config.$space-2x;
+  }
+
   .alignment-right {
     justify-content: flex-end;
+  }
+
+  .badge {
+    position: inherit;
+    inset: auto;
   }
 }
