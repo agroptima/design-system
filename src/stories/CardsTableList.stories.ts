@@ -26,7 +26,7 @@ const meta = {
 const figmaPrimaryDesign = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/DN2ova21vWqCRvPspBXgI1/Design-System?type=design&node-id=1272-1328&mode=dev',
+    url: 'https://www.figma.com/file/DN2ova21vWqCRvPspBXgI1/Design-System?type=design&node-id=2331-990&mode=dev',
   },
 }
 

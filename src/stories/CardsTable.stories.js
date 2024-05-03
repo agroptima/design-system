@@ -9,10 +9,18 @@ import { CardsTableCell } from '../atoms/CardsTableCell'
 import { IconButton } from '../atoms/IconButton'
 import { Badge } from '../atoms/Badge'
 
+const figmaPrimaryDesign = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/DN2ova21vWqCRvPspBXgI1/Design-System?type=design&node-id=2331-990&mode=dev',
+  },
+}
+
 const meta = {
   title: 'Design System/Atoms/CardsTable',
   component: CardsTable,
   tags: ['autodocs'],
+  parameters: figmaPrimaryDesign,
 }
 
 export default meta
