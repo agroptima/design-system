@@ -45,10 +45,6 @@
     }
   }
 
-  td {
-    padding: config.$space-5x config.$space-3x;
-  }
-
   .no-wrap {
     white-space: nowrap;
   }
@@ -135,85 +131,88 @@
       @include typography.cards-table-list-highlight-text;
     }
   }
-}
 
-// Media queries
-$small: 375px;
-$medium: 768px;
-$large: 1200px;
+  // Media queries
+  $small: 375px;
+  $medium: 768px;
+  $large: 1200px;
 
-// Mobile & tablet cases
-@media only screen and (min-width: $small) {
-  thead {
-    display: none;
-  }
+  // Mobile & tablet cases
+  @media only screen and (min-width: $small) and (max-width: $large) {
+    thead {
+      display: none;
+    }
 
-  tr {
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;
-  }
+    tr {
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+      gap: config.$space-1x;
+      padding: config.$space-3x;
+    }
 
-  td {
-    width: 100%;
-  }
+    td {
+      width: 100%;
+    }
 
-  td:first-child {
-    order: -2;
-    width: 50%;
-  }
-  td.actions {
-    order: -1;
-    width: 35%;
-    flex-grow: 1;
+    td:first-child {
+      order: -2;
+      width: 50%;
+      margin-bottom: config.$space-2x;
+    }
+    td.actions {
+      order: -1;
+      width: 35%;
+      flex-grow: 1;
+      margin-bottom: config.$space-2x;
 
-    > div {
-      justify-content: flex-end;
+      > div {
+        justify-content: flex-end;
+      }
+    }
+
+    .badge {
+      position: absolute;
+      inset: auto config.$space-3x config.$space-3x auto;
     }
   }
+  // Desktop case
+  @media only screen and (min-width: $large) {
+    thead {
+      display: flex;
+    }
 
-  .badge {
-    position: absolute;
-    inset: auto config.$space-3x config.$space-3x auto;
-  }
-}
-// Desktop case
-@media only screen and (min-width: $large) {
-  thead {
-    display: flex;
-  }
+    tr {
+      flex-direction: row;
+    }
 
-  tr {
-    flex-direction: row;
-  }
+    th,
+    td {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 2;
+    }
 
-  th,
-  td {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex: 2;
-  }
+    td {
+      padding: config.$space-5x config.$space-3x;
+    }
 
-  th.actions {
-    flex: 1;
-  }
-  td.actions {
-    order: 0;
-    justify-content: center;
-    flex: 1;
-  }
+    th.actions {
+      flex: 1;
+    }
+    td.actions {
+      order: 0;
+      justify-content: center;
+      flex: 1;
+    }
 
-  td:has(.badge) {
-    gap: config.$space-2x;
-  }
+    td:has(.badge) {
+      gap: config.$space-2x;
+    }
 
-  .alignment-right {
-    justify-content: flex-end;
-  }
-
-  .badge {
-    position: inherit;
-    inset: auto;
+    .alignment-right {
+      justify-content: flex-end;
+    }
   }
 }
