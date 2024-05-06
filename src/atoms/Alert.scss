@@ -10,6 +10,7 @@
   align-items: center;
   gap: config.$space-2x;
   border-radius: config.$corner-radius-xxs;
+  pointer-events: none;
 
   &.fit-content {
     width: fit-content;
