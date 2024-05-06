@@ -119,16 +119,16 @@
       background: color_alias.$primary-color-50;
     }
 
+    tr > td:first-child {
+      @include typography.cards-table-list-highlight-text;
+    }
+
     tr.disabled {
       background: color_alias.$neutral-color-50;
 
       td {
         @include typography.cards-table-list-disabled-text;
       }
-    }
-
-    tr > td:first-child {
-      @include typography.cards-table-list-highlight-text;
     }
   }
 
