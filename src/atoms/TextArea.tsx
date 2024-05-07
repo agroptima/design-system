@@ -15,7 +15,7 @@ export interface TextAreaProps
   errors?: string[]
 }
 
-export default function TextArea({
+export function TextArea({
   id,
   label,
   className,

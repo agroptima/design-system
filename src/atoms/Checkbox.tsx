@@ -7,7 +7,7 @@ export interface CheckboxProps extends React.ComponentPropsWithoutRef<'input'> {
   label?: string
   hideLabel?: boolean
   variant?: Variant
-  id: string
+  id?: string
   accessibilityLabel: string
 }
 

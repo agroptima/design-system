@@ -13,7 +13,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   icon?: IconType
   helpText?: string
   variant?: InputVariant
-  id: string
+  id?: string
   errors?: string[]
 }
 
