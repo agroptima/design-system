@@ -31,7 +31,7 @@ const meta = {
     type: {
       description: 'Input type property',
     },
-    leftIcon: {
+    icon: {
       description: 'Input left icon from a list of values',
     },
     id: {

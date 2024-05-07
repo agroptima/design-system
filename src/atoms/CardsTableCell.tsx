@@ -1,3 +1,4 @@
+import { classNames } from '@/utils/classNames'
 import './CardsTable.scss'
 import React from 'react'
 
@@ -20,12 +21,9 @@ export function CardsTableCell({
   className,
   ...props
 }: CardsTableCellProps): React.JSX.Element {
-  const cssClasses = [
-    'cell',
-    noWrap ? 'no-wrap' : '',
-    `alignment-${align}`,
-    className,
-  ].join(' ')
+  const cssClasses = classNames('cell', `alignment-${align}`, className, {
+    'no-wrap': noWrap,
+  })
   return (
     <td role="cell" className={cssClasses} {...props}>
       {children}
