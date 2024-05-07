@@ -1,6 +1,7 @@
 import './Icon.scss'
 
 import * as icons from '../icons'
+import { classNames } from '@/utils/classNames'
 export type IconType = keyof typeof icons
 
 export interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
@@ -9,11 +10,9 @@ export interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
 }
 
 export const Icon: React.FC<IconProps> = ({ name, className, ...props }) => {
-  const cssClasses = [
-    'icon',
-    className,
-    name === 'Loading' ? 'rotate' : '',
-  ].join(' ')
+  const cssClasses = classNames('icon', className, {
+    rotate: name === 'Loading',
+  })
   return (
     <span role="img" title={name} className={cssClasses}>
       {icons[name](props)}

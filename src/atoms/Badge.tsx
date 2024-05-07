@@ -1,3 +1,4 @@
+import { classNames } from '@/utils/classNames'
 import './Badge.scss'
 
 export type Variant =
@@ -18,11 +19,12 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<'div'> {
 
 export function Badge({
   variant = 'info',
+  className,
   text,
   accessibilityLabel,
   ...props
 }: BadgeProps): React.JSX.Element {
-  const cssClasses = ['badge', variant].join(' ')
+  const cssClasses = classNames('badge', variant, className)
 
   return (
     <span

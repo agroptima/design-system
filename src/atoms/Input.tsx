@@ -1,6 +1,8 @@
-import './Input.scss'
 import React, { useState } from 'react'
 import { Icon, IconType } from './Icon'
+import { classNames } from '@/utils/classNames'
+import './Input.scss'
+import { buildHelpText } from '@/utils/buildHelpText'
 
 export type InputVariant = 'primary'
 
@@ -18,6 +20,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
 export function Input({
   label,
   accessibilityLabel,
+  className,
   hideLabel = false,
   icon,
   helpText,
@@ -29,10 +32,13 @@ export function Input({
   errors,
   ...props
 }: InputProps): React.JSX.Element {
+  const identifier = id || name
   const [showPassword, setShowPassword] = useState(false)
-  const iconClass = icon ? 'with-icon' : ''
-  const invalidClass = errors ? 'invalid' : ''
-  const cssClasses = ['input', iconClass, invalidClass].join(' ')
+  const cssClasses = classNames('input', className, {
+    'with-icon': icon,
+    invalid: errors?.length,
+  })
+  const helpTexts = buildHelpText(helpText, errors)
 
   function handlePasswordIcon() {
     return showPassword ? 'ShowOff' : 'Show'
@@ -51,14 +57,14 @@ export function Input({
   return (
     <div className={`input-group ${variant}`}>
       {!hideLabel && (
-        <label className="input-label" htmlFor={id}>
+        <label className="input-label" htmlFor={identifier}>
           {label}
         </label>
       )}
       <div className="input-container">
         {icon && <Icon className="left-icon" name={icon} />}
         <input
-          id={id}
+          id={identifier}
           className={cssClasses}
           disabled={disabled}
           type={handleInputType()}
@@ -74,17 +80,11 @@ export function Input({
           />
         )}
       </div>
-      {helpText && !errors && (
-        <span className="input-help-text">{helpText}</span>
-      )}
-      {errors &&
-        errors?.map((error, index) => {
-          return (
-            <span key={`error-${index}`} className="input-help-text">
-              {error}
-            </span>
-          )
-        })}
+      {helpTexts.map((helpText) => (
+        <span key={`${identifier}-${helpText}`} className="input-help-text">
+          {helpText}
+        </span>
+      ))}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { classNames } from '@/utils/classNames'
 import { Button, ButtonProps } from './Button'
 import { Icon } from './Icon'
 import './Modal.scss'
@@ -21,13 +22,14 @@ export interface ModalProps extends React.ComponentPropsWithoutRef<'div'> {
 
 export function Modal({
   id,
+  className,
   variant = 'info',
   title,
   buttons,
   children,
   ...props
 }: ModalProps): React.JSX.Element {
-  const cssClasses = ['modal', variant].join(' ')
+  const cssClasses = classNames('modal', variant, className)
 
   return (
     <div className="modal-container">

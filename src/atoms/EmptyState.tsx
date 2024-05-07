@@ -1,3 +1,4 @@
+import { classNames } from '@/utils/classNames'
 import { Button, ButtonProps } from './Button'
 import './EmptyState.scss'
 import { Icon, IconType } from './Icon'
@@ -12,12 +13,13 @@ export interface EmptyStateProps extends React.ComponentPropsWithoutRef<'div'> {
 }
 
 export function EmptyState({
+  className,
   icon = 'EmptyState',
   text = 'No data',
   variant = 'primary',
   button,
 }: EmptyStateProps): React.JSX.Element {
-  const cssClasses = ['empty-state', variant].join(' ')
+  const cssClasses = classNames('empty-state', variant, className)
 
   return (
     <div className={cssClasses}>

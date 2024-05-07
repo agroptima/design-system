@@ -1,6 +1,7 @@
 import { IconButton, IconButtonProps } from './IconButton'
 import { Icon } from './Icon'
 import './Alert.scss'
+import { classNames } from '@/utils/classNames'
 
 export type Variant = 'info' | 'success' | 'warning' | 'error'
 
@@ -22,14 +23,15 @@ export enum IconVariant {
 export function Alert({
   id,
   variant = 'success',
-  className = '',
+  className,
   fitContent = false,
   text,
   button,
   ...props
 }: AlertProps): React.JSX.Element {
-  const fitContentClass = fitContent ? 'fit-content' : ''
-  const cssClasses = ['alert', variant, className, fitContentClass].join(' ')
+  const cssClasses = classNames('alert', variant, className, {
+    'fit-content': fitContent,
+  })
 
   return (
     <div
