@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Icon, IconType } from './Icon'
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
+import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'
-import { buildHelpText } from '@/utils/buildHelpText'
 
 export type InputVariant = 'primary'
 

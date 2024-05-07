@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
 import './CardsTable.scss'
 import React from 'react'
 

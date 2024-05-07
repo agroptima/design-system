@@ -52,13 +52,6 @@ const config: StorybookConfig = {
       imageRule['exclude'] = /\.svg$/i
     }
 
-    if (config.resolve) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        '@': resolve(__dirname, '../src'),
-      }
-    }
-
     return config
   },
 }
