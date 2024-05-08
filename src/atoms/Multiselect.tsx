@@ -1,8 +1,8 @@
 import './Multiselect.scss'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
-import { classNames } from '@/utils/classNames'
-import { buildHelpText } from '@/utils/buildHelpText'
+import { classNames } from '../utils/classNames'
+import { buildHelpText } from '../utils/buildHelpText'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }

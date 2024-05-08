@@ -1,7 +1,7 @@
 import { IconButton, IconButtonProps } from './IconButton'
 import { Icon } from './Icon'
 import './Alert.scss'
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
 
 export type Variant = 'info' | 'success' | 'warning' | 'error'
 

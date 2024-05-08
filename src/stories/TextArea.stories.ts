@@ -1,4 +1,4 @@
-import TextArea from '../atoms/TextArea'
+import { TextArea } from '../atoms/TextArea'
 import { StoryObj } from '@storybook/react'
 
 const meta = {

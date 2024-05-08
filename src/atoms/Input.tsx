@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Icon, IconType } from './Icon'
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
+import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'
-import { buildHelpText } from '@/utils/buildHelpText'
 
 export type InputVariant = 'primary'
 
@@ -13,7 +13,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   icon?: IconType
   helpText?: string
   variant?: InputVariant
-  id: string
+  id?: string
   errors?: string[]
 }
 

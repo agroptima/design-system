@@ -1,7 +1,7 @@
 import './Icon.scss'
 
 import * as icons from '../icons'
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
 export type IconType = keyof typeof icons
 
 export interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {

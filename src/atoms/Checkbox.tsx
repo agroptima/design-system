@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
 import './Checkbox.scss'
 
 export type Variant = 'primary'
@@ -7,7 +7,7 @@ export interface CheckboxProps extends React.ComponentPropsWithoutRef<'input'> {
   label?: string
   hideLabel?: boolean
   variant?: Variant
-  id: string
+  id?: string
   accessibilityLabel: string
 }
 
