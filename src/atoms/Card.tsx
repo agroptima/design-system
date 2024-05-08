@@ -1,29 +1,28 @@
 import './Card.scss'
-import React, { useState } from 'react'
-import { Icon, IconType } from './Icon'
-import { ButtonProps } from './Button'
+import React from 'react'
+import { classNames } from '../utils/classNames'
 
 export type Variant = 'primary'
 
 export interface CardProps extends React.ComponentPropsWithoutRef<'div'> {
-  title: string
-  description: string
-  button?: ButtonProps
   variant?: Variant
+  isDisabled?: boolean
 }
 
 export function Card({
-  title,
-  description,
-  button,
+  className,
   variant = 'primary',
+  isDisabled = false,
+  children,
   ...props
 }: CardProps): React.JSX.Element {
-  const cssClasses = ['card', variant].join(' ')
+  const cssClasses = classNames('card', className, variant, {
+    disabled: isDisabled,
+  })
+
   return (
-    <div className={cssClasses}>
-      <span>{title}</span>
-      <p>{description}</p>
+    <div className={cssClasses} {...props}>
+      {children}
     </div>
   )
 }
