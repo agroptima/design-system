@@ -1,6 +1,7 @@
 import NextLink from 'next/link'
 import './IconButton.scss'
 import { Icon, IconType } from './Icon'
+import { classNames } from '@/utils/classNames'
 
 export type Variant = 'primary'
 
@@ -29,15 +30,15 @@ export function IconButton({
   variant = 'primary',
   ...props
 }: IconButtonProps) {
-  const cssClasses = ['icon-button', variant].join(' ')
+  const cssClasses = classNames('icon-button', variant, props.className)
 
   if (hasHref(props)) {
     return (
       <NextLink
         href={props.href || ''}
-        className={cssClasses}
         aria-label={accessibilityLabel}
         {...props}
+        className={cssClasses}
       >
         <Icon name={icon} />
       </NextLink>
@@ -46,10 +47,10 @@ export function IconButton({
 
   return (
     <button
-      className={cssClasses}
       disabled={disabled}
       aria-label={accessibilityLabel}
       {...props}
+      className={cssClasses}
     >
       <Icon name={icon} />
     </button>

@@ -1,6 +1,8 @@
 import './Select.scss'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
+import { classNames } from '@/utils/classNames'
+import { buildHelpText } from '@/utils/buildHelpText'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -23,6 +25,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
 }
 
 export function Select({
+  className,
   placeholder,
   helpText,
   variant = 'primary',
@@ -37,24 +40,19 @@ export function Select({
   onChange,
   ...props
 }: SelectProps): React.JSX.Element {
+  const helpTexts = buildHelpText(helpText, errors)
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option>({
     id: selected?.id || '',
     label: selected?.label || '',
   })
 
-  const optionsListOpenClass = showOptionsList ? 'open' : ''
-  const filledSelectClass = selectedOption.id ? 'filled' : ''
-  const disabledClass = disabled ? 'disabled' : ''
-  const invalidClass = errors ? 'invalid' : ''
-
-  const cssClasses = [
-    'selected-option',
-    optionsListOpenClass,
-    filledSelectClass,
-    disabledClass,
-    invalidClass,
-  ].join(' ')
+  const cssClasses = classNames('selected-option', className, {
+    open: showOptionsList,
+    filled: selectedOption.id,
+    disabled: disabled,
+    invalid: errors?.length,
+  })
 
   function handleOptionsList() {
     if (!disabled) setShowOptionsList(!showOptionsList)
@@ -113,17 +111,11 @@ export function Select({
           </ul>
         )}
       </div>
-      {helpText && !errors && (
-        <span className="select-help-text">{helpText}</span>
-      )}
-      {errors &&
-        errors?.map((error, index) => {
-          return (
-            <span key={`error-${index}`} className="select-help-text">
-              {error}
-            </span>
-          )
-        })}
+      {helpTexts.map((helpText) => (
+        <span key={`${name}-${helpText}`} className="select-help-text">
+          {helpText}
+        </span>
+      ))}
       <input type="hidden" name={name} value={selectedOption.id} {...props} />
     </div>
   )

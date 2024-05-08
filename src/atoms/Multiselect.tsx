@@ -1,6 +1,8 @@
 import './Multiselect.scss'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
+import { classNames } from '@/utils/classNames'
+import { buildHelpText } from '@/utils/buildHelpText'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -20,6 +22,7 @@ export interface MultiselectProps
 }
 
 export function Multiselect({
+  className,
   placeholder,
   helpText,
   variant = 'primary',
@@ -34,23 +37,17 @@ export function Multiselect({
   selected,
   ...props
 }: MultiselectProps): React.JSX.Element {
+  const helpTexts = buildHelpText(helpText, errors)
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>(
     selected?.map((option) => option.id) || [],
   )
-
-  const optionsListOpenClass = showOptionsList ? 'open' : ''
-  const filledSelectClass = selectedOptionsIds.length > 0 ? 'filled' : ''
-  const disabledClass = disabled ? 'disabled' : ''
-  const invalidClass = errors ? 'invalid' : ''
-
-  const cssClasses = [
-    'selected-option',
-    optionsListOpenClass,
-    filledSelectClass,
-    disabledClass,
-    invalidClass,
-  ].join(' ')
+  const cssClasses = classNames('selected-option', className, {
+    open: showOptionsList,
+    filled: selectedOptionsIds.length > 0,
+    disabled: disabled,
+    invalid: errors?.length,
+  })
 
   function handleOptionsList() {
     if (!disabled) setShowOptionsList(!showOptionsList)
@@ -130,19 +127,11 @@ export function Multiselect({
           </ul>
         )}
       </div>
-      {helpText && !errors && (
-        <span className={`multiselect-help-text ${invalidClass}`}>
+      {helpTexts.map((helpText) => (
+        <span key={`${name}-${helpText}`} className="multiselect-help-text">
           {helpText}
         </span>
-      )}
-      {errors &&
-        errors?.map((error, index) => {
-          return (
-            <span key={`error-${index}`} className="multiselect-help-text">
-              {error}
-            </span>
-          )
-        })}
+      ))}
       <input
         type="hidden"
         name={name}
