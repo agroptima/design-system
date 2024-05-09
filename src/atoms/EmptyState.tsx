@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
 import { Button, ButtonProps } from './Button'
 import './EmptyState.scss'
 import { Icon, IconType } from './Icon'

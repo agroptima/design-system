@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import './IconButton.scss'
 import { Icon, IconType } from './Icon'
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../utils/classNames'
 
 export type Variant = 'primary'
 

@@ -1,5 +1,5 @@
-import { classNames } from '@/utils/classNames'
-import { buildHelpText } from '@/utils/buildHelpText'
+import { classNames } from '../utils/classNames'
+import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'
 
 export type TextAreaVariant = 'primary'
@@ -15,7 +15,7 @@ export interface TextAreaProps
   errors?: string[]
 }
 
-export default function TextArea({
+export function TextArea({
   id,
   label,
   className,
