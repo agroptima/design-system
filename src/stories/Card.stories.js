@@ -38,13 +38,40 @@ export default meta
 export const ProductCard = {
   render: () => (
     <Card variant="primary">
-      <CardHeader isBold title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain" />
+      <CardHeader
+        isBold
+        title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
+      />
       <CardContent>
-        <div style={{ display: 'flex', flexDirection: 'column', color: '#9B9B9B', fontSize: '0.875rem', fontWeight: '400'}}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            color: '#9B9B9B',
+            fontSize: '0.875rem',
+            fontWeight: '400',
+          }}
+        >
           <span>PlayStation 4</span>
           <div>
-            <span style={{color: '#444', fontSize: '1rem', fontWeight: '700'}}>9,95€</span>
-            <span style={{color:'#444', fontSize: '1rem', fontWeight: '400'}}> / unit</span>
+            <span
+              style={{
+                color: '#444',
+                fontSize: '1rem',
+                fontWeight: '700',
+              }}
+            >
+              6,99€&nbsp;
+            </span>
+            <span
+              style={{
+                color: '#444',
+                fontSize: '1rem',
+                fontWeight: '400',
+              }}
+            >
+              / unit
+            </span>
           </div>
         </div>
       </CardContent>
@@ -52,6 +79,295 @@ export const ProductCard = {
         <Button variant="primary-outlined" label="Buy" />
       </CardFooter>
     </Card>
+  ),
+}
+
+export const ProductCardsGroup = {
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', gap: '1.5rem' }}>
+      <Card variant="primary">
+        <CardHeader
+          isBold
+          title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
+        />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>PlayStation 4</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                6,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+
+      <Card variant="primary">
+        <CardHeader isBold title="Tekken 8" />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>PlayStation 5</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                79,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+
+      <Card variant="primary">
+        <CardHeader isBold title="The Witcher 3" />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>Nintendo Switch</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                19,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+
+      <Card variant="primary">
+        <CardHeader isBold title="Super Mario RPG" />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>Nintendo Switch</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                49,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+
+      <Card variant="primary">
+        <CardHeader isBold title="Stray" />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>PlayStation 4</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                15,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+
+      <Card variant="primary">
+        <CardHeader isBold title="The Medium" />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>PlayStation 5</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                45,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+
+      <Card variant="primary">
+        <CardHeader isBold title="The Legend of Zelda: Tears of the Kingdom" />
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#9B9B9B',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+            }}
+          >
+            <span>Nintendo Switch</span>
+            <div>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                }}
+              >
+                45,99€&nbsp;
+              </span>
+              <span
+                style={{
+                  color: '#444',
+                  fontSize: '1rem',
+                  fontWeight: '400',
+                }}
+              >
+                / unit
+              </span>
+            </div>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary-outlined" label="Buy" />
+        </CardFooter>
+      </Card>
+    </div>
   ),
 }
 
