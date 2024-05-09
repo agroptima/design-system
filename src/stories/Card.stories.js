@@ -37,7 +37,7 @@ export default meta
 
 export const ProductCard = {
   render: () => (
-    <div style={{width: '98%'}}>
+    <div style={{ display: 'flex' }}>
       <Card variant="primary">
         <CardHeader
           isBold
@@ -382,7 +382,7 @@ export const ProductCardsGroup = {
 
 export const Primary = {
   render: () => (
-    <div style={{width: '98%'}}>
+    <div style={{ display: 'flex' }}>
       <Card variant="primary">
         <CardHeader title="Tekken 8">
           <IconButton
@@ -414,7 +414,7 @@ export const Primary = {
 
 export const Disabled = {
   render: () => (
-    <div style={{width: '98%'}}>
+    <div style={{ display: 'flex' }}>
       <Card isDisabled={true} variant="primary">
         <CardHeader title="Tekken 8">
           <IconButton disabled icon="Delete" accessibilityLabel="Delete game" />
