@@ -34,7 +34,7 @@ export const Primary = {
           <CardsTableHeader>Company address</CardsTableHeader>
           <CardsTableHeader>Customer service email</CardsTableHeader>
           <CardsTableHeader>Price</CardsTableHeader>
-          <CardsTableHeader className="actions">Actions</CardsTableHeader>
+          <CardsTableHeader actions>Actions</CardsTableHeader>
         </CardsTableRow>
       </CardsTableHead>
       <CardsTableBody>
@@ -53,24 +53,22 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">6,99 €</CardsTableCell>
-          <CardsTableCell className="actions" align="center">
-            <div style={{ display: 'flex', gap: '1.75rem' }}>
-              <IconButton
-                icon="Edit"
-                accessibilityLabel="Edit game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Export"
-                accessibilityLabel="Export game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Delete"
-                accessibilityLabel="Delete game"
-                href="link.com"
-              />
-            </div>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
           </CardsTableCell>
         </CardsTableRow>
 
@@ -81,24 +79,22 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>cdprojekt@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">19,99 €</CardsTableCell>
-          <CardsTableCell className="actions" align="center">
-            <div style={{ display: 'flex', gap: '1.75rem' }}>
-              <IconButton
-                icon="Edit"
-                accessibilityLabel="Edit game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Export"
-                accessibilityLabel="Export game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Delete"
-                accessibilityLabel="Delete game"
-                href="link.com"
-              />
-            </div>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
           </CardsTableCell>
         </CardsTableRow>
 
@@ -110,24 +106,22 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>namco@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">79,99 €</CardsTableCell>
-          <CardsTableCell className="actions" align="center">
-            <div style={{ display: 'flex', gap: '1.75rem' }}>
-              <IconButton
-                icon="Edit"
-                accessibilityLabel="Edit game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Export"
-                accessibilityLabel="Export game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Delete"
-                accessibilityLabel="Delete game"
-                href="link.com"
-              />
-            </div>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
           </CardsTableCell>
         </CardsTableRow>
       </CardsTableBody>

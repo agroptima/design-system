@@ -12,10 +12,12 @@ export interface CardsTableCellProps
   extends React.ComponentPropsWithoutRef<'td'> {
   noWrap?: boolean
   align?: Alignment
+  actions?: boolean
 }
 
 export function CardsTableCell({
   noWrap = false,
+  actions = false,
   align = Alignment.Left,
   children,
   className,
@@ -23,6 +25,7 @@ export function CardsTableCell({
 }: CardsTableCellProps): React.JSX.Element {
   const cssClasses = classNames('cell', `alignment-${align}`, className, {
     'no-wrap': noWrap,
+    actions,
   })
   return (
     <td role="cell" className={cssClasses} {...props}>
