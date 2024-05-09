@@ -39,7 +39,7 @@ export const Primary = {
       </CardsTableHead>
       <CardsTableBody>
         <CardsTableRow>
-          <CardsTableCell>
+          <CardsTableCell titleWithActions={3}>
             <span>Metal Gear Solid 5: The Phantom Pain</span>
             <Badge
               accessibilityLabel="Game is bought"
@@ -73,7 +73,7 @@ export const Primary = {
         </CardsTableRow>
 
         <CardsTableRow>
-          <CardsTableCell>The Witcher 3</CardsTableCell>
+          <CardsTableCell titleWithActions={2}>The Witcher 3</CardsTableCell>
           <CardsTableCell>
             CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland
           </CardsTableCell>
@@ -90,16 +90,11 @@ export const Primary = {
               accessibilityLabel="Export game"
               href="link.com"
             />
-            <IconButton
-              icon="Delete"
-              accessibilityLabel="Delete game"
-              href="link.com"
-            />
           </CardsTableCell>
         </CardsTableRow>
 
         <CardsTableRow>
-          <CardsTableCell>Tekken 8</CardsTableCell>
+          <CardsTableCell titleWithActions={1}>Tekken 8</CardsTableCell>
           <CardsTableCell>
             Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo
             135-0034, Japan
@@ -110,16 +105,6 @@ export const Primary = {
             <IconButton
               icon="Edit"
               accessibilityLabel="Edit game"
-              href="link.com"
-            />
-            <IconButton
-              icon="Export"
-              accessibilityLabel="Export game"
-              href="link.com"
-            />
-            <IconButton
-              icon="Delete"
-              accessibilityLabel="Delete game"
               href="link.com"
             />
           </CardsTableCell>

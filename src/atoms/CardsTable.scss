@@ -159,8 +159,17 @@
 
     td:first-child {
       order: -2;
-      max-width: 50%;
       margin-bottom: config.$space-2x;
+    }
+
+    .title-actions-3 {
+      width: calc(100% - 3 * config.$icon-size-5x - 2 * config.$space-7x - 8px);
+    }
+    .title-actions-2 {
+      width: calc(100% - 2 * config.$icon-size-5x - 1 * config.$space-7x - 8px);
+    }
+    .title-actions-1 {
+      width: calc(100% - 1 * config.$icon-size-5x - 8px);
     }
 
     td.actions {
