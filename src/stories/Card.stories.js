@@ -47,7 +47,7 @@ export const ProductCard = {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            color: '#9B9B9B',
+            color: '#727272FF',
             fontSize: '0.875rem',
             fontWeight: '400',
           }}
@@ -102,7 +102,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
@@ -142,7 +142,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
@@ -182,7 +182,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
@@ -222,7 +222,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
@@ -262,7 +262,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
@@ -302,7 +302,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
@@ -342,7 +342,7 @@ export const ProductCardsGroup = {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              color: '#9B9B9B',
+              color: '#727272FF',
               fontSize: '0.875rem',
               fontWeight: '400',
             }}
