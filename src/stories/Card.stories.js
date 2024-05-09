@@ -1,4 +1,4 @@
-import { IconButton } from '@/atoms/IconButton'
+import { IconButton } from '../atoms/IconButton'
 import { Card } from '../atoms/Card'
 import { CardHeader } from '../atoms/CardHeader'
 import { CardContent } from '../atoms/CardContent'
@@ -84,7 +84,14 @@ export const ProductCard = {
 
 export const ProductCardsGroup = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', gap: '1.5rem' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        width: '100%',
+        gap: '1.5rem',
+      }}
+    >
       <Card variant="primary">
         <CardHeader
           isBold
@@ -405,11 +412,7 @@ export const Disabled = {
   render: () => (
     <Card isDisabled={true} variant="primary">
       <CardHeader title="Tekken 8">
-        <IconButton
-          disabled
-          icon="Delete"
-          accessibilityLabel="Delete game"
-        />
+        <IconButton disabled icon="Delete" accessibilityLabel="Delete game" />
       </CardHeader>
       <CardContent>
         <p>TEKKEN 8 will feature exciting new gameplay focused on “Aggressive” tactics. Retaining TEKKEN's unique fighting game identity, the game will provide both players and spectators with the series' most thrilling experience yet with visceral screen-jarring attacks and environments that are both dynamic and destructible.</p>
@@ -420,4 +423,3 @@ export const Disabled = {
     </Card>
   ),
 }
-
