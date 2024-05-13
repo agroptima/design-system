@@ -1,6 +1,7 @@
 @use '../settings/color_alias';
 @use '../settings/typography/cards_table' as typography;
 @use '../settings/config';
+@use '../settings/breakpoints';
 
 .cards-table-list {
   display: flex;
@@ -133,12 +134,8 @@
   }
 
   // Media queries
-  $small: 375px;
-  $medium: 768px;
-  $large: 1200px;
-
   // Mobile & tablet cases
-  @media only screen and (min-width: $small) and (max-width: $large) {
+  @media only screen and (min-width: breakpoints.$small) and (max-width: breakpoints.$large) {
     thead {
       display: none;
     }
@@ -177,7 +174,7 @@
     }
   }
   // Desktop case
-  @media only screen and (min-width: $large) {
+  @media only screen and (min-width: breakpoints.$large) {
     thead {
       display: flex;
     }

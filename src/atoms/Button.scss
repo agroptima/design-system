@@ -260,13 +260,7 @@
   &.success,
   &.warning,
   &.info,
-  &.neutral,
-  &.primary-outlined,
-  &.error-outlined,
-  &.success-outlined,
-  &.warning-outlined,
-  &.info-outlined,
-  &.neutral-outlined {
+  &.neutral {
     &:disabled {
       background: color_alias.$neutral-color-50;
     }
@@ -279,7 +273,8 @@
   &.info-outlined,
   &.neutral-outlined {
     &:disabled {
-      border: 1px solid transparent;
+      background: transparent;
+      border: 1px solid color_alias.$neutral-color-400;
     }
   }
 }
