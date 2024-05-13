@@ -1,6 +1,6 @@
-import { Icon, IconType } from './Icon'
-import './CardMenuOption.scss'
-import { classNames } from '../utils/classNames'
+import { Icon, IconType } from '../Icon'
+import './CardMenu.scss'
+import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 

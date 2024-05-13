@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CardMenuOption } from '../atoms/CardMenuOption'
+import { CardMenu, CardMenuOption } from '../atoms/CardMenu'
 
 const figmaPrimaryDesign = {
   design: {
@@ -70,7 +70,7 @@ export const DisabledOption = {
 
 export const Menu = {
   render: () => (
-    <div>
+    <CardMenu>
       <CardMenuOption
         id="first-menu-option"
         icon="AddCircle"
@@ -98,6 +98,6 @@ export const Menu = {
         isDisabled={false}
         onClick={() => alert('click email')}
       />
-    </div>
+    </CardMenu>
   ),
 }

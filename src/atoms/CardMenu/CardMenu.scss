@@ -1,7 +1,7 @@
-@use '../settings/color_alias';
-@use '../settings/typography/content' as typography;
-@use '../settings/config';
-@use '../settings/depth';
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
 
 .card-menu-option {
   display: flex;
