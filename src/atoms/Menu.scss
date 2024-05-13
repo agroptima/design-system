@@ -1,0 +1,74 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  .menu-option {
+    display: flex;
+    padding: config.$space-3x;
+    gap: config.$space-2x;
+    cursor: default;
+
+    .icon {
+      width: config.$icon-size-3x;
+      height: config.$icon-size-3x;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .left {
+      display: flex;
+      width: 100%;
+      gap: config.$space-2x;
+      justify-content: flex-start;
+      align-items: baseline;
+    }
+
+    .right {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    @include typography.body-regular-primary;
+    color: color_alias.$neutral-white;
+
+    &.primary {
+      background: color_alias.$neutral-color-900;
+
+      .icon {
+        > svg {
+          fill: color_alias.$neutral-white;
+          path {
+            fill: color_alias.$neutral-white;
+          }
+        }
+      }
+
+      &:not(.disabled):hover {
+        background: color_alias.$primary-color-600;
+      }
+
+      &.disabled {
+        background: color_alias.$neutral-color-50;
+        @include typography.body-regular-disabled;
+
+        .icon {
+          > svg {
+            fill: color_alias.$neutral-color-400;
+            path {
+              fill: color_alias.$neutral-color-400;
+            }
+          }
+        }
+      }
+    }
+  }
+}
