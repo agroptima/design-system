@@ -35,14 +35,16 @@ export function CardMenuOption({
       {...props}
       aria-disabled={disabled}
     >
-      <div className="header">
+      <div className="left">
         <div className="title-container">
           <Icon name={icon} className={variant} />
           <span className="title">{title}</span>
         </div>
+        <p className="content">{description}</p>
+      </div>
+      <div className="right">
         <Icon name="AngleRight" className={variant} />
       </div>
-      <div className="content">{description}</div>
     </div>
   )
 }
