@@ -13,6 +13,7 @@
   gap: config.$space-3x;
   border-radius: config.$corner-radius-xxs;
   border-bottom: 1px solid color_alias.$neutral-color-200;
+  cursor: default;
 
   @include typography.body-regular-primary;
 
