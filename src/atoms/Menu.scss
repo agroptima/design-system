@@ -11,9 +11,32 @@
 
   .menu-option {
     display: flex;
-    padding: config.$space-3x;
+    flex-direction: column;
     gap: config.$space-2x;
     cursor: default;
+
+    &:has(> .dropdown) {
+      &:focus {
+        > .dropdown {
+          display: block;
+        }
+
+        > .container .right .icon {
+          transform: rotate(180deg);
+        }
+      }
+      & > .container .right {
+        display: inline-block;
+      }
+
+      > .dropdown {
+        display: none;
+
+        .menu-option .container {
+          padding-left: config.$space-4x;
+        }
+      }
+    }
 
     .icon {
       width: config.$icon-size-3x;
@@ -24,23 +47,29 @@
       }
     }
 
-    .left {
+    .container {
       display: flex;
-      width: 100%;
-      gap: config.$space-2x;
-      justify-content: flex-start;
-      align-items: baseline;
-    }
+      padding: config.$space-3x;
 
-    .right {
-      margin-top: auto;
-      margin-bottom: auto;
+      .left {
+        display: flex;
+        width: 100%;
+        gap: config.$space-2x;
+        justify-content: flex-start;
+        align-items: baseline;
+      }
+
+      .right {
+        display: none;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
     }
 
     @include typography.body-regular-primary;
-    color: color_alias.$neutral-white;
 
     &.primary {
+      color: color_alias.$neutral-white;
       background: color_alias.$neutral-color-900;
 
       .icon {
@@ -56,19 +85,37 @@
         background: color_alias.$primary-color-600;
       }
 
-      &.disabled {
-        background: color_alias.$neutral-color-50;
-        @include typography.body-regular-disabled;
+      &:has(> .dropdown) {
+        > .dropdown {
+          .menu-option {
+            background: color_alias.$neutral-color-100;
+            color: color_alias.$neutral-color-1000;
+            padding-left: config.$space-4x;
 
-        .icon {
-          > svg {
-            fill: color_alias.$neutral-color-400;
-            path {
-              fill: color_alias.$neutral-color-400;
+            &:not(.disabled):hover {
+              background: color_alias.$primary-color-100;
             }
           }
         }
+
+        &:not(.disabled):hover > .dropdown:hidden {
+          background: color_alias.$neutral-color-900;
+        }
       }
+
+      // &.disabled {
+      //   background: color_alias.$neutral-color-50;
+      //   @include typography.body-regular-disabled;
+
+      //   .icon {
+      //     > svg {
+      //       fill: color_alias.$neutral-color-400;
+      //       path {
+      //         fill: color_alias.$neutral-color-400;
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 }

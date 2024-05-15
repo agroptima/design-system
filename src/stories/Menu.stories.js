@@ -64,19 +64,23 @@ export const FirstLevelMenu = {
 export const MenuWithDropdown = {
   render: () => (
     <Menu>
-      <MenuOption title="Tekken 8" icon="Edit" onClick={() => alert('click')} />
+      <MenuOption title="Tekken 8" icon="Edit">
+        <Menu isDropdown>
+          <MenuOption title="Walkthrough" />
+          <MenuOption title="Characters" />
+          <MenuOption title="Story" />
+        </Menu>
+      </MenuOption>
       <MenuOption
         title="The Legend of Zelda: Tears of the Kingdom"
         icon="Delete"
         onClick={() => alert('click')}
       />
       <MenuOption
-        isDropdown
         title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
         icon="Show"
-        onClick={() => alert('click')}
       >
-        <Menu>
+        <Menu isDropdown>
           <MenuOption title="Walkthrough" />
           <MenuOption title="Characters" />
           <MenuOption title="Story" />

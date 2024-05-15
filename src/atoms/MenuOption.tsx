@@ -10,7 +10,6 @@ export interface MenuOptionProps extends React.ComponentPropsWithoutRef<'li'> {
   icon?: IconType
   title: string
   disabled?: boolean
-  isDropdown?: boolean
 }
 
 export function MenuOption({
@@ -19,13 +18,10 @@ export function MenuOption({
   disabled,
   icon,
   title,
-  isDropdown = false,
   children,
   ...props
 }: MenuOptionProps): React.JSX.Element {
-  const cssClasses = classNames('menu-option', variant, className, {
-    dropdown: isDropdown,
-  })
+  const cssClasses = classNames('menu-option', variant, className)
 
   return (
     <li
@@ -35,15 +31,15 @@ export function MenuOption({
       // aria-selected
       {...props}
     >
-      <div className="left">
-        {icon && <Icon name={icon} />}
-        <span className="title">{title}</span>
-      </div>
-      {isDropdown && (
+      <div className="container">
+        <div className="left">
+          {icon && <Icon name={icon} />}
+          <span className="title">{title}</span>
+        </div>
         <div className="right">
           <Icon name="AngleDown" />
         </div>
-      )}
+      </div>
       {children}
     </li>
   )
