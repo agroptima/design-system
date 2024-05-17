@@ -1,13 +1,16 @@
-import './CardsTable.scss'
+import './CardsTable/CardsTable.scss'
 import React, { useState } from 'react'
 import { sortBy } from '../utils/sort'
-import { CardsTableHeader } from './CardsTableHeader'
-import { CardsTableCell } from './CardsTableCell'
-import { CardsTableRow } from './CardsTableRow'
+import {
+  CardsTableHeader,
+  CardsTableCell,
+  CardsTableRow,
+  CardsTable,
+  CardsTableHead,
+  CardsTableBody,
+} from './CardsTable'
+
 import { Icon, IconType } from './Icon'
-import { CardsTable } from './CardsTable'
-import { CardsTableHead } from './CardsTableHead'
-import { CardsTableBody } from './CardsTableBody'
 
 export type Variant = 'primary'
 

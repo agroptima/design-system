@@ -1,16 +1,16 @@
 import './Card.scss'
 import React from 'react'
-import { classNames } from '../utils/classNames'
+import { classNames } from '../../utils/classNames'
 
-export interface CardContentProps
+export interface CardFooterProps
   extends React.ComponentPropsWithoutRef<'div'> {}
 
-export function CardContent({
+export function CardFooter({
   className,
   children,
   ...props
-}: CardContentProps): React.JSX.Element {
-  const cssClasses = classNames('content', className)
+}: CardFooterProps): React.JSX.Element {
+  const cssClasses = classNames('footer', className)
 
   return (
     <div className={cssClasses} {...props}>

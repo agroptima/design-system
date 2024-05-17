@@ -1,6 +1,6 @@
 import './Card.scss'
 import React from 'react'
-import { classNames } from '../utils/classNames'
+import { classNames } from '../../utils/classNames'
 
 export interface CardHeaderProps extends React.ComponentPropsWithoutRef<'div'> {
   title: string

@@ -1,11 +1,14 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { CardsTable } from '@/atoms/CardsTable'
-import { CardsTableHead } from '@/atoms/CardsTableHead'
-import { CardsTableHeader } from '@/atoms/CardsTableHeader'
-import { CardsTableRow } from '@/atoms/CardsTableRow'
-import { CardsTableBody } from '@/atoms/CardsTableBody'
-import { CardsTableCell, Alignment } from '@/atoms/CardsTableCell'
+import {
+  CardsTable,
+  CardsTableHead,
+  CardsTableHeader,
+  CardsTableRow,
+  CardsTableBody,
+  CardsTableCell,
+  Alignment,
+} from '@/atoms/CardsTable'
 import { IconButton } from '@/atoms/IconButton'
 import { Badge } from '@/atoms/Badge'
 
