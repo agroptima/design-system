@@ -58,7 +58,6 @@ export function MenuOption({
       className={cssClasses}
       tabIndex={0}
       role="menuitem"
-      // aria-selected
       onClick={setOptionSelected}
       {...props}
     >
