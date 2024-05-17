@@ -42,6 +42,36 @@ const meta = {
 
 export default meta
 
+export const MenuWithSecondLevelDropdown = {
+  render: () => (
+    <Menu>
+      <MenuOption title="Tekken 8" icon="Edit">
+        <Menu isDropdown>
+          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
+          <MenuOption title="Characters" onClick={() => alert('click')} />
+          <MenuOption title="Story" onClick={() => alert('click')} />
+        </Menu>
+      </MenuOption>
+      <MenuOption
+        title="The Legend of Zelda: Tears of the Kingdom"
+        icon="Delete"
+        onClick={() => alert('click')}
+      />
+      <MenuOption
+        title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
+        icon="Show"
+      >
+        <Menu isDropdown>
+          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
+          <MenuOption title="Characters" onClick={() => alert('click')} />
+          <MenuOption title="Story" onClick={() => alert('click')} />
+        </Menu>
+      </MenuOption>
+      <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />
+    </Menu>
+  ),
+}
+
 export const FirstLevelMenu = {
   render: () => (
     <Menu>
@@ -61,14 +91,18 @@ export const FirstLevelMenu = {
   ),
 }
 
-export const MenuWithDropdown = {
+export const MenuWithSecondLevelPreselectedOption = {
   render: () => (
     <Menu>
-      <MenuOption title="Tekken 8" icon="Edit">
+      <MenuOption isSelected title="Tekken 8" icon="Edit">
         <Menu isDropdown>
-          <MenuOption title="Walkthrough" />
-          <MenuOption title="Characters" />
-          <MenuOption title="Story" />
+          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
+          <MenuOption
+            isSelected
+            title="Characters"
+            onClick={() => alert('click')}
+          />
+          <MenuOption title="Story" onClick={() => alert('click')} />
         </Menu>
       </MenuOption>
       <MenuOption
@@ -81,9 +115,40 @@ export const MenuWithDropdown = {
         icon="Show"
       >
         <Menu isDropdown>
-          <MenuOption title="Walkthrough" />
-          <MenuOption title="Characters" />
-          <MenuOption title="Story" />
+          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
+          <MenuOption title="Characters" onClick={() => alert('click')} />
+          <MenuOption title="Story" onClick={() => alert('click')} />
+        </Menu>
+      </MenuOption>
+      <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />
+    </Menu>
+  ),
+}
+
+export const MenuWithFirstLevelPreselectedOption = {
+  render: () => (
+    <Menu>
+      <MenuOption title="Tekken 8" icon="Edit">
+        <Menu isDropdown>
+          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
+          <MenuOption title="Characters" onClick={() => alert('click')} />
+          <MenuOption title="Story" onClick={() => alert('click')} />
+        </Menu>
+      </MenuOption>
+      <MenuOption
+        isSelected
+        title="The Legend of Zelda: Tears of the Kingdom"
+        icon="Delete"
+        onClick={() => alert('click')}
+      />
+      <MenuOption
+        title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
+        icon="Show"
+      >
+        <Menu isDropdown>
+          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
+          <MenuOption title="Characters" onClick={() => alert('click')} />
+          <MenuOption title="Story" onClick={() => alert('click')} />
         </Menu>
       </MenuOption>
       <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />

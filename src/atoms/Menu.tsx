@@ -6,14 +6,12 @@ export type Variant = 'primary'
 
 export interface MenuProps extends React.ComponentPropsWithoutRef<'ul'> {
   variant?: Variant
-  disabled?: boolean
   isDropdown?: boolean
 }
 
 export function Menu({
   variant = 'primary',
   className,
-  disabled,
   isDropdown = false,
   children,
   ...props
