@@ -1,6 +1,6 @@
 import './Menu.scss'
 import React from 'react'
-import { classNames } from '../utils/classNames'
+import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 

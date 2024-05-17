@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { Menu } from '../atoms/Menu'
-import { MenuOption } from '../atoms/MenuOption'
+import { Menu, MenuOption } from '../atoms/Menu'
 
 const figmaPrimaryDesign = {
   design: {

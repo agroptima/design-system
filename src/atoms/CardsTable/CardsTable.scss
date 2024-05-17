@@ -1,7 +1,7 @@
-@use '../settings/color_alias';
-@use '../settings/typography/cards_table' as typography;
-@use '../settings/config';
-@use '../settings/breakpoints';
+@use '../../settings/color_alias';
+@use '../../settings/typography/cards_table' as typography;
+@use '../../settings/config';
+@use '../../settings/breakpoints';
 
 .cards-table-list {
   display: flex;

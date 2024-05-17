@@ -1,8 +1,5 @@
 import { IconButton } from '../atoms/IconButton'
-import { Card } from '../atoms/Card'
-import { CardHeader } from '../atoms/CardHeader'
-import { CardContent } from '../atoms/CardContent'
-import { CardFooter } from '../atoms/CardFooter'
+import { Card, CardHeader, CardContent, CardFooter } from '../atoms/Card'
 import { Button } from '../atoms/Button'
 
 const figmaPrimaryDesign = {
