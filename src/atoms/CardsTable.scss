@@ -1,6 +1,7 @@
 @use '../settings/color_alias';
 @use '../settings/typography/cards_table' as typography;
 @use '../settings/config';
+@use '../settings/breakpoints';
 
 .cards-table-list {
   display: flex;
@@ -55,6 +56,11 @@
 
   .alignment-center {
     justify-content: center;
+  }
+
+  .actions {
+    display: flex;
+    gap: config.$space-7x;
   }
 
   &.primary {
@@ -133,12 +139,8 @@
   }
 
   // Media queries
-  $small: 375px;
-  $medium: 768px;
-  $large: 1200px;
-
   // Mobile & tablet cases
-  @media only screen and (min-width: $small) and (max-width: $large) {
+  @media only screen and (max-width: breakpoints.$large) {
     thead {
       display: none;
     }
@@ -157,18 +159,25 @@
 
     td:first-child {
       order: -2;
-      width: 50%;
       margin-bottom: config.$space-2x;
     }
+
+    .title-actions-3 {
+      width: calc(100% - 3 * config.$icon-size-5x - 2 * config.$space-7x - 8px);
+    }
+    .title-actions-2 {
+      width: calc(100% - 2 * config.$icon-size-5x - 1 * config.$space-7x - 8px);
+    }
+    .title-actions-1 {
+      width: calc(100% - 1 * config.$icon-size-5x - 8px);
+    }
+
     td.actions {
       order: -1;
-      width: 35%;
       flex-grow: 1;
       margin-bottom: config.$space-2x;
-
-      > div {
-        justify-content: flex-end;
-      }
+      justify-content: flex-end;
+      flex-basis: content;
     }
 
     .badge {
@@ -177,11 +186,10 @@
     }
   }
   // Desktop case
-  @media only screen and (min-width: $large) {
+  @media only screen and (min-width: breakpoints.$large) {
     thead {
       display: flex;
     }
-
     tr {
       flex-direction: row;
     }
@@ -193,14 +201,14 @@
       align-items: center;
       flex: 2;
     }
-
+    th.actions {
+      justify-content: center;
+      flex: 1;
+    }
     td {
       padding: config.$space-5x config.$space-3x;
     }
 
-    th.actions {
-      flex: 1;
-    }
     td.actions {
       order: 0;
       justify-content: center;

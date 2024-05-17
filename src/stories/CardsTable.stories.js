@@ -34,12 +34,12 @@ export const Primary = {
           <CardsTableHeader>Company address</CardsTableHeader>
           <CardsTableHeader>Customer service email</CardsTableHeader>
           <CardsTableHeader>Price</CardsTableHeader>
-          <CardsTableHeader className="actions">Actions</CardsTableHeader>
+          <CardsTableHeader actions>Actions</CardsTableHeader>
         </CardsTableRow>
       </CardsTableHead>
       <CardsTableBody>
         <CardsTableRow>
-          <CardsTableCell>
+          <CardsTableCell titleWithActions={3}>
             <span>Metal Gear Solid 5: The Phantom Pain</span>
             <Badge
               accessibilityLabel="Game is bought"
@@ -53,81 +53,60 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">6,99 €</CardsTableCell>
-          <CardsTableCell className="actions" align="center">
-            <div style={{ display: 'flex', gap: '1.75rem' }}>
-              <IconButton
-                icon="Edit"
-                accessibilityLabel="Edit game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Export"
-                accessibilityLabel="Export game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Delete"
-                accessibilityLabel="Delete game"
-                href="link.com"
-              />
-            </div>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
           </CardsTableCell>
         </CardsTableRow>
 
         <CardsTableRow>
-          <CardsTableCell>The Witcher 3</CardsTableCell>
+          <CardsTableCell titleWithActions={2}>The Witcher 3</CardsTableCell>
           <CardsTableCell>
             CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland
           </CardsTableCell>
           <CardsTableCell>cdprojekt@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">19,99 €</CardsTableCell>
-          <CardsTableCell className="actions" align="center">
-            <div style={{ display: 'flex', gap: '1.75rem' }}>
-              <IconButton
-                icon="Edit"
-                accessibilityLabel="Edit game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Export"
-                accessibilityLabel="Export game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Delete"
-                accessibilityLabel="Delete game"
-                href="link.com"
-              />
-            </div>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
           </CardsTableCell>
         </CardsTableRow>
 
         <CardsTableRow>
-          <CardsTableCell>Tekken 8</CardsTableCell>
+          <CardsTableCell titleWithActions={1}>Tekken 8</CardsTableCell>
           <CardsTableCell>
             Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo
             135-0034, Japan
           </CardsTableCell>
           <CardsTableCell>namco@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">79,99 €</CardsTableCell>
-          <CardsTableCell className="actions" align="center">
-            <div style={{ display: 'flex', gap: '1.75rem' }}>
-              <IconButton
-                icon="Edit"
-                accessibilityLabel="Edit game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Export"
-                accessibilityLabel="Export game"
-                href="link.com"
-              />
-              <IconButton
-                icon="Delete"
-                accessibilityLabel="Delete game"
-                href="link.com"
-              />
-            </div>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
           </CardsTableCell>
         </CardsTableRow>
       </CardsTableBody>

@@ -1,0 +1,84 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+
+.card-menu-option {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: config.$space-3x;
+  gap: config.$space-3x;
+  border-radius: config.$corner-radius-xxs;
+  border-bottom: 1px solid color_alias.$neutral-color-200;
+  cursor: default;
+
+  @include typography.body-regular-primary;
+
+  .icon {
+    width: config.$icon-size-4x;
+    height: config.$icon-size-4x;
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: config.$space-2x;
+
+    .title-container {
+      display: flex;
+      width: 100%;
+      gap: config.$space-2x;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+    }
+
+    .content {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  .right {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &.primary {
+    background: color_alias.$neutral-white;
+
+    .icon {
+      > svg {
+        fill: color_alias.$primary-color-600;
+        path {
+          fill: color_alias.$primary-color-600;
+        }
+      }
+    }
+
+    &:not(.disabled):hover {
+      background: color_alias.$primary-color-50;
+    }
+
+    &.disabled {
+      background: color_alias.$neutral-color-50;
+      @include typography.body-regular-disabled;
+
+      .icon {
+        > svg {
+          fill: color_alias.$neutral-color-400;
+          path {
+            fill: color_alias.$neutral-color-400;
+          }
+        }
+      }
+    }
+  }
+}
