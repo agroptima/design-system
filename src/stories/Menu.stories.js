@@ -5,7 +5,7 @@ import { Menu, MenuOption } from '../atoms/Menu'
 const figmaPrimaryDesign = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/design/DN2ova21vWqCRvPspBXgI1/Design-System?node-id=2464-1494&m=dev',
+    url: 'https://www.figma.com/design/DN2ova21vWqCRvPspBXgI1/Design-System?node-id=2464-3456&m=dev',
   },
 }
 
@@ -14,9 +14,6 @@ const meta = {
   component: Menu,
   tags: ['autodocs'],
   argTypes: {
-    id: {
-      description: 'Id for aria purposes',
-    },
     icon: {
       description: 'Component icon used',
     },
@@ -26,11 +23,8 @@ const meta = {
     title: {
       description: 'Component title text',
     },
-    description: {
-      description: 'Component description text',
-    },
-    isDisabled: {
-      description: 'Is the component disabled?',
+    isSelected: {
+      description: 'Is the element selected?',
     },
     onClick: {
       description: 'Event triggered when the component is clicked',

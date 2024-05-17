@@ -51,6 +51,7 @@ export function MenuOption({
     unselectPreviousOption()
 
     event.currentTarget.classList.add('selected')
+    if (onClick) onClick(event)
   }
 
   return (
