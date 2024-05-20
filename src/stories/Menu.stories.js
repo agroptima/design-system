@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Menu, MenuOption } from '../atoms/Menu'
+import { Menu, MenuLink, MenuDropdown } from '../atoms/Menu'
 
 const figmaPrimaryDesign = {
   design: {
@@ -23,11 +23,14 @@ const meta = {
     title: {
       description: 'Component title text',
     },
-    isSelected: {
-      description: 'Is the element selected?',
+    isActive: {
+      description: 'Is the element active?',
     },
-    onClick: {
-      description: 'Event triggered when the component is clicked',
+    href: {
+      description: 'link to the page',
+    },
+    isOpen: {
+      description: 'Is the dropdown open?',
     },
   },
   parameters: figmaPrimaryDesign,
@@ -35,116 +38,29 @@ const meta = {
 
 export default meta
 
-export const MenuWithSecondLevelDropdown = {
+export const MenuWithLinks = {
   render: () => (
     <Menu>
-      <MenuOption title="Tekken 8" icon="Edit">
-        <Menu isDropdown>
-          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-          <MenuOption title="Characters" onClick={() => alert('click')} />
-          <MenuOption title="Story" onClick={() => alert('click')} />
-        </Menu>
-      </MenuOption>
-      <MenuOption
+      <MenuLink title="Tekken 8" href="some-link" />
+      <MenuLink
         title="The Legend of Zelda: Tears of the Kingdom"
         icon="Delete"
-        onClick={() => alert('click')}
+        href="some-link"
+        isActive
       />
-      <MenuOption
+      <MenuLink
         title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
         icon="Show"
-      >
-        <Menu isDropdown>
-          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-          <MenuOption title="Characters" onClick={() => alert('click')} />
-          <MenuOption title="Story" onClick={() => alert('click')} />
-        </Menu>
-      </MenuOption>
-      <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />
-    </Menu>
-  ),
-}
-
-export const FirstLevelMenu = {
-  render: () => (
-    <Menu>
-      <MenuOption title="Tekken 8" icon="Edit" onClick={() => alert('click')} />
-      <MenuOption
-        title="The Legend of Zelda: Tears of the Kingdom"
-        icon="Delete"
-        onClick={() => alert('click')}
+        href="some-link"
       />
-      <MenuOption
-        title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
-        icon="Show"
-        onClick={() => alert('click')}
-      />
-      <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />
-    </Menu>
-  ),
-}
-
-export const MenuWithSecondLevelPreselectedOption = {
-  render: () => (
-    <Menu>
-      <MenuOption isSelected title="Tekken 8" icon="Edit">
-        <Menu isDropdown>
-          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-          <MenuOption
-            isSelected
-            title="Characters"
-            onClick={() => alert('click')}
-          />
-          <MenuOption title="Story" onClick={() => alert('click')} />
-        </Menu>
-      </MenuOption>
-      <MenuOption
-        title="The Legend of Zelda: Tears of the Kingdom"
-        icon="Delete"
-        onClick={() => alert('click')}
-      />
-      <MenuOption
-        title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
-        icon="Show"
-      >
-        <Menu isDropdown>
-          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-          <MenuOption title="Characters" onClick={() => alert('click')} />
-          <MenuOption title="Story" onClick={() => alert('click')} />
-        </Menu>
-      </MenuOption>
-      <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />
-    </Menu>
-  ),
-}
-
-export const MenuWithFirstLevelPreselectedOption = {
-  render: () => (
-    <Menu>
-      <MenuOption title="Tekken 8" icon="Edit">
-        <Menu isDropdown>
-          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-          <MenuOption title="Characters" onClick={() => alert('click')} />
-          <MenuOption title="Story" onClick={() => alert('click')} />
-        </Menu>
-      </MenuOption>
-      <MenuOption
-        isSelected
-        title="The Legend of Zelda: Tears of the Kingdom"
-        icon="Delete"
-        onClick={() => alert('click')}
-      />
-      <MenuOption
-        title="Metal Gear Solid 5: Ground Zeroes + The Phantom Pain"
-        icon="Show"
-      >
-        <Menu isDropdown>
-          <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-          <MenuOption title="Characters" onClick={() => alert('click')} />
-          <MenuOption title="Story" onClick={() => alert('click')} />
-        </Menu>
-      </MenuOption>
-      <MenuOption title="Stray" icon="Info" onClick={() => alert('click')} />
+      <MenuDropdown title="Open" icon="AddCircle" name="menu" isOpen>
+        <MenuLink title="Stray" href="some-link" isActive />
+        <MenuLink title="Fallout 3" href="some-link" />
+      </MenuDropdown>
+      <MenuDropdown title="Close" name="menu">
+        <MenuLink title="Dark souls" href="some-link" />
+        <MenuLink title="Elder ring" href="some-link" />
+      </MenuDropdown>
     </Menu>
   ),
 }

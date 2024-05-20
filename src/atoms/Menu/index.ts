@@ -1,4 +1,5 @@
 import { Menu } from './Menu'
-import { MenuOption } from './MenuOption'
+import { MenuLink } from './MenuLink'
+import { MenuDropdown } from './MenuDropdown'
 
-export { Menu, MenuOption }
+export { Menu, MenuLink, MenuDropdown }
