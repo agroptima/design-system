@@ -4,15 +4,19 @@
 @use '../../settings/depth';
 
 .menu {
+  @include typography.body-regular-primary;
   list-style-type: none;
   display: flex;
   flex-direction: column;
   padding: 0;
 
-  .menu-option {
+  &-item {
     display: flex;
-    flex-direction: column;
     gap: config.$space-2x;
+    padding: config.$space-3x;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
     cursor: default;
 
     .icon {
@@ -24,45 +28,9 @@
       }
     }
 
-    details {
-      &[open] {
-        > .container .right .icon {
-          transform: rotate(180deg);
-        }
-      }
-      &:has(> .dropdown) {
-        > .container .right {
-          display: inline-block;
-        }
-
-        > .dropdown {
-          > .menu-option details .container {
-            padding-left: config.$space-8x;
-          }
-        }
-      }
-
-      .container {
-        display: flex;
-        padding: config.$space-3x;
-
-        .left {
-          display: flex;
-          width: 100%;
-          gap: config.$space-2x;
-          justify-content: flex-start;
-          align-items: baseline;
-        }
-
-        .right {
-          display: none;
-          margin-top: auto;
-          margin-bottom: auto;
-        }
-      }
+    .title {
+      flex: 1;
     }
-
-    @include typography.body-regular-primary;
 
     &.primary {
       color: color_alias.$neutral-white;
@@ -81,29 +49,30 @@
         background: color_alias.$primary-color-600;
       }
 
-      &.selected {
+      &.active {
         background: color_alias.$primary-color-600;
       }
+    }
+  }
 
-      details {
-        &:has(> .dropdown) {
-          > .dropdown {
-            .menu-option {
-              background: color_alias.$neutral-color-100;
-              color: color_alias.$neutral-color-1000;
+  details[open] {
+    .arrow {
+      transform: rotate(180deg);
+    }
+  }
+  .menu-dropdown .menu {
+    .menu-item {
+      padding-left: config.$space-8x;
+      background: color_alias.$neutral-color-100;
+      color: color_alias.$neutral-color-1000;
 
-              &:hover {
-                background: color_alias.$primary-color-100;
-              }
-            }
-
-            .selected {
-              background: color_alias.$primary-color-100;
-              box-shadow: inset -3px 0px 0px 0px color_alias.$primary-color-600;
-            }
-          }
-        }
+      &:hover {
+        background: color_alias.$primary-color-100;
       }
+    }
+    .active {
+      background: color_alias.$primary-color-100;
+      box-shadow: inset -3px 0px 0px 0px color_alias.$primary-color-600;
     }
   }
 }

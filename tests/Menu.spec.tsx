@@ -1,59 +1,57 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { Menu } from '@/atoms/Menu/Menu'
-import { MenuOption } from '@/atoms/Menu/MenuOption'
+import { MenuDropdown, MenuLink } from '@/atoms/Menu'
 
 describe('Menu', () => {
   it('renders first-level menu', () => {
-    const { getByRole, getByText, getAllByRole } = render(
+    const { getByRole, getByText } = render(
       <Menu>
-        <MenuOption title="Tekken 8" icon="Edit" />
-        <MenuOption
-          isSelected
+        <MenuLink title="Tekken 8" icon="Edit" href="#" />
+        <MenuLink
+          isActive
           title="The Legend of Zelda: Tears of the Kingdom"
           icon="Delete"
+          href="#"
         />
       </Menu>,
     )
 
     expect(getByRole('menu')).toHaveClass(`menu primary`)
-    expect(getAllByRole('menuitem')[1]).toHaveClass(`selected`)
+    expect(
+      getByRole('link', { name: 'The Legend of Zelda: Tears of the Kingdom' }),
+    ).toHaveClass(`active`)
     expect(getByText(/Tekken/i)).toBeInTheDocument()
     expect(getByText(/Zelda/i)).toBeInTheDocument()
-    expect(getAllByRole('img')[0].title).toBe('Edit')
-    expect(getAllByRole('img')[2].title).toBe('Delete')
+    expect(getByRole('img', { name: 'Edit' })).toBeInTheDocument()
+    expect(getByRole('img', { name: 'Delete' })).toBeInTheDocument()
   })
 
   it('renders second-level menu', () => {
-    const { getByText, getAllByRole } = render(
+    const { getByText, getAllByRole, getByRole } = render(
       <Menu>
-        <MenuOption title="Tekken 8" icon="Edit">
-          <Menu isDropdown>
-            <MenuOption title="Walkthrough" onClick={() => alert('click')} />
-            <MenuOption
-              isSelected
-              title="Characters"
-              onClick={() => alert('click')}
-            />
-            <MenuOption title="Story" onClick={() => alert('click')} />
-          </Menu>
-        </MenuOption>
-        <MenuOption
+        <MenuDropdown title="Tekken 8" icon="Edit">
+          <MenuLink title="Walkthrough" href="#" />
+          <MenuLink isActive title="Characters" href="#" />
+          <MenuLink title="Story" href="#" />
+        </MenuDropdown>
+        <MenuLink
           title="The Legend of Zelda: Tears of the Kingdom"
           icon="Delete"
+          href="#"
         />
       </Menu>,
     )
 
     expect(getAllByRole('menu').length).toBe(2)
-    expect(getAllByRole('menuitem')[2]).toHaveClass(`selected`)
+    expect(getByRole('link', { name: 'Characters' })).toHaveClass(`active`)
     expect(getByText(/Tekken/i)).toBeInTheDocument()
     expect(getByText(/Walkthrough/i)).toBeInTheDocument()
     expect(getByText(/Characters/i)).toBeInTheDocument()
     expect(getByText(/Story/i)).toBeInTheDocument()
     expect(getByText(/Zelda/i)).toBeInTheDocument()
-    expect(getAllByRole('img')[0].title).toBe('Edit')
-    expect(getAllByRole('img')[2].title).toBe('AngleDown')
-    expect(getAllByRole('img')[5].title).toBe('Delete')
+    expect(getByRole('img', { name: 'Edit' })).toBeInTheDocument()
+    expect(getByRole('img', { name: 'AngleDown' })).toBeInTheDocument()
+    expect(getByRole('img', { name: 'Delete' })).toBeInTheDocument()
   })
 })
