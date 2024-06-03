@@ -1,9 +1,9 @@
-import NextLink from 'next/link'
 import './Button.scss'
 import { Icon, IconType } from './Icon'
 import { classNames } from '../utils/classNames'
+import { BaseButtonProps, BaseButton } from './BaseButton'
 
-export interface BaseButtonProps {
+interface _ButtonProps {
   label: string
   accessibilityLabel?: string
   leftIcon?: IconType
@@ -13,16 +13,7 @@ export interface BaseButtonProps {
   disabled?: boolean
 }
 
-type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
-
-type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
-
-export type ButtonProps =
-  | (HtmlButtonProps & BaseButtonProps)
-  | (AnchorProps & BaseButtonProps)
-
-const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
-  'href' in props
+export type ButtonProps = _ButtonProps & BaseButtonProps
 
 export type ButtonVariant =
   | 'primary'
@@ -59,23 +50,8 @@ export function Button({
   }
   const cssClasses = classNames('button', variant, props.className)
 
-  if (hasHref(props)) {
-    return (
-      <NextLink
-        href={props.href || ''}
-        aria-label={accessibilityLabel || label}
-        {...props}
-        className={cssClasses}
-      >
-        {leftIcon && <Icon name={leftIcon} />}
-        {label}
-        {rightIcon && <Icon name={rightIcon} />}
-      </NextLink>
-    )
-  }
-
   return (
-    <button
+    <BaseButton
       disabled={loading || disabled}
       aria-label={accessibilityLabel || label}
       {...props}
@@ -84,6 +60,6 @@ export function Button({
       {leftIcon && <Icon name={leftIcon} />}
       {label}
       {rightIcon && <Icon name={rightIcon} />}
-    </button>
+    </BaseButton>
   )
 }
