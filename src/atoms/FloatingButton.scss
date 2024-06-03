@@ -37,11 +37,12 @@
     }
 
     &:disabled {
+      background: color_alias.$neutral-color-400;
       > .icon {
         > svg {
-          fill: color_alias.$neutral-color-400;
+          fill: color_alias.$neutral-white;
           path {
-            fill: color_alias.$neutral-color-400;
+            fill: color_alias.$neutral-white;
           }
         }
       }
