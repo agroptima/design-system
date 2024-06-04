@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { CardsTable, CardsTableHead, CardsTableHeader, CardsTableRow, CardsTableBody, CardsTableCell } from '../atoms/CardsTable'
-import { IconButton } from '../atoms/IconButton'
+import { IconButton } from '../atoms/Button'
 import { Badge } from '../atoms/Badge'
 
 const figmaPrimaryDesign = {

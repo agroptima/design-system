@@ -1,18 +1,18 @@
 import './FloatingButton.scss'
-import { Icon, IconType } from './Icon'
-import { classNames } from '../utils/classNames'
+import { Icon, IconType } from '../Icon'
+import { classNames } from '../../utils/classNames'
 import { BaseButtonProps, BaseButton } from './BaseButton'
 
 export type Variant = 'primary'
 
-export interface _FloatingButtonProps {
+interface CustomProps {
   icon: IconType
   variant?: Variant
   disabled?: boolean
   accessibilityLabel: string
 }
 
-export type FloatingButtonProps = _FloatingButtonProps & BaseButtonProps
+export type FloatingButtonProps = CustomProps & BaseButtonProps
 
 export function FloatingButton({
   accessibilityLabel,

@@ -1,5 +1,5 @@
 import { StoryObj } from '@storybook/react'
-import { FloatingButton } from '../atoms/FloatingButton'
+import { FloatingButton } from '../atoms/Button'
 
 const meta = {
   title: 'Design System/Atoms/FloatingButton',

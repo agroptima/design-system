@@ -1,4 +1,4 @@
-import { IconButton } from '../atoms/IconButton'
+import { IconButton } from '../atoms/Button'
 import { Card, CardHeader, CardContent, CardFooter } from '../atoms/Card'
 import { Button } from '../atoms/Button'
 

@@ -1,5 +1,5 @@
 import { StoryObj } from '@storybook/react'
-import { IconButton } from '../atoms/IconButton'
+import { IconButton } from '../atoms/Button'
 
 const meta = {
   title: 'Design System/Atoms/IconButton',

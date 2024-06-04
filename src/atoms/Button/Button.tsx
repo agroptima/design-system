@@ -1,9 +1,9 @@
 import './Button.scss'
-import { Icon, IconType } from './Icon'
-import { classNames } from '../utils/classNames'
+import { Icon, IconType } from '../Icon'
+import { classNames } from '../../utils/classNames'
 import { BaseButtonProps, BaseButton } from './BaseButton'
 
-interface _ButtonProps {
+interface CustomProps {
   label: string
   accessibilityLabel?: string
   leftIcon?: IconType
@@ -13,7 +13,7 @@ interface _ButtonProps {
   disabled?: boolean
 }
 
-export type ButtonProps = _ButtonProps & BaseButtonProps
+export type ButtonProps = CustomProps & BaseButtonProps
 
 export type ButtonVariant =
   | 'primary'

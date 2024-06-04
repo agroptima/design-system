@@ -1,18 +1,18 @@
 import './IconButton.scss'
-import { Icon, IconType } from './Icon'
-import { classNames } from '../utils/classNames'
+import { Icon, IconType } from '../Icon'
+import { classNames } from '../../utils/classNames'
 import { BaseButtonProps, BaseButton } from './BaseButton'
 
 export type Variant = 'primary'
 
-export interface _IconButtonProps {
+interface CustomProps {
   icon: IconType
   variant?: Variant
   disabled?: boolean
   accessibilityLabel: string
 }
 
-export type IconButtonProps = _IconButtonProps & BaseButtonProps
+export type IconButtonProps = CustomProps & BaseButtonProps
 
 export function IconButton({
   accessibilityLabel,
