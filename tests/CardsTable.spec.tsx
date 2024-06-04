@@ -9,7 +9,7 @@ import {
   CardsTableCell,
   Alignment,
 } from '@/atoms/CardsTable'
-import { IconButton } from '@/atoms/IconButton'
+import { IconButton } from '@/atoms/Button'
 import { Badge } from '@/atoms/Badge'
 
 describe('CardsTable', () => {

@@ -1,3 +1,4 @@
+import Add from './add.svg'
 import AddCircle from './add-circle.svg'
 import AngleDown from './angle-down.svg'
 import AngleLeft from './angle-left.svg'
@@ -23,6 +24,7 @@ import Sorter from './sorter.svg'
 import Warning from './warning.svg'
 
 export {
+  Add,
   AddCircle,
   AngleDown,
   AngleLeft,

@@ -1,16 +1,16 @@
 import { StoryObj } from '@storybook/react'
-import { IconButton } from '../atoms/Button'
+import { FloatingButton } from '../atoms/Button'
 
 const meta = {
-  title: 'Design System/Atoms/IconButton',
-  component: IconButton,
+  title: 'Design System/Atoms/FloatingButton',
+  component: FloatingButton,
   tags: ['autodocs'],
   argTypes: {
     accessibilityLabel: {
       description: 'Accessible name & description of the element',
     },
     variant: {
-      description: 'IconButton variant used from a list of values',
+      description: 'Component variant used from a list of values',
     },
     disabled: {
       description: 'Is the button in disabled state?',
@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>
 
 export const Link: Story = {
   args: {
-    icon: 'Edit',
+    icon: 'Add',
     variant: 'primary',
     accessibilityLabel: 'Edit game',
     href: 'link.com',
@@ -47,9 +47,9 @@ export const Link: Story = {
   parameters: figmaPrimaryDesign,
 }
 
-export const Primary: Story = {
+export const Button: Story = {
   args: {
-    icon: 'Delete',
+    icon: 'Add',
     variant: 'primary',
     accessibilityLabel: 'Delete game',
     disabled: false,

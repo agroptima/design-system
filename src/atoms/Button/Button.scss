@@ -1,6 +1,6 @@
-@use '../settings/color_alias';
-@use '../settings/typography/content' as typography;
-@use '../settings/config';
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
 
 @mixin button-style($main-color, $secondary-color, $hover-color) {
   background: $main-color;
