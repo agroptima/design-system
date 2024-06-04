@@ -1,27 +1,18 @@
-import NextLink from 'next/link'
 import './IconButton.scss'
 import { Icon, IconType } from './Icon'
 import { classNames } from '../utils/classNames'
+import { BaseButtonProps, BaseButton } from './BaseButton'
 
 export type Variant = 'primary'
 
-export interface BaseIconButtonProps {
+export interface _IconButtonProps {
   icon: IconType
   variant?: Variant
   disabled?: boolean
   accessibilityLabel: string
 }
 
-type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
-
-type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
-
-export type IconButtonProps =
-  | (HtmlButtonProps & BaseIconButtonProps)
-  | (AnchorProps & BaseIconButtonProps)
-
-const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
-  'href' in props
+export type IconButtonProps = _IconButtonProps & BaseButtonProps
 
 export function IconButton({
   accessibilityLabel,
@@ -32,27 +23,14 @@ export function IconButton({
 }: IconButtonProps) {
   const cssClasses = classNames('icon-button', variant, props.className)
 
-  if (hasHref(props)) {
-    return (
-      <NextLink
-        href={props.href || ''}
-        aria-label={accessibilityLabel}
-        {...props}
-        className={cssClasses}
-      >
-        <Icon name={icon} />
-      </NextLink>
-    )
-  }
-
   return (
-    <button
+    <BaseButton
       disabled={disabled}
       aria-label={accessibilityLabel}
       {...props}
       className={cssClasses}
     >
       <Icon name={icon} />
-    </button>
+    </BaseButton>
   )
 }
