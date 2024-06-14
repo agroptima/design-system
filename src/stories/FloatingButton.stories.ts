@@ -29,7 +29,7 @@ const meta = {
 const figmaPrimaryDesign = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/DN2ova21vWqCRvPspBXgI1/Design-System?type=design&node-id=1873-922&mode=dev',
+    url: 'https://www.figma.com/design/DN2ova21vWqCRvPspBXgI1/Design-System?node-id=2726-1430&m=dev',
   },
 }
 
@@ -42,12 +42,33 @@ export const Link: Story = {
     variant: 'primary',
     accessibilityLabel: 'Edit game',
     href: 'link.com',
-    disabled: false,
+    shape: 'circle',
   },
   parameters: figmaPrimaryDesign,
 }
 
 export const Button: Story = {
+  args: {
+    icon: 'Add',
+    variant: 'primary',
+    accessibilityLabel: 'Delete game',
+    disabled: false,
+    shape: 'circle',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const RoundedSquareLink: Story = {
+  args: {
+    icon: 'Add',
+    variant: 'primary',
+    accessibilityLabel: 'Edit game',
+    href: 'link.com',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const RoundedSquareButton: Story = {
   args: {
     icon: 'Add',
     variant: 'primary',
