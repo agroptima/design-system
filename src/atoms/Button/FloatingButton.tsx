@@ -5,11 +5,14 @@ import { BaseButtonProps, BaseButton } from './BaseButton'
 
 export type Variant = 'primary'
 
+export type Shape = 'circle' | 'rounded-square'
+
 interface CustomProps {
   icon: IconType
   variant?: Variant
   disabled?: boolean
   accessibilityLabel: string
+  shape?: Shape
 }
 
 export type FloatingButtonProps = CustomProps & BaseButtonProps
@@ -19,9 +22,15 @@ export function FloatingButton({
   icon,
   disabled,
   variant = 'primary',
+  shape = 'rounded-square',
   ...props
 }: FloatingButtonProps) {
-  const cssClasses = classNames('floating-button', variant, props.className)
+  const cssClasses = classNames(
+    'floating-button',
+    variant,
+    props.className,
+    shape,
+  )
 
   return (
     <BaseButton
