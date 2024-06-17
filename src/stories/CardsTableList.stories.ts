@@ -64,7 +64,8 @@ export const WithSorting: Story = {
           name: 'Metal Gear Solid 5: The Phantom Pain',
           address:
             'Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku, Tokyo, 104-0061 Japan',
-          email: 'konami@fakemail.com',
+          email:
+            'konami@fakemailreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail.com',
         },
       },
       {

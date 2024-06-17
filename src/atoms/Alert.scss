@@ -37,6 +37,7 @@
   }
 
   .icon-button {
+    pointer-events: auto;
     .icon {
       width: config.$icon-size-2x;
       height: config.$icon-size-2x;

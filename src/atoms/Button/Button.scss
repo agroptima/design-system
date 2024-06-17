@@ -55,7 +55,7 @@
 
   &.primary-outlined {
     @include button-style(
-      color_alias.$neutral-white,
+      transparent,
       color_alias.$primary-color-600,
       color_alias.$primary-color-50
     );
@@ -84,7 +84,7 @@
 
   &.error-outlined {
     @include button-style(
-      color_alias.$neutral-white,
+      transparent,
       color_alias.$error-color-600,
       color_alias.$error-color-50
     );
@@ -125,7 +125,7 @@
 
   &.success-outlined {
     @include button-style(
-      color_alias.$neutral-white,
+      transparent,
       color_alias.$neutral-color-900,
       color_alias.$success-color-50
     );
@@ -166,7 +166,7 @@
 
   &.warning-outlined {
     @include button-style(
-      color_alias.$neutral-white,
+      transparent,
       color_alias.$neutral-color-900,
       color_alias.$warning-color-50
     );
@@ -195,7 +195,7 @@
 
   &.info-outlined {
     @include button-style(
-      color_alias.$neutral-white,
+      transparent,
       color_alias.$info-color-600,
       color_alias.$info-color-50
     );
@@ -224,7 +224,7 @@
 
   &.neutral-outlined {
     @include button-style(
-      color_alias.$neutral-white,
+      transparent,
       color_alias.$neutral-color-1000,
       color_alias.$neutral-color-50
     );
