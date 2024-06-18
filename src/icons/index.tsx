@@ -25,6 +25,7 @@ import Import from './import.svg'
 import Info from './info.svg'
 import Loading from './loading.svg'
 import Logout from './logout.svg'
+import Minus from './minus.svg'
 import Product from './product.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
@@ -62,6 +63,7 @@ export {
   Info,
   Loading,
   Logout,
+  Minus,
   Product,
   Salesman,
   Search,
