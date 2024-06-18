@@ -13,7 +13,14 @@
   border-radius: config.$corner-radius-m;
   text-decoration: none;
   border: 1px solid transparent;
-  border-radius: 50%;
+
+  &.circle {
+    border-radius: 50%;
+  }
+
+  &.rounded-square {
+    border-radius: config.$corner-radius-m;
+  }
 
   > .icon {
     width: config.$icon-size-5x;
@@ -37,12 +44,12 @@
     }
 
     &:disabled {
-      background: color_alias.$neutral-color-400;
+      background: color_alias.$neutral-color-50;
       > .icon {
         > svg {
-          fill: color_alias.$neutral-white;
+          fill: color_alias.$neutral-color-400;
           path {
-            fill: color_alias.$neutral-white;
+            fill: color_alias.$neutral-color-400;
           }
         }
       }
