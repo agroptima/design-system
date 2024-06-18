@@ -64,7 +64,7 @@
       .button {
         @include typography.body-regular-primary;
         color: color_alias.$neutral-white;
-        font-size: 1.625rem;
+        height: 42px;
 
         &:disabled {
           border: 1px solid color_alias.$neutral-color-400;

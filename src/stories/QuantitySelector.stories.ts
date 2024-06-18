@@ -53,11 +53,13 @@ export const Primary: Story = {
     accessibilityLabel: 'Quantity of items to wishlist',
     id: 'quantity-selector',
     decrementButton: {
-      label: '-',
+      label: '',
+      leftIcon: 'Minus',
       onClick: () => alert('decrement'),
     },
     incrementButton: {
-      label: '+',
+      label: '',
+      leftIcon: 'Add',
       onClick: () => alert('increment'),
     },
     quantityInput: {
@@ -82,12 +84,14 @@ export const Disabled: Story = {
     accessibilityLabel: 'Quantity of items to wishlist',
     id: 'quantity-selector',
     decrementButton: {
-      label: '-',
+      label: '',
+      leftIcon: 'Minus',
       onClick: () => alert('decrement'),
       disabled: true,
     },
     incrementButton: {
-      label: '+',
+      label: '',
+      leftIcon: 'Add',
       onClick: () => alert('increment'),
       disabled: true,
     },
