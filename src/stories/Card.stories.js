@@ -399,7 +399,13 @@ export const Primary = {
           />
         </CardHeader>
         <CardContent>
-          <p>TEKKEN 8 will feature exciting new gameplay focused on “Aggressive” tactics. Retaining TEKKEN's unique fighting game identity, the game will provide both players and spectators with the series' most thrilling experience yet with visceral screen-jarring attacks and environments that are both dynamic and destructible.</p>
+          <p>
+            TEKKEN 8 will feature exciting new gameplay focused on “Aggressive”
+            tactics. Retaining TEKKEN's unique fighting game identity, the game
+            will provide both players and spectators with the series' most
+            thrilling experience yet with visceral screen-jarring attacks and
+            environments that are both dynamic and destructible.
+          </p>
         </CardContent>
         <CardFooter>
           <Button variant="primary-outlined" label="Add to wishlist" />
@@ -412,16 +418,34 @@ export const Primary = {
 export const Disabled = {
   render: () => (
     <div style={{ display: 'flex' }}>
-      <Card isDisabled={true} variant="primary">
+      <Card isDisabled variant="primary">
         <CardHeader title="Tekken 8">
           <IconButton disabled icon="Delete" accessibilityLabel="Delete game" />
         </CardHeader>
         <CardContent>
-          <p>TEKKEN 8 will feature exciting new gameplay focused on “Aggressive” tactics. Retaining TEKKEN's unique fighting game identity, the game will provide both players and spectators with the series' most thrilling experience yet with visceral screen-jarring attacks and environments that are both dynamic and destructible.</p>
+          <p>
+            TEKKEN 8 will feature exciting new gameplay focused on “Aggressive”
+            tactics. Retaining TEKKEN's unique fighting game identity, the game
+            will provide both players and spectators with the series' most
+            thrilling experience yet with visceral screen-jarring attacks and
+            environments that are both dynamic and destructible.
+          </p>
         </CardContent>
         <CardFooter>
           <Button variant="primary-outlined" disabled label="Add to wishlist" />
         </CardFooter>
+      </Card>
+    </div>
+  ),
+}
+
+export const Active = {
+  render: () => (
+    <div style={{ display: 'flex' }}>
+      <Card isActive>
+        <CardHeader title="Fallout 3">
+          <IconButton icon="Delete" accessibilityLabel="Delete game" />
+        </CardHeader>
       </Card>
     </div>
   ),

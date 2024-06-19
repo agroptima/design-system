@@ -13,12 +13,16 @@
   gap: config.$space-3x;
   border-radius: config.$corner-radius-xxs;
   border-bottom: 1px solid color_alias.$neutral-color-200;
+  text-decoration: none;
   cursor: default;
-
+  &:hover {
+    text-decoration: none;
+  }
   @include typography.body-regular-primary;
 
   .icon {
     width: config.$icon-size-4x;
+    min-width: config.$icon-size-4x;
     height: config.$icon-size-4x;
     > svg {
       width: 100%;
@@ -53,6 +57,15 @@
 
   &.primary {
     background: color_alias.$neutral-white;
+
+    &.active {
+      background-color: color_alias.$primary-color-50;
+    }
+
+    &.error {
+      border: 1px solid color_alias.$error-color-600;
+      background-color: color_alias.$error-color-50;
+    }
 
     .icon {
       > svg {

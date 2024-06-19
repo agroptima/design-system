@@ -67,7 +67,7 @@ export const Primary = {
           </CardsTableCell>
         </CardsTableRow>
 
-        <CardsTableRow>
+        <CardsTableRow isDisabled>
           <CardsTableCell titleWithActions={2}>The Witcher 3</CardsTableCell>
           <CardsTableCell>
             CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland
@@ -88,7 +88,7 @@ export const Primary = {
           </CardsTableCell>
         </CardsTableRow>
 
-        <CardsTableRow>
+        <CardsTableRow isActive onClick={() => alert('Click')}>
           <CardsTableCell titleWithActions={1}>Tekken 8</CardsTableCell>
           <CardsTableCell>
             Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo

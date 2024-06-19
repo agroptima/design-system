@@ -8,6 +8,7 @@
   flex-direction: column;
   gap: config.$space-1x;
   padding: config.$space-3x;
+  width: 100%;
 
   p {
     margin: 0;
@@ -57,15 +58,10 @@
       @include typography.body-regular-disabled;
       background: color_alias.$neutral-color-50;
     }
-  }
 
-  // Media queries
-  // Mobile case
-  @media only screen and (min-width: breakpoints.$small) and (max-width: breakpoints.$medium) {
-    width: 100%;
-  }
-  // Tablet & Desktop cases
-  @media only screen and (min-width: breakpoints.$medium) {
-    width: 18.625rem;
+    &.active {
+      border: 1px solid color_alias.$primary-color-1000;
+      box-shadow: none;
+    }
   }
 }
