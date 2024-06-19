@@ -1,0 +1,90 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+
+.collapsible {
+  @include typography.body-regular-primary;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+
+  &.disabled {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: config.$space-3x;
+    padding: config.$space-5x;
+
+    .icon {
+      width: config.$icon-size-4x;
+      height: config.$icon-size-4x;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .title {
+      flex: 1;
+    }
+  }
+
+  .content {
+    padding: config.$space-7x;
+  }
+
+  &.primary {
+    &.open {
+      .header {
+        background: color_alias.$primary-color-50;
+        border-bottom: 1px solid color_alias.$primary-color-600;
+      }
+    }
+
+    &.disabled {
+      .header {
+        background: color_alias.$neutral-color-50;
+        border-bottom: 1px solid color_alias.$neutral-color-200;
+
+        .icon {
+          > svg {
+            fill: color_alias.$neutral-color-200;
+            path {
+              fill: color_alias.$neutral-color-200;
+            }
+          }
+        }
+      }
+    }
+
+    .header {
+      color: color_alias.$neutral-color-1000;
+      background: color_alias.$neutral-white;
+      border-bottom: 1px solid color_alias.$neutral-color-200;
+
+      .icon {
+        > svg {
+          fill: color_alias.$primary-color-600;
+          path {
+            fill: color_alias.$primary-color-600;
+          }
+        }
+      }
+
+      &:hover {
+        background: color_alias.$primary-color-50;
+      }
+    }
+  }
+}
+
+.collapsible[open] {
+  .arrow {
+    transform: rotate(90deg);
+  }
+}
