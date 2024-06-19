@@ -4,6 +4,7 @@ import AngleDown from './angle-down.svg'
 import AngleLeft from './angle-left.svg'
 import AngleRight from './angle-right.svg'
 import AngleUp from './angle-up.svg'
+import ArrowBack from './arrow-back.svg'
 import Calendar from './calendar.svg'
 import Check from './check.svg'
 import CheckboxActive from './checkbox-active.svg'
@@ -42,6 +43,7 @@ export {
   AngleLeft,
   AngleRight,
   AngleUp,
+  ArrowBack,
   Calendar,
   ChangePassword,
   Check,
