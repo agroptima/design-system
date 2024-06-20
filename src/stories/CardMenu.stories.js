@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { CardMenu, CardMenuOption } from '../atoms/CardMenu'
-import { isErrored } from 'stream'
 
 const figmaPrimaryDesign = {
   design: {
@@ -37,7 +36,7 @@ const meta = {
       description: 'Is the component active?',
     },
     error: {
-      description: 'Is the component error?',
+      description: 'Is the component marked as error?',
     },
   },
   parameters: figmaPrimaryDesign,
