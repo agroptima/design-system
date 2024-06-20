@@ -140,6 +140,7 @@
     }
     tr.active {
       border-color: color_alias.$primary-color-1000;
+      box-shadow: none;
     }
     tr.action {
       cursor: default;

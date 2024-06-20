@@ -25,6 +25,7 @@ export function QuantitySelector({
   className,
   hideLabel = false,
   variant = 'primary',
+  disabled,
   ...props
 }: QuantitySelectorProps): React.JSX.Element {
   const cssClasses = classNames('quantity-selector', className)
@@ -43,12 +44,14 @@ export function QuantitySelector({
           type="button"
           leftIcon="Minus"
           className="decrement-button"
+          disabled={disabled}
           onClick={onDecrement}
         />
         <Input
           id={id}
           label={label}
           accessibilityLabel={accessibilityLabel}
+          disabled={disabled}
           {...props}
           hideLabel={true}
         />
@@ -58,6 +61,7 @@ export function QuantitySelector({
           leftIcon="Add"
           type="button"
           className="increment-button"
+          disabled={disabled}
           onClick={onIncrement}
         />
       </div>

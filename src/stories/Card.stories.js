@@ -379,9 +379,16 @@ export const ProductCardsGroup = {
 
 export const Primary = {
   render: () => (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', width: '700px', gap: '20px' }}>
       <Card variant="primary">
-        <CardHeader title="Tekken 8">
+        <CardHeader
+          isBold
+          title="TEKKEN 8 will feature exciting new gameplay focused on “Aggressive”
+            tactics. Retaining TEKKEN's unique fighting game identity, the game
+            will provide both players and spectators with the series' most
+            thrilling experience yet with visceral screen-jarring attacks and
+            environments that are both dynamic and destructible."
+        >
           <IconButton
             icon="Edit"
             accessibilityLabel="Edit game"
@@ -411,6 +418,14 @@ export const Primary = {
           <Button variant="primary-outlined" label="Add to wishlist" />
         </CardFooter>
       </Card>
+      <Card variant="primary">
+        <CardHeader isBold title="Metal Gear Solid 5" />
+        <CardContent>
+          <p>
+            Metal Gear Solid 5: Ground Zeroes + The Phantom Pain is a stealth
+          </p>
+        </CardContent>
+      </Card>
     </div>
   ),
 }
@@ -419,7 +434,7 @@ export const Disabled = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card isDisabled variant="primary">
-        <CardHeader title="Tekken 8">
+        <CardHeader isBold title="Tekken 8">
           <IconButton disabled icon="Delete" accessibilityLabel="Delete game" />
         </CardHeader>
         <CardContent>
