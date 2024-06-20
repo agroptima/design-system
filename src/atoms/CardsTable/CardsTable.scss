@@ -116,6 +116,7 @@
     }
 
     tr {
+      border: 1px solid transparent;
       td {
         @include typography.cards-table-list-text;
         overflow: hidden;
@@ -136,6 +137,13 @@
       td {
         @include typography.cards-table-list-disabled-text;
       }
+    }
+    tr.active {
+      border-color: color_alias.$primary-color-1000;
+      box-shadow: none;
+    }
+    tr.action {
+      cursor: default;
     }
   }
 

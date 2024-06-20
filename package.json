@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.18.0",
+  "version": "0.18.2",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
@@ -10,7 +10,8 @@
     "lint:fix": "eslint src --fix",
     "types": "tsc --noEmit",
     "chromatic": "npx chromatic --exit-zero-on-changes",
-    "test": "jest"
+    "test": "jest",
+    "publish:beta": "npm publish --tag beta"
   },
   "dependencies": {
     "@storybook/addon-designs": "^7.0.5",

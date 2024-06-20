@@ -29,11 +29,14 @@ const meta = {
     description: {
       description: 'Component description text',
     },
-    isDisabled: {
+    disabled: {
       description: 'Is the component disabled?',
     },
-    onClick: {
-      description: 'Event triggered when the component is clicked',
+    active: {
+      description: 'Is the component active?',
+    },
+    error: {
+      description: 'Is the component marked as error?',
     },
   },
   parameters: figmaPrimaryDesign,
@@ -45,12 +48,11 @@ export const Option = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
+      href="#"
       icon="Info"
       variant="primary"
       title="It's dangerous to go alone!"
       description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
-      isDisabled={false}
-      onClick={() => alert('click')}
     />
   ),
 }
@@ -59,6 +61,7 @@ export const DisabledOption = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
+      href="#"
       icon="Info"
       variant="primary"
       title="It's dangerous to go alone!"
@@ -68,35 +71,60 @@ export const DisabledOption = {
   ),
 }
 
+export const ActiveOption = {
+  render: () => (
+    <CardMenuOption
+      id="first-menu-option"
+      href="#"
+      icon="Info"
+      variant="primary"
+      title="It's dangerous to go alone!"
+      description="Take this 🗡️"
+      active
+    />
+  ),
+}
+
+export const ErrorOption = {
+  render: () => (
+    <CardMenuOption
+      id="first-menu-option"
+      href="#"
+      icon="Info"
+      variant="primary"
+      title="It's dangerous to go alone!"
+      description="Take this 🗡️"
+      error
+    />
+  ),
+}
+
 export const Menu = {
   render: () => (
     <CardMenu>
       <CardMenuOption
         id="first-menu-option"
+        href="#"
         icon="AddCircle"
         variant="primary"
         title="Title"
         description="Name of the videogame"
-        isDisabled={false}
-        onClick={() => alert('click title')}
       />
       <CardMenuOption
         id="second-menu-option"
+        href="#"
         icon="Edit"
         variant="primary"
         title="Address"
         description="Videogame company address"
-        isDisabled={false}
-        onClick={() => alert('click address')}
       />
       <CardMenuOption
         id="third-menu-option"
+        href="#"
         icon="Info"
         variant="primary"
         title="Email"
         description="Videogame company email"
-        isDisabled={false}
-        onClick={() => alert('click email')}
       />
     </CardMenu>
   ),

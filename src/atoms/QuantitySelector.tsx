@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Icon } from './Icon'
+import React from 'react'
 import { classNames } from '../utils/classNames'
 import './QuantitySelector.scss'
 import { Input, InputProps } from './Input'
@@ -7,28 +6,26 @@ import { Button, ButtonProps } from './Button'
 
 export type Variant = 'primary'
 
-export interface QuantitySelectorProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export interface QuantitySelectorProps extends InputProps {
   label: string
   accessibilityLabel?: string
   hideLabel?: boolean
   id?: string
   variant?: Variant
-  decrementButton: ButtonProps
-  incrementButton: ButtonProps
-  quantityInput: InputProps
+  onDecrement: () => void
+  onIncrement: () => void
 }
 
 export function QuantitySelector({
-  decrementButton,
-  incrementButton,
-  quantityInput,
+  id,
+  onDecrement,
+  onIncrement,
   label,
   accessibilityLabel,
-  id,
   className,
   hideLabel = false,
   variant = 'primary',
+  disabled,
   ...props
 }: QuantitySelectorProps): React.JSX.Element {
   const cssClasses = classNames('quantity-selector', className)
@@ -41,13 +38,32 @@ export function QuantitySelector({
         </label>
       )}
       <div className={cssClasses}>
-        <Button className="decrement-button" {...decrementButton} />
+        <Button
+          label=""
+          accessibilityLabel="-"
+          type="button"
+          leftIcon="Minus"
+          className="decrement-button"
+          disabled={disabled}
+          onClick={onDecrement}
+        />
         <Input
-          {...quantityInput}
+          id={id}
           label={label}
           accessibilityLabel={accessibilityLabel}
+          disabled={disabled}
+          {...props}
+          hideLabel={true}
         />
-        <Button className="increment-button" {...incrementButton} />
+        <Button
+          label=""
+          accessibilityLabel="+"
+          leftIcon="Add"
+          type="button"
+          className="increment-button"
+          disabled={disabled}
+          onClick={onIncrement}
+        />
       </div>
     </div>
   )

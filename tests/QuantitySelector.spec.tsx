@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { QuantitySelector } from '@/atoms/QuantitySelector'
 
 describe('QuantitySelector', () => {
@@ -8,27 +8,17 @@ describe('QuantitySelector', () => {
       <QuantitySelector
         label="Quantity"
         accessibilityLabel="Quantity of items to wishlist"
-        id="quantity-selector"
-        decrementButton={{
-          label: '-',
-          onClick: () => alert('decrement'),
-        }}
-        incrementButton={{
-          label: '+',
-          onClick: () => alert('increment'),
-        }}
-        quantityInput={{
-          label: 'Quantity input',
-          hideLabel: true,
-          name: 'quantity',
-          value: 1,
-          onChange: () => alert('onChange'),
-          type: 'number',
-          max: 10,
-          step: 0.0001,
-          min: 1,
-          required: true,
-        }}
+        id="quantity"
+        onDecrement={() => alert('decrement')}
+        onIncrement={() => alert('increment')}
+        name="quantity"
+        value={1}
+        onChange={() => alert('onChange')}
+        type="number"
+        max={10}
+        step={0.0001}
+        min={1}
+        required={true}
       />,
     )
 

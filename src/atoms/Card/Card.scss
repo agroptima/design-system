@@ -8,6 +8,7 @@
   flex-direction: column;
   gap: config.$space-1x;
   padding: config.$space-3x;
+  width: 100%;
 
   p {
     margin: 0;
@@ -32,7 +33,14 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: config.$space-1x;
-
+    gap: config.$space-1x;
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+    }
     > .bold {
       @include typography.body-bold;
     }
@@ -56,16 +64,14 @@
     &.disabled {
       @include typography.body-regular-disabled;
       background: color_alias.$neutral-color-50;
+      .header .bold {
+        color: color_alias.$neutral-color-400;
+      }
     }
-  }
 
-  // Media queries
-  // Mobile case
-  @media only screen and (min-width: breakpoints.$small) and (max-width: breakpoints.$medium) {
-    width: 100%;
-  }
-  // Tablet & Desktop cases
-  @media only screen and (min-width: breakpoints.$medium) {
-    width: 18.625rem;
+    &.active {
+      border: 1px solid color_alias.$primary-color-1000;
+      box-shadow: none;
+    }
   }
 }

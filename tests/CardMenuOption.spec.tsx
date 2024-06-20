@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { CardMenuOption } from '@/atoms/CardMenu/CardMenuOption'
 
 describe('CardMenuOption', () => {
@@ -7,6 +7,7 @@ describe('CardMenuOption', () => {
     const { getByRole, getByText, getAllByRole } = render(
       <CardMenuOption
         id="option-one"
+        href="#"
         icon="Info"
         title="It's dangerous to go alone!"
         description="Take this sword!"
