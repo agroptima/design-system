@@ -16,17 +16,14 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-interactions'),
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
+    '@storybook/addon-mdx-gfm'
   ],
   framework: {
-    name: getAbsolutePath('@storybook/nextjs'),
+    name: '@storybook/nextjs',
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
-  core: {
-    builder: '@storybook/builder-webpack5',
-  },
+  docs: {},
+  core: {},
   webpackFinal: async (config) => {
     const pathToInlineSvg = resolve(__dirname, '../src/icons')
 

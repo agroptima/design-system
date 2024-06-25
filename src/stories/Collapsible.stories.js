@@ -37,7 +37,14 @@ export default meta
 export const Primary = {
   render: () => (
     <Collapsible title="My personal data" name="personal-data">
-      <div style={{display: 'flex', flexDirection: 'column', width: '100%', gap: '1rem'}}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          gap: '1rem',
+        }}
+      >
         <Input
           accessibilityLabel="Fill the form name"
           helpText="This text can help you"
@@ -90,7 +97,14 @@ export const Primary = {
 export const PrimaryOpened = {
   render: () => (
     <Collapsible title="My personal data" name="personal-data" open>
-      <div style={{display: 'flex', flexDirection: 'column', width: '100%', gap: '1rem'}}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          gap: '1rem',
+        }}
+      >
         <Input
           accessibilityLabel="Fill the form name"
           helpText="This text can help you"
