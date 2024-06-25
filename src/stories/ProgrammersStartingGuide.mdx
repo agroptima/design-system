@@ -6,6 +6,21 @@ import { Meta } from "@storybook/blocks";
 
 ## Indigo Project
 
+### Install agroptima-design-system dependency in beta mode
+
+This is suitable in order to check the Design System latest changes on Indigo Project without the need of publishing
+a new version on npm.
+
+- Download the desired Design System feature branch.
+- On the package.json, if the current version is `0.18.0` change it by `0.18.0-beta.1`.
+- On the Design System project terminal, run `npm run publish:beta`.
+- On the Indigo project terminal, run `npm i agroptima-design-system@beta`.
+- If you need to apply new changes to the Design System branch, increase the beta version like this `0.18.0-beta.2` and run the previous steps.
+
+The beta mode allows us to work comfortably between the 2 projects and applying new changes or feedback to the Design System components
+without the need of publishing it on npm.
+
+
 ### Install agroptima-design-system dependency
 
 On the frontend project's package.json, you can see the `agroptima-design-system` dependency.

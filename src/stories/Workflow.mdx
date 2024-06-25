@@ -37,11 +37,12 @@ Designers, Programmers and Product Owners</b> 🌈
 
 * When a component is ready on the Figma design system, a design team programmer can begin the task to add it to the Storybook code project.
   When the component is ready on Storybook, it can be consumed on the needed project on a new task because of the
-  design system being on an independent repo.
+  design system being on an independent repo. 
+  
+  We can use the beta mode in order to work comfortably between the Design System and the frontend
+  project, check the Programmer Start Guide for more information.
 
 * Each component story defined on Storybook will have the preview of its Figma design on the [Design tab](https://storybook.js.org/docs/sharing/design-integrations#view-designs-in-storybook).
-
-<img width="70%" src="https://storybook.js.org/25231d61af791e6586689324e02460e3/design-addon-panel.png" />
 
 * When the component is finished on Storybook code project, the task will be deployed to Chromatic.
   On Jira, it will move to the Design System column, so the designer reviews that everything is ok.
@@ -49,6 +50,6 @@ Designers, Programmers and Product Owners</b> 🌈
 * The accessibility tab which shows issues related with the design of the component will be reviewed by the designer.
   The design team programmers also need to keep an eye on this when setting aria properties.
 
-<img width="80%" src="https://storybook.js.org/2920682a0a74969419ca80ef277ffdca/storybook-a11y-addon-optimized.png" />
-
 * When the designer gives us the ok, it will follow the common Jira workflow, so it will move to In Consensus to review the code.
+
+* When the code is reviewed and merged, a new release version will be automatically published on [npm](https://www.npmjs.com/package/agroptima-design-system).
