@@ -15,12 +15,22 @@ const meta = {
 export default meta
 
 export const Typography = {
-  render: () => 
-  <div style={{fontStyle: '1rem', fontVariant: 'normal', fontWeight: 400, fontFamily:
-    'Noto Sans, sans-serif', color: '#444444FF', fontSize: '1rem', lineHeight: 'normal'}}>
-  <h1>Typography</h1>
-  <p>ℹ️ The typography defined styles can be checked on the Design tab.</p>
+  render: () => (
+    <div
+      style={{
+        fontStyle: '1rem',
+        fontVariant: 'normal',
+        fontWeight: 400,
+        fontFamily: 'Noto Sans, sans-serif',
+        color: '#444444FF',
+        fontSize: '1rem',
+        lineHeight: 'normal',
+      }}
+    >
+      <h1>Typography</h1>
+      <p>ℹ️ The typography defined styles can be checked on the Design tab.</p>
 
-  <p>On each component, you can check the typography styles live.</p>
-  </div>
+      <p>On each component, you can check the typography styles live.</p>
+    </div>
+  ),
 }

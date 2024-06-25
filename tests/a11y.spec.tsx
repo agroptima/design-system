@@ -9,7 +9,7 @@ expect.extend(toHaveNoViolations)
 const stories = Object.values(components).map((component) => {
   return {
     title: component.default.title,
-    stories: composeStories(component),
+    stories: composeStories(component as any),
   }
 })
 
