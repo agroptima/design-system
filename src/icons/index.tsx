@@ -30,6 +30,7 @@ import Minus from './minus.svg'
 import Product from './product.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
+import Series from './series.svg'
 import Settings from './settings.svg'
 import Show from './show.svg'
 import ShowOff from './show-off.svg'
@@ -69,6 +70,7 @@ export {
   Product,
   Salesman,
   Search,
+  Series,
   Settings,
   Show,
   ShowOff,
