@@ -50,8 +50,6 @@ export function Button({
   }
   const cssClasses = classNames(props.className, 'button', variant)
 
-  console.log('amo a ve: ', cssClasses)
-
   return (
     <BaseButton
       disabled={loading || disabled}

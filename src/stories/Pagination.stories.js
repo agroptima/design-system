@@ -140,7 +140,6 @@ export const AdvancedPagination = {
     <Pagination>
       <PaginationArrow
         icon="AngleLeft"
-        size="medium"
         href="https://google.com"
         accessibilityLabel="Previous page"
         variant="primary"
@@ -199,7 +198,6 @@ export const AdvancedPagination = {
 
       <PaginationArrow
         icon="AngleRight"
-        size="medium"
         href="https://google.com"
         accessibilityLabel="Next page"
         variant="primary"
