@@ -48,7 +48,7 @@ export function Button({
   if (loading) {
     leftIcon = 'Loading'
   }
-  const cssClasses = classNames('button', variant, props.className)
+  const cssClasses = classNames(props.className, 'button', variant)
 
   return (
     <BaseButton
