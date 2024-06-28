@@ -11,6 +11,7 @@
 
   > p {
     margin-top: config.$space-2x;
+    margin-bottom: config.$space-4x;
   }
 
   &:not(:has(> .button)) {
