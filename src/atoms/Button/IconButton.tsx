@@ -21,7 +21,7 @@ export function IconButton({
   variant = 'primary',
   ...props
 }: IconButtonProps) {
-  const cssClasses = classNames('icon-button', variant, props.className)
+  const cssClasses = classNames(props.className, 'icon-button', variant)
 
   return (
     <BaseButton

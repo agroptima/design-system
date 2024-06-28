@@ -1,0 +1,94 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/form' as form-typography;
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/layers';
+
+@layer pagination-button {
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: config.$space-2x;
+    width: 100%;
+
+    .ellipsis {
+      @include typography.body-regular-primary;
+      color: color_alias.$neutral-color-600;
+      margin: 0 config.$space-2x 0.625rem config.$space-2x;
+    }
+
+    .pagination-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: config.$space-2x;
+      border-radius: config.$corner-radius-xxs;
+      padding: config.$space-2x;
+      width: config.$icon-size-7x;
+      height: config.$icon-size-7x;
+
+      &.primary {
+        border: 1px solid color_alias.$neutral-color-600;
+        background: color_alias.$neutral-white;
+        @include typography.body-regular-primary;
+        > .icon {
+          > svg {
+            fill: color_alias.$primary-color-600;
+            path {
+              fill: color_alias.$primary-color-600;
+            }
+          }
+        }
+
+        &:hover {
+          border: 1px solid color_alias.$primary-color-1000;
+          background: color_alias.$primary-color-50;
+          color: color_alias.$primary-color-1000;
+        }
+
+        &.selected {
+          border: 1px solid color_alias.$primary-color-1000;
+          color: color_alias.$primary-color-1000;
+        }
+
+        &:disabled,
+        &.disabled {
+          pointer-events: none;
+          border: 1px solid color_alias.$neutral-color-400;
+          background: color_alias.$neutral-color-50;
+          color: color_alias.$neutral-color-400;
+          > .icon {
+            > svg {
+              fill: color_alias.$neutral-color-400;
+              path {
+                fill: color_alias.$neutral-color-400;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.small {
+      .pagination-button {
+        width: config.$icon-size-5x;
+        height: config.$icon-size-5x;
+        gap: config.$space-1x;
+        padding: config.$space-1x;
+
+        &.primary {
+          border: 1px solid transparent;
+          background: none;
+
+          &.selected,
+          &:hover {
+            border: 1px solid color_alias.$primary-color-1000;
+            color: color_alias.$primary-color-1000;
+          }
+        }
+      }
+    }
+  }
+}
