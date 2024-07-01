@@ -57,7 +57,7 @@
 
     &.primary-outlined {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$primary-color-600,
         color_alias.$primary-color-50
       );
@@ -66,7 +66,7 @@
 
     &.primary-ghost {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$primary-color-600,
         transparent
       );
@@ -86,7 +86,7 @@
 
     &.error-outlined {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$error-color-600,
         color_alias.$error-color-50
       );
@@ -95,7 +95,7 @@
 
     &.error-ghost {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$error-color-600,
         transparent
       );
@@ -127,7 +127,7 @@
 
     &.success-outlined {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$neutral-color-900,
         color_alias.$success-color-50
       );
@@ -136,7 +136,7 @@
 
     &.success-ghost {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$success-color-1000,
         transparent
       );
@@ -168,7 +168,7 @@
 
     &.warning-outlined {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$neutral-color-900,
         color_alias.$warning-color-50
       );
@@ -177,7 +177,7 @@
 
     &.warning-ghost {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$warning-color-1000,
         transparent
       );
@@ -197,7 +197,7 @@
 
     &.info-outlined {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$info-color-600,
         color_alias.$info-color-50
       );
@@ -206,7 +206,7 @@
 
     &.info-ghost {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$info-color-600,
         transparent
       );
@@ -226,7 +226,7 @@
 
     &.neutral-outlined {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$neutral-color-1000,
         color_alias.$neutral-color-50
       );
@@ -235,7 +235,7 @@
 
     &.neutral-ghost {
       @include button-style(
-        transparent,
+        color_alias.$neutral-white,
         color_alias.$neutral-color-1000,
         transparent
       );
@@ -275,7 +275,7 @@
     &.info-outlined,
     &.neutral-outlined {
       &:disabled {
-        background: transparent;
+        background: color_alias.$neutral-color-50;
         border: 1px solid color_alias.$neutral-color-400;
       }
     }
