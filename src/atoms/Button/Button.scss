@@ -51,7 +51,7 @@
       @include button-style(
         color_alias.$primary-color-600,
         color_alias.$neutral-white,
-        color_alias.$primary-color-1000
+        color_alias.$primary-color-800
       );
     }
 
@@ -78,10 +78,22 @@
 
     &.error {
       @include button-style(
-        color_alias.$error-color-600,
-        color_alias.$neutral-white,
-        color_alias.$error-color-900
+        color_alias.$error-color-1000,
+        color_alias.$neutral-color-1000,
+        color_alias.$error-color-700
       );
+      &:not(:disabled):hover,
+      &:not(:disabled):active {
+        color: color_alias.$neutral-white;
+        > .icon {
+          > svg {
+            fill: color_alias.$neutral-white;
+            path {
+              fill: color_alias.$neutral-white;
+            }
+          }
+        }
+      }
     }
 
     &.error-outlined {

@@ -41,8 +41,8 @@
   &.primary {
     &.open {
       .header {
-        background: color_alias.$primary-color-50;
-        border-bottom: 1px solid color_alias.$primary-color-600;
+        background: transparent;
+        border-bottom: 3px solid color_alias.$primary-color-600;
       }
     }
 
@@ -65,7 +65,7 @@
 
     .header {
       color: color_alias.$neutral-color-1000;
-      background: color_alias.$neutral-white;
+      background: transparent;
       border-bottom: 1px solid color_alias.$neutral-color-200;
 
       .icon {
