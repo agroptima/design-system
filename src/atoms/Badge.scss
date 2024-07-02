@@ -31,8 +31,8 @@
   }
 
   &.error {
-    background: color_alias.$error-color-600;
-    color: color_alias.$neutral-white;
+    background: color_alias.$error-color-1000;
+    color: color_alias.$neutral-color-1000;
   }
 
   &.info-outlined {

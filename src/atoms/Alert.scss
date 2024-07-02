@@ -107,7 +107,7 @@
   }
 
   &.error {
-    border: 1px solid color_alias.$error-color-600;
+    border: 1px solid color_alias.$error-color-1000;
     background: color_alias.$error-color-50;
     .information-container {
       .icon {

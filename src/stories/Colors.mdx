@@ -3,25 +3,106 @@ import styles from "../docs/colors.module.scss";
 
 <Meta title="Design System/Styles/Colors" />
 
-# Colours
+# Colors
 
 ## Elements
 
 <ColorPalette>
-  <ColorItem title="Element 1" colors={{ "colors.$element1": styles.element1 }} />
-
-  <ColorItem title="Element 2" colors={{ "colors.$element2": styles.element2 }} />
-
-  <ColorItem title="Element 3" colors={{ "colors.$element3": styles.element3 }} />
-
-  <ColorItem title="Element 4" colors={{ "colors.$element4": styles.element4 }} />
+  <ColorItem
+    title="$primary-color-"
+    subtitle="All primary colors"
+    colors={{ "1000": styles.primaryColor1000,
+              "900": styles.primaryColor900,
+              "800": styles.primaryColor800,
+              "700": styles.primaryColor700,
+              "600": styles.primaryColor600,
+              "500": styles.primaryColor500,
+              "400": styles.primaryColor400,
+              "300": styles.primaryColor300,
+              "200": styles.primaryColor200,
+              "100": styles.primaryColor100,
+              "50": styles.primaryColor50, }}
+  />
 
   <ColorItem
-    title="Test"
-    subtitle="All elements colours"
-    colors={{ "colors.$element1": styles.element1,
-              "colors.$element2": styles.element2,
-              "colors.$element3": styles.element3,
-              "colors.$element4": styles.element4 }}
+    title="$neutral-color-"
+    subtitle="All neutral colors"
+    colors={{ "1000": styles.neutralColor1000,
+              "900": styles.neutralColor900,
+              "800": styles.neutralColor800,
+              "700": styles.neutralColor700,
+              "600": styles.neutralColor600,
+              "500": styles.neutralColor500,
+              "400": styles.neutralColor400,
+              "300": styles.neutralColor300,
+              "200": styles.neutralColor200,
+              "100": styles.neutralColor100,
+              "50": styles.neutralColor50, }}
+  />
+  <ColorItem
+    title="$neutral-"
+    subtitle="All neutral colors"
+    colors={{ "black": styles.neutralBlack,
+              "white": styles.neutralWhite, }}
+  />
+  <ColorItem
+    title="$error-color-"
+    subtitle="All error colors"
+    colors={{ "1000": styles.errorColor1000,
+              "900": styles.errorColor900,
+              "800": styles.errorColor800,
+              "700": styles.errorColor700,
+              "600": styles.errorColor600,
+              "500": styles.errorColor500,
+              "400": styles.errorColor400,
+              "300": styles.errorColor300,
+              "200": styles.errorColor200,
+              "100": styles.errorColor100,
+              "50": styles.errorColor50, }}
+  />
+  <ColorItem
+    title="$success-color-"
+    subtitle="All success colors"
+    colors={{ "1000": styles.successColor1000,
+              "900": styles.successColor900,
+              "800": styles.successColor800,
+              "700": styles.successColor700,
+              "600": styles.successColor600,
+              "500": styles.successColor500,
+              "400": styles.successColor400,
+              "300": styles.successColor300,
+              "200": styles.successColor200,
+              "100": styles.successColor100,
+              "50": styles.successColor50, }}
+  />
+  <ColorItem
+    title="$warning-color-"
+    subtitle="All warning colors"
+    colors={{ "1000": styles.warningColor1000,
+              "900": styles.warningColor900,
+              "800": styles.warningColor800,
+              "700": styles.warningColor700,
+              "600": styles.warningColor600,
+              "500": styles.warningColor500,
+              "400": styles.warningColor400,
+              "300": styles.warningColor300,
+              "200": styles.warningColor200,
+              "100": styles.warningColor100,
+              "50": styles.warningColor50, }}
+  />
+  <ColorItem
+    title="$info-color-"
+    subtitle="All info colors"
+    colors={{ "1000": styles.infoColor1000,
+              "900": styles.infoColor900,
+              "800": styles.infoColor800,
+              "700": styles.infoColor700,
+              "600": styles.infoColor600,
+              "500": styles.infoColor500,
+              "400": styles.infoColor400,
+              "300": styles.infoColor300,
+              "200": styles.infoColor200,
+              "100": styles.infoColor100,
+              "50": styles.infoColor50, }}
   />
 </ColorPalette>

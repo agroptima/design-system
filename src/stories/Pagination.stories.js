@@ -93,7 +93,6 @@ export const MiniPagination = {
         href="https://google.com"
         accessibilityLabel="Go to page 1"
         variant="primary"
-        selected
       />
 
       <PaginationNumber

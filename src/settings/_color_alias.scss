@@ -1,19 +1,17 @@
 @import './colors';
 
-/* This file is exported like: $white-1000-bodegas -> we need to erase bodegas */
-/* We need to delete too the Agroptima lines or crash*/
 /* Aliases  */
-$primary-color-1000: $purple-1000;
-$primary-color-900: $purple-900;
-$primary-color-800: $purple-800;
-$primary-color-700: $purple-700;
-$primary-color-600: $purple-600;
-$primary-color-500: $purple-500;
-$primary-color-400: $purple-400;
-$primary-color-300: $purple-300;
-$primary-color-200: $purple-200;
-$primary-color-100: $purple-100;
-$primary-color-50: $purple-50;
+$primary-color-1000: $magenta-1000;
+$primary-color-900: $magenta-900;
+$primary-color-800: $magenta-800;
+$primary-color-700: $magenta-700;
+$primary-color-600: $magenta-600;
+$primary-color-500: $magenta-500;
+$primary-color-400: $magenta-400;
+$primary-color-300: $magenta-300;
+$primary-color-200: $magenta-200;
+$primary-color-100: $magenta-100;
+$primary-color-50: $magenta-50;
 $neutral-color-1000: $grey-1000;
 $neutral-color-900: $grey-900;
 $neutral-color-800: $grey-800;
