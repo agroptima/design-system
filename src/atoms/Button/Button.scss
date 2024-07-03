@@ -37,6 +37,7 @@
     border: 1px solid transparent;
 
     > .icon {
+      margin-top: 2px;
       width: config.$icon-size-3x;
       height: config.$icon-size-3x;
       > svg {
