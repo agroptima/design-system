@@ -1,25 +1,34 @@
 @use '../color_alias';
-// 87.5 = SemiCondensed , 400..600 normal, medium, semibold
-@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@87.5,100..600';
+@import 'https://fonts.googleapis.com/css2?family=Mulish:wght@200..1000&display=swap';
+
+$font-size-footnote: 0.875rem;
+$font-size-body: 1rem;
+$font-size-h4: 1.25rem;
+$font-size-h3: 1.5rem;
+$font-size-h2: 2rem;
+$font-size-h1: 2.5rem;
+$font-line-height-footnote: 1.375rem;
+$font-line-height-body: 1.5rem;
+$font-line-height-h4: 1.75rem;
+$font-line-height-h3: 2rem;
+$font-line-height-h2: 2.375rem;
+$font-line-height-h1: 3rem;
 
 @mixin base {
-  font-style: 1rem;
   font-variant: normal;
   font-weight: 400;
-  font-family:
-    Noto Sans,
-    sans-serif;
+  font-family: Mulish, sans-serif;
   color: color_alias.$neutral-color-1000;
-  font-size: 1rem;
-  line-height: normal;
+  font-size: $font-size-body;
+  line-height: $font-line-height-body;
 }
 
 @mixin h1 {
   @include base;
   font-weight: 700;
   color: color_alias.$neutral-color-1000;
-  font-size: 2.375rem;
-  line-height: 2.875rem;
+  font-size: $font-size-h1;
+  line-height: $font-line-height-h1;
   margin: 0;
 }
 
@@ -27,8 +36,8 @@
   @include base;
   font-weight: 700;
   color: color_alias.$neutral-color-1000;
-  font-size: 1.875rem;
-  line-height: 2.375rem;
+  font-size: $font-size-h2;
+  line-height: $font-line-height-h2;
   margin: 0;
 }
 
@@ -36,8 +45,8 @@
   @include base;
   font-weight: 700;
   color: color_alias.$neutral-color-1000;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: $font-size-h3;
+  line-height: $font-line-height-h3;
   margin: 0;
 }
 
@@ -45,96 +54,75 @@
   @include base;
   font-weight: 700;
   color: color_alias.$neutral-color-1000;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: $font-size-h4;
+  line-height: $font-line-height-h4;
   margin: 0;
 }
 
 @mixin body-regular-primary {
   @include base;
-  font-weight: 400;
   color: color_alias.$neutral-color-1000;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 @mixin body-regular-secondary {
   @include base;
-  font-weight: 400;
   color: color_alias.$neutral-color-600;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 @mixin body-regular-disabled {
   @include base;
-  font-weight: 400;
   color: color_alias.$neutral-color-400;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 @mixin body-regular-error {
   @include base;
-  font-weight: 400;
   color: color_alias.$error-color-1000;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 @mixin body-regular-warning {
   @include base;
-  font-weight: 400;
   color: color_alias.$warning-color-1000;
-  font-size: 1rem;
-  line-height: 1.5rem;
+}
+
+@mixin body-underline {
+  @include base;
+  color: color_alias.$neutral-color-1000;
+  text-decoration-line: underline;
+}
+
+@mixin body-link {
+  @include base;
+  color: color_alias.$primary-color-600;
 }
 
 @mixin body-medium {
   @include base;
-  font-weight: 600;
+  font-weight: 500;
   color: color_alias.$neutral-color-1000;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 @mixin body-bold {
   @include base;
   font-weight: 700;
   color: color_alias.$neutral-color-1000;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
-@mixin body-underline {
+@mixin body-extrabold {
   @include base;
-  font-weight: 400;
+  font-weight: 800;
   color: color_alias.$neutral-color-1000;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  text-decoration-line: underline;
-}
-
-@mixin body-link {
-  @include base;
-  font-weight: 400;
-  color: color_alias.$primary-color-600;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 @mixin footnote-primary {
   @include base;
-  font-weight: 400;
   color: color_alias.$neutral-color-600;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
+  font-size: $font-size-footnote;
+  line-height: $font-line-height-footnote;
 }
 
 @mixin footnote-error {
   @include base;
-  font-weight: 400;
   color: color_alias.$error-color-1000;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
+  font-size: $font-size-footnote;
+  line-height: $font-line-height-footnote;
 }

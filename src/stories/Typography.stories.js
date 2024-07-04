@@ -21,7 +21,7 @@ export const Typography = {
         fontStyle: '1rem',
         fontVariant: 'normal',
         fontWeight: 400,
-        fontFamily: 'Noto Sans, sans-serif',
+        fontFamily: 'Mulish, sans-serif',
         color: '#444444FF',
         fontSize: '1rem',
         lineHeight: 'normal',
