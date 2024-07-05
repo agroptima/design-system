@@ -107,6 +107,9 @@
   .input {
     width: 100%;
     padding: config.$space-2x config.$space-3x config.$space-2x;
+    &[type='date'] {
+      min-width: -webkit-fill-available;
+    }
   }
 
   .with-icon {
