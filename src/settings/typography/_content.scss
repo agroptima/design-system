@@ -14,115 +14,160 @@ $font-line-height-h3: 2rem;
 $font-line-height-h2: 2.375rem;
 $font-line-height-h1: 3rem;
 
-@mixin base {
+@mixin typography-style($font-weight, $font-size, $line-height, $color) {
   font-variant: normal;
-  font-weight: 400;
   font-family: Mulish, sans-serif;
-  color: color_alias.$neutral-color-1000;
-  font-size: $font-size-body;
-  line-height: $font-line-height-body;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
 }
 
 @mixin h1 {
-  @include base;
-  font-weight: 700;
-  color: color_alias.$neutral-color-1000;
-  font-size: $font-size-h1;
-  line-height: $font-line-height-h1;
+  @include typography-style(
+    700,
+    $font-size-h1,
+    $font-line-height-h1,
+    color_alias.$neutral-color-1000
+  );
   margin: 0;
 }
 
 @mixin h2 {
-  @include base;
-  font-weight: 700;
-  color: color_alias.$neutral-color-1000;
-  font-size: $font-size-h2;
-  line-height: $font-line-height-h2;
+  @include typography-style(
+    700,
+    $font-size-h2,
+    $font-line-height-h2,
+    color_alias.$neutral-color-1000
+  );
   margin: 0;
 }
 
 @mixin h3 {
-  @include base;
-  font-weight: 700;
-  color: color_alias.$neutral-color-1000;
-  font-size: $font-size-h3;
-  line-height: $font-line-height-h3;
+  @include typography-style(
+    700,
+    $font-size-h3,
+    $font-line-height-h3,
+    color_alias.$neutral-color-1000
+  );
   margin: 0;
 }
 
 @mixin h4 {
-  @include base;
-  font-weight: 700;
-  color: color_alias.$neutral-color-1000;
-  font-size: $font-size-h4;
-  line-height: $font-line-height-h4;
+  @include typography-style(
+    700,
+    $font-size-h4,
+    $font-line-height-h4,
+    color_alias.$neutral-color-1000
+  );
   margin: 0;
 }
 
 @mixin body-regular-primary {
-  @include base;
-  color: color_alias.$neutral-color-1000;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-1000
+  );
 }
 
 @mixin body-regular-secondary {
-  @include base;
-  color: color_alias.$neutral-color-600;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-600
+  );
 }
 
 @mixin body-regular-disabled {
-  @include base;
-  color: color_alias.$neutral-color-400;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-400
+  );
 }
 
 @mixin body-regular-error {
-  @include base;
-  color: color_alias.$error-color-1000;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$error-color-1000
+  );
 }
 
 @mixin body-regular-warning {
-  @include base;
-  color: color_alias.$warning-color-1000;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$warning-color-1000
+  );
 }
 
 @mixin body-underline {
-  @include base;
-  color: color_alias.$neutral-color-1000;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-1000
+  );
   text-decoration-line: underline;
 }
 
 @mixin body-link {
-  @include base;
-  color: color_alias.$primary-color-600;
+  @include typography-style(
+    400,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$primary-color-600
+  );
 }
 
 @mixin body-medium {
-  @include base;
-  font-weight: 500;
-  color: color_alias.$neutral-color-1000;
+  @include typography-style(
+    500,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-1000
+  );
 }
 
 @mixin body-bold {
-  @include base;
-  font-weight: 700;
-  color: color_alias.$neutral-color-1000;
+  @include typography-style(
+    700,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-1000
+  );
 }
 
 @mixin body-extrabold {
-  @include base;
-  font-weight: 800;
-  color: color_alias.$neutral-color-1000;
+  @include typography-style(
+    800,
+    $font-size-body,
+    $font-line-height-body,
+    color_alias.$neutral-color-1000
+  );
 }
 
 @mixin footnote-primary {
-  @include base;
-  color: color_alias.$neutral-color-600;
-  font-size: $font-size-footnote;
-  line-height: $font-line-height-footnote;
+  @include typography-style(
+    400,
+    $font-size-footnote,
+    $font-line-height-footnote,
+    color_alias.$neutral-color-600
+  );
 }
 
 @mixin footnote-error {
-  @include base;
-  color: color_alias.$error-color-1000;
-  font-size: $font-size-footnote;
-  line-height: $font-line-height-footnote;
+  @include typography-style(
+    400,
+    $font-size-footnote,
+    $font-line-height-footnote,
+    color_alias.$error-color-1000
+  );
 }
