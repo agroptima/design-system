@@ -109,7 +109,7 @@ export const DeleteOrDiscard = {
     <Modal
       id="discard-dangerous-alone"
       variant="discard"
-      title="It's dangerous to go alone!"
+      title="The far horizon was always steamy and indistinct"
       buttons={[
         {
           label: 'Cancel',
@@ -123,7 +123,11 @@ export const DeleteOrDiscard = {
         },
       ]}
     >
-      Take this 🗡️
+      But I could see that great jungles of unknown tree-ferns, calamites,
+      lepidodendra, and sigillaria lay outside the city, their fantastic
+      frondage waving mockingly in the shifting vapours. Now and then there
+      would be suggestions of motion in the sky, but these my early visions
+      never resolved.
     </Modal>
   ),
 }

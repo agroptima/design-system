@@ -57,7 +57,10 @@
   &.primary {
     background: color_alias.$neutral-white;
     border-bottom: 1px solid color_alias.$neutral-color-200;
-
+    &:has(+ .active) {
+      // Remove border-bottom if next sibling is active
+      border-bottom: none;
+    }
     &.active {
       background-color: transparent;
       border-top: 1px solid color_alias.$primary-color-600;

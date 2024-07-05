@@ -23,12 +23,10 @@ export function MenuDropdown({
   name,
   ...props
 }: MenuDropdownProps): React.JSX.Element {
-  const cssClasses = classNames('menu-item', variant, className)
-
   return (
     <li tabIndex={0} role="menuitem" className="menu-dropdown" {...props}>
       <details open={isOpen} name={name}>
-        <summary className={cssClasses}>
+        <summary className={classNames('menu-item', variant, className)}>
           {icon && <Icon name={icon} />}
           <span className="title">{title}</span>
           <Icon className="arrow" name="AngleDown" />
