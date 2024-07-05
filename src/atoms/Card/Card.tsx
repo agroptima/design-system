@@ -8,6 +8,7 @@ export interface CardProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   isDisabled?: boolean
   isActive?: boolean
+  error?: boolean
 }
 
 export function Card({
@@ -15,12 +16,14 @@ export function Card({
   variant = 'primary',
   isDisabled = false,
   isActive = false,
+  error = false,
   children,
   ...props
 }: CardProps): React.JSX.Element {
   const cssClasses = classNames('card', className, variant, {
     disabled: isDisabled,
     active: isActive,
+    error: error,
   })
 
   return (
