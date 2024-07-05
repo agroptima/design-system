@@ -1,0 +1,51 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+
+h1 {
+  @include typography.h1;
+}
+h2 {
+  @include typography.h2;
+}
+h3 {
+  @include typography.h3;
+}
+h4 {
+  @include typography.h4;
+}
+.body-regular-primary {
+  @include typography.body-regular-primary;
+}
+.body-regular-secondary {
+  @include typography.body-regular-secondary;
+}
+.body-regular-error {
+  @include typography.body-regular-error;
+}
+.body-regular-warning {
+  @include typography.body-regular-warning;
+}
+.body-underline {
+  @include typography.body-underline;
+}
+.body-link {
+  @include typography.body-link;
+}
+.body-medium {
+  @include typography.body-medium;
+}
+.body-bold {
+  @include typography.body-bold;
+}
+.footnote-primary {
+  @include typography.footnote-primary;
+}
+.footnote-error {
+  @include typography.footnote-error;
+}
+
+table {
+  border-spacing: config.$space-5x;
+}
