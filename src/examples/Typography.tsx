@@ -63,6 +63,14 @@ export function Typography(): React.JSX.Element {
             </td>
           </tr>
           <tr>
+            <td>.body-regular-disabled</td>
+            <td>
+              <span className="body-regular-disabled">
+                “Whatever.” - Final Fantasy VIII
+              </span>
+            </td>
+          </tr>
+          <tr>
             <td>.body-underline</td>
             <td>
               <span className="body-underline">

@@ -27,6 +27,9 @@ h4 {
 .body-regular-warning {
   @include typography.body-regular-warning;
 }
+.body-regular-disabled {
+  @include typography.body-regular-disabled;
+}
 .body-underline {
   @include typography.body-underline;
 }
