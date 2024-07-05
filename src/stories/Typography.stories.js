@@ -1,4 +1,5 @@
 import React from 'react'
+import { Typography as TypographyExamples } from '../examples/Typography'
 
 const figmaPrimaryDesign = {
   design: {
@@ -9,6 +10,7 @@ const figmaPrimaryDesign = {
 
 const meta = {
   title: 'Design System/Styles',
+  component: TypographyExamples,
   parameters: figmaPrimaryDesign,
 }
 
@@ -25,12 +27,13 @@ export const Typography = {
         color: '#444444FF',
         fontSize: '1rem',
         lineHeight: 'normal',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '15px',
       }}
     >
       <h1>Typography</h1>
-      <p>ℹ️ The typography defined styles can be checked on the Design tab.</p>
-
-      <p>On each component, you can check the typography styles live.</p>
+      <TypographyExamples/>
     </div>
   ),
 }
