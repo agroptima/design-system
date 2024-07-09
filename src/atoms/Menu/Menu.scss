@@ -75,4 +75,8 @@
       box-shadow: inset -3px 0px 0px 0px color_alias.$primary-color-600;
     }
   }
+
+  .menu-item::-webkit-details-marker {
+    display: none;
+  }
 }

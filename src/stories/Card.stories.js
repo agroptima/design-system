@@ -408,10 +408,10 @@ export const Primary = {
         <CardContent>
           <p>
             TEKKEN 8 will feature exciting new gameplay focused on “Aggressive”
-            tactics. Retaining TEKKEN's unique fighting game identity, the game
-            will provide both players and spectators with the series' most
-            thrilling experience yet with visceral screen-jarring attacks and
-            environments that are both dynamic and destructible.
+            tactics. Retaining TEKKEN&apos;s unique fighting game identity, the
+            game will provide both players and spectators with the series&apos;
+            most thrilling experience yet with visceral screen-jarring attacks
+            and environments that are both dynamic and destructible.
           </p>
         </CardContent>
         <CardFooter>
@@ -440,10 +440,10 @@ export const Disabled = {
         <CardContent>
           <p>
             TEKKEN 8 will feature exciting new gameplay focused on “Aggressive”
-            tactics. Retaining TEKKEN's unique fighting game identity, the game
-            will provide both players and spectators with the series' most
-            thrilling experience yet with visceral screen-jarring attacks and
-            environments that are both dynamic and destructible.
+            tactics. Retaining TEKKEN&apos;s unique fighting game identity, the
+            game will provide both players and spectators with the series&apos;
+            most thrilling experience yet with visceral screen-jarring attacks
+            and environments that are both dynamic and destructible.
           </p>
         </CardContent>
         <CardFooter>

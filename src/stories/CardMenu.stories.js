@@ -111,6 +111,7 @@ export const Menu = {
         description="Name of the videogame"
       />
       <CardMenuOption
+        active
         id="second-menu-option"
         href="#"
         icon="Edit"
