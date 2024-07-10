@@ -23,13 +23,21 @@ const meta = {
   component: CardsTable,
   tags: ['autodocs'],
   parameters: figmaPrimaryDesign,
+  argTypes: {
+    variant: {
+      description: 'Select variant used',
+    },
+    withTitle: {
+      description: 'Add style to first column',
+    },
+  },
 }
 
 export default meta
 
 export const Primary = {
   render: (args) => (
-    <CardsTable {...args}>
+    <CardsTable withTitle {...args}>
       <CardsTableHead>
         <CardsTableRow>
           <CardsTableHeader>Game title</CardsTableHeader>
@@ -103,6 +111,16 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>namco@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">79,99 €</CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+          </CardsTableCell>
+        </CardsTableRow>
+        <CardsTableRow isActive onClick={() => alert('Click')}>
+          <CardsTableCell titleWithActions={1}>Only title</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"

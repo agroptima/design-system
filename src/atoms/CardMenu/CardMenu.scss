@@ -4,6 +4,7 @@
 @use '../../settings/depth';
 
 .card-menu-option {
+  @include typography.body-regular-primary;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -17,8 +18,6 @@
   &:hover {
     text-decoration: none;
   }
-  @include typography.body-regular-primary;
-
   .icon {
     width: config.$icon-size-4x;
     min-width: config.$icon-size-4x;
@@ -56,10 +55,14 @@
 
   &.primary {
     background: color_alias.$neutral-white;
+    border-top: 1px solid transparent;
     border-bottom: 1px solid color_alias.$neutral-color-200;
+    &:first-child {
+      border-top: 1px solid color_alias.$neutral-color-200;
+    }
     &:has(+ .active) {
       // Remove border-bottom if next sibling is active
-      border-bottom: none;
+      border-bottom: 1px solid transparent;
     }
     &.active {
       background-color: transparent;
