@@ -103,6 +103,7 @@ export const Menu = {
   render: () => (
     <CardMenu>
       <CardMenuOption
+        active
         id="first-menu-option"
         href="#"
         icon="AddCircle"
@@ -111,7 +112,6 @@ export const Menu = {
         description="Name of the videogame"
       />
       <CardMenuOption
-        active
         id="second-menu-option"
         href="#"
         icon="Edit"

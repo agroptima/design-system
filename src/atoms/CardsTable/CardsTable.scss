@@ -127,7 +127,7 @@
       background: color_alias.$primary-color-50;
     }
 
-    tr > td:first-child {
+    &.with-title tr > td:first-child {
       @include typography.cards-table-list-highlight-text;
     }
 
@@ -211,7 +211,10 @@
 
     td:first-child {
       order: -2;
-      margin-bottom: config.$space-2x;
+    }
+
+    &.with-title td:not(.actions):nth-child(2) {
+      margin-top: config.$space-2x;
     }
 
     .title-actions-3 {
