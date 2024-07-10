@@ -1,0 +1,40 @@
+@use '../settings/typography/content' as typography;
+@use '../settings/breakpoints';
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @include typography.body-regular-primary;
+  * {
+    scrollbar-width: thin;
+  }
+}
+
+a {
+  @include typography.body-link;
+  cursor: default;
+}
+
+h1 {
+  @include typography.h1;
+
+  @media only screen and (max-width: breakpoints.$large) {
+    @include typography.h2;
+  }
+}
+
+h2 {
+  @include typography.h2;
+}
+
+h3 {
+  @include typography.h3;
+}
+
+h4 {
+  @include typography.h4;
+}

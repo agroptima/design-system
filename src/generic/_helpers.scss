@@ -1,0 +1,46 @@
+@use '../settings/typography/content' as typography;
+@use '../settings/breakpoints';
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.has-text-left {
+  text-align: left;
+}
+
+.has-text-center {
+  text-align: center;
+}
+
+.has-text-right {
+  text-align: right;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.only-desktop {
+  @media only screen and (max-width: breakpoints.$large) {
+    display: none !important;
+  }
+}
+
+.only-mobile {
+  @media only screen and (min-width: calc(breakpoints.$large + 1px)) {
+    display: none !important;
+  }
+}

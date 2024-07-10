@@ -1,52 +1,51 @@
 @use '../../settings/color_alias';
 @use '../../settings/config';
-@use '../../settings/layers';
 
-@layer icon-button {
-  .icon-button {
-    border: none;
-    background: none;
-    cursor: default;
-    padding: 0;
-    display: flex;
+.icon-button {
+  border: none;
+  background: none;
+  cursor: default;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  > .icon {
+    width: config.$icon-size-5x;
+    height: config.$icon-size-5x;
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.primary {
     > .icon {
-      width: config.$icon-size-5x;
-      height: config.$icon-size-5x;
       > svg {
-        width: 100%;
-        height: 100%;
+        fill: color_alias.$primary-color-600;
+        path {
+          fill: color_alias.$primary-color-600;
+        }
       }
     }
 
-    &.primary {
+    &:hover {
       > .icon {
         > svg {
-          fill: color_alias.$primary-color-600;
+          fill: color_alias.$primary-color-800;
           path {
-            fill: color_alias.$primary-color-600;
-          }
-        }
-      }
-
-      &:hover {
-        > .icon {
-          > svg {
             fill: color_alias.$primary-color-800;
-            path {
-              fill: color_alias.$primary-color-800;
-            }
           }
         }
       }
+    }
 
-      &:disabled {
-        > .icon {
-          > svg {
+    &:disabled {
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-color-400;
+          path {
             fill: color_alias.$neutral-color-400;
-            path {
-              fill: color_alias.$neutral-color-400;
-            }
           }
         }
       }

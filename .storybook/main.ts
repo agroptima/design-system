@@ -16,7 +16,7 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-interactions'),
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
-    '@storybook/addon-mdx-gfm'
+    '@storybook/addon-mdx-gfm',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -24,6 +24,7 @@ const config: StorybookConfig = {
   },
   docs: {},
   core: {},
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     const pathToInlineSvg = resolve(__dirname, '../src/icons')
 
@@ -32,8 +33,8 @@ const config: StorybookConfig = {
 
     // This modifies the existing image rule to exclude .svg files
     // since you want to handle those files with @svgr/webpack
-    const imageRule = config.module.rules.find(
-      (rule) => rule?.['test']?.test('.svg'),
+    const imageRule = config.module.rules.find((rule) =>
+      rule?.['test']?.test('.svg'),
     )
     if (!imageRule || typeof imageRule !== 'object') return
 
