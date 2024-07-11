@@ -1,296 +1,292 @@
 @use '../../settings/color_alias';
 @use '../../settings/typography/content' as typography;
 @use '../../settings/config';
-@use '../../settings/layers';
 
-@layer base-button {
-  @mixin button-style($main-color, $secondary-color, $hover-color) {
-    background: $main-color;
-    color: $secondary-color;
+@mixin button-style($main-color, $secondary-color, $hover-color) {
+  background: $main-color;
+  color: $secondary-color;
 
-    > .icon {
-      > svg {
+  > .icon {
+    > svg {
+      fill: $secondary-color;
+      path {
         fill: $secondary-color;
-        path {
-          fill: $secondary-color;
-        }
       }
-    }
-
-    &:not(:disabled):hover,
-    &:not(:disabled):active {
-      background: $hover-color;
     }
   }
 
-  .button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    gap: config.$space-1x;
-    cursor: default;
-    height: fit-content;
-    padding: config.$space-2x config.$space-3x;
-    border-radius: config.$corner-radius-m;
-    text-decoration: none;
-    border: 1px solid transparent;
+  &:not(:disabled):hover,
+  &:not(:disabled):active {
+    background: $hover-color;
+  }
+}
 
-    > .icon {
-      margin-top: 2px;
-      width: config.$icon-size-3x;
-      height: config.$icon-size-3x;
-      > svg {
-        width: 100%;
-        height: 100%;
-      }
+.button {
+  @include typography.body-bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  gap: config.$space-1x;
+  cursor: default;
+  height: fit-content;
+  padding: config.$space-2x config.$space-3x;
+  border-radius: config.$corner-radius-m;
+  text-decoration: none;
+  border: 1px solid transparent;
+
+  > .icon {
+    margin-top: 2px;
+    width: config.$icon-size-3x;
+    height: config.$icon-size-3x;
+    > svg {
+      width: 100%;
+      height: 100%;
     }
+  }
 
-    @include typography.body-medium;
+  &.primary {
+    @include button-style(
+      color_alias.$primary-color-600,
+      color_alias.$neutral-white,
+      color_alias.$primary-color-800
+    );
+  }
 
-    &.primary {
-      @include button-style(
-        color_alias.$primary-color-600,
-        color_alias.$neutral-white,
-        color_alias.$primary-color-800
-      );
-    }
+  &.primary-outlined {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$primary-color-600,
+      color_alias.$primary-color-50
+    );
+    border: 1px solid color_alias.$primary-color-600;
+  }
 
-    &.primary-outlined {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$primary-color-600,
-        color_alias.$primary-color-50
-      );
+  &.primary-ghost {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$primary-color-600,
+      transparent
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
       border: 1px solid color_alias.$primary-color-600;
     }
+  }
 
-    &.primary-ghost {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$primary-color-600,
-        transparent
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        border: 1px solid color_alias.$primary-color-600;
-      }
-    }
-
-    &.error {
-      @include button-style(
-        color_alias.$error-color-1000,
-        color_alias.$neutral-color-1000,
-        color_alias.$error-color-700
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        color: color_alias.$neutral-white;
-        > .icon {
-          > svg {
-            fill: color_alias.$neutral-white;
-            path {
-              fill: color_alias.$neutral-white;
-            }
-          }
-        }
-      }
-    }
-
-    &.error-outlined {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$error-color-600,
-        color_alias.$error-color-50
-      );
-      border: 1px solid color_alias.$error-color-600;
-    }
-
-    &.error-ghost {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$error-color-600,
-        transparent
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        border: 1px solid color_alias.$error-color-600;
-      }
-    }
-
-    &.success {
-      @include button-style(
-        color_alias.$success-color-1000,
-        color_alias.$neutral-color-900,
-        color_alias.$success-color-700
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        color: color_alias.$neutral-white;
-        > .icon {
-          > svg {
-            fill: color_alias.$neutral-white;
-            path {
-              fill: color_alias.$neutral-white;
-            }
-          }
-        }
-      }
-    }
-
-    &.success-outlined {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$neutral-color-900,
-        color_alias.$success-color-50
-      );
-      border: 1px solid color_alias.$success-color-1000;
-    }
-
-    &.success-ghost {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$success-color-1000,
-        transparent
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        border: 1px solid color_alias.$success-color-1000;
-      }
-    }
-
-    &.warning {
-      @include button-style(
-        color_alias.$warning-color-1000,
-        color_alias.$neutral-color-900,
-        color_alias.$warning-color-700
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        color: color_alias.$neutral-white;
-        > .icon {
-          > svg {
-            fill: color_alias.$neutral-white;
-            path {
-              fill: color_alias.$neutral-white;
-            }
-          }
-        }
-      }
-    }
-
-    &.warning-outlined {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$neutral-color-900,
-        color_alias.$warning-color-50
-      );
-      border: 1px solid color_alias.$warning-color-1000;
-    }
-
-    &.warning-ghost {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$warning-color-1000,
-        transparent
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        border: 1px solid color_alias.$warning-color-1000;
-      }
-    }
-
-    &.info {
-      @include button-style(
-        color_alias.$info-color-600,
-        color_alias.$neutral-white,
-        color_alias.$info-color-900
-      );
-    }
-
-    &.info-outlined {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$info-color-600,
-        color_alias.$info-color-50
-      );
-      border: 1px solid color_alias.$info-color-600;
-    }
-
-    &.info-ghost {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$info-color-600,
-        transparent
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        border: 1px solid color_alias.$info-color-600;
-      }
-    }
-
-    &.neutral {
-      @include button-style(
-        color_alias.$neutral-color-100,
-        color_alias.$neutral-color-1000,
-        color_alias.$neutral-color-300
-      );
-    }
-
-    &.neutral-outlined {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$neutral-color-1000,
-        color_alias.$neutral-color-50
-      );
-      border: 1px solid color_alias.$neutral-color-100;
-    }
-
-    &.neutral-ghost {
-      @include button-style(
-        color_alias.$neutral-white,
-        color_alias.$neutral-color-1000,
-        transparent
-      );
-      &:not(:disabled):hover,
-      &:not(:disabled):active {
-        border: 1px solid color_alias.$neutral-color-100;
-      }
-    }
-
-    &:disabled {
-      color: color_alias.$neutral-color-400;
+  &.error {
+    @include button-style(
+      color_alias.$error-color-1000,
+      color_alias.$neutral-color-1000,
+      color_alias.$error-color-700
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      color: color_alias.$neutral-white;
       > .icon {
         > svg {
-          fill: color_alias.$neutral-color-400;
+          fill: color_alias.$neutral-white;
           path {
-            fill: color_alias.$neutral-color-400;
+            fill: color_alias.$neutral-white;
           }
         }
       }
     }
+  }
 
-    &.primary,
-    &.error,
-    &.success,
-    &.warning,
-    &.info,
-    &.neutral {
-      &:disabled {
-        background: color_alias.$neutral-color-50;
+  &.error-outlined {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$error-color-600,
+      color_alias.$error-color-50
+    );
+    border: 1px solid color_alias.$error-color-600;
+  }
+
+  &.error-ghost {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$error-color-600,
+      transparent
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      border: 1px solid color_alias.$error-color-600;
+    }
+  }
+
+  &.success {
+    @include button-style(
+      color_alias.$success-color-1000,
+      color_alias.$neutral-color-900,
+      color_alias.$success-color-700
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      color: color_alias.$neutral-white;
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-white;
+          path {
+            fill: color_alias.$neutral-white;
+          }
+        }
       }
     }
+  }
 
-    &.primary-outlined,
-    &.error-outlined,
-    &.success-outlined,
-    &.warning-outlined,
-    &.info-outlined,
-    &.neutral-outlined {
-      &:disabled {
-        background: color_alias.$neutral-color-50;
-        border: 1px solid color_alias.$neutral-color-400;
+  &.success-outlined {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$neutral-color-900,
+      color_alias.$success-color-50
+    );
+    border: 1px solid color_alias.$success-color-1000;
+  }
+
+  &.success-ghost {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$success-color-1000,
+      transparent
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      border: 1px solid color_alias.$success-color-1000;
+    }
+  }
+
+  &.warning {
+    @include button-style(
+      color_alias.$warning-color-1000,
+      color_alias.$neutral-color-900,
+      color_alias.$warning-color-700
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      color: color_alias.$neutral-white;
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-white;
+          path {
+            fill: color_alias.$neutral-white;
+          }
+        }
       }
+    }
+  }
+
+  &.warning-outlined {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$neutral-color-900,
+      color_alias.$warning-color-50
+    );
+    border: 1px solid color_alias.$warning-color-1000;
+  }
+
+  &.warning-ghost {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$warning-color-1000,
+      transparent
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      border: 1px solid color_alias.$warning-color-1000;
+    }
+  }
+
+  &.info {
+    @include button-style(
+      color_alias.$info-color-600,
+      color_alias.$neutral-white,
+      color_alias.$info-color-900
+    );
+  }
+
+  &.info-outlined {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$info-color-600,
+      color_alias.$info-color-50
+    );
+    border: 1px solid color_alias.$info-color-600;
+  }
+
+  &.info-ghost {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$info-color-600,
+      transparent
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      border: 1px solid color_alias.$info-color-600;
+    }
+  }
+
+  &.neutral {
+    @include button-style(
+      color_alias.$neutral-color-100,
+      color_alias.$neutral-color-1000,
+      color_alias.$neutral-color-300
+    );
+  }
+
+  &.neutral-outlined {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$neutral-color-1000,
+      color_alias.$neutral-color-50
+    );
+    border: 1px solid color_alias.$neutral-color-100;
+  }
+
+  &.neutral-ghost {
+    @include button-style(
+      color_alias.$neutral-white,
+      color_alias.$neutral-color-1000,
+      transparent
+    );
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      border: 1px solid color_alias.$neutral-color-100;
+    }
+  }
+
+  &:disabled {
+    color: color_alias.$neutral-color-400;
+    > .icon {
+      > svg {
+        fill: color_alias.$neutral-color-400;
+        path {
+          fill: color_alias.$neutral-color-400;
+        }
+      }
+    }
+  }
+
+  &.primary,
+  &.error,
+  &.success,
+  &.warning,
+  &.info,
+  &.neutral {
+    &:disabled {
+      background: color_alias.$neutral-color-50;
+    }
+  }
+
+  &.primary-outlined,
+  &.error-outlined,
+  &.success-outlined,
+  &.warning-outlined,
+  &.info-outlined,
+  &.neutral-outlined {
+    &:disabled {
+      background: color_alias.$neutral-color-50;
+      border: 1px solid color_alias.$neutral-color-400;
     }
   }
 }

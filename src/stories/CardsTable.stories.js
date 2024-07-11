@@ -119,9 +119,18 @@ export const Primary = {
             />
           </CardsTableCell>
         </CardsTableRow>
+      </CardsTableBody>
+    </CardsTable>
+  ),
+}
+
+export const OnlyTitle = {
+  render: (args) => (
+    <CardsTable {...args}>
+      <CardsTableBody>
         <CardsTableRow isActive onClick={() => alert('Click')}>
           <CardsTableCell titleWithActions={1}>Only title</CardsTableCell>
-          <CardsTableCell actions>
+          <CardsTableCell actions align="right">
             <IconButton
               icon="Edit"
               accessibilityLabel="Edit game"
