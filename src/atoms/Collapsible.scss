@@ -19,6 +19,7 @@
     align-items: center;
     gap: config.$space-3x;
     padding: config.$space-5x;
+    cursor: default;
 
     .icon {
       width: config.$icon-size-4x;
@@ -39,7 +40,7 @@
   }
 
   &.primary {
-    &.open {
+    &[open] {
       .header {
         background: transparent;
         border-bottom: 3px solid color_alias.$primary-color-600;
