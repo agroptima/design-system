@@ -34,7 +34,7 @@ export function Input({
 }: InputProps): React.JSX.Element {
   const identifier = id || name
   const [showPassword, setShowPassword] = useState(false)
-  const cssClasses = classNames('input', className, {
+  const cssClasses = classNames('input', {
     'with-icon': icon,
     invalid: errors?.length,
   })
@@ -55,7 +55,7 @@ export function Input({
   }
 
   return (
-    <div className={`input-group ${variant}`}>
+    <div className={classNames('input-group', variant, className)}>
       {!hideLabel && (
         <label className="input-label" htmlFor={identifier}>
           {label}

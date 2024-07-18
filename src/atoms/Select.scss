@@ -64,6 +64,9 @@
     }
 
     .select-options {
+      max-height: 256px;
+      overflow-y: scroll;
+      overflow-anchor: none;
       z-index: depth.$z-dropdown-options;
       border-radius: config.$corner-radius-xxs;
       background: color_alias.$neutral-white;

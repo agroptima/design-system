@@ -40,7 +40,7 @@
 
     .input {
       border-radius: config.$corner-radius-m;
-      border: 1px solid color_alias.$neutral-color-400;
+      border: 1px solid color_alias.$neutral-color-600;
       background: color_alias.$neutral-white;
 
       @include typography.input-text;
