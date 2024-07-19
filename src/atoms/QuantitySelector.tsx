@@ -1,8 +1,8 @@
 import React from 'react'
 import { classNames } from '../utils/classNames'
-import './QuantitySelector.scss'
 import { Input, InputProps } from './Input'
-import { Button, ButtonProps } from './Button'
+import { Button } from './Button'
+import './QuantitySelector.scss'
 
 export type Variant = 'primary'
 

@@ -20,6 +20,11 @@
   &.primary {
     .quantity-selector {
       .input-container {
+        border-radius: 0;
+        border-right: 0;
+        border-left: 0;
+        background: color_alias.$neutral-white;
+        text-align: center;
         // Remove default arrows
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -27,38 +32,9 @@
           -webkit-appearance: none;
           margin: 0;
         }
-
-        /* Firefox */
         input[type='number'] {
           -moz-appearance: textfield;
-        }
-        .input {
-          border-radius: 0;
-          border-right: 0;
-          border-left: 0;
-          background: color_alias.$neutral-white;
           text-align: center;
-
-          @include form-typography.input-text;
-
-          &::placeholder {
-            @include form-typography.input-placeholder-text;
-          }
-
-          &:focus {
-            outline: color_alias.$primary-color-600;
-            border: 1px solid color_alias.$primary-color-600;
-          }
-
-          &:disabled {
-            border: 1px solid color_alias.$neutral-color-400;
-            background: color_alias.$neutral-color-50;
-            color: color_alias.$neutral-color-400;
-
-            &::placeholder {
-              color: color_alias.$neutral-color-400;
-            }
-          }
         }
       }
       .button {

@@ -29,10 +29,13 @@ export function TextArea({
   ...props
 }: TextAreaProps) {
   const identifier = id || name
-  const cssClasses = classNames('input', className, { invalid: errors?.length })
   const helpTexts = buildHelpText(helpText, errors)
   return (
-    <div className={`input-group ${variant}`}>
+    <div
+      className={classNames('input-group', variant, className, {
+        invalid: errors?.length,
+      })}
+    >
       {!hideLabel && (
         <label className="input-label" htmlFor={identifier}>
           {label}
@@ -41,7 +44,6 @@ export function TextArea({
       <div className="input-container">
         <textarea
           id={identifier}
-          className={cssClasses}
           disabled={disabled}
           name={name}
           aria-label={accessibilityLabel || label}

@@ -3,22 +3,107 @@
 @use '../settings/config';
 
 .input-group {
+  @include typography.input-text;
   display: flex;
   flex-direction: column;
   gap: config.$space-2x;
 
-  .input {
-    padding-left: 12px;
+  .input-help-text {
+    @include typography.form-help-text;
   }
 
-  &:has(.input.invalid) {
-    & .input-help-text {
-      @include typography.form-help-text-error;
+  .input-label {
+    @include typography.form-label;
+  }
+
+  &.invalid .input-help-text {
+    @include typography.form-help-text-error;
+  }
+
+  .input-container {
+    position: relative;
+    gap: config.$space-2x;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: config.$space-2x config.$space-3x config.$space-2x;
+    input[type='date'] {
+      min-width: -webkit-fill-available;
+    }
+    input[type='number'] {
+      text-align: right;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      @include typography.input-placeholder-text;
+    }
+    input,
+    input:hover,
+    input:focus,
+    input:active,
+    input:focus-visible,
+    input:focus-within,
+    input:visited,
+    textarea,
+    textarea:hover,
+    textarea:focus,
+    textarea:active,
+    textarea:focus-visible,
+    textarea:focus-within,
+    textarea:visited {
+      @include typography.input-text;
+      width: 100%;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .input-suffix {
+      color: color_alias.$neutral-color-600;
+    }
+    .icon {
+      min-width: config.$icon-size-5x;
+      width: config.$icon-size-5x;
+      height: config.$icon-size-5x;
+    }
+
+    .left-icon {
+      top: 0.9rem;
+      left: 0.7rem;
     }
   }
 
   &.primary {
+    &.invalid .input-container {
+      border: 1px solid color_alias.$error-color-1000;
+    }
     .input-container {
+      border-radius: config.$corner-radius-m;
+      border: 1px solid color_alias.$neutral-color-600;
+      background: color_alias.$neutral-white;
+
+      &:has(input:focus),
+      &:has(textarea:focus) {
+        outline: color_alias.$primary-color-600;
+        border: 1px solid color_alias.$primary-color-600;
+      }
+
+      &:has(input:disabled),
+      &:has(textarea:disabled) {
+        border: 1px solid color_alias.$neutral-color-400;
+        background: color_alias.$neutral-color-50;
+        color: color_alias.$neutral-color-400;
+
+        input::placeholder,
+        textarea::placeholder {
+          color: color_alias.$neutral-color-400;
+        }
+      }
       .icon {
         > svg {
           fill: color_alias.$neutral-color-400;
@@ -37,82 +122,5 @@
         }
       }
     }
-
-    .input {
-      border-radius: config.$corner-radius-m;
-      border: 1px solid color_alias.$neutral-color-600;
-      background: color_alias.$neutral-white;
-
-      @include typography.input-text;
-
-      &::placeholder {
-        @include typography.input-placeholder-text;
-      }
-
-      &:focus {
-        outline: color_alias.$primary-color-600;
-        border: 1px solid color_alias.$primary-color-600;
-      }
-
-      &.invalid {
-        border: 1px solid color_alias.$error-color-1000;
-      }
-
-      &:disabled {
-        border: 1px solid color_alias.$neutral-color-400;
-        background: color_alias.$neutral-color-50;
-        color: color_alias.$neutral-color-400;
-
-        &::placeholder {
-          color: color_alias.$neutral-color-400;
-        }
-      }
-    }
-
-    .input-help-text {
-      @include typography.form-help-text;
-    }
-
-    .input-label {
-      @include typography.form-label;
-    }
-  }
-
-  .input-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-
-    .icon {
-      position: absolute;
-      width: config.$icon-size-3x;
-      height: config.$icon-size-3x;
-      > svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .left-icon {
-      top: 0.9rem;
-      left: 0.7rem;
-    }
-
-    .password-icon {
-      top: 0.9rem;
-      right: 0.7rem;
-    }
-  }
-
-  .input {
-    width: 100%;
-    padding: config.$space-2x config.$space-3x config.$space-2x;
-    &[type='date'] {
-      min-width: -webkit-fill-available;
-    }
-  }
-
-  .with-icon {
-    padding-left: 28px;
   }
 }
