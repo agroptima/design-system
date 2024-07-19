@@ -19,7 +19,7 @@
   .information-container {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: config.$space-2x;
   }
 
@@ -28,8 +28,10 @@
   }
 
   .icon {
+    margin-top: 2px;
     width: config.$icon-size-5x;
     height: config.$icon-size-5x;
+    min-width: config.$icon-size-5x;
     > svg {
       width: 100%;
       height: 100%;

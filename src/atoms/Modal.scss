@@ -7,6 +7,7 @@
   position: fixed;
   inset: 0;
   z-index: depth.$z-modal;
+  margin: config.$space-4x;
 
   .backdrop {
     position: fixed;
@@ -37,9 +38,11 @@
     .header {
       display: flex;
       gap: config.$space-2x;
-      align-items: center;
+      align-items: flex-start;
 
       .icon {
+        margin-top: 4px;
+        min-width: config.$icon-size-5x;
         width: config.$icon-size-5x;
         height: config.$icon-size-5x;
         > svg {

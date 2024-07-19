@@ -20,9 +20,11 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   label: string
   accessibilityLabel?: string
   hideLabel?: boolean
-  selected?: Option
+  defaultValue?: string
   onChange?: (value: string) => void
 }
+
+const EMPTY_OPTION = { id: '', label: '' }
 
 export function Select({
   className,
@@ -36,18 +38,17 @@ export function Select({
   label,
   accessibilityLabel,
   hideLabel = false,
-  selected,
   onChange,
+  defaultValue,
   ...props
 }: SelectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [selectedOption, setSelectedOption] = useState<Option>({
-    id: selected?.id || '',
-    label: selected?.label || '',
-  })
+  const defaultOption =
+    options.find((option) => option.id === defaultValue) || EMPTY_OPTION
+  const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
 
-  const cssClasses = classNames('selected-option', className, {
+  const cssClasses = classNames('selected-option', {
     open: showOptionsList,
     filled: selectedOption.id,
     disabled: disabled,
@@ -65,10 +66,6 @@ export function Select({
     if (onChange !== undefined) onChange(option.id)
   }
 
-  function handleSelectIcon() {
-    return showOptionsList ? 'AngleUp' : 'AngleDown'
-  }
-
   function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
     const isAComponentElement = event.relatedTarget
     if (!isAComponentElement) {
@@ -77,7 +74,7 @@ export function Select({
   }
 
   return (
-    <div className={`select-group ${variant}`}>
+    <div className={classNames('select-group', variant, className)}>
       {!hideLabel && <span className="select-label">{label}</span>}
       <div className="select-container" onBlur={handleBlur}>
         <div
@@ -89,7 +86,7 @@ export function Select({
           role="alert"
         >
           <span>{selectedOption.label || placeholder}</span>
-          <Icon name={handleSelectIcon()} />
+          <Icon name={showOptionsList ? 'AngleUp' : 'AngleDown'} />
         </div>
         {showOptionsList && (
           <ul className="select-options" role="listbox">
