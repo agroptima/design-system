@@ -36,9 +36,6 @@ export function Input({
 }: InputProps): React.JSX.Element {
   const identifier = id || name
   const [showPassword, setShowPassword] = useState(false)
-  const inputClasses = classNames('input-container', {
-    invalid: errors?.length,
-  })
   const helpTexts = buildHelpText(helpText, errors)
 
   function handlePasswordIcon() {
@@ -56,13 +53,17 @@ export function Input({
   }
 
   return (
-    <div className={classNames('input-group', variant, className)}>
+    <div
+      className={classNames('input-group', variant, className, {
+        invalid: errors?.length,
+      })}
+    >
       {!hideLabel && (
         <label className="input-label" htmlFor={identifier}>
           {label}
         </label>
       )}
-      <div className={inputClasses}>
+      <div className="input-container">
         {icon && <Icon className="left-icon" name={icon} />}
         <input
           id={identifier}

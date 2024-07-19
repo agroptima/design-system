@@ -96,61 +96,66 @@ export const Primary = {
 
 export const PrimaryOpened = {
   render: () => (
-    <Collapsible title="My personal data" name="personal-data" open>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          gap: '1rem',
-        }}
-      >
-        <Input
-          accessibilityLabel="Fill the form name"
-          helpText="This text can help you"
-          id="name_input"
-          label="Name"
-          name="name"
-          placeholder="name..."
-          type="name"
-          variant="primary"
-        />
-        <Input
-          accessibilityLabel="Fill the form email"
-          helpText="This text can help you"
-          id="email_input"
-          label="Email"
-          name="email"
-          placeholder="Email..."
-          type="email"
-          variant="primary"
-        />
-        <Select
-          accessibilityLabel="Select your favourite gaming system options"
-          helpText="This text can help you"
-          id="select-videogames"
-          label="Videogames"
-          name="example"
-          onChange={() => {}}
-          options={[
-            {
-              id: '1',
-              label: 'Nintendo Switch',
-            },
-            {
-              id: '2',
-              label: 'PlayStation 5',
-            },
-            {
-              id: '3',
-              label: 'Xbox Series S/X',
-            },
-          ]}
-          placeholder="Select your favourite gaming system..."
-          variant="primary"
-        />
-      </div>
-    </Collapsible>
+    <>
+      <Collapsible title="My personal data" name="personal-data" open>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            gap: '1rem',
+          }}
+        >
+          <Input
+            accessibilityLabel="Fill the form name"
+            helpText="This text can help you"
+            id="name_input"
+            label="Name"
+            name="name"
+            placeholder="name..."
+            type="name"
+            variant="primary"
+          />
+          <Input
+            accessibilityLabel="Fill the form email"
+            helpText="This text can help you"
+            id="email_input"
+            label="Email"
+            name="email"
+            placeholder="Email..."
+            type="email"
+            variant="primary"
+          />
+          <Select
+            accessibilityLabel="Select your favourite gaming system options"
+            helpText="This text can help you"
+            id="select-videogames"
+            label="Videogames"
+            name="example"
+            onChange={() => {}}
+            options={[
+              {
+                id: '1',
+                label: 'Nintendo Switch',
+              },
+              {
+                id: '2',
+                label: 'PlayStation 5',
+              },
+              {
+                id: '3',
+                label: 'Xbox Series S/X',
+              },
+            ]}
+            placeholder="Select your favourite gaming system..."
+            variant="primary"
+          />
+        </div>
+      </Collapsible>
+      <Collapsible title="Another data" name="another-data">
+        <Input label="Another data" name="anotherData" placeholder="..." />
+      </Collapsible>
+    </>
   ),
 }
 

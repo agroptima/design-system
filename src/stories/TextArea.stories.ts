@@ -72,7 +72,7 @@ export const WithErrors: Story = {
     helpText: 'This text can help you',
     name: 'textarea',
     id: 'textarea',
-    errors: ['error1', 'error2'],
+    errors: ['Che che che', 'Another error'],
   },
   parameters: figmaPrimaryDesign,
 }

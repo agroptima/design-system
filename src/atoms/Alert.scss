@@ -8,6 +8,7 @@
   justify-content: space-between;
   padding: config.$space-2x config.$space-3x;
   gap: config.$space-2x;
+  align-items: flex-start;
   border-radius: config.$corner-radius-xxs;
   pointer-events: none;
 

@@ -3,14 +3,21 @@
 @use '../settings/config';
 
 .input-group {
+  @include typography.input-text;
   display: flex;
   flex-direction: column;
   gap: config.$space-2x;
 
-  &:has(.input-container.invalid) {
-    & .input-help-text {
-      @include typography.form-help-text-error;
-    }
+  .input-help-text {
+    @include typography.form-help-text;
+  }
+
+  .input-label {
+    @include typography.form-label;
+  }
+
+  &.invalid .input-help-text {
+    @include typography.form-help-text-error;
   }
 
   .input-container {
@@ -27,7 +34,25 @@
     input[type='number'] {
       text-align: right;
     }
-    input, input:hover, input:focus, input:active, input:focus-visible, input:focus-within, input:visited {
+    input::placeholder,
+    textarea::placeholder {
+      @include typography.input-placeholder-text;
+    }
+    input,
+    input:hover,
+    input:focus,
+    input:active,
+    input:focus-visible,
+    input:focus-within,
+    input:visited,
+    textarea,
+    textarea:hover,
+    textarea:focus,
+    textarea:active,
+    textarea:focus-visible,
+    textarea:focus-within,
+    textarea:visited {
+      @include typography.input-text;
       width: 100%;
       padding: 0;
       background: none;
@@ -54,34 +79,28 @@
   }
 
   &.primary {
+    &.invalid .input-container {
+      border: 1px solid color_alias.$error-color-1000;
+    }
     .input-container {
       border-radius: config.$corner-radius-m;
       border: 1px solid color_alias.$neutral-color-600;
       background: color_alias.$neutral-white;
-      @include typography.input-text;
 
-      input {
-        @include typography.input-text;
-      }
-      input::placeholder {
-        @include typography.input-placeholder-text;
-      }
-
-      &:has(input:focus) {
+      &:has(input:focus),
+      &:has(textarea:focus) {
         outline: color_alias.$primary-color-600;
         border: 1px solid color_alias.$primary-color-600;
       }
 
-      &.invalid {
-        border: 1px solid color_alias.$error-color-1000;
-      }
-
-      &:has(input:disabled) {
+      &:has(input:disabled),
+      &:has(textarea:disabled) {
         border: 1px solid color_alias.$neutral-color-400;
         background: color_alias.$neutral-color-50;
         color: color_alias.$neutral-color-400;
 
-        input::placeholder {
+        input::placeholder,
+        textarea::placeholder {
           color: color_alias.$neutral-color-400;
         }
       }
@@ -103,14 +122,5 @@
         }
       }
     }
-
-    .input-help-text {
-      @include typography.form-help-text;
-    }
-
-    .input-label {
-      @include typography.form-label;
-    }
   }
-
 }
