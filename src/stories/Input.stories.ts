@@ -37,6 +37,9 @@ const meta = {
     id: {
       description: 'Value needed for the label relation',
     },
+    suffix: {
+      description: 'Input suffix',
+    },
     errors: {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
@@ -95,6 +98,17 @@ export const WithErrors: Story = {
     type: 'email',
     id: 'email_input',
     errors: ['error1', 'error2'],
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithSuffix: Story = {
+  args: {
+    label: 'Input with suffix',
+    helpText: 'This text can help you',
+    name: 'price',
+    type: 'number',
+    suffix: '€/Bottle',
   },
   parameters: figmaPrimaryDesign,
 }

@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   padding: config.$space-2x config.$space-3x;
-  align-items: center;
   gap: config.$space-2x;
   border-radius: config.$corner-radius-xxs;
   pointer-events: none;
@@ -40,9 +39,10 @@
 
   .icon-button {
     pointer-events: auto;
+    margin-top: 5px;
     .icon {
-      width: config.$icon-size-2x;
-      height: config.$icon-size-2x;
+      width: config.$icon-size-3x;
+      height: config.$icon-size-3x;
 
       > svg {
         fill: color_alias.$neutral-color-400;

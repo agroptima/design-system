@@ -14,6 +14,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   helpText?: string
   variant?: InputVariant
   id?: string
+  suffix?: string
   errors?: string[]
 }
 
@@ -27,6 +28,7 @@ export function Input({
   variant = 'primary',
   disabled,
   type = 'text',
+  suffix,
   name,
   id,
   errors,
@@ -34,8 +36,7 @@ export function Input({
 }: InputProps): React.JSX.Element {
   const identifier = id || name
   const [showPassword, setShowPassword] = useState(false)
-  const cssClasses = classNames('input', {
-    'with-icon': icon,
+  const inputClasses = classNames('input-container', {
     invalid: errors?.length,
   })
   const helpTexts = buildHelpText(helpText, errors)
@@ -61,17 +62,17 @@ export function Input({
           {label}
         </label>
       )}
-      <div className="input-container">
+      <div className={inputClasses}>
         {icon && <Icon className="left-icon" name={icon} />}
         <input
           id={identifier}
-          className={cssClasses}
           disabled={disabled}
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}
           {...props}
         />
+        {suffix && <span className="input-suffix">{suffix}</span>}
         {type === 'password' && (
           <Icon
             className="password-icon"
