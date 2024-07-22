@@ -56,3 +56,13 @@ export const Primary: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const Secondary: Story = {
+  args: {
+    icon: 'Delete',
+    variant: 'secondary',
+    accessibilityLabel: 'Delete game',
+    disabled: false,
+  },
+  parameters: figmaPrimaryDesign,
+}
