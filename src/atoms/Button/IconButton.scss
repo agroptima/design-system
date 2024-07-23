@@ -39,7 +39,32 @@
         }
       }
     }
+  }
 
+  &.secondary {
+    > .icon {
+      > svg {
+        fill: color_alias.$neutral-white;
+        path {
+          fill: color_alias.$neutral-white;
+        }
+      }
+    }
+
+    &:hover {
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-color-1000;
+          path {
+            fill: color_alias.$neutral-color-1000;
+          }
+        }
+      }
+    }
+  }
+
+  &.primary,
+  &.secondary {
     &:disabled {
       > .icon {
         > svg {

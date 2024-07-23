@@ -3,7 +3,7 @@ import { Icon, IconType } from '../Icon'
 import { classNames } from '../../utils/classNames'
 import { BaseButtonProps, BaseButton } from './BaseButton'
 
-export type Variant = 'primary'
+export type Variant = 'primary' | 'secondary'
 
 interface CustomProps {
   icon: IconType
