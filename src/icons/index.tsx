@@ -36,6 +36,7 @@ import Show from './show.svg'
 import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
 import Warning from './warning.svg'
+import DeliveryNote from './delivery-note.svg'
 
 export {
   Add,
@@ -54,6 +55,7 @@ export {
   Close,
   Comment,
   Delete,
+  DeliveryNote,
   Done,
   DoubleArrowLeft,
   DoubleArrowRight,
