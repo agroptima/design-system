@@ -217,6 +217,12 @@
       margin-top: config.$space-2x;
     }
 
+    .title-actions-5 {
+      width: calc(100% - 5 * config.$icon-size-5x - 4 * config.$space-7x - 8px);
+    }
+    .title-actions-4 {
+      width: calc(100% - 4 * config.$icon-size-5x - 3 * config.$space-7x - 8px);
+    }
     .title-actions-3 {
       width: calc(100% - 3 * config.$icon-size-5x - 2 * config.$space-7x - 8px);
     }
@@ -235,13 +241,15 @@
       flex-basis: content;
     }
 
+    .alignment-right {
+      justify-content: flex-start;
+    }
     .badge {
       position: absolute;
       inset: auto config.$space-3x config.$space-3x auto;
     }
-
-    .alignment-right {
-      justify-content: flex-start;
+    tr:has(.badge) {
+      padding-bottom: config.$space-9x;
     }
   }
 }

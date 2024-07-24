@@ -62,7 +62,7 @@ export const Primary = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right">6,99 €</CardsTableCell>
+          <CardsTableCell>No price never</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -115,6 +115,82 @@ export const Primary = {
             <IconButton
               icon="Edit"
               accessibilityLabel="Edit game"
+              href="link.com"
+            />
+          </CardsTableCell>
+        </CardsTableRow>
+        <CardsTableRow>
+          <CardsTableCell titleWithActions={4}>
+            <span>Metal Gear Solid 5: The Phantom Pain</span>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="Bought"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
+          <CardsTableCell>
+            Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku,
+            Tokyo, 104-0061 Japan
+          </CardsTableCell>
+          <CardsTableCell>konami@fakemail.com</CardsTableCell>
+          <CardsTableCell align="right">6,99 €</CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Import"
+              accessibilityLabel="Import game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+          </CardsTableCell>
+        </CardsTableRow>
+        <CardsTableRow>
+          <CardsTableCell titleWithActions={5}>
+            <span>Silent Hill</span>
+          </CardsTableCell>
+          <CardsTableCell>
+            Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku,
+            Tokyo, 104-0061 Japan
+          </CardsTableCell>
+          <CardsTableCell>konami@fakemail.com</CardsTableCell>
+          <CardsTableCell align="right">6,99 €</CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Import"
+              accessibilityLabel="Import game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Info"
+              accessibilityLabel="Info game"
               href="link.com"
             />
           </CardsTableCell>
