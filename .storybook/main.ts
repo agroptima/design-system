@@ -10,6 +10,7 @@ function getAbsolutePath(value: string): any {
 }
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-essentials'),
@@ -17,14 +18,19 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     '@storybook/addon-mdx-gfm',
+    '@chromatic-com/storybook'
   ],
+
   framework: {
     name: '@storybook/nextjs',
     options: {},
   },
+
   docs: {},
+
   core: {},
   staticDirs: ['../public'],
+
   webpackFinal: async (config) => {
     const pathToInlineSvg = resolve(__dirname, '../src/icons')
 
@@ -52,5 +58,9 @@ const config: StorybookConfig = {
 
     return config
   },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
+  }
 }
 export default config
