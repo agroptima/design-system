@@ -37,9 +37,10 @@
       height: 100%;
     }
   }
-
-  .icon-button {
+  button {
     pointer-events: auto;
+  }
+  .icon-button {
     margin-top: 5px;
     .icon {
       width: config.$icon-size-3x;

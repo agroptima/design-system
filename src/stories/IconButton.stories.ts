@@ -19,6 +19,10 @@ const meta = {
       description: 'Icon from a list of values',
       control: { type: 'select' },
     },
+    visible: {
+      description: 'Is the button visible?',
+      control: { type: 'boolean', default: true },
+    },
     href: {
       description:
         'If a link is provided, the component will be rendered as NextLink, otherwise as button',
