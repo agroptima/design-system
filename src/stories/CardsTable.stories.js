@@ -50,7 +50,7 @@ export const Primary = {
       <CardsTableBody>
         <CardsTableRow>
           <CardsTableCell titleWithActions={3}>
-            <span>Metal Gear Solid 5: The Phantom Pain</span>
+            <span>Zone of the Enders: The 2nd Runner</span>
             <Badge
               accessibilityLabel="Game is bought"
               text="Bought"
@@ -62,7 +62,7 @@ export const Primary = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell>No price never</CardsTableCell>
+          <CardsTableCell>Not available</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
