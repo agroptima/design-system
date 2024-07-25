@@ -3,7 +3,13 @@ import { Button, ButtonProps } from './Button'
 import { Icon } from './Icon'
 import './Modal.scss'
 
-export type Variant = 'info' | 'success' | 'warning' | 'error' | 'discard'
+export type Variant =
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'discard'
+  | 'details'
 
 export enum IconVariant {
   info = 'Info',
@@ -42,11 +48,14 @@ export function Modal({
         {...props}
       >
         <div className="header">
-          <Icon name={IconVariant[variant]} className={variant} />
+          {variant !== 'details' && (
+            <Icon name={IconVariant[variant]} className={variant} />
+          )}
           <h4 id={`${id}-title`} className="title">
             {title}
           </h4>
         </div>
+        {variant === 'details' && <div className="divider" />}
         <div id={`${id}-body`} className="body">
           {children}
         </div>

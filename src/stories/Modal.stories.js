@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Modal } from '../atoms/Modal'
+import { DetailItem } from '@/atoms/DetailItem'
 
 const figmaPrimaryDesign = {
   design: {
@@ -128,6 +129,29 @@ export const DeleteOrDiscard = {
       frondage waving mockingly in the shifting vapours. Now and then there
       would be suggestions of motion in the sky, but these my early visions
       never resolved.
+    </Modal>
+  ),
+}
+
+export const Details = {
+  render: () => (
+    <Modal
+      id="details-dangerous-alone"
+      variant="details"
+      title="Game details"
+      buttons={[
+        {
+          label: 'Done',
+          onClick: () => alert('click'),
+        },
+      ]}
+    >
+      <DetailItem title="Title">Final Fantasy VIII</DetailItem>
+      <DetailItem title="Release date">11/02/1999</DetailItem>
+      <DetailItem title="Publisher">
+        <a href="#">Squaresoft</a>
+      </DetailItem>
+      <DetailItem title="Price">59,95 €</DetailItem>
     </Modal>
   ),
 }

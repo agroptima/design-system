@@ -169,7 +169,6 @@
 
   th.actions {
     justify-content: center;
-    flex: 1;
   }
 
   td.actions {
@@ -243,12 +242,17 @@
     .alignment-right {
       justify-content: flex-start;
     }
+
     .badge {
       position: absolute;
-      inset: auto config.$space-3x config.$space-3x auto;
+      inset: auto auto config.$space-2x config.$space-2x;
     }
-    tr:has(.badge) {
+    // Specify Badge vertical position depending on having a right aligned item or not
+    tr:not(.alignment-right) {
       padding-bottom: config.$space-10x;
+    }
+    tr:has(.alignment-right) {
+      padding-bottom: config.$space-2x;
     }
   }
 }
