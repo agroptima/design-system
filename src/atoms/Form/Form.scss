@@ -1,0 +1,54 @@
+@use '../../settings/config';
+@use '../../settings/breakpoints';
+@use '../../settings/color_alias';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: config.$space-4x;
+  padding: 0;
+
+  width: breakpoints.$medium;
+  max-width: breakpoints.$medium;
+
+  &.full-width {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &:has(.actions) {
+    padding-bottom: 6.25rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: config.$space-4x;
+
+    flex-direction: row;
+    padding: config.$space-3x config.$space-5x;
+    background-color: color_alias.$neutral-white;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+
+    position: fixed;
+    inset: auto 0 0 0;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$large) {
+  .form {
+    max-width: 100%;
+    width: 100%;
+    &:has(.actions) {
+      padding-bottom: 9rem;
+    }
+    .actions {
+      padding: 0;
+      flex-direction: column;
+      box-shadow: none;
+      background-color: transparent;
+      inset: auto config.$space-4x config.$space-4x config.$space-4x;
+    }
+  }
+}
