@@ -7,3 +7,5 @@ $below: -1; // and this for all values below the base
 
 $z-dropdown-options: $base + $above;
 $z-modal: $z-dropdown-options + $above;
+$z-aside-desktop: $base + $above;
+$z-aside-mobile: $z-modal + $above;
