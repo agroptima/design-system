@@ -156,7 +156,9 @@ export const Details = {
         <p>RPG genre</p>
         <p>1 player</p>
       </Collapsible>
-      <DetailItem align="right" title="Price">59,95 €</DetailItem>
+      <DetailItem style={{ marginTop: '10px' }} align="right" title="Price">
+        59,95 €
+      </DetailItem>
     </Modal>
   ),
 }
