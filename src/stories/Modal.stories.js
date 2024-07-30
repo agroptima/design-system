@@ -152,11 +152,11 @@ export const Details = {
       <DetailItem title="Publisher">
         <a href="#">Squaresoft</a>
       </DetailItem>
-      <DetailItem title="Price">59,95 €</DetailItem>
       <Collapsible open title="Special Features">
         <p>RPG genre</p>
         <p>1 player</p>
       </Collapsible>
+      <DetailItem align="right" title="Price">59,95 €</DetailItem>
     </Modal>
   ),
 }
