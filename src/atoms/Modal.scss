@@ -30,6 +30,10 @@
     border-radius: config.$corner-radius-xxs;
     background: color_alias.$neutral-white;
     max-width: 34.5rem;
+    min-height: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-anchor: none;
     box-shadow:
       0px 3px 6px -4px rgba(0, 0, 0, 0.12),
       0px 6px 16px 0px rgba(0, 0, 0, 0.08),
@@ -65,6 +69,7 @@
 
     .body {
       @include typography.body-regular-primary;
+      width: 100%;
     }
 
     .footer {
