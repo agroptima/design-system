@@ -16,14 +16,14 @@
 
   .header {
     display: flex;
-    align-items: center;
+    align-items: center !important;
     gap: config.$space-3x;
     padding: config.$space-5x;
     cursor: default;
 
     .icon {
-      width: config.$icon-size-4x;
-      height: config.$icon-size-4x;
+      width: config.$icon-size-4x !important;
+      height: config.$icon-size-4x !important;
       > svg {
         width: 100%;
         height: 100%;
