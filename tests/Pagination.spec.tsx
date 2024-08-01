@@ -79,8 +79,8 @@ describe('Pagination', () => {
     )
 
     expect(getByRole('navigation')).toHaveClass(`pagination`)
-    expect(getByRole('img', { name: 'AngleLeft' })).toBeInTheDocument()
-    expect(getByRole('img', { name: 'AngleRight' })).toBeInTheDocument()
+    expect(getByRole('img', { name: 'Previous page' })).toBeInTheDocument()
+    expect(getByRole('img', { name: 'Next page' })).toBeInTheDocument()
     expect(getByText('1')).toBeInTheDocument()
     expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
