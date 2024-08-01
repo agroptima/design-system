@@ -38,6 +38,7 @@ import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
 import Warning from './warning.svg'
 import DeliveryNote from './delivery-note.svg'
+import PDF from './pdf.svg'
 
 export {
   Add,
@@ -71,6 +72,7 @@ export {
   Loading,
   Logout,
   Minus,
+  PDF,
   Product,
   Salesman,
   Search,
