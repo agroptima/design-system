@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Modal } from '../atoms/Modal'
 import { DetailItem } from '@/atoms/DetailItem'
+import { Collapsible } from '@/atoms/Collapsible'
 
 const figmaPrimaryDesign = {
   design: {
@@ -151,7 +152,13 @@ export const Details = {
       <DetailItem title="Publisher">
         <a href="#">Squaresoft</a>
       </DetailItem>
-      <DetailItem title="Price">59,95 €</DetailItem>
+      <Collapsible open title="Special Features">
+        <p>RPG genre</p>
+        <p>1 player</p>
+      </Collapsible>
+      <DetailItem style={{ marginTop: '10px' }} align="right" title="Price">
+        59,95 €
+      </DetailItem>
     </Modal>
   ),
 }

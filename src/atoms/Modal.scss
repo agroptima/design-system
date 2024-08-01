@@ -2,6 +2,7 @@
 @use '../settings/typography/content' as typography;
 @use '../settings/config';
 @use '../settings/depth';
+@use '../settings/breakpoints';
 
 .modal-container {
   position: fixed;
@@ -65,6 +66,7 @@
 
     .body {
       @include typography.body-regular-primary;
+      width: 100%;
     }
 
     .footer {
@@ -72,6 +74,14 @@
       align-self: flex-end;
       gap: config.$space-3x;
       margin-top: config.$space-2x;
+    }
+
+    &.details {
+      max-width: 50rem;
+      min-height: 400px;
+      max-height: 90vh;
+      overflow-y: auto;
+      overflow-anchor: none;
     }
 
     &.info {
@@ -136,6 +146,14 @@
             }
           }
         }
+      }
+    }
+
+    // Media queries
+    // Mobile & tablet cases
+    @media only screen and (max-width: breakpoints.$large) {
+      &.details {
+        top: 3rem;
       }
     }
   }

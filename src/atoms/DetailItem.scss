@@ -8,6 +8,10 @@
   flex-direction: column;
   margin-bottom: config.$space-3x;
 
+  &.alignment-right {
+    text-align: right;
+  }
+
   .title {
     @include typography.body-bold;
     color: color_alias.$neutral-color-1000;

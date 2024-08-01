@@ -24,6 +24,7 @@ import Error from './error.svg'
 import Export from './export.svg'
 import Import from './import.svg'
 import Info from './info.svg'
+import Invoice from './invoice.svg'
 import Loading from './loading.svg'
 import Logout from './logout.svg'
 import Minus from './minus.svg'
@@ -67,6 +68,7 @@ export {
   Export,
   Import,
   Info,
+  Invoice,
   Loading,
   Logout,
   Minus,

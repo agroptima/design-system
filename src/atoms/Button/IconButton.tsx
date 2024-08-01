@@ -32,7 +32,7 @@ export function IconButton({
       {...props}
       className={classNames(props.className, 'icon-button', variant)}
     >
-      <Icon name={icon} />
+      <Icon title={accessibilityLabel} name={icon} />
     </BaseButton>
   )
 }
