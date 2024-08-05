@@ -47,17 +47,19 @@ export function Modal({
         className={cssClasses}
         {...props}
       >
-        <div className="header">
-          {variant !== 'details' && (
-            <Icon name={IconVariant[variant]} className={variant} />
-          )}
-          <h4 id={`${id}-title`} className="title">
-            {title}
-          </h4>
-        </div>
-        {variant === 'details' && <div className="divider" />}
-        <div id={`${id}-body`} className="body">
-          {children}
+        <div className="scroll-area">
+          <div className="header">
+            {variant !== 'details' && (
+              <Icon name={IconVariant[variant]} className={variant} />
+            )}
+            <h4 id={`${id}-title`} className="title">
+              {title}
+            </h4>
+          </div>
+          {variant === 'details' && <div className="divider" />}
+          <div id={`${id}-body`} className="body">
+            {children}
+          </div>
         </div>
         <div className="footer">
           {buttons.map(({ ...button }) => (

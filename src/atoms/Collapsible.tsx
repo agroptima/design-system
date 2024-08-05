@@ -10,7 +10,7 @@ export interface CollapsibleProps
   variant?: Variant
   name?: string
   disabled?: boolean
-  noHorizontalPadding: boolean
+  noHorizontalPadding?: boolean
 }
 
 export function Collapsible({
