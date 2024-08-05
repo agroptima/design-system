@@ -40,6 +40,11 @@
   .content {
     padding: config.$space-7x;
     padding-bottom: config.$space-3x;
+
+    &.no-horizontal-padding {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &.primary {

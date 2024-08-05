@@ -3,6 +3,7 @@ import React from 'react'
 import { Modal } from '../atoms/Modal'
 import { DetailItem } from '@/atoms/DetailItem'
 import { Collapsible } from '@/atoms/Collapsible'
+import { Card } from '@/atoms/Card'
 
 const figmaPrimaryDesign = {
   design: {
@@ -155,6 +156,12 @@ export const Details = {
       <Collapsible open title="Special Features">
         <p>RPG genre</p>
         <p>1 player</p>
+      </Collapsible>
+      <Collapsible noHorizontalPadding open title="Other related games">
+        <Card>
+          <p>Final Fantasy IX</p>
+          <p>Final Fantasy X</p>
+        </Card>
       </Collapsible>
       <DetailItem style={{ marginTop: '10px' }} align="right" title="Price">
         59,95 €

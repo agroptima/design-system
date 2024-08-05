@@ -10,6 +10,7 @@ export interface CollapsibleProps
   variant?: Variant
   name?: string
   disabled?: boolean
+  noHorizontalPadding: boolean
 }
 
 export function Collapsible({
@@ -19,11 +20,15 @@ export function Collapsible({
   children,
   disabled,
   name,
+  noHorizontalPadding = false,
   ...props
 }: CollapsibleProps): React.JSX.Element {
   const cssClasses = classNames('collapsible', variant, className, {
     open: props.open,
     disabled: disabled,
+  })
+  const contentCssClasses = classNames('content', {
+    'no-horizontal-padding': noHorizontalPadding,
   })
 
   return (
@@ -32,7 +37,7 @@ export function Collapsible({
         <Icon className="arrow" name="AngleRight" />
         <span className="title">{title}</span>
       </summary>
-      <div className="content">{children}</div>
+      <div className={contentCssClasses}>{children}</div>
     </details>
   )
 }

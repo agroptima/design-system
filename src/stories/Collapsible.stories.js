@@ -3,6 +3,7 @@ import React from 'react'
 import { Collapsible } from '../atoms/Collapsible'
 import { Input } from '../atoms/Input'
 import { Select } from '../atoms/Select'
+import { Card } from '../atoms/Card'
 
 const figmaPrimaryDesign = {
   design: {
@@ -154,6 +155,15 @@ export const PrimaryOpened = {
       </Collapsible>
       <Collapsible title="Another data" name="another-data">
         <Input label="Another data" name="anotherData" placeholder="..." />
+      </Collapsible>
+      <Collapsible
+        noHorizontalPadding
+        title="Important information"
+        name="no-horizontal-padding-example"
+      >
+        <Card>
+          <p>Not available</p>
+        </Card>
       </Collapsible>
     </>
   ),
