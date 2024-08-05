@@ -9,6 +9,7 @@
   inset: 0;
   z-index: depth.$z-modal;
   margin: config.$space-4x;
+  margin-top: 3rem;
 
   .backdrop {
     position: fixed;
@@ -19,7 +20,6 @@
   }
 
   .modal {
-    top: 6.25rem;
     margin: auto;
     display: flex;
     position: relative;
@@ -78,8 +78,7 @@
 
     &.details {
       max-width: 50rem;
-      min-height: 400px;
-      max-height: 90vh;
+      height: 100%;
       overflow-y: auto;
       overflow-anchor: none;
     }
@@ -153,7 +152,6 @@
     // Mobile & tablet cases
     @media only screen and (max-width: breakpoints.$large) {
       &.details {
-        top: 3rem;
       }
     }
   }
