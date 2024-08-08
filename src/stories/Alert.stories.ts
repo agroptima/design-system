@@ -1,5 +1,5 @@
 import { Alert } from '../atoms/Alert'
-import { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Design System/Atoms/Alert',

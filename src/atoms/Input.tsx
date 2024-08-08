@@ -1,5 +1,6 @@
+import type { IconType } from './Icon'
 import React, { useState } from 'react'
-import { Icon, IconType } from './Icon'
+import { Icon } from './Icon'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'

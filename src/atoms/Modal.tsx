@@ -1,5 +1,6 @@
+import type { ButtonProps } from './Button'
 import { classNames } from '../utils/classNames'
-import { Button, ButtonProps } from './Button'
+import { Button } from './Button'
 import { Icon } from './Icon'
 import './Modal.scss'
 

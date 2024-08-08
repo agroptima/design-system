@@ -1,5 +1,5 @@
 import { TextArea } from '../atoms/TextArea'
-import { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Design System/Atoms/Textarea',

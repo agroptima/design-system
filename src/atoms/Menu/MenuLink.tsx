@@ -1,8 +1,9 @@
-import './Menu.scss'
+import type { IconType } from '../Icon'
 import React from 'react'
-import { Icon, IconType } from '../Icon'
+import { Icon } from '../Icon'
 import { classNames } from '../../utils/classNames'
 import Link from 'next/link'
+import './Menu.scss'
 
 export type Variant = 'primary'
 

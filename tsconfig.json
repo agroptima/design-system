@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "verbatimModuleSyntax": true,
     "plugins": [
       {
         "name": "next"
@@ -22,6 +23,17 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/stories/CardsTable.stories.js", "src/stories/Modal.stories.js", "src/stories/Typography.stories.mdx", "src/stories/Card.stories.js", "src/stories/Menu.stories.js", "src/stories/EmptyState.stories.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/stories/CardsTable.stories.js",
+    "src/stories/Modal.stories.js",
+    "src/stories/Typography.stories.mdx",
+    "src/stories/Card.stories.js",
+    "src/stories/Menu.stories.js",
+    "src/stories/EmptyState.stories.js"
+  ],
   "exclude": ["node_modules"]
 }

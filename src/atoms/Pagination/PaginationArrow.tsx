@@ -1,7 +1,8 @@
+import type { IconButtonProps } from '../Button'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
+import { IconButton } from '../Button'
 import './Pagination.scss'
-import { IconButton, IconButtonProps } from '../Button'
 
 export type Variant = 'primary'
 

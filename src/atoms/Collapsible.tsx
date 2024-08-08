@@ -1,5 +1,5 @@
 import { classNames } from '../utils/classNames'
-import { Icon, IconType } from './Icon'
+import { Icon } from './Icon'
 import './Collapsible.scss'
 
 export type Variant = 'primary'

@@ -1,5 +1,5 @@
 import type { Config } from 'jest'
-import nextJest from 'next/jest.js'
+const nextJest = require('next/jest')
 
 const createJestConfig = nextJest({
   dir: './',
@@ -12,6 +12,14 @@ const config: Config = {
     '^.+\\.(svg)$': '<rootDir>/tests/svg.mock.js',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  globals: {
+    'ts-jest': {
+      useESM: true,
+      tsconfig: {
+        verbatimModuleSyntax: false,
+      },
+    },
+  },
 }
 
-export default createJestConfig(config)
+module.exports = createJestConfig(config)

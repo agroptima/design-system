@@ -1,6 +1,7 @@
+import type { InputProps } from './Input'
 import React from 'react'
 import { classNames } from '../utils/classNames'
-import { Input, InputProps } from './Input'
+import { Input } from './Input'
 import { Button } from './Button'
 import './QuantitySelector.scss'
 
