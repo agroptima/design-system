@@ -1,4 +1,5 @@
-import { IconButton, IconButtonProps } from './Button'
+import type { IconButtonProps } from './Button'
+import { IconButton } from './Button'
 import { Icon } from './Icon'
 import './Alert.scss'
 import { classNames } from '../utils/classNames'

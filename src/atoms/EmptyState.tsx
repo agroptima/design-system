@@ -1,6 +1,7 @@
+import type { IconType } from './Icon'
 import { classNames } from '../utils/classNames'
+import { Icon } from './Icon'
 import './EmptyState.scss'
-import { Icon, IconType } from './Icon'
 
 export type Variant = 'primary'
 

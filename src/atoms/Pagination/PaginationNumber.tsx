@@ -1,7 +1,8 @@
+import type { ButtonProps } from '../Button'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
+import { Button } from '../Button'
 import './Pagination.scss'
-import { Button, ButtonProps } from '../Button'
 
 export type Variant = 'primary'
 

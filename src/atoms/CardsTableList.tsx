@@ -1,4 +1,4 @@
-import './CardsTable/CardsTable.scss'
+import type { IconType } from './Icon'
 import React, { useState } from 'react'
 import { sortBy } from '../utils/sort'
 import {
@@ -9,8 +9,8 @@ import {
   CardsTableHead,
   CardsTableBody,
 } from './CardsTable'
-
-import { Icon, IconType } from './Icon'
+import { Icon } from './Icon'
+import './CardsTable/CardsTable.scss'
 
 export type Variant = 'primary'
 

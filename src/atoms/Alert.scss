@@ -11,7 +11,7 @@
   align-items: flex-start;
   border-radius: config.$corner-radius-xxs;
   pointer-events: none;
-  margin: 0 config.$space-4x;
+  margin: 0;
 
   &.fit-content {
     width: fit-content;
