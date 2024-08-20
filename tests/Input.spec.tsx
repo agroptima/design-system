@@ -1,5 +1,6 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { Input } from '@/atoms/Input'
 
 describe('Input', () => {
@@ -24,7 +25,8 @@ describe('Input', () => {
     expect(getByText(/This text can help you/i)).toBeInTheDocument()
   })
 
-  it('renders the Password type', () => {
+  it('renders the Password type', async () => {
+    const user = userEvent.setup()
     const { getByPlaceholderText, getAllByRole, getByRole, getByText } = render(
       <Input
         helpText="This text can help you"
@@ -45,6 +47,10 @@ describe('Input', () => {
     expect(getByText('Password')).toBeInTheDocument()
     expect(getByRole('img').title).toBe('Show')
     expect(getByText(/This text can help you/i)).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button'))
+
+    expect(getByRole('img').title).toBe('ShowOff')
   })
 
   it('renders input with errors', () => {

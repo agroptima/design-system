@@ -1,6 +1,7 @@
 import type { IconType } from './Icon'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
+import { IconButton } from './Button/IconButton'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'
@@ -76,9 +77,10 @@ export function Input({
         />
         {suffix && <span className="input-suffix">{suffix}</span>}
         {type === 'password' && (
-          <Icon
+          <IconButton
+            accessibilityLabel={handlePasswordIcon()}
             className="password-icon"
-            name={handlePasswordIcon()}
+            icon={handlePasswordIcon()}
             onClick={handlePasswordVisibility}
           />
         )}
