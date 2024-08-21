@@ -36,6 +36,7 @@ import Settings from './settings.svg'
 import Show from './show.svg'
 import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
+import UserMenu from './user-menu.svg'
 import Warning from './warning.svg'
 import DeliveryNote from './delivery-note.svg'
 import PDF from './pdf.svg'
@@ -81,5 +82,6 @@ export {
   Show,
   ShowOff,
   Sorter,
+  UserMenu,
   Warning,
 }
