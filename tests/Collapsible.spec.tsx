@@ -1,11 +1,11 @@
 import React from 'react'
-import { screen, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Collapsible } from '@/atoms/Collapsible'
 import { Input } from '@/atoms/Input'
 
 describe('Collapsible', () => {
   it('renders', () => {
-    const { getByRole, getByText, getAllByRole } = render(
+    const { getByRole, getByText } = render(
       <Collapsible title="My personal data" name="personal-data" open>
         <Input
           accessibilityLabel="Fill the form name"
