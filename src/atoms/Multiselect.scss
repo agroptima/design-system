@@ -64,6 +64,10 @@
     }
 
     .multiselect-options {
+      max-height: 256px;
+      overflow-y: auto;
+      overflow-anchor: none;
+      z-index: depth.$z-dropdown-options;
       border-radius: config.$corner-radius-xxs;
       background: color_alias.$neutral-white;
       box-shadow:
