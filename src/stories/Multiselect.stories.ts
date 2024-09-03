@@ -34,8 +34,8 @@ const meta = {
     options: {
       description: 'Array of values to be displayed on the select list',
     },
-    selected: {
-      description: 'Array of values to be displayed as selected',
+    defaultValue: {
+      description: 'Array of ids to be displayed as selected',
     },
     errors: {
       description:
@@ -60,7 +60,7 @@ export const Primary: Story = {
     disabled: false,
     hideLabel: false,
     helpText: 'This text can help you',
-    name: 'example',
+    name: 'videogames',
     label: 'Videogames',
     accessibilityLabel: 'Select your favourite videogames options',
     selectedLabel: 'videogames selected',
@@ -73,7 +73,6 @@ export const Primary: Story = {
       { id: '5', label: 'Super Mario Bros' },
       { id: '6', label: 'Red Dead Redemption' },
     ],
-    id: 'multiselect-videogames',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -84,7 +83,7 @@ export const PrimaryWithSelectedOptions: Story = {
     disabled: false,
     hideLabel: false,
     helpText: 'This text can help you',
-    name: 'example',
+    name: 'videogames',
     label: 'Videogames',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
@@ -96,11 +95,7 @@ export const PrimaryWithSelectedOptions: Story = {
       { id: '5', label: 'Super Mario Bros' },
       { id: '6', label: 'Red Dead Redemption' },
     ],
-    selected: [
-      { id: '2', label: 'Spyro the Dragon' },
-      { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
-    ],
-    id: 'multiselect-videogames',
+    defaultValue: ['2', '1'],
   },
   parameters: figmaPrimaryDesign,
 }
@@ -111,7 +106,7 @@ export const PrimaryWithErrors: Story = {
     disabled: false,
     hideLabel: false,
     helpText: 'This text can help you',
-    name: 'example',
+    name: 'videogames',
     label: 'Videogames',
     accessibilityLabel: 'Select your favourite videogames options',
     selectedLabel: 'videogames selected',
@@ -124,7 +119,6 @@ export const PrimaryWithErrors: Story = {
       { id: '5', label: 'Super Mario Bros' },
       { id: '6', label: 'Red Dead Redemption' },
     ],
-    id: 'multiselect-videogames',
     errors: ['error1', 'error2'],
   },
   parameters: figmaPrimaryDesign,

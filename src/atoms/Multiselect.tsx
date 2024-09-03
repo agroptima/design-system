@@ -18,33 +18,31 @@ export interface MultiselectProps
   accessibilityLabel?: string
   selectedLabel?: string
   hideLabel?: boolean
-  selected?: Option[]
+  defaultValue?: string[]
 }
 
 export function Multiselect({
   className,
   placeholder,
   helpText,
-  variant = 'primary',
   disabled,
   errors,
   name,
   options,
   label,
   accessibilityLabel,
+  variant = 'primary',
   selectedLabel = 'items selected',
   hideLabel = false,
-  selected,
+  defaultValue = [],
   ...props
 }: MultiselectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
   const [showOptionsList, setShowOptionsList] = useState(false)
-  const [selectedOptionsIds, setSelectedOptionsIds] = useState<string[]>(
-    selected?.map((option) => option.id) || [],
-  )
+  const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
   const cssClasses = classNames('selected-option', className, {
     open: showOptionsList,
-    filled: selectedOptionsIds.length > 0,
+    filled: selectedOptions.length > 0,
     disabled: disabled,
     invalid: errors?.length,
   })
@@ -53,25 +51,14 @@ export function Multiselect({
     if (!disabled) setShowOptionsList(!showOptionsList)
   }
 
-  function selectOption(optionId: string) {
-    const hasOptionId = isOptionSelected(optionId)
-    if (hasOptionId) {
-      setSelectedOptionsIds(
-        selectedOptionsIds.filter(
-          (selectedOptionId) => selectedOptionId !== optionId,
-        ),
+  function selectOption(id: string) {
+    const isOptionSelected = selectedOptions.includes(id)
+    if (isOptionSelected) {
+      return setSelectedOptions(
+        selectedOptions.filter((optionId) => optionId !== id),
       )
-    } else {
-      setSelectedOptionsIds([...selectedOptionsIds, optionId])
     }
-  }
-
-  function handleSelectIcon() {
-    return showOptionsList ? 'AngleUp' : 'AngleDown'
-  }
-
-  function isOptionSelected(optionId: string) {
-    return selectedOptionsIds.includes(optionId)
+    setSelectedOptions([...selectedOptions, id])
   }
 
   function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
@@ -94,36 +81,22 @@ export function Multiselect({
           role="alert"
         >
           <span>
-            {selectedOptionsIds.length > 0
-              ? selectedOptionsIds.length + ' ' + selectedLabel
+            {selectedOptions.length > 0
+              ? `${selectedOptions.length} ${selectedLabel}`
               : placeholder}
           </span>
-          <Icon name={handleSelectIcon()} />
+          <Icon name={showOptionsList ? 'AngleUp' : 'AngleDown'} />
         </div>
         {showOptionsList && (
           <ul className="multiselect-options" role="listbox">
-            {options.map((option) => {
-              return (
-                <li
-                  className="option"
-                  tabIndex={0}
-                  role="option"
-                  aria-selected={isOptionSelected(option.id)}
-                  data-option={option}
-                  key={option.id}
-                  onClick={() => selectOption(option.id)}
-                >
-                  <Icon
-                    name={
-                      isOptionSelected(option.id)
-                        ? 'CheckboxActive'
-                        : 'CheckboxInactive'
-                    }
-                  />
-                  {option.label}
-                </li>
-              )
-            })}
+            {options.map((option) => (
+              <Option
+                key={`${name}-${option.id}`}
+                option={option}
+                selectedOptions={selectedOptions}
+                onSelect={selectOption}
+              />
+            ))}
           </ul>
         )}
       </div>
@@ -135,9 +108,33 @@ export function Multiselect({
       <input
         type="hidden"
         name={name}
-        value={selectedOptionsIds.toString()}
+        value={selectedOptions.toString()}
         {...props}
       />
     </div>
+  )
+}
+
+type OptionProps = {
+  option: Option
+  selectedOptions: string[]
+  onSelect: (id: string) => void
+}
+
+function Option({ option, selectedOptions, onSelect }: OptionProps) {
+  const isOptionSelected = selectedOptions.includes(option.id)
+  const icon = isOptionSelected ? 'CheckboxActive' : 'CheckboxInactive'
+  return (
+    <li
+      role="option"
+      className="option"
+      tabIndex={0}
+      aria-selected={isOptionSelected}
+      data-option={option}
+      onClick={() => onSelect(option.id)}
+    >
+      <Icon name={icon} />
+      {option.label}
+    </li>
   )
 }

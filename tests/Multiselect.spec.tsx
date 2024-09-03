@@ -10,9 +10,8 @@ describe('Multiselect', () => {
       <Multiselect
         accessibilityLabel="Select your favourite videogames options"
         helpText="This text can help you"
-        id="multiselect-videogames"
         label="Videogames"
-        name="example"
+        name="videogames"
         options={[
           {
             id: '1',
@@ -50,9 +49,8 @@ describe('Multiselect', () => {
     const { getByText } = render(
       <Multiselect
         helpText="This text can help you"
-        id="multiselect-videogames"
         label="Videogames"
-        name="example"
+        name="videogames"
         options={[
           {
             id: '1',
@@ -68,16 +66,7 @@ describe('Multiselect', () => {
           },
         ]}
         placeholder="Select your favourite videogames..."
-        selected={[
-          {
-            id: '2',
-            label: 'Spyro the Dragon',
-          },
-          {
-            id: '1',
-            label: 'The Legend of Zelda: Ocarina of Time',
-          },
-        ]}
+        defaultValue={['2', '1']}
         selectedLabel="videogames selected"
         variant="primary"
       />,
@@ -97,9 +86,8 @@ describe('Multiselect', () => {
         accessibilityLabel="Select your favourite videogames options"
         errors={['error1', 'error2']}
         helpText="This text can help you"
-        id="multiselect-videogames"
         label="Videogames"
-        name="example"
+        name="videogames"
         options={[
           {
             id: '1',
