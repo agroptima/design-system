@@ -64,6 +64,7 @@
       appearance: none;
     }
     .input-suffix {
+      text-wrap: nowrap;
       color: color_alias.$neutral-color-600;
     }
     .icon {
