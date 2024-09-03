@@ -7,8 +7,12 @@ import { buildHelpText } from '../utils/buildHelpText'
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-export interface MultiselectProps
-  extends React.ComponentPropsWithoutRef<'input'> {
+type InputPropsWithoutOnChange = Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  'onChange'
+>
+
+export interface MultiselectProps extends InputPropsWithoutOnChange {
   placeholder?: string
   helpText?: string
   variant?: Variant
@@ -19,6 +23,7 @@ export interface MultiselectProps
   selectedLabel?: string
   hideLabel?: boolean
   defaultValue?: string[]
+  onChange?: (value: string[]) => void
 }
 
 export function Multiselect({
@@ -31,6 +36,7 @@ export function Multiselect({
   options,
   label,
   accessibilityLabel,
+  onChange,
   variant = 'primary',
   selectedLabel = 'items selected',
   hideLabel = false,
@@ -53,12 +59,12 @@ export function Multiselect({
 
   function selectOption(id: string) {
     const isOptionSelected = selectedOptions.includes(id)
-    if (isOptionSelected) {
-      return setSelectedOptions(
-        selectedOptions.filter((optionId) => optionId !== id),
-      )
-    }
-    setSelectedOptions([...selectedOptions, id])
+    const options = isOptionSelected
+      ? selectedOptions.filter((optionId) => optionId !== id)
+      : [...selectedOptions, id]
+
+    setSelectedOptions(options)
+    if (onChange !== undefined) onChange(options)
   }
 
   function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
