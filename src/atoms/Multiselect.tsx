@@ -1,6 +1,7 @@
-import './Multiselect.scss'
+import './Select.scss'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
+import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
 
@@ -46,9 +47,10 @@ export function Multiselect({
   const helpTexts = buildHelpText(helpText, errors)
   const [showOptionsList, setShowOptionsList] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
+  const hasSelectedOptions = selectedOptions.length > 0
   const cssClasses = classNames('selected-option', className, {
     open: showOptionsList,
-    filled: selectedOptions.length > 0,
+    filled: hasSelectedOptions,
     disabled: disabled,
     invalid: errors?.length,
   })
@@ -74,10 +76,15 @@ export function Multiselect({
     }
   }
 
+  function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation()
+    setSelectedOptions([])
+  }
+
   return (
-    <div className={`multiselect-group ${variant}`}>
-      {!hideLabel && <span className="multiselect-label">{label}</span>}
-      <div className="multiselect-container" onBlur={handleBlur}>
+    <div className={`select-group ${variant}`}>
+      {!hideLabel && <span className="select-label">{label}</span>}
+      <div className="select-container" onBlur={handleBlur}>
         <div
           className={cssClasses}
           tabIndex={0}
@@ -87,14 +94,24 @@ export function Multiselect({
           role="alert"
         >
           <span>
-            {selectedOptions.length > 0
+            {hasSelectedOptions
               ? `${selectedOptions.length} ${selectedLabel}`
               : placeholder}
           </span>
-          <Icon name={showOptionsList ? 'AngleUp' : 'AngleDown'} />
+          <Icon
+            name={showOptionsList ? 'AngleUp' : 'AngleDown'}
+            visible={!hasSelectedOptions}
+          />
+          <IconButton
+            icon="Close"
+            className="clear-button"
+            accessibilityLabel="close"
+            onClick={handleClear}
+            visible={hasSelectedOptions}
+          />
         </div>
         {showOptionsList && (
-          <ul className="multiselect-options" role="listbox">
+          <ul className="select-options" role="listbox">
             {options.map((option) => (
               <Option
                 key={`${name}-${option.id}`}
@@ -107,7 +124,7 @@ export function Multiselect({
         )}
       </div>
       {helpTexts.map((helpText) => (
-        <span key={`${name}-${helpText}`} className="multiselect-help-text">
+        <span key={`${name}-${helpText}`} className="select-help-text">
           {helpText}
         </span>
       ))}

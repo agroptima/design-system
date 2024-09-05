@@ -1,6 +1,7 @@
 import './Select.scss'
 import React, { useState } from 'react'
 import { Icon } from './Icon'
+import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
 
@@ -47,6 +48,7 @@ export function Select({
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
   const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
+  const isEmpty = selectedOption.id === EMPTY_OPTION.id
 
   const cssClasses = classNames('selected-option', {
     open: showOptionsList,
@@ -73,6 +75,11 @@ export function Select({
     }
   }
 
+  function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation()
+    setSelectedOption(EMPTY_OPTION)
+  }
+
   return (
     <div className={classNames('select-group', variant, className)}>
       {!hideLabel && <span className="select-label">{label}</span>}
@@ -86,7 +93,17 @@ export function Select({
           role="alert"
         >
           <span>{selectedOption.label || placeholder}</span>
-          <Icon name={showOptionsList ? 'AngleUp' : 'AngleDown'} />
+          <Icon
+            name={showOptionsList ? 'AngleUp' : 'AngleDown'}
+            visible={isEmpty}
+          />
+          <IconButton
+            icon="Close"
+            className="clear-button"
+            accessibilityLabel="close"
+            onClick={handleClear}
+            visible={!isEmpty}
+          />
         </div>
         {showOptionsList && (
           <ul className="select-options" role="listbox">
