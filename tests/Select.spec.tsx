@@ -118,4 +118,37 @@ describe('Select', () => {
     expect(getByText(/error1/i)).toBeInTheDocument()
     expect(getByText(/error2/i)).toBeInTheDocument()
   })
+  it('clears option selected', async () => {
+    const user = userEvent.setup()
+    const placeholder = 'Select your favourite gaming system...'
+    const { getByText } = render(
+      <Select
+        defaultValue="2"
+        helpText="This text can help you"
+        id="select-videogames"
+        label="Videogames"
+        name="example"
+        options={[
+          {
+            id: '1',
+            label: 'Nintendo Switch',
+          },
+          {
+            id: '2',
+            label: 'PlayStation 5',
+          },
+          {
+            id: '3',
+            label: 'Xbox Series S/X',
+          },
+        ]}
+        placeholder={placeholder}
+        variant="primary"
+      />,
+    )
+
+    await user.click(screen.getByRole('button', { name: /close/i }))
+
+    expect(getByText(placeholder)).toBeInTheDocument()
+  })
 })
