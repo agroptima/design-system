@@ -119,6 +119,7 @@ describe('Select', () => {
     expect(getByText(/error2/i)).toBeInTheDocument()
   })
   it('clears option selected', async () => {
+    const mockChange = jest.fn()
     const user = userEvent.setup()
     const placeholder = 'Select your favourite gaming system...'
     const { getByText } = render(
@@ -143,6 +144,7 @@ describe('Select', () => {
           },
         ]}
         placeholder={placeholder}
+        onChange={mockChange}
         variant="primary"
       />,
     )
@@ -150,5 +152,6 @@ describe('Select', () => {
     await user.click(screen.getByRole('button', { name: /close/i }))
 
     expect(getByText(placeholder)).toBeInTheDocument()
+    expect(mockChange).toHaveBeenCalledWith('')
   })
 })

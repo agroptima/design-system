@@ -78,6 +78,7 @@ export function Select({
   function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation()
     setSelectedOption(EMPTY_OPTION)
+    if (onChange !== undefined) onChange('')
   }
 
   return (
