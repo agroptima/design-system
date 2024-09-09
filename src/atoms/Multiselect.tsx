@@ -79,6 +79,7 @@ export function Multiselect({
   function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation()
     setSelectedOptions([])
+    if (onChange !== undefined) onChange([])
   }
 
   return (

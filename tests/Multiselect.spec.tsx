@@ -113,6 +113,7 @@ describe('Multiselect', () => {
     expect(getByText(/error2/i)).toBeInTheDocument()
   })
   it('clears options selected', async () => {
+    const mockChange = jest.fn()
     const user = userEvent.setup()
     const placeholder = 'Select your favourite videogames...'
     const { getByText } = render(
@@ -137,6 +138,7 @@ describe('Multiselect', () => {
         placeholder={placeholder}
         defaultValue={['2', '1']}
         selectedLabel="videogames selected"
+        onChange={mockChange}
         variant="primary"
       />,
     )
@@ -144,5 +146,6 @@ describe('Multiselect', () => {
     await user.click(screen.getByRole('button', { name: /close/i }))
 
     expect(getByText(placeholder)).toBeInTheDocument()
+    expect(mockChange).toHaveBeenCalledWith([])
   })
 })
