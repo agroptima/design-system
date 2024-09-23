@@ -44,11 +44,17 @@
       padding-bottom: 9rem;
     }
     .actions {
-      padding: 0;
-      flex-direction: column;
+      background-color: color_alias.$neutral-white;
+      border-top: 1px solid color_alias.$neutral-color-200;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: config.$space-2x;
       box-shadow: none;
-      background-color: transparent;
-      inset: auto config.$space-4x config.$space-4x config.$space-4x;
+      padding: config.$space-4x auto config.$space-4x auto;
+
+      .button {
+        width: 50%;
+      }
     }
   }
 }
