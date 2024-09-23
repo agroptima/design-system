@@ -101,17 +101,3 @@ export const TagGroup = {
     </CheckableTagGroup>
   ),
 }
-
-export const Tag = {
-  render: () => (
-    <CheckableTag
-      variant="primary"
-      label="RPG"
-      aria-label="RPG game"
-      onSelect={() => {}}
-      onChange={() => {}}
-      isChecked={false}
-    />
-  ),
-  parameters: figmaPrimaryDesign,
-}

@@ -11,7 +11,7 @@ export type Variant =
   | 'warning-outlined'
   | 'error-outlined'
 
-export interface BadgeProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface BadgeProps extends React.ComponentPropsWithoutRef<'span'> {
   variant?: Variant
   text: string
   accessibilityLabel: string

@@ -1,4 +1,4 @@
-import type { Variant } from '@/atoms/Alert'
+import type { Variant } from '@/atoms/Badge'
 import React from 'react'
 import { render } from '@testing-library/react'
 import { Badge } from '@/atoms/Badge'
