@@ -34,6 +34,6 @@
     "src/stories/Card.stories.js",
     "src/stories/Menu.stories.js",
     "src/stories/EmptyState.stories.js"
-  ],
+, "src/stories/CheckableTag.stories.js"  ],
   "exclude": ["node_modules"]
 }

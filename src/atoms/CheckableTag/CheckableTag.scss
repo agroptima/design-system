@@ -1,0 +1,47 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+
+.checkable-tag-group {
+  display: flex;
+  flex-direction: row;
+  gap: config.$space-2x;
+  flex-wrap: wrap;
+
+  .checkable-tag {
+    display: flex;
+    flex-direction: column;
+    gap: config.$space-2x;
+    padding: config.$space-1x config.$space-3x;
+    width: fit-content;
+    cursor: default;
+    white-space: nowrap;
+
+    &.primary {
+      @include typography.footnote-primary;
+      color: color_alias.$neutral-color-1000;
+
+      border-radius: config.$corner-radius-m;
+      border: 1px solid color_alias.$neutral-color-200;
+      background: color_alias.$neutral-white;
+
+      &:hover {
+        background: color_alias.$neutral-color-50;
+      }
+
+      &.checked {
+        color: color_alias.$neutral-white;
+        border: 1px solid color_alias.$primary-color-600;
+        background: color_alias.$primary-color-600;
+      }
+
+      &.disabled {
+        color: color_alias.$neutral-color-200;
+
+        border: 1px solid color_alias.$neutral-color-200;
+        background: color_alias.$neutral-color-50;
+      }
+    }
+  }
+}
