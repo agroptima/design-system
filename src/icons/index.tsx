@@ -22,6 +22,7 @@ import EditColumns from './edit-columns.svg'
 import EmptyState from './empty-customize.svg'
 import Error from './error.svg'
 import Export from './export.svg'
+import Filter from './filter.svg'
 import Import from './import.svg'
 import Info from './info.svg'
 import Invoice from './invoice.svg'
@@ -67,6 +68,7 @@ export {
   EmptyState,
   Error,
   Export,
+  Filter,
   Import,
   Info,
   Invoice,
