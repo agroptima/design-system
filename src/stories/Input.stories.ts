@@ -86,6 +86,18 @@ export const Password: Story = {
   parameters: figmaPrimaryDesign,
 }
 
+export const File: Story = {
+  args: {
+    label: 'Label for input file',
+    variant: 'primary',
+    disabled: false,
+    helpText: 'This text can help you',
+    name: 'file',
+    type: 'file',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
 export const WithErrors: Story = {
   args: {
     label: 'Email',
