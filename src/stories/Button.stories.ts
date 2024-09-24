@@ -37,6 +37,10 @@ const meta = {
       description:
         'If a link is provided, the component will be rendered as NextLink, otherwise as button',
     },
+    visible: {
+      description: 'Is the button visible?',
+      control: { type: 'boolean', default: true },
+    },
   },
 }
 

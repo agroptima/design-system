@@ -127,7 +127,10 @@
   }
   &.file .input-container {
     padding: 0;
-    border: none;
+    border: transparent;
+    &:has(input:focus) {
+      border: transparent;
+    }
     input {
       color: color_alias.$neutral-color-600;
       &::before {
