@@ -57,6 +57,7 @@ export function Input({
   return (
     <div
       className={classNames('input-group', variant, className, {
+        file: type === 'file',
         invalid: errors?.length,
       })}
     >
@@ -73,6 +74,7 @@ export function Input({
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}
+          className={classNames({ 'primary-outlined': type === 'file' })}
           {...props}
         />
         {suffix && <span className="input-suffix">{suffix}</span>}

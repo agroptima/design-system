@@ -1,6 +1,7 @@
 @use '../settings/color_alias';
 @use '../settings/typography/form' as typography;
 @use '../settings/config';
+@import 'button/Button.scss';
 
 .input-group {
   @include typography.input-text;
@@ -121,6 +122,24 @@
             fill: color_alias.$neutral-color-600;
           }
         }
+      }
+    }
+  }
+  &.file .input-container {
+    padding: 0;
+    border: none;
+    input {
+      color: color_alias.$neutral-color-600;
+      &::before {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='12' fill='none'%3E%3Cpath d='M2.943 8.718h4.114V4.694H9.8L5 0 .2 4.694h2.743v4.024ZM5 1.898l1.488 1.455h-.802v4.023H4.314V3.353h-.802L5 1.898Zm-4.8 8.16h9.6V11.4H.2v-1.341Z' fill='%23EB004D'/%3E%3C/svg%3E");
+        position: absolute;
+        left: config.$space-3x;
+        bottom: config.$space-2x;
+      }
+      &::file-selector-button {
+        margin-right: config.$space-2x;
+        padding-left: config.$space-3x + config.$icon-size-2x + config.$space-1x;
+        @extend .button;
       }
     }
   }
