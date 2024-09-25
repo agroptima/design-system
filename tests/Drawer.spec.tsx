@@ -1,63 +1,49 @@
 import React from 'react'
-import { screen, render, queryByRole } from '@testing-library/react'
-import { Modal } from '@/atoms/Modal'
+import { render } from '@testing-library/react'
+import { Drawer } from '@/atoms/Drawer'
+import { Collapsible } from '@/atoms/Collapsible'
+import { CheckableTag, CheckableTagGroup } from '@/atoms/CheckableTag'
 
-describe('Modal', () => {
-  const variants = ['info', 'success', 'warning', 'error']
-  it.each(variants)(
-    'renders the %s variant with title and the expected icon and button',
-    (variant) => {
-      const title = `${variant} modal`
-      const content = `${variant} modal content`
-      const { getByRole, getByText } = render(
-        <Modal
-          id={`${variant}-modal`}
-          title={title}
-          buttons={[
-            {
-              label: 'Done',
-            },
-          ]}
-        >
-          {content}
-        </Modal>,
-      )
-      expect(getByRole('img')).toHaveClass('info')
-      expect(getByText(title)).toBeInTheDocument()
-      expect(getByText(content)).toBeInTheDocument()
-      expect(getByRole('button')).toHaveTextContent('Done')
-      expect(getByRole('button')).toHaveClass('primary')
-    },
-  )
-
-  it('renders the Delete/Discard variant with title and the expected icon and buttons', () => {
-    const title = 'Delete modal'
-    const content = 'Delete modal content'
-    const { getByRole, getByText } = render(
-      <Modal
-        id="discard-modal"
-        title={title}
-        variant="discard"
+describe('Drawer', () => {
+  it('renders with expected title, content and buttons', () => {
+    const { getByLabelText, getByText, getAllByRole } = render(
+      <Drawer
+        id="videogames-filters"
+        title="Filters"
+        onCloseDrawer={jest.fn()}
         buttons={[
           {
-            label: 'Cancel',
-            variant: 'neutral',
+            label: 'Clear',
+            variant: 'primary-outlined',
+            onClick: () => alert('click'),
           },
           {
-            label: 'Delete',
-            variant: 'error',
+            label: 'Apply',
+            onClick: () => alert('click'),
           },
         ]}
       >
-        {content}
-      </Modal>,
+        <Collapsible noHorizontalPadding open title="Genres">
+          <CheckableTagGroup>
+            <CheckableTag
+              variant="primary"
+              label="RPG"
+              aria-label="RPG games"
+              onSelect={() => {}}
+              onChange={() => {}}
+              isChecked={false}
+            />
+          </CheckableTagGroup>
+        </Collapsible>
+      </Drawer>,
     )
-    expect(getByRole('img')).toHaveClass('discard')
-    expect(getByText(title)).toBeInTheDocument()
-    expect(getByText(content)).toBeInTheDocument()
-    expect(screen.getAllByRole('button')[0]).toHaveTextContent('Cancel')
-    expect(screen.getAllByRole('button')[0]).toHaveClass('neutral')
-    expect(screen.getAllByRole('button')[1]).toHaveTextContent('Delete')
-    expect(screen.getAllByRole('button')[1]).toHaveClass('error')
+    expect(getByText('Filters')).toBeInTheDocument()
+    expect(getByText('RPG')).toBeInTheDocument()
+    expect(getByLabelText('Close')).toBeInTheDocument()
+    expect(getAllByRole('button')[0]).toHaveClass('icon-button primary')
+    expect(getAllByRole('button')[1]).toHaveTextContent('Clear')
+    expect(getAllByRole('button')[1]).toHaveClass('primary-outlined')
+    expect(getAllByRole('button')[2]).toHaveTextContent('Apply')
+    expect(getAllByRole('button')[2]).toHaveClass('primary')
   })
 })

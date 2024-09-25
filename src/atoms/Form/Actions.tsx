@@ -6,5 +6,7 @@ export interface ActionsProps extends React.ComponentPropsWithoutRef<'div'> {
 }
 
 export default function Actions({ className, children }: ActionsProps) {
-  return <div className={classNames('actions', className)}>{children}</div>
+  return (
+    <div className={classNames('footer-actions', className)}>{children}</div>
+  )
 }

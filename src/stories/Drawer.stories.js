@@ -41,7 +41,8 @@ export const Filters = {
       title="Filters"
       buttons={[
         {
-          label: 'Clean',
+          label: 'Clear',
+          variant: 'primary-outlined',
           onClick: () => alert('click'),
         },
         {

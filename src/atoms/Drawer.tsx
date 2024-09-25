@@ -1,7 +1,8 @@
 import type { ButtonProps } from './Button'
 import { classNames } from '../utils/classNames'
-import { Button } from './Button'
+import { Button, IconButton } from './Button'
 import './Drawer.scss'
+import { Actions } from './Form'
 
 export type Variant = 'primary'
 
@@ -10,6 +11,7 @@ export interface DrawerProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   title: string
   buttons: ButtonProps[]
+  onCloseDrawer: () => void
 }
 
 export function Drawer({
@@ -19,6 +21,7 @@ export function Drawer({
   title,
   buttons,
   children,
+  onCloseDrawer,
   ...props
 }: DrawerProps): React.JSX.Element {
   const cssClasses = classNames('drawer', variant, className)
@@ -33,6 +36,13 @@ export function Drawer({
         className={cssClasses}
         {...props}
       >
+        <div className="close-container">
+          <IconButton
+            icon="Close"
+            accessibilityLabel="Close"
+            onClick={onCloseDrawer}
+          />
+        </div>
         <div className="scroll-area">
           <div className="header">
             <h4 id={`${id}-title`} className="title">
@@ -44,9 +54,11 @@ export function Drawer({
           </div>
         </div>
         <div className="footer">
-          {buttons.map(({ ...button }) => (
-            <Button key={button.label} {...button} />
-          ))}
+          <Actions>
+            {buttons.map(({ ...button }) => (
+              <Button key={button.label} {...button} />
+            ))}
+          </Actions>
         </div>
       </div>
     </div>

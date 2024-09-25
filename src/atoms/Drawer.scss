@@ -25,10 +25,10 @@
     padding: config.$space-5x;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: config.$space-2x;
     flex-grow: 1;
-    max-width: 26rem;
+    width: 26rem;
     height: 100vh;
     border-radius: config.$corner-radius-xxs;
     background: color_alias.$neutral-white;
@@ -36,6 +36,10 @@
       0px 3px 6px -4px rgba(0, 0, 0, 0.12),
       0px 6px 16px 0px rgba(0, 0, 0, 0.08),
       0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    .close-container {
+      align-self: flex-end;
+    }
 
     .scroll-area {
       width: 100%;
@@ -65,13 +69,29 @@
       align-self: flex-end;
       gap: config.$space-3x;
       margin-top: config.$space-2x;
-    }
 
-    // Media queries
-    // Mobile & tablet cases
-    @media only screen and (max-width: breakpoints.$large) {
-      &.drawer {
+      .footer-actions {
+        position: absolute;
+        background-color: color_alias.$neutral-white;
+        border-top: 1px solid color_alias.$neutral-color-200;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: config.$space-2x;
+        box-shadow: none;
+        padding: config.$space-4x auto config.$space-4x auto;
+
+        .button {
+          width: 50%;
+        }
       }
+    }
+  }
+
+  // Media queries
+  // Mobile & tablet cases
+  @media only screen and (max-width: breakpoints.$medium) {
+    .drawer {
+      width: 100%;
     }
   }
 }
