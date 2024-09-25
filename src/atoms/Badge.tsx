@@ -13,8 +13,9 @@ export type Variant =
 
 export interface BadgeProps extends React.ComponentPropsWithoutRef<'span'> {
   variant?: Variant
-  text: string
+  text?: string
   accessibilityLabel: string
+  isDot?: boolean
 }
 
 export function Badge({
@@ -22,9 +23,10 @@ export function Badge({
   className,
   text,
   accessibilityLabel,
+  isDot,
   ...props
 }: BadgeProps): React.JSX.Element {
-  const cssClasses = classNames('badge', variant, className)
+  const cssClasses = classNames('badge', variant, className, { dot: isDot })
 
   return (
     <span
