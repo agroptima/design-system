@@ -17,6 +17,7 @@ import Delete from './delete.svg'
 import Done from './done.svg'
 import DoubleArrowLeft from './double-arrow-left.svg'
 import DoubleArrowRight from './double-arrow-right.svg'
+import Download from './download.svg'
 import Edit from './edit.svg'
 import EditColumns from './edit-columns.svg'
 import EmptyState from './empty-customize.svg'
@@ -36,6 +37,7 @@ import Settings from './settings.svg'
 import Show from './show.svg'
 import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
+import Upload from './upload.svg'
 import UserMenu from './user-menu.svg'
 import Warning from './warning.svg'
 import DeliveryNote from './delivery-note.svg'
@@ -62,6 +64,7 @@ export {
   Done,
   DoubleArrowLeft,
   DoubleArrowRight,
+  Download,
   Edit,
   EditColumns,
   EmptyState,
@@ -82,6 +85,7 @@ export {
   Show,
   ShowOff,
   Sorter,
+  Upload,
   UserMenu,
   Warning,
 }

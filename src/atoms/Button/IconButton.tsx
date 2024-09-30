@@ -11,7 +11,6 @@ interface CustomProps {
   icon: IconType
   variant?: Variant
   disabled?: boolean
-  visible?: boolean
   accessibilityLabel: string
 }
 
@@ -21,12 +20,9 @@ export function IconButton({
   accessibilityLabel,
   icon,
   disabled,
-  visible = true,
   variant = 'primary',
   ...props
 }: IconButtonProps) {
-  if (!visible) return null
-
   return (
     <BaseButton
       disabled={disabled}

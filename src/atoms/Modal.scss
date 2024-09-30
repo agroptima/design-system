@@ -48,6 +48,7 @@
         display: flex;
         gap: config.$space-2x;
         align-items: flex-start;
+        padding-bottom: config.$space-2x;
 
         .icon {
           margin-top: 4px;
