@@ -2,6 +2,7 @@ import NextLink from 'next/link'
 
 interface CommonProps {
   disabled?: boolean
+  visible?: boolean
 }
 
 type HtmlButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -15,7 +16,12 @@ export type BaseButtonProps =
 const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
   'href' in props
 
-export function BaseButton({ children, ...props }: BaseButtonProps) {
+export function BaseButton({
+  children,
+  visible = true,
+  ...props
+}: BaseButtonProps) {
+  if (!visible) return null
   if (hasHref(props)) {
     return (
       <NextLink href={props.href || ''} {...props}>
