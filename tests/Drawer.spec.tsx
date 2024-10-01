@@ -10,7 +10,7 @@ describe('Drawer', () => {
       <Drawer
         id="videogames-filters"
         title="Filters"
-        onCloseDrawer={jest.fn()}
+        onClose={jest.fn()}
         buttons={[
           {
             label: 'Clear',

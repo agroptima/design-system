@@ -11,7 +11,7 @@ export interface DrawerProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   title: string
   buttons: ButtonProps[]
-  onCloseDrawer: () => void
+  onClose: () => void
 }
 
 export function Drawer({
@@ -21,7 +21,7 @@ export function Drawer({
   title,
   buttons,
   children,
-  onCloseDrawer,
+  onClose,
   ...props
 }: DrawerProps): React.JSX.Element {
   const cssClasses = classNames('drawer', variant, className)
@@ -40,7 +40,7 @@ export function Drawer({
           <IconButton
             icon="Close"
             accessibilityLabel="Close"
-            onClick={onCloseDrawer}
+            onClick={onClose}
           />
         </div>
         <div className="scroll-area">
