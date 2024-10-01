@@ -54,12 +54,12 @@
   }
 
   &.primary-outlined {
+    border: 1px solid color_alias.$primary-color-600;
     @include button-style(
       color_alias.$neutral-white,
       color_alias.$primary-color-600,
       color_alias.$primary-color-50
     );
-    border: 1px solid color_alias.$primary-color-600;
   }
 
   &.primary-ghost {
@@ -95,12 +95,12 @@
   }
 
   &.error-outlined {
+    border: 1px solid color_alias.$error-color-600;
     @include button-style(
       color_alias.$neutral-white,
       color_alias.$error-color-600,
       color_alias.$error-color-50
     );
-    border: 1px solid color_alias.$error-color-600;
   }
 
   &.error-ghost {
@@ -136,12 +136,13 @@
   }
 
   &.success-outlined {
+    border: 1px solid color_alias.$success-color-1000;
+
     @include button-style(
       color_alias.$neutral-white,
       color_alias.$neutral-color-900,
       color_alias.$success-color-50
     );
-    border: 1px solid color_alias.$success-color-1000;
   }
 
   &.success-ghost {
@@ -177,12 +178,12 @@
   }
 
   &.warning-outlined {
+    border: 1px solid color_alias.$warning-color-1000;
     @include button-style(
       color_alias.$neutral-white,
       color_alias.$neutral-color-900,
       color_alias.$warning-color-50
     );
-    border: 1px solid color_alias.$warning-color-1000;
   }
 
   &.warning-ghost {
@@ -206,12 +207,12 @@
   }
 
   &.info-outlined {
+    border: 1px solid color_alias.$info-color-600;
     @include button-style(
       color_alias.$neutral-white,
       color_alias.$info-color-600,
       color_alias.$info-color-50
     );
-    border: 1px solid color_alias.$info-color-600;
   }
 
   &.info-ghost {
@@ -235,12 +236,12 @@
   }
 
   &.neutral-outlined {
+    border: 1px solid color_alias.$neutral-color-100;
     @include button-style(
       color_alias.$neutral-white,
       color_alias.$neutral-color-1000,
       color_alias.$neutral-color-50
     );
-    border: 1px solid color_alias.$neutral-color-100;
   }
 
   &.neutral-ghost {
