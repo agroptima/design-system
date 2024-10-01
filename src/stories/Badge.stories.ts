@@ -54,3 +54,12 @@ export const BadgeWithNumbers: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const BadgeWithDot: Story = {
+  args: {
+    variant: 'success',
+    isDot: true,
+    accessibilityLabel: 'There are items enabled',
+  },
+  parameters: figmaPrimaryDesign,
+}

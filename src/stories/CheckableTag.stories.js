@@ -1,0 +1,98 @@
+import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
+
+const figmaPrimaryDesign = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/design/DN2ova21vWqCRvPspBXgI1/Design-System?node-id=3287-999&m=dev',
+  },
+}
+
+const meta = {
+  title: 'Design System/Atoms/CheckableTag',
+  component: CheckableTag,
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      description: 'Component variant used',
+    },
+    label: {
+      description: 'Component label',
+    },
+    isDisabled: {
+      description: 'Is the component disabled?',
+    },
+    isChecked: {
+      description: 'Is the component checked?',
+    },
+    onSelect: {
+      description: 'Callback triggered when clicking on an option'
+    }
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export default meta
+
+export const TagGroup = {
+  render: () => (
+    <CheckableTagGroup>
+      <CheckableTag
+        variant="primary"
+        label="RPG"
+        aria-label="RPG games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+      />
+      <CheckableTag
+        variant="primary"
+        label="Sports"
+        aria-label="Sport games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+      />
+      <CheckableTag
+        variant="primary"
+        label="Party"
+        aria-label="Party games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+        isDisabled={true}
+      />
+      <CheckableTag
+        variant="primary"
+        label="Survival horror"
+        aria-label="Survival horror games"
+        onSelect={() => alert('click')}
+        isChecked={true}
+      />
+      <CheckableTag
+        variant="primary"
+        label="Action"
+        aria-label="Action games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+      />
+      <CheckableTag
+        variant="primary"
+        label="Platform"
+        aria-label="Platform games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+      />
+      <CheckableTag
+        variant="primary"
+        label="Graphic adventure"
+        aria-label="Graphic adventure games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+      />
+      <CheckableTag
+        variant="primary"
+        label="FPS"
+        aria-label="First Person Shooter games"
+        onSelect={() => alert('click')}
+        isChecked={false}
+      />
+    </CheckableTagGroup>
+  ),
+}

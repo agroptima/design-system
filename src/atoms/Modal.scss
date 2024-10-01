@@ -155,12 +155,5 @@
         }
       }
     }
-
-    // Media queries
-    // Mobile & tablet cases
-    @media only screen and (max-width: breakpoints.$large) {
-      &.details {
-      }
-    }
   }
 }
