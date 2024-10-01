@@ -1,7 +1,7 @@
 @use '../settings/color_alias';
 @use '../settings/typography/form' as typography;
 @use '../settings/config';
-@import './button/Button.scss';
+@use './Button/Button';
 
 .input-group {
   @include typography.input-text;
