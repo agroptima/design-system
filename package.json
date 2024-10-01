@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.26.0",
+  "version": "0.26.1",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
@@ -28,7 +28,6 @@
     "@storybook/addon-essentials": "^8.3.2",
     "@storybook/addon-interactions": "^8.3.2",
     "@storybook/addon-links": "^8.3.2",
-    "@storybook/addon-mdx-gfm": "^8.3.2",
     "@storybook/blocks": "^8.3.2",
     "@storybook/nextjs": "^8.3.2",
     "@storybook/react": "^8.3.2",
