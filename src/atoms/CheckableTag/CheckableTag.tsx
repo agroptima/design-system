@@ -3,19 +3,17 @@ import './CheckableTag.scss'
 
 export type Variant = 'primary'
 
-type CheckableTagPropsWithoutOnChangeOnSelect = Omit<
+type CheckableTagPropsWithoutOnSelect = Omit<
   React.ComponentPropsWithoutRef<'span'>,
-  'onChange' | 'onSelect'
+  'onSelect'
 >
 
-export interface CheckableTagProps
-  extends CheckableTagPropsWithoutOnChangeOnSelect {
+export interface CheckableTagProps extends CheckableTagPropsWithoutOnSelect {
   variant?: Variant
   isDisabled?: boolean
   isChecked?: boolean
   label: string
   onSelect: (label: string) => void
-  onChange: (checked: boolean) => void
 }
 
 export function CheckableTag({
@@ -25,18 +23,12 @@ export function CheckableTag({
   label,
   isChecked = false,
   onSelect,
-  onChange,
   ...props
 }: CheckableTagProps): React.JSX.Element {
   const cssClasses = classNames('checkable-tag', variant, className, {
     disabled: isDisabled,
     checked: isChecked,
   })
-
-  function handleClick() {
-    onChange(!isChecked)
-    onSelect(label)
-  }
 
   return (
     <span
@@ -45,7 +37,7 @@ export function CheckableTag({
       aria-checked={false}
       tabIndex={0}
       aria-label={props['aria-label']}
-      onClick={handleClick}
+      onClick={() => onSelect(label)}
       {...props}
     >
       {label}

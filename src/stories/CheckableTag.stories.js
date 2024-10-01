@@ -24,6 +24,9 @@ const meta = {
     isChecked: {
       description: 'Is the component checked?',
     },
+    onSelect: {
+      description: 'Callback triggered when clicking on an option'
+    }
   },
   parameters: figmaPrimaryDesign,
 }
@@ -37,24 +40,21 @@ export const TagGroup = {
         variant="primary"
         label="RPG"
         aria-label="RPG games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
       />
       <CheckableTag
         variant="primary"
         label="Sports"
         aria-label="Sport games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
       />
       <CheckableTag
         variant="primary"
         label="Party"
         aria-label="Party games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
         isDisabled={true}
       />
@@ -62,40 +62,35 @@ export const TagGroup = {
         variant="primary"
         label="Survival horror"
         aria-label="Survival horror games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={true}
       />
       <CheckableTag
         variant="primary"
         label="Action"
         aria-label="Action games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
       />
       <CheckableTag
         variant="primary"
         label="Platform"
         aria-label="Platform games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
       />
       <CheckableTag
         variant="primary"
         label="Graphic adventure"
         aria-label="Graphic adventure games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
       />
       <CheckableTag
         variant="primary"
         label="FPS"
         aria-label="First Person Shooter games"
-        onSelect={() => {}}
-        onChange={() => {}}
+        onSelect={() => alert('click')}
         isChecked={false}
       />
     </CheckableTagGroup>
