@@ -80,6 +80,7 @@ export function Input({
         {suffix && <span className="input-suffix">{suffix}</span>}
         {type === 'password' && (
           <IconButton
+            type="button"
             accessibilityLabel={handlePasswordIcon()}
             className="password-icon"
             icon={handlePasswordIcon()}
