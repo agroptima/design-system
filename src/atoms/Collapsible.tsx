@@ -32,7 +32,7 @@ export function Collapsible({
   })
 
   return (
-    <details name={name} className={cssClasses} {...props}>
+    <details name={name} className={cssClasses} aria-label={title} {...props}>
       <summary className="header">
         <Icon className="arrow" name="AngleRight" />
         <span className="title">{title}</span>
