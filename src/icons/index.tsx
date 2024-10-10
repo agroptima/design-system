@@ -14,6 +14,8 @@ import Client from './client.svg'
 import Close from './close.svg'
 import Comment from './comment.svg'
 import Delete from './delete.svg'
+import Delivery from './delivery.svg'
+import DeliveryNote from './delivery-note.svg'
 import Done from './done.svg'
 import DoubleArrowLeft from './double-arrow-left.svg'
 import DoubleArrowRight from './double-arrow-right.svg'
@@ -41,7 +43,6 @@ import Sorter from './sorter.svg'
 import Upload from './upload.svg'
 import UserMenu from './user-menu.svg'
 import Warning from './warning.svg'
-import DeliveryNote from './delivery-note.svg'
 import PDF from './pdf.svg'
 
 export {
@@ -61,6 +62,7 @@ export {
   Close,
   Comment,
   Delete,
+  Delivery,
   DeliveryNote,
   Done,
   DoubleArrowLeft,
