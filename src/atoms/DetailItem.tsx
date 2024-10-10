@@ -10,7 +10,7 @@ export enum Alignment {
 
 export interface DetailItemProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
-  title: string
+  title?: string
   align?: Alignment
 }
 
@@ -33,7 +33,7 @@ export function DetailItem({
       )}
       {...props}
     >
-      <div className="title">{title}</div>
+      {title && <div className="title">{title}</div>}
       <div className="information">{children}</div>
     </div>
   )
