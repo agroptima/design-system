@@ -10,6 +10,7 @@ export interface CollapsibleProps
   variant?: Variant
   name?: string
   disabled?: boolean
+  form?: boolean
   noHorizontalPadding?: boolean
 }
 
@@ -20,6 +21,7 @@ export function Collapsible({
   children,
   disabled,
   name,
+  form = false,
   noHorizontalPadding = false,
   ...props
 }: CollapsibleProps): React.JSX.Element {
@@ -29,6 +31,7 @@ export function Collapsible({
   })
   const contentCssClasses = classNames('content', {
     'no-horizontal-padding': noHorizontalPadding,
+    form: form,
   })
 
   return (

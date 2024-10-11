@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { Modal } from '../atoms/Modal'
+import { Modal } from '@/atoms/Modal'
 import { DetailItem } from '@/atoms/DetailItem'
 import { Collapsible } from '@/atoms/Collapsible'
 import { Card } from '@/atoms/Card'

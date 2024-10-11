@@ -1,9 +1,10 @@
 import React from 'react'
-
-import { Collapsible } from '../atoms/Collapsible'
-import { Input } from '../atoms/Input'
-import { Select } from '../atoms/Select'
-import { Card } from '../atoms/Card'
+import { Collapsible } from '@/atoms/Collapsible'
+import { Input } from '@/atoms/Input'
+import { Select } from '@/atoms/Select'
+import { Card } from '@/atoms/Card'
+import { Form as FormComponent, Actions } from '@/atoms/Form'
+import { Button } from '@/atoms/Button'
 
 const figmaPrimaryDesign = {
   design: {
@@ -217,5 +218,20 @@ export const PrimaryDisabled = {
         variant="primary"
       />
     </Collapsible>
+  ),
+}
+
+export const Form = {
+  render: () => (
+    <FormComponent>
+      <Collapsible open form title="User">
+        <Input label="First Name" placeholder="First Name" name="firstName" />
+        <Input label="Last Name" placeholder="Last Name" name="lastName" />
+        <Actions>
+          <Button type="button" label="Cancel" variant="primary-outlined" />
+          <Button type="submit" label="Sign in" variant="primary" />
+        </Actions>
+      </Collapsible>
+    </FormComponent>
   ),
 }

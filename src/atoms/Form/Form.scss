@@ -2,11 +2,13 @@
 @use '../../settings/breakpoints';
 @use '../../settings/color_alias';
 
+$gap: config.$space-4x;
+
 .form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  gap: config.$space-4x;
+  gap: $gap;
   padding: 0;
 
   width: breakpoints.$medium;
@@ -25,7 +27,7 @@
 .footer-actions {
   display: flex;
   justify-content: flex-end;
-  gap: config.$space-4x;
+  gap: $gap;
 
   flex-direction: row;
   padding: config.$space-3x config.$space-5x;
