@@ -19,6 +19,7 @@
     align-items: center !important;
     gap: config.$space-3x;
     padding: config.$space-5x;
+    padding-bottom: config.$space-5x !important;
     cursor: default;
 
     .icon {
