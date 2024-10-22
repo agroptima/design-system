@@ -34,7 +34,7 @@ export function CheckableTag({
     <span
       className={cssClasses}
       role="checkbox"
-      aria-checked={false}
+      aria-checked={isChecked}
       tabIndex={0}
       aria-label={props['aria-label']}
       onClick={() => onSelect(label)}
