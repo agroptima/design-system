@@ -4,45 +4,42 @@ import './Checkbox.scss'
 export type Variant = 'primary'
 
 export interface CheckboxProps extends React.ComponentPropsWithoutRef<'input'> {
-  label?: string
+  label: string
+  accessibilityLabel?: string
   hideLabel?: boolean
   variant?: Variant
   id?: string
-  accessibilityLabel: string
 }
 
 export function Checkbox({
-  accessibilityLabel,
   label,
-  hideLabel,
+  accessibilityLabel,
+  hideLabel = false,
   disabled,
   variant = 'primary',
   id,
   name,
+  className,
   ...props
 }: CheckboxProps) {
   const identifier = id || name
-  const inputCss = classNames('checkbox', variant)
-  const labelCss = classNames('checkbox-label-container', {
-    disabled: disabled,
-  })
 
   return (
-    <div className={`checkbox-group ${variant}`}>
+    <div
+      className={classNames('checkbox-group', variant, className, {
+        disabled: disabled,
+      })}
+    >
       <input
         id={identifier}
         name={name}
         type="checkbox"
-        className={inputCss}
+        className="checkbox"
         disabled={disabled}
-        aria-label={accessibilityLabel}
+        aria-label={accessibilityLabel || label}
         {...props}
       />
-
-      <label className={labelCss} htmlFor={identifier}>
-        <span className="background-icon"></span>
-        {!hideLabel && <span className="label">{label}</span>}
-      </label>
+      {!hideLabel && <label htmlFor={identifier}>{label}</label>}
     </div>
   )
 }
