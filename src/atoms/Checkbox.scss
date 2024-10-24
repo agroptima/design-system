@@ -3,66 +3,43 @@
 @use '../settings/config';
 
 .checkbox-group {
-  .checkbox-label-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: config.$space-1x;
+  @include typography.checkbox-label;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: config.$space-1x;
 
-    .background-icon {
-      width: config.$icon-size-4x;
-      height: config.$icon-size-4x;
-    }
+  .checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: config.$icon-size-4x;
+    height: config.$icon-size-4x;
+    min-width: config.$icon-size-4x;
+  }
 
-    .label {
-      @include typography.checkbox-label;
-    }
+  &.disabled {
+    @include typography.checkbox-disabled-label;
   }
 
   &.primary {
-    input[type='checkbox'] {
-      display: none;
-    }
-
-    input[type='checkbox'] + .checkbox-label-container .background-icon {
+    .checkbox {
       background: url('../icons/checkbox-primary-inactive.svg') left top
         no-repeat;
     }
-
-    input[type='checkbox']:checked
-      + .checkbox-label-container
-      .background-icon {
+    .checkbox:checked {
       background: url('../icons/checkbox-primary-active.svg') left top no-repeat;
     }
-
-    // Disabled
-    input[type='checkbox']
-      + .checkbox-label-container.disabled
-      .background-icon {
+    .checkbox:disabled {
       background: url('../icons/checkbox-disabled-inactive.svg') left top
         no-repeat;
     }
-
-    input[type='checkbox']:checked
-      + .checkbox-label-container.disabled
-      .background-icon {
+    .checkbox:checked:disabled {
       background: url('../icons/checkbox-disabled-active.svg') left top
         no-repeat;
     }
-
-    .checkbox-label-container {
-      &.disabled {
-        .label {
-          @include typography.checkbox-disabled-label;
-        }
-      }
-    }
-
-    // Hover
     &:hover {
-      input[type='checkbox']:not(:checked)
-        + .checkbox-label-container:not(.disabled)
-        .background-icon {
+      .checkbox:not(:checked):not(.disabled) {
         background: url('../icons/checkbox-primary-hover-inactive.svg') left top
           no-repeat;
       }
