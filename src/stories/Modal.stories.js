@@ -162,7 +162,12 @@ export const Details = {
           <p>Final Fantasy X</p>
         </Card>
       </Collapsible>
-      <DetailItem style={{ marginTop: '10px' }} align="right" title="Price">
+      <DetailItem
+        singleLine
+        style={{ marginTop: '10px' }}
+        align="right"
+        title="Price"
+      >
         59,95 €
       </DetailItem>
     </Modal>

@@ -12,6 +12,7 @@ export interface DetailItemProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   title?: string
   align?: Alignment
+  singleLine?: boolean
 }
 
 export function DetailItem({
@@ -20,6 +21,7 @@ export function DetailItem({
   variant = 'primary',
   title,
   align = Alignment.Left,
+  singleLine = false,
   children,
   ...props
 }: DetailItemProps): React.JSX.Element {
@@ -30,6 +32,7 @@ export function DetailItem({
         variant,
         `alignment-${align}`,
         className,
+        { 'single-line': singleLine },
       )}
       {...props}
     >
