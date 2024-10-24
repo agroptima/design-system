@@ -8,8 +8,14 @@
   flex-direction: column;
   margin-bottom: config.$space-3x;
 
+  &.single-line {
+    flex-direction: row;
+    gap: config.$space-1x;
+  }
+
   &.alignment-right {
     text-align: right;
+    justify-content: flex-end;
   }
 
   .title {

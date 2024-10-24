@@ -3,6 +3,28 @@
 @use '../../settings/config';
 @use '../../settings/breakpoints';
 
+@mixin align-data-vertically() {
+  thead {
+    display: none;
+  }
+
+  tbody {
+    tr {
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+      gap: config.$space-1x;
+      padding: config.$space-2x config.$space-3x;
+    }
+  }
+
+  td {
+    width: 100%;
+    flex: inherit;
+    padding: 0px;
+  }
+}
+
 .cards-table-list {
   display: flex;
   flex-direction: column;
@@ -184,28 +206,14 @@
     justify-content: flex-end !important;
   }
 
+  &.vertically {
+    @include align-data-vertically();
+  }
+
   // Media queries
   // Mobile & tablet cases
   @media only screen and (max-width: breakpoints.$large) {
-    thead {
-      display: none;
-    }
-
-    tbody {
-      tr {
-        flex-direction: row;
-        flex-wrap: wrap;
-        position: relative;
-        gap: config.$space-1x;
-        padding: config.$space-2x config.$space-3x;
-      }
-    }
-
-    td {
-      width: 100%;
-      flex: inherit;
-      padding: 0px;
-    }
+    @include align-data-vertically();
 
     td:first-child {
       order: -2;

@@ -218,3 +218,19 @@ export const OnlyTitle = {
     </CardsTable>
   ),
 }
+
+export const DataAlignedVertically = {
+  render: (args) => (
+    <CardsTable vertically {...args}>
+      <CardsTableBody>
+        <CardsTableRow>
+          <CardsTableCell>Silent Hill</CardsTableCell>
+          <CardsTableCell>Metal Gear Solid 5</CardsTableCell>
+          <CardsTableCell>Tekken 8</CardsTableCell>
+          <CardsTableCell>The Witcher 3</CardsTableCell>
+          <CardsTableCell>Zone of the Enders: The 2nd Runner</CardsTableCell>
+        </CardsTableRow>
+      </CardsTableBody>
+    </CardsTable>
+  ),
+}

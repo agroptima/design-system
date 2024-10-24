@@ -7,6 +7,7 @@ export interface CardsTableProps
   extends React.ComponentPropsWithoutRef<'table'> {
   variant?: Variant
   withTitle?: boolean
+  vertically?: boolean
 }
 
 export function CardsTable({
@@ -14,11 +15,13 @@ export function CardsTable({
   summary,
   variant = 'primary',
   withTitle = false,
+  vertically = false,
   children,
   ...props
 }: CardsTableProps): React.JSX.Element {
   const cssClasses = classNames('cards-table-list', variant, className, {
     'with-title': withTitle,
+    vertically: vertically,
   })
   return (
     <table summary={summary} role="table" className={cssClasses} {...props}>
