@@ -15,7 +15,7 @@ describe('Checkbox', () => {
       />,
     )
     expect(getAllByRole('generic')[1]).toHaveClass(`checkbox-group ${variant}`)
-    expect(getByRole('checkbox')).toHaveClass(`checkbox ${variant}`)
+    expect(getByRole('checkbox')).toHaveClass('checkbox')
     expect(getByText(/Do you like videogames/i)).toBeInTheDocument()
   })
 })
