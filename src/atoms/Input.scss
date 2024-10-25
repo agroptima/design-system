@@ -15,6 +15,11 @@
 
   .input-label {
     @include typography.form-label;
+  
+    &.is-required::after {
+      content: '*';
+      color: color_alias.$primary-color-600;
+    }
   }
 
   &.invalid .input-help-text {
@@ -146,4 +151,5 @@
       }
     }
   }
+
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { getByText, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Input } from '@/atoms/Input'
 
@@ -86,5 +86,18 @@ describe('Input', () => {
 
     expect(getByRole('spinbutton')).toBeInTheDocument()
     expect(getByText('€/Bottle')).toBeInTheDocument()
+  })
+  it('renders required input', () => {
+    const { getByText } = render(
+      <Input
+        helpText="This text can help you"
+        label="Required input"
+        name="input"
+        type="text"
+        required
+      />,
+    )
+
+    expect(getByText('Required input')).toHaveClass('input-label is-required')
   })
 })
