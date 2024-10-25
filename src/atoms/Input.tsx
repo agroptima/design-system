@@ -18,6 +18,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   id?: string
   suffix?: string
   errors?: string[]
+  required?: boolean
 }
 
 export function Input({
@@ -34,6 +35,7 @@ export function Input({
   name,
   id,
   errors,
+  required = false,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
@@ -62,10 +64,14 @@ export function Input({
       })}
     >
       {!hideLabel && (
-        <label className="input-label" htmlFor={identifier}>
+        <label
+          className={classNames('input-label', required ? 'is-required' : '')}
+          htmlFor={identifier}
+        >
           {label}
         </label>
       )}
+
       <div className="input-container">
         {icon && <Icon className="left-icon" name={icon} />}
         <input
@@ -74,7 +80,10 @@ export function Input({
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}
-          className={classNames({ 'primary-outlined': type === 'file' })}
+          required={required}
+          className={classNames({
+            'primary-outlined': type === 'file',
+          })}
           {...props}
         />
         {suffix && <span className="input-suffix">{suffix}</span>}
