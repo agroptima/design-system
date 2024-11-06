@@ -3,17 +3,22 @@
 @use '../../settings/config';
 @use '../../settings/breakpoints';
 
+a.card {
+  text-decoration: none;
+  &:hover {
+    background-color: color_alias.$primary-color-50;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
   gap: config.$space-1x;
   padding: config.$space-3x;
   width: 100%;
-
   p {
     margin: 0;
   }
-
   .actions {
     display: flex;
     gap: config.$space-4x;
