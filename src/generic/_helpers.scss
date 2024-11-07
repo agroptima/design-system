@@ -33,6 +33,10 @@
   width: 100%;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .only-desktop {
   @media only screen and (max-width: breakpoints.$large) {
     display: none !important;

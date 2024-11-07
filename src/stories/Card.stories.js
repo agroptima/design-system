@@ -14,17 +14,36 @@ const meta = {
   component: Card,
   tags: ['autodocs'],
   argTypes: {
+    visible: {
+      description: 'Is component visible?',
+      control: 'boolean',
+    },
     variant: {
       description: 'Component variant used',
     },
+    isActive: {
+      description: 'Is component active?',
+      control: 'boolean',
+    },
+    error: {
+      description: 'Has component an error?',
+      control: 'boolean',
+    },
     isBold: {
       description: 'Is component title shown with bold style?',
+      control: 'boolean',
     },
     title: {
       description: 'Title text',
+      control: 'text',
     },
     isDisabled: {
       description: 'Is component disabled?',
+      control: 'text',
+    },
+    href: {
+      description: 'Link to redirect when clicking on the card',
+      control: 'text',
     },
   },
   parameters: figmaPrimaryDesign,
@@ -461,6 +480,23 @@ export const Active = {
         <CardHeader title="Fallout 3">
           <IconButton icon="Delete" accessibilityLabel="Delete game" />
         </CardHeader>
+      </Card>
+    </div>
+  ),
+}
+
+export const WithLink = {
+  render: () => (
+    <div style={{ display: 'flex' }}>
+      <Card href="some-url">
+        <CardHeader title="Fallout 3" isBold />
+        <CardContent>
+          <p>
+            Fallout 3 is a post-apocalyptic action role-playing open world video
+            game developed by Bethesda Game Studios and published by Bethesda
+            Softworks.
+          </p>
+        </CardContent>
       </Card>
     </div>
   ),
