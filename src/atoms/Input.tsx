@@ -65,7 +65,9 @@ export function Input({
     >
       {!hideLabel && (
         <label
-          className={classNames('input-label', required ? 'is-required' : '')}
+          className={classNames('input-label', {
+            'is-required': required,
+          })}
           htmlFor={identifier}
         >
           {label}

@@ -68,6 +68,10 @@
 
     .quantity-selector-label {
       @include form-typography.form-label;
+      &.is-required::after {
+        content: '*';
+        color: color_alias.$primary-color-600;
+      }
     }
   }
 }

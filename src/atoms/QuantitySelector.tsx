@@ -29,16 +29,22 @@ export function QuantitySelector({
   disabled,
   ...props
 }: QuantitySelectorProps): React.JSX.Element {
-  const cssClasses = classNames('quantity-selector', className)
-
   return (
-    <div className={`quantity-selector-group ${variant}`} {...props}>
+    <div
+      className={classNames('quantity-selector-group', variant, className)}
+      {...props}
+    >
       {!hideLabel && (
-        <label className="quantity-selector-label" htmlFor={id}>
+        <label
+          className={classNames('quantity-selector-label', {
+            'is-required': props.required,
+          })}
+          htmlFor={id}
+        >
           {label}
         </label>
       )}
-      <div className={cssClasses}>
+      <div className="quantity-selector">
         <Button
           label=""
           accessibilityLabel="-"
