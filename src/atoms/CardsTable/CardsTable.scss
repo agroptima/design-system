@@ -255,6 +255,11 @@
       position: absolute;
       inset: auto auto config.$space-2x config.$space-2x;
     }
+
+    .badge:has(> .icon) {
+      position: relative;
+      inset: inherit;
+    }
     // Specify Badge vertical position depending on having a right aligned item or not
     tr:not(.alignment-right) {
       padding-bottom: config.$space-10x;

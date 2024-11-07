@@ -44,6 +44,7 @@ export const Primary = {
           <CardsTableHeader>Company address</CardsTableHeader>
           <CardsTableHeader>Customer service email</CardsTableHeader>
           <CardsTableHeader>Price</CardsTableHeader>
+          <CardsTableHeader>State</CardsTableHeader>
           <CardsTableHeader actions>Actions</CardsTableHeader>
         </CardsTableRow>
       </CardsTableHead>
@@ -53,7 +54,7 @@ export const Primary = {
             <span>Zone of the Enders: The 2nd Runner</span>
             <Badge
               accessibilityLabel="Game is bought"
-              text="Bought"
+              icon="PDF"
               variant="success-outlined"
             />
           </CardsTableCell>
@@ -63,6 +64,13 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell>Not available</CardsTableCell>
+          <CardsTableCell>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="Bought"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -89,6 +97,13 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>cdprojekt@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">19,99 €</CardsTableCell>
+          <CardsTableCell>
+            <Badge
+              accessibilityLabel="Game is booked"
+              text="Booked"
+              variant="info-outlined"
+            />
+          </CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -111,6 +126,13 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>namco@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">79,99 €</CardsTableCell>
+          <CardsTableCell>
+            <Badge
+              accessibilityLabel="Game is discontinued"
+              text="Discontinued"
+              variant="warning-outlined"
+            />
+          </CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -122,11 +144,6 @@ export const Primary = {
         <CardsTableRow>
           <CardsTableCell titleWithActions={4}>
             <span>Metal Gear Solid 5: The Phantom Pain</span>
-            <Badge
-              accessibilityLabel="Game is bought"
-              text="Bought"
-              variant="success-outlined"
-            />
           </CardsTableCell>
           <CardsTableCell>
             Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku,
@@ -134,6 +151,13 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">6,99 €</CardsTableCell>
+          <CardsTableCell>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="Bought"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -167,6 +191,13 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">6,99 €</CardsTableCell>
+          <CardsTableCell>
+            <Badge
+              accessibilityLabel="Game is wishlisted"
+              text="Wishlist"
+              variant="neutral-outlined"
+            />
+          </CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
