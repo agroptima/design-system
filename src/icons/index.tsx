@@ -9,6 +9,7 @@ import Calendar from './calendar.svg'
 import Check from './check.svg'
 import CheckboxActive from './checkbox-active.svg'
 import CheckboxInactive from './checkbox-inactive.svg'
+import CheckboxIndeterminate from './checkbox-indeterminate.svg'
 import ChangePassword from './change-password.svg'
 import Client from './client.svg'
 import Close from './close.svg'
@@ -58,6 +59,7 @@ export {
   Check,
   CheckboxActive,
   CheckboxInactive,
+  CheckboxIndeterminate,
   Client,
   Close,
   Comment,

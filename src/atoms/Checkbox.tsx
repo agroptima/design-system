@@ -9,6 +9,7 @@ export interface CheckboxProps extends React.ComponentPropsWithoutRef<'input'> {
   hideLabel?: boolean
   variant?: Variant
   id?: string
+  indeterminate?: boolean
 }
 
 export function Checkbox({
@@ -18,6 +19,7 @@ export function Checkbox({
   disabled,
   variant = 'primary',
   id,
+  indeterminate = false,
   name,
   className,
   ...props
@@ -28,6 +30,7 @@ export function Checkbox({
     <div
       className={classNames('checkbox-group', variant, className, {
         disabled: disabled,
+        indeterminate: indeterminate,
       })}
     >
       <input
