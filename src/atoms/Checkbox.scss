@@ -46,19 +46,9 @@
     }
 
     &.indeterminate {
-      .checkbox {
-        background: url('../icons/checkbox-primary-inactive.svg') left top
-          no-repeat;
-      }
       .checkbox:checked {
         background: url('../icons/checkbox-indeterminate-active.svg') left top
           no-repeat;
-      }
-      &:hover {
-        .checkbox:not(:checked):not(.disabled) {
-          background: url('../icons/checkbox-primary-hover-inactive.svg') left
-            top no-repeat;
-        }
       }
     }
   }

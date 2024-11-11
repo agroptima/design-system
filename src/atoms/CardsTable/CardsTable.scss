@@ -183,6 +183,10 @@
     justify-content: flex-start;
     align-items: center;
     flex: 2;
+
+    .checkbox-group {
+      margin-right: config.$space-1x;
+    }
   }
 
   td {
@@ -196,10 +200,6 @@
   td.actions {
     order: 0;
     justify-content: center;
-  }
-
-  td:has(.badge) {
-    gap: config.$space-2x;
   }
 
   .alignment-right {

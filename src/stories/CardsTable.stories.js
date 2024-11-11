@@ -10,6 +10,7 @@ import {
 } from '../atoms/CardsTable'
 import { IconButton } from '../atoms/Button'
 import { Badge } from '../atoms/Badge'
+import { Checkbox } from '@/atoms/Checkbox'
 
 const figmaPrimaryDesign = {
   design: {
@@ -40,7 +41,16 @@ export const Primary = {
     <CardsTable withTitle {...args}>
       <CardsTableHead>
         <CardsTableRow>
-          <CardsTableHeader>Game title</CardsTableHeader>
+          <CardsTableHeader>
+            <Checkbox
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              indeterminate
+              checked
+              variant="primary"
+            />
+            <span>Game title</span>
+          </CardsTableHeader>
           <CardsTableHeader>Company address</CardsTableHeader>
           <CardsTableHeader>Customer service email</CardsTableHeader>
           <CardsTableHeader>Price</CardsTableHeader>
@@ -50,6 +60,11 @@ export const Primary = {
       <CardsTableBody>
         <CardsTableRow>
           <CardsTableCell titleWithActions={3}>
+            <Checkbox
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              variant="primary"
+            />
             <span>Zone of the Enders: The 2nd Runner</span>
             <Badge
               accessibilityLabel="Game is bought"
@@ -83,7 +98,14 @@ export const Primary = {
         </CardsTableRow>
 
         <CardsTableRow isDisabled>
-          <CardsTableCell titleWithActions={2}>The Witcher 3</CardsTableCell>
+          <CardsTableCell titleWithActions={2}>
+            <Checkbox
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              variant="primary"
+            />
+            <span>The Witcher 3</span>
+          </CardsTableCell>
           <CardsTableCell>
             CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland
           </CardsTableCell>
@@ -104,7 +126,14 @@ export const Primary = {
         </CardsTableRow>
 
         <CardsTableRow isActive onClick={() => alert('Click')}>
-          <CardsTableCell titleWithActions={1}>Tekken 8</CardsTableCell>
+          <CardsTableCell titleWithActions={1}>
+            <Checkbox
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              variant="primary"
+            />
+            <span>Tekken 8</span>
+          </CardsTableCell>
           <CardsTableCell>
             Bandai Namco Studios Inc. ; Address: 2-37-25 Eitai, Koto-ku, Tokyo
             135-0034, Japan
@@ -121,6 +150,11 @@ export const Primary = {
         </CardsTableRow>
         <CardsTableRow>
           <CardsTableCell titleWithActions={4}>
+            <Checkbox
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              variant="primary"
+            />
             <span>Metal Gear Solid 5: The Phantom Pain</span>
             <Badge
               accessibilityLabel="Game is bought"
@@ -159,6 +193,11 @@ export const Primary = {
         </CardsTableRow>
         <CardsTableRow>
           <CardsTableCell titleWithActions={5}>
+            <Checkbox
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              variant="primary"
+            />
             <span>Silent Hill</span>
           </CardsTableCell>
           <CardsTableCell>
