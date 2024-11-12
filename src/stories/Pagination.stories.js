@@ -1,6 +1,11 @@
 import React from 'react'
 
-import { Pagination, PaginationArrow, PaginationNumber, Ellipsis } from '../atoms/Pagination'
+import {
+  Pagination,
+  PaginationArrow,
+  PaginationNumber,
+  Ellipsis,
+} from '../atoms/Pagination'
 
 const figmaPrimaryDesign = {
   design: {

@@ -25,8 +25,8 @@ const meta = {
       description: 'Is the component checked?',
     },
     onSelect: {
-      description: 'Callback triggered when clicking on an option'
-    }
+      description: 'Callback triggered when clicking on an option',
+    },
   },
   parameters: figmaPrimaryDesign,
 }
