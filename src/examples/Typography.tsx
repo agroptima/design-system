@@ -8,32 +8,32 @@ export function Typography(): React.JSX.Element {
           <tr>
             <td>h1</td>
             <td>
-              <h1>“Waka Waka Waka” - Pacman</h1>
+              <h1>&quot;Waka Waka Waka&quot; - Pacman</h1>
             </td>
           </tr>
           <tr>
             <td>h2</td>
             <td>
-              <h2>“Do a barrel roll!” - Star Fox 64</h2>
+              <h2>&quot;Do a barrel roll!&quot; - Star Fox 64</h2>
             </td>
           </tr>
           <tr>
             <td>h3</td>
             <td>
-              <h3>“Kept you waiting, huh?" - MGS</h3>
+              <h3>&quot;Kept you waiting, huh?&quot; - MGS</h3>
             </td>
           </tr>
           <tr>
             <td>h4</td>
             <td>
-              <h4>“Hey! Look! Listen!" - TLoZ</h4>
+              <h4>&quot;Hey! Look! Listen!&quot; - TLoZ</h4>
             </td>
           </tr>
           <tr>
             <td>.body-regular-primary</td>
             <td>
               <span className="body-regular-primary">
-                “Endure and survive.” - The Last of Us
+                &quot;Endure and survive.&quot; - The Last of Us
               </span>
             </td>
           </tr>
@@ -41,8 +41,8 @@ export function Typography(): React.JSX.Element {
             <td>.body-regular-secondary</td>
             <td>
               <span className="body-regular-secondary">
-                “A famous explorer once said that the extraordinary is in what
-                we do, not who we are.” - Tomb Raider
+                &quot;A famous explorer once said that the extraordinary is in
+                what we do, not who we are.&quot; - Tomb Raider
               </span>
             </td>
           </tr>
@@ -50,7 +50,7 @@ export function Typography(): React.JSX.Element {
             <td>.body-regular-error</td>
             <td>
               <span className="body-regular-error">
-                “Praise the sun!” - Dark Souls
+                &quot;Praise the sun!&quot; - Dark Souls
               </span>
             </td>
           </tr>
@@ -58,7 +58,7 @@ export function Typography(): React.JSX.Element {
             <td>.body-regular-warning</td>
             <td>
               <span className="body-regular-warning">
-                “You’ve met with a terrible fate, haven’t you?” - TLoZ
+                &quot;You’ve met with a terrible fate, haven’t you?&quot; - TLoZ
               </span>
             </td>
           </tr>
@@ -66,7 +66,7 @@ export function Typography(): React.JSX.Element {
             <td>.body-regular-disabled</td>
             <td>
               <span className="body-regular-disabled">
-                “Whatever.” - Final Fantasy VIII
+                &quot;Whatever.&quot; - Final Fantasy VIII
               </span>
             </td>
           </tr>
@@ -74,21 +74,24 @@ export function Typography(): React.JSX.Element {
             <td>.body-underline</td>
             <td>
               <span className="body-underline">
-                “Nothing is true, everything is permitted.” - Assassin’s Creed
+                &quot;Nothing is true, everything is permitted.&quot; -
+                Assassin’s Creed
               </span>
             </td>
           </tr>
           <tr>
             <td>.body-link</td>
             <td>
-              <span className="body-link">“FINISH HIM!” - Mortal Kombat</span>
+              <span className="body-link">
+                &quot;FINISH HIM!&quot; - Mortal Kombat
+              </span>
             </td>
           </tr>
           <tr>
             <td>.body-medium</td>
             <td>
               <span className="body-medium">
-                “It’s a-me, Mario!” - Super Mario
+                &quot;It’s a-me, Mario!&quot; - Super Mario
               </span>
             </td>
           </tr>
@@ -96,7 +99,7 @@ export function Typography(): React.JSX.Element {
             <td>.body-bold</td>
             <td>
               <span className="body-bold">
-                “You were almost a Jill sandwich!” - Resident Evil
+                &quot;You were almost a Jill sandwich!&quot; - Resident Evil
               </span>
             </td>
           </tr>
@@ -104,7 +107,7 @@ export function Typography(): React.JSX.Element {
             <td>.footnote-primary</td>
             <td>
               <span className="footnote-primary">
-                "Kupó! Kupó! Kupopó!" - Final Fantasy IX
+                &quot;Kupó! Kupó! Kupopó!&quot; - Final Fantasy IX
               </span>
             </td>
           </tr>
@@ -112,7 +115,7 @@ export function Typography(): React.JSX.Element {
             <td>.footnote-error</td>
             <td>
               <span className="footnote-error">
-                "Get ready for the next battle!" - Tekken
+                &quot;Get ready for the next battle!&quot; - Tekken
               </span>
             </td>
           </tr>

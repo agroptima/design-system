@@ -33,7 +33,7 @@ export const Typography = {
       }}
     >
       <h1>Typography</h1>
-      <TypographyExamples/>
+      <TypographyExamples />
     </div>
   ),
 }
