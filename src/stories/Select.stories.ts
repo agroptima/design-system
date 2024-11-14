@@ -86,6 +86,7 @@ export const Primary: Story = {
     ],
     id: 'select-videogames',
     onChange: (optionId) => console.log('onChange optionId:', optionId),
+    required: true,
   },
   parameters: figmaPrimaryDesign,
 }

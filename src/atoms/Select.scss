@@ -22,6 +22,11 @@
   &.primary {
     .select-label {
       @include typography.form-label;
+
+      &.is-required::after {
+        content: '*';
+        color: color_alias.$primary-color-600;
+      }
     }
 
     .selected-option {

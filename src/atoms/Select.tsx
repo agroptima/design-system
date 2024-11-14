@@ -23,6 +23,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   hideLabel?: boolean
   defaultValue?: string
   onChange?: (value: string) => void
+  required?: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -41,6 +42,7 @@ export function Select({
   hideLabel = false,
   onChange,
   defaultValue,
+  required = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
@@ -83,7 +85,16 @@ export function Select({
 
   return (
     <div className={classNames('select-group', variant, className)}>
-      {!hideLabel && <span className="select-label">{label}</span>}
+      {!hideLabel && (
+        <label
+          className={classNames('select-label', {
+            'is-required': required,
+          })}
+        >
+          {label}
+        </label>
+      )}
+
       <div className="select-container" onBlur={handleBlur}>
         <div
           className={cssClasses}
@@ -131,7 +142,13 @@ export function Select({
           {helpText}
         </span>
       ))}
-      <input type="hidden" name={name} value={selectedOption.id} {...props} />
+      <input
+        type="hidden"
+        name={name}
+        value={selectedOption.id}
+        required={required}
+        {...props}
+      />
     </div>
   )
 }
