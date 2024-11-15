@@ -28,12 +28,14 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    "src/stories/Typography.stories.mdx",
     "src/stories/CardsTable.stories.js",
     "src/stories/Modal.stories.js",
-    "src/stories/Typography.stories.mdx",
     "src/stories/Card.stories.js",
     "src/stories/Menu.stories.js",
-    "src/stories/EmptyState.stories.js"
-, "src/stories/CheckableTag.stories.js", "src/stories/RadioButton.stories.js"  ],
+    "src/stories/EmptyState.stories.js",
+    "src/stories/CheckableTag.stories.js",
+    "src/stories/RadioButton.stories.js"
+  ],
   "exclude": ["node_modules"]
 }

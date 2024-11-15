@@ -18,6 +18,10 @@ const meta = {
     button: {
       description: 'Add an IconButton component to have the close button.',
     },
+    fadeOut: {
+      description: 'Add fade out animation.',
+      control: 'boolean',
+    },
   },
 }
 
@@ -45,6 +49,16 @@ export const Success: Story = {
     id: 'success-alert',
     variant: 'success',
     text: 'Thank you! But our princess is in another castle!',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const SuccessWithFadeOut: Story = {
+  args: {
+    id: 'success-alert',
+    variant: 'success',
+    text: 'Thank you! But our princess is in another castle!',
+    fadeOut: true,
   },
   parameters: figmaPrimaryDesign,
 }

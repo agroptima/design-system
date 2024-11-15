@@ -1,4 +1,4 @@
-import type { Variant } from '@/atoms/Alert'
+import type { Variant } from '@/atoms/Alert/Alert'
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import { Alert } from '@/atoms/Alert'
