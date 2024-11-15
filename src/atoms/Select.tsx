@@ -4,7 +4,7 @@ import { Icon } from './Icon'
 import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
-import { useOutsideClick } from '@/utils/useOutsideClick'
+import { useOutsideClick } from '../utils/useOutsideClick'
 import './Select.scss'
 
 export type Variant = 'primary'
