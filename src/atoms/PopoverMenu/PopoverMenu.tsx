@@ -6,8 +6,9 @@ export function PopoverMenu({
   children,
   className,
   ...props
-}: PopoverMenuProps): React.JSX.Element {
+}: PopoverMenuProps) {
   const cssClasses = classNames('popover-menu', className)
+
   return (
     <div role="menu" className={cssClasses} {...props}>
       {children}
