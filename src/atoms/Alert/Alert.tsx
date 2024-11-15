@@ -1,8 +1,8 @@
-import type { IconButtonProps } from './Button'
-import { IconButton } from './Button'
-import { Icon } from './Icon'
+import type { IconButtonProps } from '../Button'
+import { IconButton } from '../Button'
+import { Icon } from '../Icon'
 import './Alert.scss'
-import { classNames } from '../utils/classNames'
+import { classNames } from '../../utils/classNames'
 
 export type Variant = 'info' | 'success' | 'warning' | 'error'
 
@@ -11,6 +11,7 @@ export interface AlertProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   text: string
   button?: IconButtonProps
+  fadeOut?: boolean
   fitContent?: boolean
 }
 
@@ -26,12 +27,14 @@ export function Alert({
   variant = 'success',
   className,
   fitContent = false,
+  fadeOut = false,
   text,
   button,
   ...props
 }: AlertProps): React.JSX.Element {
   const cssClasses = classNames('alert', variant, className, {
     'fit-content': fitContent,
+    'fade-out': fadeOut,
   })
 
   return (
