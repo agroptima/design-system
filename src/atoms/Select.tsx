@@ -1,9 +1,11 @@
-import './Select.scss'
-import React, { useState } from 'react'
+'use client'
+import React, { useRef, useState } from 'react'
 import { Icon } from './Icon'
 import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
+import { useOutsideClick } from '@/utils/useOutsideClick'
+import './Select.scss'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -118,23 +120,12 @@ export function Select({
           />
         </div>
         {showOptionsList && (
-          <ul className="select-options" role="listbox">
-            {options.map((option) => {
-              return (
-                <li
-                  className="option"
-                  tabIndex={0}
-                  role="option"
-                  aria-selected={selectedOption.id === option.id}
-                  data-option={option}
-                  key={option.id}
-                  onClick={() => selectOption(option)}
-                >
-                  {option.label}
-                </li>
-              )
-            })}
-          </ul>
+          <OptionList
+            options={options}
+            selectedOption={selectedOption}
+            selectOption={selectOption}
+            closeOptionList={() => setShowOptionsList(false)}
+          />
         )}
       </div>
       {helpTexts.map((helpText) => (
@@ -150,5 +141,41 @@ export function Select({
         {...props}
       />
     </div>
+  )
+}
+
+interface OptionListProps {
+  options: Option[]
+  selectedOption: Option
+  selectOption: (option: Option) => void
+  closeOptionList: () => void
+}
+
+function OptionList({
+  options,
+  selectedOption,
+  selectOption,
+  closeOptionList,
+}: OptionListProps) {
+  const selectRef = useRef(null)
+  useOutsideClick(selectRef, closeOptionList)
+  return (
+    <ul className="select-options" role="listbox">
+      {options.map((option) => {
+        return (
+          <li
+            className="option"
+            tabIndex={0}
+            role="option"
+            aria-selected={selectedOption.id === option.id}
+            data-option={option}
+            key={option.id}
+            onClick={() => selectOption(option)}
+          >
+            {option.label}
+          </li>
+        )
+      })}
+    </ul>
   )
 }
