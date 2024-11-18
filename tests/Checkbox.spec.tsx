@@ -18,4 +18,24 @@ describe('Checkbox', () => {
     expect(getByRole('checkbox')).toHaveClass('checkbox')
     expect(getByText(/Do you like videogames/i)).toBeInTheDocument()
   })
+
+  it.each(variants)(
+    'renders indeterminate variant with label and expected styles',
+    (variant) => {
+      const { getByRole, getAllByRole, getByText } = render(
+        <Checkbox
+          accessibilityLabel="Marks if the user likes videogames"
+          id="checkbox-videogames-preference"
+          label="Do you like videogames?"
+          variant="primary"
+          indeterminate
+        />,
+      )
+      expect(getAllByRole('generic')[1]).toHaveClass(
+        `checkbox-group ${variant} indeterminate`,
+      )
+      expect(getByRole('checkbox')).toHaveClass('checkbox')
+      expect(getByText(/Do you like videogames/i)).toBeInTheDocument()
+    },
+  )
 })

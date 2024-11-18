@@ -44,5 +44,12 @@
           no-repeat;
       }
     }
+
+    &.indeterminate {
+      .checkbox:checked {
+        background: url('../icons/checkbox-indeterminate-active.svg') left top
+          no-repeat;
+      }
+    }
   }
 }
