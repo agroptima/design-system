@@ -43,7 +43,8 @@ export const Primary = {
         <CardsTableRow>
           <CardsTableHeader>
             <Checkbox
-              accessibilityLabel="Select all table rows"
+              label="Select all table rows"
+              hideLabel
               id="checkbox-select-all"
               indeterminate
               checked
