@@ -183,6 +183,10 @@
     justify-content: flex-start;
     align-items: center;
     flex: 2;
+
+    .checkbox-group {
+      margin-right: config.$space-1x;
+    }
   }
 
   td {

@@ -1,0 +1,15 @@
+@use '../../settings/depth';
+@use '../../settings/config';
+
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: config.$space-2x;
+  pointer-events: none;
+  position: fixed;
+  top: 73px;
+  left: 0;
+  width: 100%;
+  z-index: depth.$z-alert-container;
+  align-items: center;
+}
