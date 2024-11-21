@@ -70,7 +70,7 @@ export const Primary = {
             <span>Zone of the Enders: The 2nd Runner</span>
             <Badge
               accessibilityLabel="Game is bought"
-              icon="PDF"
+              icon="Export"
               variant="success-outlined"
             />
           </CardsTableCell>
