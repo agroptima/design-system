@@ -11,6 +11,8 @@ import {
 import { IconButton } from '../atoms/Button'
 import { Badge } from '../atoms/Badge'
 import { Checkbox } from '@/atoms/Checkbox'
+import { Popover, PopoverMenu, PopoverMenuOption } from '@/atoms/Popover'
+import { Button } from '@/atoms/Button'
 
 const figmaPrimaryDesign = {
   design: {
@@ -48,6 +50,7 @@ export const Primary = {
               id="checkbox-select-all"
               indeterminate
               checked
+              onChange={() => {}}
               variant="primary"
             />
             <span>Game title</span>
@@ -172,7 +175,7 @@ export const Primary = {
           </CardsTableCell>
         </CardsTableRow>
         <CardsTableRow>
-          <CardsTableCell titleWithActions={4}>
+          <CardsTableCell titleWithActions={5}>
             <Checkbox
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
@@ -194,6 +197,20 @@ export const Primary = {
             />
           </CardsTableCell>
           <CardsTableCell actions>
+            <Popover
+              position="center"
+              renderButton={({ toggle }) => (
+                <IconButton icon="PDF" label="Open popover" onClick={toggle} />
+              )}
+            >
+              <PopoverMenu>
+                <PopoverMenuOption
+                  href="#"
+                  variant="primary"
+                  title="Download PDF"
+                />
+              </PopoverMenu>
+            </Popover>
             <IconButton
               icon="Edit"
               accessibilityLabel="Edit game"
