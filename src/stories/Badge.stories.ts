@@ -63,3 +63,12 @@ export const BadgeWithDot: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const BadgeWithIcon: Story = {
+  args: {
+    variant: 'success-outlined',
+    accessibilityLabel: 'There are items enabled',
+    icon: 'PDF',
+  },
+  parameters: figmaPrimaryDesign,
+}

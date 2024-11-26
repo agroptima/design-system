@@ -202,6 +202,14 @@
     justify-content: center;
   }
 
+  td:has(.badge) {
+    gap: config.$space-2x;
+  }
+
+  td:has(.badge > .icon) {
+    justify-content: space-between;
+  }
+
   .alignment-right {
     justify-content: flex-end !important;
   }
@@ -255,6 +263,16 @@
       position: absolute;
       inset: auto auto config.$space-2x config.$space-2x;
     }
+
+    .badge:has(> .icon) {
+      position: relative;
+      inset: inherit;
+    }
+
+    td:has(.badge > .icon) {
+      justify-content: flex-start;
+    }
+
     // Specify Badge vertical position depending on having a right aligned item or not
     tr:not(.alignment-right) {
       padding-bottom: config.$space-10x;

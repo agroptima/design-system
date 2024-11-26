@@ -34,6 +34,7 @@ import Loading from './loading.svg'
 import Logout from './logout.svg'
 import Minus from './minus.svg'
 import Product from './product.svg'
+import ReturnDeliveryNote from './return-delivery-note.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
 import Series from './series.svg'
@@ -84,6 +85,7 @@ export {
   Minus,
   PDF,
   Product,
+  ReturnDeliveryNote,
   Salesman,
   Search,
   Series,
