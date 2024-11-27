@@ -1,8 +1,8 @@
-import type { Variant } from '@/atoms/Button/IconButton'
+import type { Variant } from '../src/atoms/Button/IconButton'
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { IconButton } from '@/atoms/Button/IconButton'
+import { IconButton } from '../src/atoms/Button/IconButton'
 
 describe('Icon Button', () => {
   const variants = ['primary', 'secondary']

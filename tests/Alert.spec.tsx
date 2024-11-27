@@ -1,7 +1,7 @@
-import type { Variant } from '@/atoms/Alert/Alert'
+import type { Variant } from '../src/atoms/Alert/Alert'
 import React from 'react'
 import { screen, render } from '@testing-library/react'
-import { Alert } from '@/atoms/Alert'
+import { Alert } from '../src/atoms/Alert'
 
 describe('Alert', () => {
   const variants = ['info', 'success', 'warning', 'error']

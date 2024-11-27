@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import type { Variant } from '@/atoms/EmptyState'
-import { EmptyState } from '@/atoms/EmptyState'
-import { Button } from '@/atoms/Button/Button'
+import type { Variant } from '../src/atoms/EmptyState'
+import { EmptyState } from '../src/atoms/EmptyState'
+import { Button } from '../src/atoms/Button/Button'
 
 describe('EmptyState', () => {
   const variants = ['primary']

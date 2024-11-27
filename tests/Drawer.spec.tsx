@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Drawer } from '@/atoms/Drawer'
-import { Collapsible } from '@/atoms/Collapsible'
-import { CheckableTag, CheckableTagGroup } from '@/atoms/CheckableTag'
+import { Drawer } from '../src/atoms/Drawer'
+import { Collapsible } from '../src/atoms/Collapsible'
+import { CheckableTag, CheckableTagGroup } from '../src/atoms/CheckableTag'
 
 describe('Drawer', () => {
   it('renders with expected title, content and buttons', () => {

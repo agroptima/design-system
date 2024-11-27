@@ -1,8 +1,8 @@
-import type { Variant } from '@/atoms/Button/FloatingButton'
+import type { Variant } from '../src/atoms/Button/FloatingButton'
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { FloatingButton } from '@/atoms/Button/FloatingButton'
+import { FloatingButton } from '../src/atoms/Button/FloatingButton'
 
 describe('Floating Button', () => {
   const variants = ['primary']

@@ -8,9 +8,9 @@ import {
   CardsTableBody,
   CardsTableCell,
   Alignment,
-} from '@/atoms/CardsTable'
-import { IconButton } from '@/atoms/Button'
-import { Badge } from '@/atoms/Badge'
+} from '../src/atoms/CardsTable'
+import { IconButton } from '../src/atoms/Button'
+import { Badge } from '../src/atoms/Badge'
 
 describe('CardsTable', () => {
   it('renders', () => {

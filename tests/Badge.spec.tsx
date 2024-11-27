@@ -1,7 +1,7 @@
-import type { Variant } from '@/atoms/Badge'
+import type { Variant } from '../src/atoms/Badge'
 import React from 'react'
 import { getByTitle, render, screen } from '@testing-library/react'
-import { Badge } from '@/atoms/Badge'
+import { Badge } from '../src/atoms/Badge'
 
 describe('Badge', () => {
   const variants = [

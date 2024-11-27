@@ -1,6 +1,5 @@
-import React from 'react'
 import { render } from '@testing-library/react'
-import { RadioButton } from '@/atoms/RadioButton'
+import { RadioButton } from '../src/atoms/RadioButton'
 
 describe('RadioButton', () => {
   const variants = ['primary']

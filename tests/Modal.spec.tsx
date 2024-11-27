@@ -1,6 +1,6 @@
 import React from 'react'
 import { screen, render } from '@testing-library/react'
-import { Modal } from '@/atoms/Modal'
+import { Modal } from '../src/atoms/Modal'
 
 describe('Modal', () => {
   const variants = ['info', 'success', 'warning', 'error']

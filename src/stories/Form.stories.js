@@ -1,6 +1,6 @@
-import { Form, Actions } from '@/atoms/Form'
-import { Input } from '@/atoms/Input'
-import { Button } from '@/atoms/Button'
+import { Form, Actions } from '../atoms/Form'
+import { Input } from '../atoms/Input'
+import { Button } from '../atoms/Button'
 
 const meta = {
   title: 'Design System/Atoms/Form',

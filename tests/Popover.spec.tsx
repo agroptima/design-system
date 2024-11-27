@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Popover, PopoverMenu, PopoverMenuOption } from '@/atoms/Popover'
-import { Button } from '@/atoms/Button'
 import userEvent from '@testing-library/user-event'
+import { Popover, PopoverMenu, PopoverMenuOption } from '../src/atoms/Popover'
+import { Button } from '../src/atoms/Button'
 
 describe('PopoverMenu', () => {
   it('shows when click on button', async () => {
