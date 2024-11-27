@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Drawer } from '../atoms/Drawer'
 import { CheckableTagGroup, CheckableTag } from '../atoms/CheckableTag'
-import { Collapsible } from '@/atoms/Collapsible'
+import { Collapsible } from '../atoms/Collapsible'
 
 const figmaPrimaryDesign = {
   design: {

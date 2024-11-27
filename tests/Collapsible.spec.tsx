@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Collapsible } from '@/atoms/Collapsible'
-import { Input } from '@/atoms/Input'
+import { Collapsible } from '../src/atoms/Collapsible'
+import { Input } from '../src/atoms/Input'
 
 describe('Collapsible', () => {
   it('renders', () => {

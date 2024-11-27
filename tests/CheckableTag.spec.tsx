@@ -1,7 +1,7 @@
-import type { Variant } from '@/atoms/CheckableTag'
+import type { Variant } from '../src/atoms/CheckableTag'
 import React from 'react'
 import { render } from '@testing-library/react'
-import { CheckableTag } from '@/atoms/CheckableTag'
+import { CheckableTag } from '../src/atoms/CheckableTag'
 
 describe('CheckableTag', () => {
   const variants = ['primary']

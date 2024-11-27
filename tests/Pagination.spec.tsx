@@ -5,7 +5,7 @@ import {
   PaginationArrow,
   PaginationNumber,
   Ellipsis,
-} from '@/atoms/Pagination'
+} from '../src/atoms/Pagination'
 
 describe('Pagination', () => {
   it('renders Pagination components', () => {

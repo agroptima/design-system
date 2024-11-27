@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Checkbox } from '@/atoms/Checkbox'
+import { Checkbox } from '../src/atoms/Checkbox'
 
 describe('Checkbox', () => {
   const variants = ['primary']

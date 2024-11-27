@@ -10,9 +10,9 @@ import {
 } from '../atoms/CardsTable'
 import { IconButton } from '../atoms/Button'
 import { Badge } from '../atoms/Badge'
-import { Checkbox } from '@/atoms/Checkbox'
-import { Popover, PopoverMenu, PopoverMenuOption } from '@/atoms/Popover'
-import { Button } from '@/atoms/Button'
+import { Checkbox } from '../atoms/Checkbox'
+import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
+import { Button } from '../atoms/Button'
 
 const figmaPrimaryDesign = {
   design: {

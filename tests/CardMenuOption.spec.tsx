@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { CardMenuOption } from '@/atoms/CardMenu/CardMenuOption'
+import { CardMenuOption } from '../src/atoms/CardMenu/CardMenuOption'
 
 describe('CardMenuOption', () => {
   it('renders', () => {

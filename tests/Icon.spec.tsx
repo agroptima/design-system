@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Icon } from '@/atoms/Icon'
+import { Icon } from '../src/atoms/Icon'
 
 describe('Icon', () => {
   it('renders with the expected graphic and styles', () => {

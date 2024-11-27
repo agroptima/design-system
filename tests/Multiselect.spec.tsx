@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Multiselect } from '@/atoms/Multiselect'
+import { Multiselect } from '../src/atoms/Multiselect'
 import { Placeholder } from 'storybook/internal/components'
 
 describe('Multiselect', () => {

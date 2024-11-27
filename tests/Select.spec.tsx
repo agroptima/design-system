@@ -1,7 +1,6 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { Select } from '../src/atoms/Select'
 import userEvent from '@testing-library/user-event'
-import { Select } from '@/atoms/Select'
 
 describe('Select', () => {
   it('renders', async () => {

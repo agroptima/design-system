@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { CardMenu, CardMenuOption } from '../atoms/CardMenu'
 
 const figmaPrimaryDesign = {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Popover, PopoverMenu, PopoverMenuOption } from '@/atoms/Popover'
-import { Button } from '@/atoms/Button'
+import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
+import { Button } from '../atoms/Button'
 
 const figmaPrimaryDesign = {
   design: {

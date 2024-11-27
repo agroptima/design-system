@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/classNames'
+import { classNames } from '../../src/utils/classNames'
 
 describe('classNames', () => {
   it('returns a string of classes', () => {

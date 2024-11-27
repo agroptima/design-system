@@ -1,6 +1,5 @@
-import React from 'react'
 import { render } from '@testing-library/react'
-import { QuantitySelector } from '@/atoms/QuantitySelector'
+import { QuantitySelector } from '../src/atoms/QuantitySelector'
 
 describe('QuantitySelector', () => {
   it('renders', () => {

@@ -1,8 +1,8 @@
-import type { ButtonVariant } from '@/atoms/Button/Button'
+import type { ButtonVariant } from '../src/atoms/Button/Button'
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Button } from '@/atoms/Button/Button'
+import { Button } from '../src/atoms/Button/Button'
 
 describe('Button', () => {
   const variants = [
