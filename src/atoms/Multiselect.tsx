@@ -1,9 +1,11 @@
 import './Select.scss'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Icon } from './Icon'
 import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
+import { useOutsideClick } from '@/utils/useOutsideClick'
+import { useOpen } from '@/utils/useOpen'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -37,7 +39,7 @@ export function Multiselect({
   options,
   label,
   accessibilityLabel,
-  onChange,
+  onChange = () => {},
   variant = 'primary',
   selectedLabel = 'items selected',
   hideLabel = false,
@@ -45,18 +47,20 @@ export function Multiselect({
   ...props
 }: MultiselectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
-  const [showOptionsList, setShowOptionsList] = useState(false)
+  const { isOpen, close, toggle } = useOpen()
+  const selectRef = useRef(null)
+  useOutsideClick(selectRef, close)
   const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
   const hasSelectedOptions = selectedOptions.length > 0
   const cssClasses = classNames('selected-option', className, {
-    open: showOptionsList,
+    open: isOpen,
     filled: hasSelectedOptions,
     disabled: disabled,
     invalid: errors?.length,
   })
 
   function handleOptionsList() {
-    if (!disabled) setShowOptionsList(!showOptionsList)
+    if (!disabled) toggle()
   }
 
   function selectOption(id: string) {
@@ -66,26 +70,19 @@ export function Multiselect({
       : [...selectedOptions, id]
 
     setSelectedOptions(options)
-    if (onChange !== undefined) onChange(options)
-  }
-
-  function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
-    const isAComponentElement = event.relatedTarget
-    if (!isAComponentElement) {
-      setShowOptionsList(false)
-    }
+    onChange(options)
   }
 
   function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation()
     setSelectedOptions([])
-    if (onChange !== undefined) onChange([])
+    onChange([])
   }
 
   return (
     <div className={`select-group ${variant}`}>
       {!hideLabel && <span className="select-label">{label}</span>}
-      <div className="select-container" onBlur={handleBlur}>
+      <div className="select-container" ref={selectRef}>
         <div
           className={cssClasses}
           tabIndex={0}
@@ -100,7 +97,7 @@ export function Multiselect({
               : placeholder}
           </span>
           <Icon
-            name={showOptionsList ? 'AngleUp' : 'AngleDown'}
+            name={isOpen ? 'AngleUp' : 'AngleDown'}
             visible={!hasSelectedOptions}
           />
           <IconButton
@@ -111,7 +108,7 @@ export function Multiselect({
             visible={hasSelectedOptions}
           />
         </div>
-        {showOptionsList && (
+        {isOpen && (
           <ul className="select-options" role="listbox">
             {options.map((option) => (
               <Option
@@ -139,7 +136,7 @@ export function Multiselect({
   )
 }
 
-type OptionProps = {
+interface OptionProps {
   option: Option
   selectedOptions: string[]
   onSelect: (id: string) => void

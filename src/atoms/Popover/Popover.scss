@@ -3,6 +3,30 @@
 @use '../../settings/config';
 @use '../../settings/depth';
 
+.popover-container {
+  pointer-events: none;
+  position: relative;
+  > * {
+    pointer-events: auto;
+  }
+  .popover-menu-container {
+    position: absolute;
+    white-space: nowrap;
+    margin-top: config.$space-2x;
+    z-index: depth.$z-popover;
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+    &.center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
 .popover-menu {
   display: flex;
   flex-direction: column;

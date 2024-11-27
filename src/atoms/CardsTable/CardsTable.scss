@@ -141,7 +141,6 @@
       border: 1px solid transparent;
       td {
         @include typography.cards-table-list-text;
-        overflow: hidden;
       }
     }
 
