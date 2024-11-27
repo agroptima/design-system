@@ -49,7 +49,7 @@ export function CardMenuOption({
     >
       <div className="left">
         <div className="title-container">
-          <Icon name={icon} className={variant} />
+          <Icon name={icon} className={variant} size="4" />
           <span className="title">{title}</span>
         </div>
         {description && <p className="content">{description}</p>}

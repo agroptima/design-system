@@ -6,6 +6,7 @@ $above: 1; // use this for all values above the base
 $below: -1; // and this for all values below the base
 
 $z-dropdown-options: $base + $above;
+$z-popover: $z-dropdown-options;
 $z-alert-container: $z-dropdown-options + $above;
 $z-modal: $z-alert-container + $above;
 $z-aside-desktop: $base + $above;

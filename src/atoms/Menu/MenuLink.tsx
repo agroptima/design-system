@@ -32,7 +32,7 @@ export function MenuLink({
   return (
     <li tabIndex={0} role="menuitem">
       <Link href={href} {...props} className={cssClasses}>
-        {icon && <Icon name={icon} />}
+        {icon && <Icon name={icon} size="3" />}
         <span className="title">{title}</span>
       </Link>
     </li>

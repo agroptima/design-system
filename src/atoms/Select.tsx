@@ -5,6 +5,7 @@ import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
 import { useOutsideClick } from '../utils/useOutsideClick'
+import { useOpen } from '../utils/useOpen'
 import './Select.scss'
 
 export type Variant = 'primary'
@@ -42,47 +43,40 @@ export function Select({
   label,
   accessibilityLabel,
   hideLabel = false,
-  onChange,
+  onChange = () => {},
   defaultValue,
   required = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
-  const [showOptionsList, setShowOptionsList] = useState(false)
+  const { isOpen, close, toggle } = useOpen()
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
   const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
+  const selectRef = useRef(null)
+  useOutsideClick(selectRef, close)
 
   const cssClasses = classNames('selected-option', {
-    open: showOptionsList,
+    open: isOpen,
     filled: selectedOption.id,
     disabled: disabled,
     invalid: errors?.length,
   })
 
   function handleOptionsList() {
-    if (!disabled) setShowOptionsList(!showOptionsList)
+    if (!disabled) toggle()
   }
 
   function selectOption(option: Option) {
     setSelectedOption(option)
-    setShowOptionsList(false)
-
-    if (onChange !== undefined) onChange(option.id)
-  }
-
-  function handleBlur(event: React.FocusEvent<HTMLDivElement>) {
-    const isAComponentElement = event.relatedTarget
-    if (!isAComponentElement) {
-      setShowOptionsList(false)
-    }
+    onChange(option.id)
   }
 
   function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation()
     setSelectedOption(EMPTY_OPTION)
-    if (onChange !== undefined) onChange('')
+    onChange('')
   }
 
   return (
@@ -97,7 +91,7 @@ export function Select({
         </label>
       )}
 
-      <div className="select-container" onBlur={handleBlur}>
+      <div className="select-container" ref={selectRef}>
         <div
           className={cssClasses}
           tabIndex={0}
@@ -107,10 +101,7 @@ export function Select({
           role="alert"
         >
           <span>{selectedOption.label || placeholder}</span>
-          <Icon
-            name={showOptionsList ? 'AngleUp' : 'AngleDown'}
-            visible={isEmpty}
-          />
+          <Icon name={isOpen ? 'AngleUp' : 'AngleDown'} visible={isEmpty} />
           <IconButton
             icon="Close"
             className="clear-button"
@@ -119,12 +110,12 @@ export function Select({
             visible={!isEmpty}
           />
         </div>
-        {showOptionsList && (
+        {isOpen && (
           <OptionList
             options={options}
             selectedOption={selectedOption}
             selectOption={selectOption}
-            closeOptionList={() => setShowOptionsList(false)}
+            onClick={close}
           />
         )}
       </div>
@@ -148,19 +139,17 @@ interface OptionListProps {
   options: Option[]
   selectedOption: Option
   selectOption: (option: Option) => void
-  closeOptionList: () => void
+  onClick: () => void
 }
 
 function OptionList({
   options,
   selectedOption,
   selectOption,
-  closeOptionList,
+  onClick,
 }: OptionListProps) {
-  const selectRef = useRef(null)
-  useOutsideClick(selectRef, closeOptionList)
   return (
-    <ul className="select-options" role="listbox">
+    <ul className="select-options" role="listbox" onClick={onClick}>
       {options.map((option) => {
         return (
           <li
