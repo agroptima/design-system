@@ -114,6 +114,11 @@ export const Primary = {
               variant="primary"
             />
             <span>The Witcher 3</span>
+            <Badge
+              accessibilityLabel="Game is bought"
+              icon="Export"
+              variant="success-outlined"
+            />
           </CardsTableCell>
           <CardsTableCell>
             CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland

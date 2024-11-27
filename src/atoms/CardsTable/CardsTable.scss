@@ -202,12 +202,8 @@
     justify-content: center;
   }
 
-  td:has(.badge) {
-    gap: config.$space-2x;
-  }
-
-  td:has(.badge > .icon) {
-    justify-content: space-between;
+  .badge:has(.icon) {
+    margin: auto;
   }
 
   .alignment-right {
@@ -225,6 +221,11 @@
 
     td:first-child {
       order: -2;
+    }
+
+    .badge:has(.icon) {
+      margin: 0;
+      margin-left: config.$space-2x;
     }
 
     &.with-title td:not(.actions):nth-child(2) {
