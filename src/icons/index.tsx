@@ -23,6 +23,7 @@ import DoubleArrowRight from './double-arrow-right.svg'
 import Download from './download.svg'
 import Edit from './edit.svg'
 import EditColumns from './edit-columns.svg'
+import ElectronicInvoice from './electronic-invoice.svg'
 import EmptyState from './empty-customize.svg'
 import Error from './error.svg'
 import Export from './export.svg'
@@ -73,6 +74,7 @@ export {
   Download,
   Edit,
   EditColumns,
+  ElectronicInvoice,
   EmptyState,
   Error,
   Export,
