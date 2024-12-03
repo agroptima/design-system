@@ -41,7 +41,7 @@ export function Badge({
       aria-label={accessibilityLabel}
       {...props}
     >
-      {text || (icon && <Icon name={icon} />)}
+      {text || (icon && <Icon name={icon} title={accessibilityLabel} />)}
     </span>
   )
 }
