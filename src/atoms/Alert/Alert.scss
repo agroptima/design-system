@@ -10,7 +10,7 @@
   gap: config.$space-2x;
   align-items: flex-start;
   border-radius: config.$corner-radius-xxs;
-  pointer-events: none;
+  pointer-events: auto;
   margin: 0;
 
   &.fit-content {
