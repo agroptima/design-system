@@ -1,6 +1,6 @@
 import type { Variant } from '../src/atoms/Badge'
 import React from 'react'
-import { getByTitle, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Badge } from '../src/atoms/Badge'
 
 describe('Badge', () => {
@@ -36,7 +36,7 @@ describe('Badge', () => {
     const icon = 'PDF'
     const accessibilityLabel = `${variant} badge label`
 
-    const { getByRole, getByText } = render(
+    const { getByRole } = render(
       <Badge
         id={`${variant}-badge`}
         accessibilityLabel={accessibilityLabel}
@@ -44,7 +44,7 @@ describe('Badge', () => {
         variant={variant as Variant}
       />,
     )
-    expect(screen.getByTitle(icon)).toBeInTheDocument()
+    expect(screen.getAllByTitle(accessibilityLabel)[1]).toBeInTheDocument()
     expect(getByRole('status')).toHaveClass(`badge ${variant}`)
   })
 })
