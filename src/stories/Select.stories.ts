@@ -41,6 +41,9 @@ const meta = {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
+    isSearch: {
+      description: 'Select component with search option',
+    },
   },
 }
 
@@ -63,6 +66,7 @@ export const Primary: Story = {
     label: 'Videogames',
     accessibilityLabel: 'Select your favourite gaming system options',
     hideLabel: false,
+    isSearch: false,
     placeholder: 'Select your favourite gaming system...',
     options: [
       { id: '1', label: 'Nintendo Switch' },
@@ -100,6 +104,7 @@ export const PrimaryWithSelectedOptions: Story = {
     label: 'Videogames',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
+    isSearch: false,
     options: [
       { id: '1', label: 'Nintendo Switch' },
       { id: '2', label: 'PlayStation 5' },
@@ -121,6 +126,7 @@ export const PrimaryWithErrors: Story = {
     accessibilityLabel: 'Select your favourite gaming system options',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
+    isSearch: false,
     options: [
       { id: '1', label: 'Nintendo Switch' },
       { id: '2', label: 'PlayStation 5' },
@@ -129,6 +135,43 @@ export const PrimaryWithErrors: Story = {
     id: 'select-videogames',
     errors: ['error1', 'error2'],
     onChange: (optionId) => console.log('onChange optionId:', optionId),
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const PrimaryWithSearch: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    helpText: 'This text can help you',
+    name: 'example',
+    label: 'Videogames',
+    accessibilityLabel: 'Select your favourite gaming system options',
+    hideLabel: false,
+    placeholder: 'Select your favourite gaming system...',
+    options: [
+      { id: '1', label: 'Nintendo Switch' },
+      { id: '2', label: 'PlayStation 5' },
+      { id: '3', label: 'Xbox Series S/X' },
+      { id: '4', label: 'PC' },
+      { id: '5', label: 'Mobile' },
+      { id: '6', label: 'PlayStation 4' },
+      { id: '7', label: 'Xbox One' },
+      { id: '8', label: 'PlayStation 3' },
+      { id: '9', label: 'Xbox 360' },
+      { id: '10', label: 'PlayStation 2' },
+      { id: '11', label: 'Xbox' },
+      { id: '12', label: 'PlayStation' },
+      { id: '13', label: 'Nintendo 64' },
+      { id: '14', label: 'Super Nintendo' },
+      { id: '15', label: 'Sega Genesis' },
+      { id: '16', label: 'Sega Saturn' },
+      { id: '17', label: 'Sega Dreamcast' },
+      { id: '18', label: 'Atari 2600' },
+    ],
+    id: 'select-videogames',
+    onChange: (optionId) => console.log('onChange optionId:', optionId),
+    isSearch: true,
   },
   parameters: figmaPrimaryDesign,
 }

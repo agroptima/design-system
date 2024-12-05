@@ -11,6 +11,7 @@ describe('Select', () => {
         helpText="This text can help you"
         id="select-videogames"
         label="Videogames"
+        isSearch={false}
         name="example"
         options={[
           {
@@ -54,6 +55,7 @@ describe('Select', () => {
         id="select-videogames"
         label="Videogames"
         name="example"
+        isSearch={false}
         options={[
           {
             id: '1',
@@ -94,6 +96,7 @@ describe('Select', () => {
         id="select-videogames"
         label="Videogames"
         name="example"
+        isSearch={false}
         onChange={() => {}}
         options={[
           {
@@ -128,6 +131,7 @@ describe('Select', () => {
         id="select-videogames"
         label="Videogames"
         name="example"
+        isSearch={false}
         options={[
           {
             id: '1',
@@ -152,5 +156,53 @@ describe('Select', () => {
 
     expect(getByText(placeholder)).toBeInTheDocument()
     expect(mockChange).toHaveBeenCalledWith('')
+  })
+
+  xit('search in selector', async () => {
+    const user = userEvent.setup()
+    const placeholder = 'Select your favourite gaming system...'
+    const options = [
+      {
+        id: '1',
+        label: 'Nintendo Switch',
+      },
+      {
+        id: '2',
+        label: 'PlayStation 5',
+      },
+      {
+        id: '3',
+        label: 'Xbox Series S/X',
+      },
+    ]
+    const { queryByRole, getByText } = render(
+      <Select
+        helpText="This text can help you"
+        id="select-videogames"
+        label="Videogames"
+        defaultValue="1"
+        name="example"
+        isSearch={true}
+        options={options}
+        placeholder={placeholder}
+        variant="primary"
+      />,
+    )
+
+    await user.click(screen.getByRole('alert'))
+
+    const input = screen.getByRole('textbox')
+
+    await user.type(input, ' PlaySta')
+
+    expect(
+      screen.queryByRole('option', { name: 'Nintendo Switch' }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('option', { name: 'Xbox Series S/X' }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('option', { name: 'PlayStation 5' }),
+    ).toBeInTheDocument()
   })
 })

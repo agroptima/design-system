@@ -27,6 +27,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   defaultValue?: string
   onChange?: (value: string) => void
   required?: boolean
+  isSearch: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -46,6 +47,7 @@ export function Select({
   onChange = () => {},
   defaultValue,
   required = false,
+  isSearch = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
@@ -53,6 +55,8 @@ export function Select({
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
   const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
+  const [search, setSearch] = useState<string>('')
+  const [filteredOptions, setFilteredOptions] = useState<Option[]>(options)
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
   const selectRef = useRef(null)
   useOutsideClick(selectRef, close)
@@ -71,12 +75,28 @@ export function Select({
   function selectOption(option: Option) {
     setSelectedOption(option)
     onChange(option.id)
+    setSearch(option.label)
   }
 
   function handleClear(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation()
     setSelectedOption(EMPTY_OPTION)
     onChange('')
+    setSearch('')
+  }
+
+  function handleSearch(value: string) {
+    setSearch(value)
+    sanitizeOptions(options)
+  }
+
+  function sanitizeOptions(options: Option[]) {
+    const sanitize = options.filter((option) => {
+      if (option.label.toLowerCase().includes(search.toLowerCase())) {
+        return option
+      }
+    })
+    setFilteredOptions(sanitize)
   }
 
   return (
@@ -100,7 +120,15 @@ export function Select({
           aria-live="assertive"
           role="alert"
         >
-          <span>{selectedOption.label || placeholder}</span>
+          {isSearch ? (
+            <SearchSelect
+              onSearch={(value) => handleSearch(value)}
+              value={search}
+              placeholder={placeholder || ''}
+            />
+          ) : (
+            <span>{selectedOption.label || placeholder}</span>
+          )}
           <Icon name={isOpen ? 'AngleUp' : 'AngleDown'} visible={isEmpty} />
           <IconButton
             icon="Close"
@@ -110,9 +138,10 @@ export function Select({
             visible={!isEmpty}
           />
         </div>
+
         {isOpen && (
           <OptionList
-            options={options}
+            options={isSearch ? filteredOptions : options}
             selectedOption={selectedOption}
             selectOption={selectOption}
             onClick={close}
@@ -142,6 +171,12 @@ interface OptionListProps {
   onClick: () => void
 }
 
+interface SearchSelectProps {
+  placeholder?: string
+  onSearch: (value: string) => void
+  value: string
+}
+
 function OptionList({
   options,
   selectedOption,
@@ -166,5 +201,22 @@ function OptionList({
         )
       })}
     </ul>
+  )
+}
+
+function SearchSelect({ placeholder, onSearch, value }: SearchSelectProps) {
+  return (
+    <>
+      <input
+        onChange={(event) => {
+          onSearch(event.target.value)
+        }}
+        type="text"
+        name="searchable-select"
+        placeholder={placeholder}
+        className="search"
+        value={value}
+      />
+    </>
   )
 }
