@@ -61,6 +61,11 @@ export function Select({
   const selectRef = useRef(null)
   useOutsideClick(selectRef, close)
 
+  function validCharacters(value: string): string {
+    const pattern = value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    return pattern.replace(/[^a-zA-Z0-9_]/g, '').toLowerCase()
+  }
+
   const cssClasses = classNames('selected-option', {
     open: isOpen,
     filled: selectedOption.id,
@@ -92,7 +97,7 @@ export function Select({
 
   function sanitizeOptions(options: Option[]) {
     const sanitize = options.filter((option) => {
-      if (option.label.toLowerCase().includes(search.toLowerCase())) {
+      if (validCharacters(option.label).includes(validCharacters(search))) {
         return option
       }
     })
