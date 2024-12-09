@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { Select } from '../src/atoms/Select'
 import userEvent from '@testing-library/user-event'
 
@@ -11,7 +11,7 @@ describe('Select', () => {
         helpText="This text can help you"
         id="select-videogames"
         label="Videogames"
-        isSearch={false}
+        isSearchable={false}
         name="example"
         options={[
           {
@@ -55,7 +55,7 @@ describe('Select', () => {
         id="select-videogames"
         label="Videogames"
         name="example"
-        isSearch={false}
+        isSearchable={false}
         options={[
           {
             id: '1',
@@ -96,7 +96,7 @@ describe('Select', () => {
         id="select-videogames"
         label="Videogames"
         name="example"
-        isSearch={false}
+        isSearchable={false}
         onChange={() => {}}
         options={[
           {
@@ -131,7 +131,7 @@ describe('Select', () => {
         id="select-videogames"
         label="Videogames"
         name="example"
-        isSearch={false}
+        isSearchable={false}
         options={[
           {
             id: '1',
@@ -158,7 +158,7 @@ describe('Select', () => {
     expect(mockChange).toHaveBeenCalledWith('')
   })
 
-  xit('search in selector', async () => {
+  it('return filtered options by search', async () => {
     const user = userEvent.setup()
     const placeholder = 'Select your favourite gaming system...'
     const options = [
@@ -175,14 +175,13 @@ describe('Select', () => {
         label: 'Xbox Series S/X',
       },
     ]
-    const { queryByRole, getByText } = render(
+    const { queryByText, getByText } = render(
       <Select
         helpText="This text can help you"
         id="select-videogames"
         label="Videogames"
-        defaultValue="1"
         name="example"
-        isSearch={true}
+        isSearchable={true}
         options={options}
         placeholder={placeholder}
         variant="primary"
@@ -195,14 +194,8 @@ describe('Select', () => {
 
     await user.type(input, ' PlaySta')
 
-    expect(
-      screen.queryByRole('option', { name: 'Nintendo Switch' }),
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByRole('option', { name: 'Xbox Series S/X' }),
-    ).not.toBeInTheDocument()
-    expect(
-      screen.getByRole('option', { name: 'PlayStation 5' }),
-    ).toBeInTheDocument()
+    expect(getByText('PlayStation 5')).toBeInTheDocument()
+    expect(queryByText('Nintendo Switch')).not.toBeInTheDocument()
+    expect(queryByText('Xbox Series S/X')).not.toBeInTheDocument()
   })
 })

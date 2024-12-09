@@ -4,8 +4,8 @@ import { Icon } from './Icon'
 import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
-import { useOutsideClick } from '../utils/useOutsideClick'
-import { useOpen } from '../utils/useOpen'
+import { useOutsideClick } from '../hooks/useOutsideClick'
+import { useOpen } from '../hooks/useOpen'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }

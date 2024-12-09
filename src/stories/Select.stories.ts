@@ -41,8 +41,11 @@ const meta = {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
-    isSearch: {
+    isSearchable: {
       description: 'Select component with search option',
+    },
+    searchLabel: {
+      description: 'Label for the search ',
     },
   },
 }
@@ -66,7 +69,7 @@ export const Primary: Story = {
     label: 'Videogames',
     accessibilityLabel: 'Select your favourite gaming system options',
     hideLabel: false,
-    isSearch: false,
+    isSearchable: false,
     placeholder: 'Select your favourite gaming system...',
     options: [
       { id: '1', label: 'Nintendo Switch' },
@@ -104,7 +107,7 @@ export const PrimaryWithSelectedOptions: Story = {
     label: 'Videogames',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
-    isSearch: false,
+    isSearchable: false,
     options: [
       { id: '1', label: 'Nintendo Switch' },
       { id: '2', label: 'PlayStation 5' },
@@ -126,7 +129,7 @@ export const PrimaryWithErrors: Story = {
     accessibilityLabel: 'Select your favourite gaming system options',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
-    isSearch: false,
+    isSearchable: false,
     options: [
       { id: '1', label: 'Nintendo Switch' },
       { id: '2', label: 'PlayStation 5' },
@@ -171,7 +174,8 @@ export const PrimaryWithSearch: Story = {
     ],
     id: 'select-videogames',
     onChange: (optionId) => console.log('onChange optionId:', optionId),
-    isSearch: true,
+    isSearchable: true,
+    searchLabel: 'Search',
   },
   parameters: figmaPrimaryDesign,
 }
