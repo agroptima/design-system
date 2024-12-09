@@ -39,7 +39,7 @@
         no-repeat;
     }
     &:hover {
-      .checkbox:not(:checked):not(.disabled) {
+      .checkbox:not(:checked):not(:disabled) {
         background: url('../icons/checkbox-primary-hover-inactive.svg') left top
           no-repeat;
       }
