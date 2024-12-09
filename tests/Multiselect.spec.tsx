@@ -30,6 +30,7 @@ describe('Multiselect', () => {
         placeholder="Select your favourite videogames..."
         selectedLabel="videogames selected"
         variant="primary"
+        isSearchable={false}
       />,
     )
 
@@ -70,6 +71,7 @@ describe('Multiselect', () => {
         defaultValue={['2', '1']}
         selectedLabel="videogames selected"
         variant="primary"
+        isSearchable={false}
       />,
     )
 
@@ -106,6 +108,7 @@ describe('Multiselect', () => {
         placeholder="Select your favourite videogames..."
         selectedLabel="videogames selected"
         variant="primary"
+        isSearchable={false}
       />,
     )
 
@@ -140,6 +143,7 @@ describe('Multiselect', () => {
         selectedLabel="videogames selected"
         onChange={mockChange}
         variant="primary"
+        isSearchable={false}
       />,
     )
 
@@ -147,5 +151,46 @@ describe('Multiselect', () => {
 
     expect(getByText(placeholder)).toBeInTheDocument()
     expect(mockChange).toHaveBeenCalledWith([])
+  })
+
+  it('return filtered options by search', async () => {
+    const user = userEvent.setup()
+    const placeholder = 'Select your favourite gaming system...'
+    const options = [
+      {
+        id: '1',
+        label: 'Nintendo Switch',
+      },
+      {
+        id: '2',
+        label: 'PlayStation 5',
+      },
+      {
+        id: '3',
+        label: 'Xbox Series S/X',
+      },
+    ]
+    const { queryByText, getByText } = render(
+      <Multiselect
+        helpText="This text can help you"
+        id="select-videogames"
+        label="Videogames"
+        name="example"
+        isSearchable={true}
+        options={options}
+        placeholder={placeholder}
+        variant="primary"
+      />,
+    )
+
+    await user.click(screen.getByRole('alert'))
+
+    const input = screen.getByRole('textbox')
+
+    await user.type(input, ' PlaySta')
+
+    expect(getByText('PlayStation 5')).toBeInTheDocument()
+    expect(queryByText('Nintendo Switch')).not.toBeInTheDocument()
+    expect(queryByText('Xbox Series S/X')).not.toBeInTheDocument()
   })
 })

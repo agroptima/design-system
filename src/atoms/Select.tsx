@@ -117,16 +117,15 @@ export function Select({
           />
         </div>
 
-        {isOpen && (
-          <OptionList
-            isSearchable={isSearchable}
-            options={options}
-            selectedOption={selectedOption}
-            selectOption={selectOption}
-            onClick={close}
-            searchLabel={searchLabel}
-          />
-        )}
+        <OptionList
+          isOpen={isOpen}
+          options={options}
+          selectedOption={selectedOption}
+          selectOption={selectOption}
+          onClick={close}
+          isSearchable={isSearchable}
+          searchLabel={searchLabel}
+        />
       </div>
       {helpTexts.map((helpText) => (
         <span key={`${name}-${helpText}`} className="select-help-text">
@@ -151,6 +150,7 @@ interface OptionListProps {
   onClick: () => void
   isSearchable: boolean
   searchLabel: string
+  isOpen: boolean
 }
 
 function OptionList({
@@ -160,8 +160,10 @@ function OptionList({
   onClick,
   isSearchable,
   searchLabel,
+  isOpen,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
+  if (!isOpen) return null
 
   return (
     <div className="select-options">
@@ -176,22 +178,39 @@ function OptionList({
         />
       )}
       <ul role="listbox" onClick={onClick}>
-        {findItems.map((option) => {
-          return (
-            <li
-              className="option"
-              tabIndex={0}
-              role="option"
-              aria-selected={selectedOption.id === option.id}
-              data-option={option}
-              key={option.id}
-              onClick={() => selectOption(option)}
-            >
-              {option.label}
-            </li>
-          )
-        })}
+        <Option
+          options={findItems}
+          selectedOption={selectedOption}
+          selectOption={selectOption}
+        />
       </ul>
     </div>
+  )
+}
+interface OptionProps {
+  options: Option[]
+  selectedOption: Option
+  selectOption: (option: Option) => void
+}
+
+function Option({ options, selectedOption, selectOption }: OptionProps) {
+  return (
+    <>
+      {options.map((option) => {
+        return (
+          <li
+            className="option"
+            tabIndex={0}
+            role="option"
+            aria-selected={selectedOption.id === option.id}
+            data-option={option}
+            key={option.id}
+            onClick={() => selectOption(option)}
+          >
+            {option.label}
+          </li>
+        )
+      })}
+    </>
   )
 }

@@ -41,6 +41,12 @@ const meta = {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
+    isSearchable: {
+      description: 'Select component with search option',
+    },
+    searchLabel: {
+      description: 'Label for the search ',
+    },
   },
 }
 
@@ -65,6 +71,7 @@ export const Primary: Story = {
     accessibilityLabel: 'Select your favourite videogames options',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
+    isSearchable: false,
     options: [
       { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
       { id: '2', label: 'Spyro the Dragon' },
@@ -87,6 +94,7 @@ export const PrimaryWithSelectedOptions: Story = {
     label: 'Videogames',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
+    isSearchable: false,
     options: [
       { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
       { id: '2', label: 'Spyro the Dragon' },
@@ -111,6 +119,7 @@ export const PrimaryWithErrors: Story = {
     accessibilityLabel: 'Select your favourite videogames options',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
+    isSearchable: false,
     options: [
       { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
       { id: '2', label: 'Spyro the Dragon' },
@@ -120,6 +129,30 @@ export const PrimaryWithErrors: Story = {
       { id: '6', label: 'Red Dead Redemption' },
     ],
     errors: ['error1', 'error2'],
+  },
+  parameters: figmaPrimaryDesign,
+}
+export const PrimaryWithSearch: Story = {
+  args: {
+    variant: 'primary',
+    disabled: false,
+    hideLabel: false,
+    helpText: 'This text can help you',
+    name: 'videogames',
+    label: 'Videogames',
+    accessibilityLabel: 'Select your favourite videogames options',
+    selectedLabel: 'videogames selected',
+    placeholder: 'Select your favourite videogames...',
+    options: [
+      { id: '1', label: 'The Legend of Zelda: Ocarina of Time' },
+      { id: '2', label: 'Spyro the Dragon' },
+      { id: '3', label: 'Halo' },
+      { id: '4', label: 'Tetris' },
+      { id: '5', label: 'Super Mario Bros' },
+      { id: '6', label: 'Red Dead Redemption' },
+    ],
+    isSearchable: true,
+    searchLabel: 'Search',
   },
   parameters: figmaPrimaryDesign,
 }
