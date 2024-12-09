@@ -39,9 +39,10 @@ export function Badge({
       className={cssClasses}
       role="status"
       aria-label={accessibilityLabel}
+      title={icon && accessibilityLabel}
       {...props}
     >
-      {text || (icon && <Icon name={icon} />)}
+      {text || (icon && <Icon name={icon} title={accessibilityLabel} />)}
     </span>
   )
 }
