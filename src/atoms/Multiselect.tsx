@@ -4,8 +4,10 @@ import { Icon } from './Icon'
 import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
-import { useOutsideClick } from '../utils/useOutsideClick'
-import { useOpen } from '../utils/useOpen'
+import { useOutsideClick } from '../hooks/useOutsideClick'
+import { useOpen } from '../hooks/useOpen'
+import { Input } from './Input'
+import { useSearch } from '../hooks/useSearch'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -27,6 +29,8 @@ export interface MultiselectProps extends InputPropsWithoutOnChange {
   hideLabel?: boolean
   defaultValue?: string[]
   onChange?: (value: string[]) => void
+  isSearchable?: boolean
+  searchLabel?: string
 }
 
 export function Multiselect({
@@ -44,6 +48,8 @@ export function Multiselect({
   selectedLabel = 'items selected',
   hideLabel = false,
   defaultValue = [],
+  isSearchable = false,
+  searchLabel = 'Search',
   ...props
 }: MultiselectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
@@ -108,18 +114,15 @@ export function Multiselect({
             visible={hasSelectedOptions}
           />
         </div>
-        {isOpen && (
-          <ul className="select-options" role="listbox">
-            {options.map((option) => (
-              <Option
-                key={`${name}-${option.id}`}
-                option={option}
-                selectedOptions={selectedOptions}
-                onSelect={selectOption}
-              />
-            ))}
-          </ul>
-        )}
+
+        <OptionList
+          isOpen={isOpen}
+          options={options}
+          selectedOptions={selectedOptions}
+          onSelect={selectOption}
+          isSearchable={isSearchable}
+          searchLabel={searchLabel}
+        />
       </div>
       {helpTexts.map((helpText) => (
         <span key={`${name}-${helpText}`} className="select-help-text">
@@ -136,26 +139,80 @@ export function Multiselect({
   )
 }
 
-interface OptionProps {
-  option: Option
+interface OptionListProps {
+  isSearchable: boolean
+  searchLabel: string
+  options: Option[]
   selectedOptions: string[]
   onSelect: (id: string) => void
+  isOpen: boolean
 }
 
-function Option({ option, selectedOptions, onSelect }: OptionProps) {
-  const isOptionSelected = selectedOptions.includes(option.id)
-  const icon = isOptionSelected ? 'CheckboxActive' : 'CheckboxInactive'
+function OptionList({
+  options,
+  selectedOptions,
+  onSelect,
+  isSearchable,
+  searchLabel,
+  isOpen,
+}: OptionListProps) {
+  const { findItems, search } = useSearch(options, 'label')
+  if (!isOpen) return null
+
   return (
-    <li
-      role="option"
-      className="option"
-      tabIndex={0}
-      aria-selected={isOptionSelected}
-      data-option={option}
-      onClick={() => onSelect(option.id)}
-    >
-      <Icon name={icon} />
-      {option.label}
-    </li>
+    <div className="select-options">
+      {isSearchable && (
+        <Input
+          label={searchLabel}
+          hideLabel
+          onChange={(e) => search(e.target.value)}
+          placeholder={searchLabel}
+          icon="Search"
+          className="search"
+        />
+      )}
+      <ul role="listbox">
+        <Option
+          options={findItems}
+          selectedOptions={selectedOptions}
+          onSelect={onSelect}
+        />
+      </ul>
+    </div>
+  )
+}
+
+interface OptionProps {
+  options: Option[]
+  onSelect: (id: string) => void
+  selectedOptions: string[]
+}
+
+function Option({ options, onSelect, selectedOptions }: OptionProps) {
+  function isSelected(id: string): boolean {
+    return selectedOptions.includes(id)
+  }
+  function getIcon(id: string) {
+    return isSelected(id) ? 'CheckboxActive' : 'CheckboxInactive'
+  }
+  return (
+    <>
+      {options.map((option) => {
+        return (
+          <li
+            key={option.id}
+            role="option"
+            className="option"
+            tabIndex={0}
+            aria-selected={isSelected(option.id)}
+            data-option={option}
+            onClick={() => onSelect(option.id)}
+          >
+            <Icon name={getIcon(option.id)} />
+            {option.label}
+          </li>
+        )
+      })}
+    </>
   )
 }

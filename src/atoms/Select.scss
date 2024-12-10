@@ -74,10 +74,6 @@
     }
 
     .select-options {
-      max-height: 256px;
-      overflow-y: auto;
-      overflow-anchor: none;
-      z-index: depth.$z-dropdown-options;
       border-radius: config.$corner-radius-xxs;
       background: color_alias.$neutral-white;
       box-shadow:
@@ -132,8 +128,11 @@
       height: config.$icon-size-3x;
     }
   }
-
+  
   .select-options {
+    max-height: 256px;
+    overflow-y: auto;
+    overflow-anchor: none;
     z-index: depth.$z-dropdown-options;
     margin: 0;
     padding: config.$space-1x 0rem;
@@ -141,6 +140,16 @@
     position: absolute;
     width: 100%;
 
+    .search {
+      margin: config.$space-2x config.$space-3x;
+    }
+
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
     .option {
       display: flex;
       align-items: center;
@@ -154,5 +163,5 @@
         margin-right: config.$space-1x;
       }
     }
-  }
+  }  
 }

@@ -4,9 +4,11 @@ import { Icon } from './Icon'
 import { IconButton } from './Button'
 import { classNames } from '../utils/classNames'
 import { buildHelpText } from '../utils/buildHelpText'
-import { useOutsideClick } from '../utils/useOutsideClick'
-import { useOpen } from '../utils/useOpen'
+import { useOutsideClick } from '../hooks/useOutsideClick'
+import { useOpen } from '../hooks/useOpen'
 import './Select.scss'
+import { Input } from './Input'
+import { useSearch } from '../hooks/useSearch'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -27,6 +29,8 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   defaultValue?: string
   onChange?: (value: string) => void
   required?: boolean
+  isSearchable: boolean
+  searchLabel?: string
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -46,6 +50,8 @@ export function Select({
   onChange = () => {},
   defaultValue,
   required = false,
+  isSearchable = false,
+  searchLabel = 'Search',
   ...props
 }: SelectProps): React.JSX.Element {
   const helpTexts = buildHelpText(helpText, errors)
@@ -110,14 +116,16 @@ export function Select({
             visible={!isEmpty}
           />
         </div>
-        {isOpen && (
-          <OptionList
-            options={options}
-            selectedOption={selectedOption}
-            selectOption={selectOption}
-            onClick={close}
-          />
-        )}
+
+        <OptionList
+          isOpen={isOpen}
+          options={options}
+          selectedOption={selectedOption}
+          selectOption={selectOption}
+          onClick={close}
+          isSearchable={isSearchable}
+          searchLabel={searchLabel}
+        />
       </div>
       {helpTexts.map((helpText) => (
         <span key={`${name}-${helpText}`} className="select-help-text">
@@ -140,6 +148,9 @@ interface OptionListProps {
   selectedOption: Option
   selectOption: (option: Option) => void
   onClick: () => void
+  isSearchable: boolean
+  searchLabel: string
+  isOpen: boolean
 }
 
 function OptionList({
@@ -147,9 +158,44 @@ function OptionList({
   selectedOption,
   selectOption,
   onClick,
+  isSearchable,
+  searchLabel,
+  isOpen,
 }: OptionListProps) {
+  const { findItems, search } = useSearch(options, 'label')
+  if (!isOpen) return null
+
   return (
-    <ul className="select-options" role="listbox" onClick={onClick}>
+    <div className="select-options">
+      {isSearchable && (
+        <Input
+          label={searchLabel}
+          hideLabel
+          onChange={(e) => search(e.target.value)}
+          placeholder={searchLabel}
+          icon="Search"
+          className="search"
+        />
+      )}
+      <ul role="listbox" onClick={onClick}>
+        <Option
+          options={findItems}
+          selectedOption={selectedOption}
+          selectOption={selectOption}
+        />
+      </ul>
+    </div>
+  )
+}
+interface OptionProps {
+  options: Option[]
+  selectedOption: Option
+  selectOption: (option: Option) => void
+}
+
+function Option({ options, selectedOption, selectOption }: OptionProps) {
+  return (
+    <>
       {options.map((option) => {
         return (
           <li
@@ -165,6 +211,6 @@ function OptionList({
           </li>
         )
       })}
-    </ul>
+    </>
   )
 }
