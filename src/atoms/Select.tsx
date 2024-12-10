@@ -29,7 +29,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   defaultValue?: string
   onChange?: (value: string) => void
   required?: boolean
-  isSearchable: boolean
+  isSearchable?: boolean
   searchLabel?: string
 }
 
