@@ -1,6 +1,6 @@
 import type { ButtonVariant } from '../src/atoms/Button/Button'
 import React from 'react'
-import { screen, render } from '@testing-library/react'
+import { screen, render, getByRole } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Button } from '../src/atoms/Button/Button'
 
@@ -109,5 +109,18 @@ describe('Button', () => {
     await user.click(screen.getByRole('button'))
 
     expect(onClickEvent).not.toHaveBeenCalled()
+  })
+
+  it('renders a button when link is disabled', async () => {
+    const { getByRole } = render(
+      <Button
+        id="disabled-button"
+        label="Disabled button"
+        href="/any-link.com"
+        disabled
+      />,
+    )
+
+    expect(getByRole('button')).toBeInTheDocument()
   })
 })
