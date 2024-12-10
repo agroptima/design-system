@@ -22,7 +22,8 @@ export function BaseButton({
   ...props
 }: BaseButtonProps) {
   if (!visible) return null
-  if (hasHref(props)) {
+  const isLink = !props.disabled && hasHref(props)
+  if (isLink) {
     return (
       <NextLink href={props.href || ''} {...props}>
         {children}
