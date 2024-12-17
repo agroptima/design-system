@@ -115,14 +115,15 @@ export function Multiselect({
           />
         </div>
 
-        <OptionList
-          isOpen={isOpen}
-          options={options}
-          selectedOptions={selectedOptions}
-          onSelect={selectOption}
-          isSearchable={isSearchable}
-          searchLabel={searchLabel}
-        />
+        {isOpen && (
+          <OptionList
+            options={options}
+            selectedOptions={selectedOptions}
+            onSelect={selectOption}
+            isSearchable={isSearchable}
+            searchLabel={searchLabel}
+          />
+        )}
       </div>
       {helpTexts.map((helpText) => (
         <span key={`${name}-${helpText}`} className="select-help-text">
@@ -145,7 +146,6 @@ interface OptionListProps {
   options: Option[]
   selectedOptions: string[]
   onSelect: (id: string) => void
-  isOpen: boolean
 }
 
 function OptionList({
@@ -154,10 +154,8 @@ function OptionList({
   onSelect,
   isSearchable,
   searchLabel,
-  isOpen,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
-  if (!isOpen) return null
 
   return (
     <div className="select-options">
