@@ -116,16 +116,16 @@ export function Select({
             visible={!isEmpty}
           />
         </div>
-
-        <OptionList
-          isOpen={isOpen}
-          options={options}
-          selectedOption={selectedOption}
-          selectOption={selectOption}
-          onClick={close}
-          isSearchable={isSearchable}
-          searchLabel={searchLabel}
-        />
+        {isOpen && (
+          <OptionList
+            options={options}
+            selectedOption={selectedOption}
+            selectOption={selectOption}
+            onClick={close}
+            isSearchable={isSearchable}
+            searchLabel={searchLabel}
+          />
+        )}
       </div>
       {helpTexts.map((helpText) => (
         <span key={`${name}-${helpText}`} className="select-help-text">
@@ -150,7 +150,6 @@ interface OptionListProps {
   onClick: () => void
   isSearchable: boolean
   searchLabel: string
-  isOpen: boolean
 }
 
 function OptionList({
@@ -160,10 +159,8 @@ function OptionList({
   onClick,
   isSearchable,
   searchLabel,
-  isOpen,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
-  if (!isOpen) return null
 
   return (
     <div className="select-options">
