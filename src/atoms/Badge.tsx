@@ -19,7 +19,7 @@ export interface BadgeProps extends React.ComponentPropsWithoutRef<'span'> {
   variant?: Variant
   text?: string
   icon?: IconType
-  accessibilityLabel: string
+  accessibilityLabel?: string
   isDot?: boolean
 }
 
@@ -38,7 +38,7 @@ export function Badge({
     <span
       className={cssClasses}
       role="status"
-      aria-label={accessibilityLabel}
+      aria-label={accessibilityLabel || text}
       title={icon && accessibilityLabel}
       {...props}
     >
