@@ -30,10 +30,7 @@ export function QuantitySelector({
   ...props
 }: QuantitySelectorProps): React.JSX.Element {
   return (
-    <div
-      className={classNames('quantity-selector-group', variant, className)}
-      {...props}
-    >
+    <div className={classNames('quantity-selector-group', variant, className)}>
       {!hideLabel && (
         <label
           className={classNames('quantity-selector-label', {
