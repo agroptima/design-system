@@ -1,7 +1,7 @@
+import './Badge.scss'
+import { classNames } from '../utils/classNames'
 import type { IconType } from './Icon'
 import { Icon } from './Icon'
-import { classNames } from '../utils/classNames'
-import './Badge.scss'
 
 export type Variant =
   | 'info'

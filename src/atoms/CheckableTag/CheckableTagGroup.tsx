@@ -1,5 +1,5 @@
-import { classNames } from '../../utils/classNames'
 import './CheckableTag.scss'
+import { classNames } from '../../utils/classNames'
 
 export interface CheckableTagGroupProps
   extends React.ComponentPropsWithoutRef<'div'> {}

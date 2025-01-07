@@ -1,8 +1,7 @@
 import React from 'react'
-
-import { Drawer } from '../atoms/Drawer'
-import { CheckableTagGroup, CheckableTag } from '../atoms/CheckableTag'
+import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible'
+import { Drawer } from '../atoms/Drawer'
 
 const figmaPrimaryDesign = {
   design: {

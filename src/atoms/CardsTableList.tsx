@@ -1,16 +1,16 @@
-import type { IconType } from './Icon'
+import './CardsTable/CardsTable.scss'
 import React, { useState } from 'react'
 import { sortBy } from '../utils/sort'
 import {
-  CardsTableHeader,
-  CardsTableCell,
-  CardsTableRow,
   CardsTable,
-  CardsTableHead,
   CardsTableBody,
+  CardsTableCell,
+  CardsTableHead,
+  CardsTableHeader,
+  CardsTableRow,
 } from './CardsTable'
+import type { IconType } from './Icon'
 import { Icon } from './Icon'
-import './CardsTable/CardsTable.scss'
 
 export type Variant = 'primary'
 

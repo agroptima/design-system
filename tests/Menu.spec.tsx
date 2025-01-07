@@ -1,7 +1,7 @@
-import React from 'react'
 import { render } from '@testing-library/react'
-import { Menu } from '../src/atoms/Menu/Menu'
+import React from 'react'
 import { MenuDropdown, MenuLink } from '../src/atoms/Menu'
+import { Menu } from '../src/atoms/Menu/Menu'
 
 describe('Menu', () => {
   it('renders first-level menu', () => {

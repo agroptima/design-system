@@ -1,15 +1,16 @@
+import './Alert.scss'
+import type { ReactElement } from 'react'
+import { classNames } from '../../utils/classNames'
 import type { IconButtonProps } from '../Button'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
-import './Alert.scss'
-import { classNames } from '../../utils/classNames'
 
 export type Variant = 'info' | 'success' | 'warning' | 'error'
 
 export interface AlertProps extends React.ComponentPropsWithoutRef<'div'> {
   id: string
   variant?: Variant
-  text: string
+  text: string | ReactElement
   button?: IconButtonProps
   fadeOut?: boolean
   fitContent?: boolean

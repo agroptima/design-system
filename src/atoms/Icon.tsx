@@ -1,5 +1,5 @@
 import './Icon.scss'
-
+import type { ReactNode } from 'react'
 import * as icons from '../icons'
 import { classNames } from '../utils/classNames'
 export type IconType = keyof typeof icons
@@ -28,7 +28,7 @@ export const Icon: React.FC<IconProps> = ({
   })
   return (
     <span role="img" title={props.title || name} className={cssClasses}>
-      {icons[name](props)}
+      {icons[name](props) as ReactNode}
     </span>
   )
 }

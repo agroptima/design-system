@@ -1,10 +1,10 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import {
+  Ellipsis,
   Pagination,
   PaginationArrow,
   PaginationNumber,
-  Ellipsis,
 } from '../src/atoms/Pagination'
 
 describe('Pagination', () => {

@@ -1,10 +1,10 @@
 import React from 'react'
+import { Button } from '../atoms/Button'
+import { Card } from '../atoms/Card'
 import { Collapsible } from '../atoms/Collapsible'
+import { Actions, Form as FormComponent } from '../atoms/Form'
 import { Input } from '../atoms/Input'
 import { Select } from '../atoms/Select'
-import { Card } from '../atoms/Card'
-import { Form as FormComponent, Actions } from '../atoms/Form'
-import { Button } from '../atoms/Button'
 
 const figmaPrimaryDesign = {
   design: {

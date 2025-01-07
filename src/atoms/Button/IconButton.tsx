@@ -1,9 +1,9 @@
-import type { IconSize, IconType } from '../Icon'
-import type { BaseButtonProps } from './BaseButton'
-import { Icon } from '../Icon'
-import { classNames } from '../../utils/classNames'
-import { BaseButton } from './BaseButton'
 import './IconButton.scss'
+import { classNames } from '../../utils/classNames'
+import type { IconSize, IconType } from '../Icon'
+import { Icon } from '../Icon'
+import type { BaseButtonProps } from './BaseButton'
+import { BaseButton } from './BaseButton'
 
 export type Variant = 'primary' | 'secondary'
 

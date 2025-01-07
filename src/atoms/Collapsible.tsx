@@ -1,6 +1,6 @@
+import './Collapsible.scss'
 import { classNames } from '../utils/classNames'
 import { Icon } from './Icon'
-import './Collapsible.scss'
 
 export type Variant = 'primary'
 

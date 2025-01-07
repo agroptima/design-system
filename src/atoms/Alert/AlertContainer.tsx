@@ -1,5 +1,5 @@
-import { classNames } from '../../utils/classNames'
 import './AlertContainer.scss'
+import { classNames } from '../../utils/classNames'
 
 export interface AlertContainerProps
   extends React.ComponentPropsWithoutRef<'section'> {}

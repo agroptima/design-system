@@ -1,7 +1,7 @@
-import type { LinkProps as NextLinkProps } from 'next/link'
-import { classNames } from '../../utils/classNames'
-import Link from 'next/link'
 import './Popover.scss'
+import type { LinkProps as NextLinkProps } from 'next/link'
+import Link from 'next/link'
+import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 

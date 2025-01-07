@@ -1,6 +1,6 @@
-import { classNames } from '../../utils/classNames'
 import './CardsTable.scss'
 import React from 'react'
+import { classNames } from '../../utils/classNames'
 
 export enum Alignment {
   Left = 'left',

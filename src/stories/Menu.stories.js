@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { Menu, MenuLink, MenuDropdown } from '../atoms/Menu'
+import { Menu, MenuDropdown, MenuLink } from '../atoms/Menu'
 
 const figmaPrimaryDesign = {
   design: {

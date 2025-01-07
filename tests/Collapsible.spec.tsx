@@ -1,5 +1,5 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import { Collapsible } from '../src/atoms/Collapsible'
 import { Input } from '../src/atoms/Input'
 

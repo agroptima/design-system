@@ -1,7 +1,7 @@
-import type { ButtonProps } from './Button'
-import { classNames } from '../utils/classNames'
-import { Button, IconButton } from './Button'
 import './Drawer.scss'
+import { classNames } from '../utils/classNames'
+import type { ButtonProps } from './Button'
+import { Button, IconButton } from './Button'
 import { Actions } from './Form'
 
 export type Variant = 'primary'

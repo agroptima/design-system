@@ -1,6 +1,6 @@
-import type { Variant } from '../src/atoms/CheckableTag'
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
+import type { Variant } from '../src/atoms/CheckableTag'
 import { CheckableTag } from '../src/atoms/CheckableTag'
 
 describe('CheckableTag', () => {

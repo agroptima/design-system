@@ -1,5 +1,5 @@
-import { classNames } from '../../utils/classNames'
 import './Form.scss'
+import { classNames } from '../../utils/classNames'
 
 export interface FormProps extends React.ComponentPropsWithoutRef<'form'> {
   fullWidth?: boolean

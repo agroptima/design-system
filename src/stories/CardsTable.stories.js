@@ -1,18 +1,17 @@
 import React from 'react'
-
+import { Badge } from '../atoms/Badge'
+import { IconButton } from '../atoms/Button'
+import { Button } from '../atoms/Button'
 import {
   CardsTable,
+  CardsTableBody,
+  CardsTableCell,
   CardsTableHead,
   CardsTableHeader,
   CardsTableRow,
-  CardsTableBody,
-  CardsTableCell,
 } from '../atoms/CardsTable'
-import { IconButton } from '../atoms/Button'
-import { Badge } from '../atoms/Badge'
 import { Checkbox } from '../atoms/Checkbox'
 import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
-import { Button } from '../atoms/Button'
 
 const figmaPrimaryDesign = {
   design: {

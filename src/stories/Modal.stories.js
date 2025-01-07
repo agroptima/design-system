@@ -1,8 +1,8 @@
 import React from 'react'
-import { Modal } from '../atoms/Modal'
-import { DetailItem } from '../atoms/DetailItem'
-import { Collapsible } from '../atoms/Collapsible'
 import { Card } from '../atoms/Card'
+import { Collapsible } from '../atoms/Collapsible'
+import { DetailItem } from '../atoms/DetailItem'
+import { Modal } from '../atoms/Modal'
 
 const figmaPrimaryDesign = {
   design: {
