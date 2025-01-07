@@ -1,9 +1,9 @@
-import type { InputProps } from './Input'
+import './QuantitySelector.scss'
 import React from 'react'
 import { classNames } from '../utils/classNames'
-import { Input } from './Input'
 import { Button } from './Button'
-import './QuantitySelector.scss'
+import type { InputProps } from './Input'
+import { Input } from './Input'
 
 export type Variant = 'primary'
 

@@ -1,10 +1,10 @@
-import type { IconType } from './Icon'
-import React, { useState } from 'react'
-import { Icon } from './Icon'
-import { IconButton } from './Button/IconButton'
-import { classNames } from '../utils/classNames'
-import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'
+import React, { useState } from 'react'
+import { buildHelpText } from '../utils/buildHelpText'
+import { classNames } from '../utils/classNames'
+import { IconButton } from './Button/IconButton'
+import type { IconType } from './Icon'
+import { Icon } from './Icon'
 
 export type InputVariant = 'primary'
 

@@ -1,5 +1,5 @@
-import { classNames } from '../utils/classNames'
 import './Checkbox.scss'
+import { classNames } from '../utils/classNames'
 
 export type Variant = 'primary'
 

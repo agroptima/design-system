@@ -1,9 +1,9 @@
-import type { IconType } from '../Icon'
-import type { LinkProps as NextLinkProps } from 'next/link'
-import { Icon } from '../Icon'
-import { classNames } from '../../utils/classNames'
-import Link from 'next/link'
 import './CardMenu.scss'
+import type { LinkProps as NextLinkProps } from 'next/link'
+import Link from 'next/link'
+import { classNames } from '../../utils/classNames'
+import type { IconType } from '../Icon'
+import { Icon } from '../Icon'
 
 export type Variant = 'primary'
 

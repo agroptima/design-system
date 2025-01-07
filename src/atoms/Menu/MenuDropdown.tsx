@@ -1,7 +1,7 @@
-import type { IconType } from '../Icon'
-import { classNames } from '../../utils/classNames'
-import { Icon } from '../Icon'
 import './Menu.scss'
+import { classNames } from '../../utils/classNames'
+import type { IconType } from '../Icon'
+import { Icon } from '../Icon'
 
 export type Variant = 'primary'
 

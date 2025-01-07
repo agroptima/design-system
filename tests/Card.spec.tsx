@@ -1,7 +1,7 @@
-import React from 'react'
 import { render } from '@testing-library/react'
-import { Card, CardHeader, CardContent, CardFooter } from '../src/atoms/Card'
+import React from 'react'
 import { Button } from '../src/atoms/Button'
+import { Card, CardContent, CardFooter, CardHeader } from '../src/atoms/Card'
 
 describe('Product card', () => {
   it('renders the expected structure and data', () => {

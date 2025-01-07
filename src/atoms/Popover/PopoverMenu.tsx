@@ -1,5 +1,5 @@
-import { classNames } from '../../utils/classNames'
 import './Popover.scss'
+import { classNames } from '../../utils/classNames'
 
 export interface PopoverMenuProps
   extends React.ComponentPropsWithoutRef<'div'> {}

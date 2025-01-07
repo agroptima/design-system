@@ -1,5 +1,5 @@
-import { Input } from '../atoms/Input'
 import type { StoryObj } from '@storybook/react'
+import { Input } from '../atoms/Input'
 
 const meta = {
   title: 'Design System/Atoms/Input',

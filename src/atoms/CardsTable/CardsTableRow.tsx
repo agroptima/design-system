@@ -1,5 +1,5 @@
-import React from 'react'
 import './CardsTable.scss'
+import React from 'react'
 import { classNames } from '../../utils/classNames'
 
 export interface CardsTableRowProps

@@ -1,7 +1,7 @@
-import type { Variant } from '../src/atoms/Button/IconButton'
-import React from 'react'
-import { screen, render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import React from 'react'
+import type { Variant } from '../src/atoms/Button/IconButton'
 import { IconButton } from '../src/atoms/Button/IconButton'
 
 describe('Icon Button', () => {

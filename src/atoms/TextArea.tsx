@@ -1,6 +1,6 @@
-import { classNames } from '../utils/classNames'
-import { buildHelpText } from '../utils/buildHelpText'
 import './Input.scss'
+import { buildHelpText } from '../utils/buildHelpText'
+import { classNames } from '../utils/classNames'
 
 export type TextAreaVariant = 'primary'
 

@@ -1,7 +1,7 @@
 import './Card.scss'
+import Link from 'next/link'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
-import Link from 'next/link'
 
 export type Variant = 'primary'
 

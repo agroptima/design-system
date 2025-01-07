@@ -1,9 +1,9 @@
 'use client'
+import './Popover.scss'
+import { useRef } from 'react'
+import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
-import { useOpen } from '../../hooks/useOpen'
-import { useRef } from 'react'
-import './Popover.scss'
 
 export interface PopoverProps {
   renderButton: (props: {

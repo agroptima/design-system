@@ -1,5 +1,5 @@
-import { QuantitySelector } from '../atoms/QuantitySelector'
 import type { StoryObj } from '@storybook/react'
+import { QuantitySelector } from '../atoms/QuantitySelector'
 
 const meta = {
   title: 'Design System/Atoms/QuantitySelector',

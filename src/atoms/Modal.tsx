@@ -1,8 +1,8 @@
-import type { ButtonProps } from './Button'
+import './Modal.scss'
 import { classNames } from '../utils/classNames'
+import type { ButtonProps } from './Button'
 import { Button } from './Button'
 import { Icon } from './Icon'
-import './Modal.scss'
 
 export type Variant =
   | 'info'

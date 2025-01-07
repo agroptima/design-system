@@ -1,7 +1,7 @@
-import type { ButtonVariant } from '../src/atoms/Button/Button'
-import React from 'react'
-import { screen, render, getByRole } from '@testing-library/react'
+import { getByRole, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import React from 'react'
+import type { ButtonVariant } from '../src/atoms/Button/Button'
 import { Button } from '../src/atoms/Button/Button'
 
 describe('Button', () => {

@@ -1,6 +1,6 @@
-import type { Variant } from '../src/atoms/Badge'
-import React from 'react'
 import { render, screen } from '@testing-library/react'
+import React from 'react'
+import type { Variant } from '../src/atoms/Badge'
 import { Badge } from '../src/atoms/Badge'
 
 describe('Badge', () => {

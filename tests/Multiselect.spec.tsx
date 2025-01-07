@@ -1,8 +1,8 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Multiselect } from '../src/atoms/Multiselect'
+import React from 'react'
 import { Placeholder } from 'storybook/internal/components'
+import { Multiselect } from '../src/atoms/Multiselect'
 
 describe('Multiselect', () => {
   it('renders', async () => {

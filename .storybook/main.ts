@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs'
-import { join, dirname, resolve } from 'path'
+import { dirname, join, resolve } from 'path'
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -41,7 +41,7 @@ const config: StorybookConfig = {
     const imageRule = config.module.rules.find((rule) =>
       rule?.['test']?.test('.svg'),
     )
-    if (!imageRule || typeof imageRule !== 'object') return
+    if (!imageRule || typeof imageRule !== 'object') return config
 
     // Configure .svg files to be loaded with @svgr/webpack
     config.module.rules.push({

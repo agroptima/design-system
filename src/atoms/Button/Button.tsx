@@ -1,9 +1,9 @@
-import type { IconType } from '../Icon'
-import type { BaseButtonProps } from './BaseButton'
-import { Icon } from '../Icon'
-import { classNames } from '../../utils/classNames'
-import { BaseButton } from './BaseButton'
 import './Button.scss'
+import { classNames } from '../../utils/classNames'
+import type { IconType } from '../Icon'
+import { Icon } from '../Icon'
+import type { BaseButtonProps } from './BaseButton'
+import { BaseButton } from './BaseButton'
 
 interface CustomProps {
   label: string

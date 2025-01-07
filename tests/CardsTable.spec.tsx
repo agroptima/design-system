@@ -1,16 +1,16 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
+import { Badge } from '../src/atoms/Badge'
+import { IconButton } from '../src/atoms/Button'
 import {
+  Alignment,
   CardsTable,
+  CardsTableBody,
+  CardsTableCell,
   CardsTableHead,
   CardsTableHeader,
   CardsTableRow,
-  CardsTableBody,
-  CardsTableCell,
-  Alignment,
 } from '../src/atoms/CardsTable'
-import { IconButton } from '../src/atoms/Button'
-import { Badge } from '../src/atoms/Badge'
 
 describe('CardsTable', () => {
   it('renders', () => {

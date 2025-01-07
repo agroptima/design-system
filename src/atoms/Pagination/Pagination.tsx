@@ -1,6 +1,6 @@
+import './Pagination.scss'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
-import './Pagination.scss'
 
 type Size = 'small' | 'medium'
 

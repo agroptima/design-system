@@ -1,5 +1,5 @@
-import { CardsTableList } from '../atoms/CardsTableList'
 import type { StoryObj } from '@storybook/react'
+import { CardsTableList } from '../atoms/CardsTableList'
 
 const meta = {
   title: 'Design System/Atoms/Cards Table List',

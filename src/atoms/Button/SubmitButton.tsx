@@ -1,7 +1,7 @@
 'use client'
+import { useFormStatus } from 'react-dom'
 import type { ButtonProps } from './Button'
 import { Button } from './Button'
-import { useFormStatus } from 'react-dom'
 
 export type SubmitButtonProps = ButtonProps
 
