@@ -38,8 +38,8 @@ export function CardsTableCell({
     },
   )
   return (
-    <td role="cell" className={cssClasses} {...props}>
-      {children}
+    <td role="cell" {...props}>
+      <div className={cssClasses}>{children}</div>
     </td>
   )
 }

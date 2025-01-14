@@ -14,12 +14,18 @@ export function CardsTableHeader({
   actions = false,
   ...props
 }: CardsTableHeaderProps) {
-  const cssClasses = classNames('header', `alignment-${align}`, className, {
-    actions,
-  })
+  const cssClasses = classNames(
+    'header',
+    'cell',
+    `alignment-${align}`,
+    className,
+    {
+      actions,
+    },
+  )
   return (
-    <th scope="col" role="columnheader" className={cssClasses} {...props}>
-      {children}
+    <th scope="col" role="columnheader" {...props}>
+      <div className={cssClasses}>{children}</div>
     </th>
   )
 }
