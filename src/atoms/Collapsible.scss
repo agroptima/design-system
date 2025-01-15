@@ -3,6 +3,10 @@
 @use '../settings/config';
 @use '../settings/depth';
 
+details summary::-webkit-details-marker {
+  display: none;
+}
+
 .collapsible {
   @include typography.body-regular-primary;
   list-style-type: none;
