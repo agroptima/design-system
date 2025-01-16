@@ -68,3 +68,14 @@ export const Indeterminate: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const Disabled: Story = {
+  args: {
+    accessibilityLabel: 'Marks if the user likes videogames',
+    variant: 'primary',
+    disabled: true,
+    label: 'Do you like videogames?',
+    id: 'checkbox-videogames-preference',
+  },
+  parameters: figmaPrimaryDesign,
+}
