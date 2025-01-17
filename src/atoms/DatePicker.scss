@@ -1,0 +1,11 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+@use '../settings/breakpoints';
+
+.date-picker {
+  .rdp-root {
+    width: 320px;
+  }
+}

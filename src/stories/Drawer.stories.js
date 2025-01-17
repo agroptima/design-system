@@ -1,6 +1,7 @@
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible'
+import { DatePicker } from '../atoms/DatePicker'
 import { Drawer } from '../atoms/Drawer'
 
 const figmaPrimaryDesign = {
@@ -118,6 +119,15 @@ export const Filters = {
             isChecked={false}
           />
         </CheckableTagGroup>
+      </Collapsible>
+      <Collapsible noHorizontalPadding open title="Date">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <DatePicker
+            footer="Pick a day."
+            selected={{ from: new Date(2025, 0, 1), to: new Date(2025, 0, 15) }}
+            onSelect={(date) => console.log('date: ', date)}
+          />
+        </div>
       </Collapsible>
     </Drawer>
   ),

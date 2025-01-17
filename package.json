@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.27.25",
+  "version": "0.28.0-beta.0",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
@@ -17,6 +17,7 @@
   "dependencies": {
     "next": "^15.1.0",
     "react": "^19.0.0",
+    "react-day-picker": "^9.5.0",
     "react-dom": "^19.0.0",
     "sass": "^1.83.1"
   },
