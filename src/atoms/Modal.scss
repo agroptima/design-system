@@ -4,6 +4,15 @@
 @use '../settings/depth';
 @use '../settings/breakpoints';
 
+@mixin icon-color($color) {
+  .icon > svg {
+    fill: $color;
+    path {
+      fill: $color;
+    }
+  }
+}
+
 .modal-container {
   position: fixed;
   inset: 0;
@@ -37,46 +46,39 @@
       0px 6px 16px 0px rgba(0, 0, 0, 0.08),
       0px 9px 28px 8px rgba(0, 0, 0, 0.05);
 
-    .scroll-area {
-      width: 100%;
+    .header {
+      display: flex;
+      gap: config.$space-2x;
+      align-items: flex-start;
       padding-left: config.$space-halfx;
       padding-right: config.$space-halfx;
-      overflow-y: auto;
-      overflow-anchor: none;
+      .icon {
+        margin-top: 4px;
+        min-width: config.$icon-size-5x;
+        width: config.$icon-size-5x;
+        height: config.$icon-size-5x;
 
-      .header {
-        display: flex;
-        gap: config.$space-2x;
-        align-items: flex-start;
-        padding-bottom: config.$space-2x;
-
-        .icon {
-          margin-top: 4px;
-          min-width: config.$icon-size-5x;
-          width: config.$icon-size-5x;
-          height: config.$icon-size-5x;
-          > svg {
-            width: 100%;
-            height: 100%;
-          }
+        > svg {
+          width: 100%;
+          height: 100%;
         }
-
         .title {
           @include typography.h4;
         }
       }
+    }
 
-      .divider {
-        width: 100%;
-        height: 1px;
-        background: color_alias.$neutral-color-200;
-        margin-bottom: config.$space-2x;
-      }
+    .divider {
+      width: 100%;
+      border-top: 1px solid color_alias.$neutral-color-200;
+      margin-bottom: config.$space-2x;
+    }
 
-      .body {
-        @include typography.body-regular-primary;
-        width: 100%;
-      }
+    .body {
+      @include typography.body-regular-primary;
+      width: 100%;
+      padding-left: config.$space-halfx;
+      padding-right: config.$space-halfx;
     }
 
     &.details {
@@ -84,75 +86,39 @@
       height: 100%;
     }
 
+    &.scrollable {
+      overflow-y: auto;
+      overflow-anchor: none;
+    }
+
     .footer {
       display: flex;
       align-self: flex-end;
       gap: config.$space-3x;
-      margin-top: config.$space-2x;
     }
 
     &.info {
       .header {
-        .icon {
-          > svg {
-            fill: color_alias.$info-color-1000;
-            path {
-              fill: color_alias.$info-color-1000;
-            }
-          }
-        }
+        @include icon-color(color_alias.$info-color-1000);
       }
     }
 
     &.success {
       .header {
-        .icon {
-          > svg {
-            fill: color_alias.$success-color-1000;
-            path {
-              fill: color_alias.$success-color-1000;
-            }
-          }
-        }
+        @include icon-color(color_alias.$success-color-1000);
       }
     }
 
-    &.warning {
-      .header {
-        .icon {
-          > svg {
-            fill: color_alias.$warning-color-1000;
-            path {
-              fill: color_alias.$warning-color-1000;
-            }
-          }
-        }
-      }
-    }
-
+    &.warning,
     &.discard {
       .header {
-        .icon {
-          > svg {
-            fill: color_alias.$warning-color-1000;
-            path {
-              fill: color_alias.$warning-color-1000;
-            }
-          }
-        }
+        @include icon-color(color_alias.$warning-color-1000);
       }
     }
 
     &.error {
       .header {
-        .icon {
-          > svg {
-            fill: color_alias.$error-color-1000;
-            path {
-              fill: color_alias.$error-color-1000;
-            }
-          }
-        }
+        @include icon-color(color_alias.$error-color-1000);
       }
     }
   }
