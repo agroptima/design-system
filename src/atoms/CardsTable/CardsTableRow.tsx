@@ -20,7 +20,6 @@ export function CardsTableRow({
       className={classNames('row', {
         disabled,
         active,
-        action: Boolean(props.onClick),
       })}
       {...props}
     >
