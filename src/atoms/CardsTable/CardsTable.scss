@@ -29,13 +29,13 @@
 .cards-table-list {
   border-collapse: separate;
   border-spacing: 0 config.$space-2x;
+  width: 100%;
 
   tbody {
 
     tr {
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
       cursor: default;
-      //Comprobar que los elementos clickables se ven con el cursor que toca
     }
   }
 
@@ -169,6 +169,7 @@
   // Mobile & tablet cases
   @media only screen and (max-width: breakpoints.$large) {
     @include align-data-vertically();
+
 
     td:first-child {
       order: -2;
