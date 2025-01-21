@@ -32,7 +32,6 @@ export function DatePicker({
     setSelected(preselected)
   }, [preselected])
 
-  console.log('preselected: ', preselected)
   const cssClasses = classNames('date-picker', variant, className)
 
   const [selected, setSelected] = useState<DateRange | undefined>(preselected)
