@@ -36,6 +36,15 @@ export const Primary: Story = {
     variant: 'primary',
     footer: 'Pick a day.',
     onSelect: (date) => console.log('onSelect date:', date),
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithDateSelected: Story = {
+  args: {
+    variant: 'primary',
+    footer: 'From 2024-02-02 to 2024-02-15',
+    onSelect: (date) => console.log('onSelect date:', date),
     selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 15) },
   },
   parameters: figmaPrimaryDesign,

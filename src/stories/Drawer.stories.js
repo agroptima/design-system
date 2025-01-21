@@ -123,7 +123,7 @@ export const Filters = {
       <Collapsible noHorizontalPadding open title="Date">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <DatePicker
-            footer="Pick a day."
+            footer="From 2024-01-01 to 2024-01-15"
             selected={{ from: new Date(2025, 0, 1), to: new Date(2025, 0, 15) }}
             onSelect={(date) => console.log('date: ', date)}
           />

@@ -51,6 +51,7 @@ export function DatePicker({
         selected={selected}
         onSelect={(dateRange) => selectDate(dateRange)}
         footer={footer}
+        defaultMonth={selected?.from}
       />
     </div>
   )
