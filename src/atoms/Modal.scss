@@ -35,7 +35,7 @@
     padding: config.$space-5x;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: config.$space-2x;
     flex-grow: 1;
     border-radius: config.$corner-radius-xxs;
@@ -79,6 +79,7 @@
       width: 100%;
       padding-left: config.$space-halfx;
       padding-right: config.$space-halfx;
+      flex-grow: 1;
     }
 
     &.details {
