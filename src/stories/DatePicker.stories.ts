@@ -15,6 +15,9 @@ const meta = {
     onSelect: {
       description: 'Component onSelect callback',
     },
+    selected: {
+      description: 'Selected date or date range',
+    },
     locale: {
       description: 'String with the locale to be used on the translations',
     },
@@ -31,7 +34,7 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const PrimaryDateRange: Story = {
   args: {
     variant: 'primary',
     footer: 'Pick a day.',
@@ -40,7 +43,7 @@ export const Primary: Story = {
   parameters: figmaPrimaryDesign,
 }
 
-export const WithDateSelected: Story = {
+export const WithDateRangeSelected: Story = {
   args: {
     variant: 'primary',
     footer: 'From 2024-02-02 to 2024-02-15',

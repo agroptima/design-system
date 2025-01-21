@@ -7,5 +7,7 @@
 .date-picker {
   .rdp-root {
     width: 320px;
+    --rdp-accent-color: #eb004dff; // color_alias.$primary-color-600;
+    --rdp-accent-background-color: #ffedeeff; // color_alias.$primary-color-50;
   }
 }
