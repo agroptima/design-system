@@ -1,56 +1,36 @@
+@use '../../settings/mixins';
 @use '../../settings/color_alias';
 @use '../../settings/typography/cards_table' as typography;
 @use '../../settings/config';
 @use '../../settings/breakpoints';
-
-@mixin align-data-vertically() {
-  thead {
-    display: none;
-  }
-
-  tbody {
-    tr {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      position: relative;
-      gap: config.$space-1x;
-      padding: config.$space-2x config.$space-3x;
-    }
-  }
-
-  td {
-    width: 100%;
-    flex: inherit;
-    padding: 0px;
-  }
-}
 
 .cards-table-list {
   border-collapse: separate;
   border-spacing: 0 config.$space-2x;
   width: 100%;
 
-  tbody {
+  th,
+  td {
+    padding: config.$space-2x config.$space-3x;
+    padding: config.$space-2x config.$space-3x;
+  }
 
+  tbody {
     tr {
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
       cursor: default;
     }
   }
 
-  th {
-    padding: config.$space-2x config.$space-3x;
+  .cell {
+    display: flex;
+    align-items: center;
+    gap: config.$space-2x;
+  }
 
-    &.sortable {
-      cursor: pointer;
-    }
-
-    .icon {
-      width: config.$icon-size-3x;
-      height: config.$icon-size-3x;
-      margin-left: config.$space-1x;
-    }
+  .actions > .cell {
+    gap: config.$space-7x;
+    justify-content: center;
   }
 
   .no-wrap {
@@ -69,18 +49,6 @@
     justify-content: center;
   }
 
-  .actions {
-    display: flex;
-    gap: config.$space-7x;
-    justify-content: center;
-  }
-
-  .cell {
-    display: flex;
-    align-items: center;
-    flex: 2;
-  }
-
   &.primary {
     thead > tr {
       @include typography.cards-table-list-header;
@@ -88,15 +56,7 @@
 
     th {
       background: color_alias.$neutral-color-900;
-
-      .icon {
-        > svg {
-          fill: color_alias.$neutral-white;
-          path {
-            fill: color_alias.$neutral-white;
-          }
-        }
-      }
+      @include mixins.icon-color(color_alias.$neutral-white);
     }
 
     th:first-child {
@@ -124,7 +84,6 @@
 
     tr.disabled {
       background: color_alias.$neutral-color-50;
-
       td {
         @include typography.cards-table-list-disabled-text;
       }
@@ -140,60 +99,60 @@
         border-right: 1px solid transparent;
       }
     }
-    
+
     tr.active {
       box-shadow: none;
       > td {
         border-color: color_alias.$primary-color-1000;
-     }
+      }
     }
   }
 
-  .checkbox-group {
-    margin-right: config.$space-1x;
-  }
-
-  td {
-    padding: config.$space-2x config.$space-3x;
-  }
-
-  .badge:has(.icon) {
-    margin: auto;
-  }
-
-  &.vertically {
-    @include align-data-vertically();
-  }
-
-  // Media queries
-  // Mobile & tablet cases
   @media only screen and (max-width: breakpoints.$large) {
-    @include align-data-vertically();
-
-
-    td:first-child {
-      order: -2;
+    thead {
+      display: none;
     }
 
     tr {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
       margin-block: config.$space-3x;
+      padding: config.$space-2x config.$space-3x;
+      gap: config.$space-1x;
     }
 
-    .badge:has(.icon) {
-      margin: 0;
-      margin-left: config.$space-2x;
+    td {
+      width: 100%;
+      flex: inherit;
+      padding: 0px;
     }
 
-    
+    .actions {
+      width: auto;
+      position: absolute;
+      inset: config.$space-3x config.$space-3x auto auto;
+    }
+
+    .floating-left-mobile {
+      width: auto;
+      order: 98;
+    }
+
+    .floating-right-mobile {
+      margin-left: auto;
+      width: auto;
+      order: 99;
+    }
+
     tr.active {
       box-shadow: none;
+      border: 1px solid color_alias.$primary-color-1000;
       > td {
         border-color: transparent !important;
       }
-      border: 1px solid color_alias.$primary-color-1000;
     }
-
-
 
     &.with-title td:not(.actions):nth-child(2) {
       margin-top: config.$space-2x;
@@ -213,37 +172,6 @@
     }
     .title-actions-1 {
       width: calc(100% - 1 * config.$icon-size-5x - 8px);
-    }
-
-    
-    .actions {
-      position: absolute;
-      inset: config.$space-3x config.$space-3x auto auto;
-    }
-
-    .alignment-right {
-      justify-content: flex-start;
-    }
-
-    .badge {
-      position: absolute;
-      inset: auto auto config.$space-5x config.$space-2x;
-    }
-
-    .badge:has(> .icon) {
-      position: relative;
-      inset: inherit;
-    }
-
-    td:has(.badge > .icon) {
-      justify-content: flex-start;
-    }
-
-    tr:not(.alignment-right) {
-      padding-bottom: config.$space-10x;
-    }
-    tr:has(.alignment-right) {
-      padding-bottom: config.$space-2x;
     }
   }
 }

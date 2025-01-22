@@ -1,0 +1,8 @@
+@mixin icon-color($color) {
+  .icon > svg {
+    fill: $color;
+    path {
+      fill: $color;
+    }
+  }
+}

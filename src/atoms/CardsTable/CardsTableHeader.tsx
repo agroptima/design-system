@@ -24,7 +24,7 @@ export function CardsTableHeader({
     },
   )
   return (
-    <th scope="col" role="columnheader" {...props}>
+    <th role="columnheader" {...props}>
       <div className={cssClasses}>{children}</div>
     </th>
   )

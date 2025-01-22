@@ -13,6 +13,8 @@ export interface CardsTableCellProps
   noWrap?: boolean
   align?: Alignment
   actions?: boolean
+  floatingLeftMobile?: boolean
+  floatingRightMobile?: boolean
   titleWithActions?: number
 }
 
@@ -21,6 +23,8 @@ export function CardsTableCell({
   actions = false,
   titleWithActions = 0,
   align = Alignment.Left,
+  floatingLeftMobile = false,
+  floatingRightMobile = false,
   children,
   className,
   ...props
@@ -34,11 +38,24 @@ export function CardsTableCell({
     className,
     {
       'no-wrap': noWrap,
-      actions,
     },
   )
+
+  const actionsStopPropagation = actions
+    ? { onClick: (e: React.MouseEvent) => e.stopPropagation() }
+    : {}
+
   return (
-    <td role="cell" {...props}>
+    <td
+      role="cell"
+      className={classNames({
+        actions,
+        'floating-left-mobile': floatingLeftMobile,
+        'floating-right-mobile': floatingRightMobile,
+      })}
+      {...actionsStopPropagation}
+      {...props}
+    >
       <div className={cssClasses}>{children}</div>
     </td>
   )

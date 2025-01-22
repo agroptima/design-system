@@ -4,7 +4,7 @@ import { classNames } from '../../utils/classNames'
 
 export interface CardHeaderProps extends React.ComponentPropsWithoutRef<'div'> {
   title: string
-  isBold: boolean
+  isBold?: boolean
 }
 
 export function CardHeader({

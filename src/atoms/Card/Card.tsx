@@ -13,6 +13,8 @@ export interface CardProps {
   isActive?: boolean
   error?: boolean
   href?: string
+  onClick?: () => void
+  role?: string
   children: React.ReactNode
 }
 
@@ -33,6 +35,7 @@ export function Card({
     disabled: isDisabled,
     active: isActive,
     error: error,
+    clickable: Boolean(props.onClick),
   })
 
   if (href && !isDisabled) {
