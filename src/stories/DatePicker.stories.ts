@@ -18,7 +18,7 @@ const meta = {
     selected: {
       description: 'Selected date or date range',
     },
-    locale: {
+    lng: {
       description: 'String with the locale to be used on the translations',
     },
   },
