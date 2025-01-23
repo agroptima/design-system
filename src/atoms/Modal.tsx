@@ -25,6 +25,7 @@ export interface ModalProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: Variant
   title: string
   buttons: ButtonProps[]
+  scrollable?: boolean
 }
 
 export function Modal({
@@ -34,9 +35,10 @@ export function Modal({
   title,
   buttons,
   children,
+  scrollable = false,
   ...props
 }: ModalProps): React.JSX.Element {
-  const cssClasses = classNames('modal', variant, className)
+  const cssClasses = classNames('modal', variant, className, { scrollable })
 
   return (
     <div className="modal-container">
@@ -48,19 +50,17 @@ export function Modal({
         className={cssClasses}
         {...props}
       >
-        <div className="scroll-area">
-          <div className="header">
-            {variant !== 'details' && (
-              <Icon name={IconVariant[variant]} className={variant} />
-            )}
-            <h4 id={`${id}-title`} className="title">
-              {title}
-            </h4>
-          </div>
-          {variant === 'details' && <div className="divider" />}
-          <div id={`${id}-body`} className="body">
-            {children}
-          </div>
+        <div className="header">
+          {variant !== 'details' && (
+            <Icon name={IconVariant[variant]} className={variant} />
+          )}
+          <h4 id={`${id}-title`} className="title">
+            {title}
+          </h4>
+        </div>
+        {variant === 'details' && <div className="divider" />}
+        <div id={`${id}-body`} className="body">
+          {children}
         </div>
         <div className="footer">
           {buttons.map(({ ...button }) => (

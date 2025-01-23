@@ -1,6 +1,5 @@
 export * as Button from '../src/stories/Button.stories'
 export * as CardsTable from '../src/stories/CardsTable.stories'
-export * as CardsTableList from '../src/stories/CardsTableList.stories'
 export * as Checkbox from '../src/stories/Checkbox.stories'
 export * as EmptyState from '../src/stories/EmptyState.stories'
 export * as Form from '../src/stories/Form.stories'

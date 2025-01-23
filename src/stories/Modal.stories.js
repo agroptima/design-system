@@ -2,7 +2,9 @@ import React from 'react'
 import { Card } from '../atoms/Card'
 import { Collapsible } from '../atoms/Collapsible'
 import { DetailItem } from '../atoms/DetailItem'
+import { Input } from '../atoms/Input'
 import { Modal } from '../atoms/Modal'
+import { Select } from '../atoms/Select'
 
 const figmaPrimaryDesign = {
   design: {
@@ -140,6 +142,7 @@ export const Details = {
       id="details-dangerous-alone"
       variant="details"
       title="Game details"
+      scrollable
       buttons={[
         {
           label: 'Done',
@@ -170,6 +173,48 @@ export const Details = {
       >
         59,95 €
       </DetailItem>
+    </Modal>
+  ),
+}
+
+export const Form = {
+  render: () => (
+    <Modal
+      id="form"
+      variant="info"
+      title="Form Modal"
+      buttons={[
+        {
+          label: 'Save',
+        },
+      ]}
+    >
+      <Input label="Input" helpText="This text can help you" name="input" />
+      <Select
+        label="Select"
+        onChange={() => {}}
+        placeholder="Select a platform"
+        options={[
+          { id: '1', label: 'Nintendo Switch' },
+          { id: '2', label: 'PlayStation 5' },
+          { id: '3', label: 'Xbox Series S/X' },
+          { id: '4', label: 'PC' },
+          { id: '5', label: 'Mobile' },
+          { id: '6', label: 'PlayStation 4' },
+          { id: '7', label: 'Xbox One' },
+          { id: '8', label: 'PlayStation 3' },
+          { id: '9', label: 'Xbox 360' },
+          { id: '10', label: 'PlayStation 2' },
+          { id: '11', label: 'Xbox' },
+          { id: '12', label: 'PlayStation' },
+          { id: '13', label: 'Nintendo 64' },
+          { id: '14', label: 'Super Nintendo' },
+          { id: '15', label: 'Sega Genesis' },
+          { id: '16', label: 'Sega Saturn' },
+          { id: '17', label: 'Sega Dreamcast' },
+          { id: '18', label: 'Atari 2600' },
+        ]}
+      />
     </Modal>
   ),
 }
