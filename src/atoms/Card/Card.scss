@@ -13,7 +13,7 @@ a.card {
 .card {
   display: flex;
   flex-direction: column;
-  gap: config.$space-1x;
+  gap: config.$space-2x;
   padding: config.$space-3x;
   width: 100%;
   p {
@@ -27,17 +27,12 @@ a.card {
   .icon {
     width: config.$icon-size-4x;
     height: config.$icon-size-4x;
-    > svg {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: config.$space-1x;
     gap: config.$space-1x;
     .title {
       overflow: hidden;
@@ -52,7 +47,7 @@ a.card {
   }
 
   .content {
-    margin-bottom: config.$space-2x;
+    margin-bottom: config.$space-1x;
   }
 
   .footer {

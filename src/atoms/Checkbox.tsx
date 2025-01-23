@@ -42,7 +42,12 @@ export function Checkbox({
         aria-label={accessibilityLabel || label}
         {...props}
       />
-      {!hideLabel && <label htmlFor={identifier}>{label}</label>}
+      <label
+        htmlFor={identifier}
+        className={classNames({ 'visually-hidden': hideLabel })}
+      >
+        {label}
+      </label>
     </div>
   )
 }

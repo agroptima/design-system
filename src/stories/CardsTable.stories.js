@@ -82,7 +82,7 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell>Not available</CardsTableCell>
-          <CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is bought"
               text="Bought"
@@ -127,7 +127,7 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>cdprojekt@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">19,99 €</CardsTableCell>
-          <CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is booked"
               text="Booked"
@@ -163,7 +163,7 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>namco@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">79,99 €</CardsTableCell>
-          <CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is discontinued"
               text="Discontinued"
@@ -193,7 +193,7 @@ export const Primary = {
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
           <CardsTableCell align="right">6,99 €</CardsTableCell>
-          <CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is bought"
               text="Bought"
@@ -251,8 +251,10 @@ export const Primary = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right">6,99 €</CardsTableCell>
-          <CardsTableCell>
+          <CardsTableCell align="right" floatingRightMobile>
+            6,99 €
+          </CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is wishlisted"
               text="Wishlist"
@@ -311,16 +313,86 @@ export const OnlyTitle = {
   ),
 }
 
-export const DataAlignedVertically = {
+export const MultipleBadges = {
   render: (args) => (
-    <CardsTable vertically {...args}>
+    <CardsTable withTitle {...args}>
+      <CardsTableHead>
+        <CardsTableRow>
+          <CardsTableHeader>
+            <Checkbox
+              label="Select all table rows"
+              hideLabel
+              id="checkbox-select-all"
+              indeterminate
+              checked
+              onChange={() => {}}
+              variant="primary"
+            />
+            <span>Game title</span>
+          </CardsTableHeader>
+          <CardsTableHeader>Company address</CardsTableHeader>
+          <CardsTableHeader>Customer service email</CardsTableHeader>
+          <CardsTableHeader>Price</CardsTableHeader>
+          <CardsTableHeader>State</CardsTableHeader>
+          <CardsTableHeader>Genre</CardsTableHeader>
+          <CardsTableHeader actions>Actions</CardsTableHeader>
+        </CardsTableRow>
+      </CardsTableHead>
       <CardsTableBody>
         <CardsTableRow>
-          <CardsTableCell>Silent Hill</CardsTableCell>
-          <CardsTableCell>Metal Gear Solid 5</CardsTableCell>
-          <CardsTableCell>Tekken 8</CardsTableCell>
-          <CardsTableCell>The Witcher 3</CardsTableCell>
-          <CardsTableCell>Zone of the Enders: The 2nd Runner</CardsTableCell>
+          <CardsTableCell titleWithActions={3}>
+            <Checkbox
+              accessibilityLabel="Select"
+              id="checkbox-select-all"
+              variant="primary"
+              hideLabel
+            />
+            <span>Zone of the Enders: The 2nd Runner</span>
+            <Badge
+              accessibilityLabel="Game is bought"
+              icon="Export"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
+          <CardsTableCell>
+            Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku,
+            Tokyo, 104-0061 Japan
+          </CardsTableCell>
+          <CardsTableCell>konami@fakemail.com</CardsTableCell>
+          <CardsTableCell align="right" floatingRightMobile noWrap>
+            6,99 €
+          </CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="Bought"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
+          <CardsTableCell floatingLeftMobile noWrap>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="tactical role-playing"
+              variant="neutral-outlined"
+            />
+          </CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Export"
+              accessibilityLabel="Export game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+          </CardsTableCell>
         </CardsTableRow>
       </CardsTableBody>
     </CardsTable>

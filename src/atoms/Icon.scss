@@ -1,6 +1,15 @@
 @use '../settings/color_alias';
 @use '../settings/config';
 
+@mixin icon-color($color) {
+  .icon > svg {
+    fill: $color;
+    path {
+      fill: $color;
+    }
+  }
+}
+
 .icon {
   display: inline-flex;
   justify-content: center;

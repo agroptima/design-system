@@ -1,75 +1,36 @@
+@use '../../settings/mixins';
 @use '../../settings/color_alias';
 @use '../../settings/typography/cards_table' as typography;
 @use '../../settings/config';
 @use '../../settings/breakpoints';
 
-@mixin align-data-vertically() {
-  thead {
-    display: none;
-  }
-
-  tbody {
-    tr {
-      flex-direction: row;
-      flex-wrap: wrap;
-      position: relative;
-      gap: config.$space-1x;
-      padding: config.$space-2x config.$space-3x;
-    }
-  }
-
-  td {
-    width: 100%;
-    flex: inherit;
-    padding: 0px;
-  }
-}
-
 .cards-table-list {
-  display: flex;
-  flex-direction: column;
-  gap: config.$space-3x;
+  border-collapse: separate;
+  border-spacing: 0 config.$space-2x;
+  width: 100%;
+
+  th,
+  td {
+    padding: config.$space-2x config.$space-3x;
+    padding: config.$space-2x config.$space-3x;
+  }
 
   tbody {
-    display: flex;
-    flex-direction: column;
-    gap: config.$space-3x;
-
     tr {
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+      cursor: default;
     }
   }
 
-  tr {
+  .cell {
     display: flex;
-    flex-grow: 1;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: config.$space-2x;
   }
 
-  th {
-    padding: config.$space-2x config.$space-3x;
-    text-align: left;
-
-    &.sortable {
-      cursor: pointer;
-    }
-
-    .icon {
-      width: config.$icon-size-3x;
-      height: config.$icon-size-3x;
-      margin-left: config.$space-1x;
-      > svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
+  .actions > .cell {
+    gap: config.$space-7x;
+    justify-content: center;
   }
 
   .no-wrap {
@@ -80,13 +41,12 @@
     justify-content: flex-start;
   }
 
-  .alignment-center {
-    justify-content: center;
+  .alignment-right {
+    justify-content: flex-end !important;
   }
 
-  .actions {
-    display: flex;
-    gap: config.$space-7x;
+  .alignment-center {
+    justify-content: center;
   }
 
   &.primary {
@@ -96,37 +56,7 @@
 
     th {
       background: color_alias.$neutral-color-900;
-
-      .icon {
-        > svg {
-          fill: color_alias.$neutral-white;
-          path {
-            fill: color_alias.$neutral-white;
-          }
-        }
-
-        &.ascending {
-          > svg {
-            .sorter_svg__up {
-              fill: color_alias.$primary-color-600;
-            }
-            .sorter_svg__down {
-              fill: color_alias.$neutral-white;
-            }
-          }
-        }
-
-        &.descending {
-          > svg {
-            .sorter_svg__up {
-              fill: color_alias.$neutral-white;
-            }
-            .sorter_svg__down {
-              fill: color_alias.$primary-color-600;
-            }
-          }
-        }
-      }
+      @include mixins.icon-color(color_alias.$neutral-white);
     }
 
     th:first-child {
@@ -154,77 +84,74 @@
 
     tr.disabled {
       background: color_alias.$neutral-color-50;
-
       td {
         @include typography.cards-table-list-disabled-text;
       }
     }
+
+    tr > td {
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      &:first-child {
+        border-left: 1px solid transparent;
+      }
+      &:last-child {
+        border-right: 1px solid transparent;
+      }
+    }
+
     tr.active {
-      border-color: color_alias.$primary-color-1000;
       box-shadow: none;
-    }
-    tr.action {
-      cursor: default;
-    }
-  }
-
-  // Desktop
-  thead {
-    display: flex;
-  }
-  tr {
-    flex-direction: row;
-  }
-
-  th,
-  td {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex: 2;
-
-    .checkbox-group {
-      margin-right: config.$space-1x;
+      > td {
+        border-color: color_alias.$primary-color-1000;
+      }
     }
   }
 
-  td {
-    padding: config.$space-2x config.$space-3x;
-  }
-
-  th.actions {
-    justify-content: center;
-  }
-
-  td.actions {
-    order: 0;
-    justify-content: center;
-  }
-
-  .badge:has(.icon) {
-    margin: auto;
-  }
-
-  .alignment-right {
-    justify-content: flex-end !important;
-  }
-
-  &.vertically {
-    @include align-data-vertically();
-  }
-
-  // Media queries
-  // Mobile & tablet cases
   @media only screen and (max-width: breakpoints.$large) {
-    @include align-data-vertically();
-
-    td:first-child {
-      order: -2;
+    thead {
+      display: none;
     }
 
-    .badge:has(.icon) {
-      margin: 0;
-      margin-left: config.$space-2x;
+    tr {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+      margin-block: config.$space-3x;
+      padding: config.$space-2x config.$space-3x;
+      gap: config.$space-1x;
+    }
+
+    td {
+      width: 100%;
+      flex: inherit;
+      padding: 0px;
+    }
+
+    .actions {
+      width: auto;
+      position: absolute;
+      inset: config.$space-3x config.$space-3x auto auto;
+    }
+
+    .floating-left-mobile {
+      width: auto;
+      order: 98;
+    }
+
+    .floating-right-mobile {
+      margin-left: auto;
+      width: auto;
+      order: 99;
+    }
+
+    tr.active {
+      box-shadow: none;
+      border: 1px solid color_alias.$primary-color-1000;
+      > td {
+        border-color: transparent !important;
+      }
     }
 
     &.with-title td:not(.actions):nth-child(2) {
@@ -245,40 +172,6 @@
     }
     .title-actions-1 {
       width: calc(100% - 1 * config.$icon-size-5x - 8px);
-    }
-
-    td.actions {
-      order: -1;
-      flex-grow: 1;
-      align-items: flex-start;
-      justify-content: flex-end;
-      flex-basis: content;
-    }
-
-    .alignment-right {
-      justify-content: flex-start;
-    }
-
-    .badge {
-      position: absolute;
-      inset: auto auto config.$space-2x config.$space-2x;
-    }
-
-    .badge:has(> .icon) {
-      position: relative;
-      inset: inherit;
-    }
-
-    td:has(.badge > .icon) {
-      justify-content: flex-start;
-    }
-
-    // Specify Badge vertical position depending on having a right aligned item or not
-    tr:not(.alignment-right) {
-      padding-bottom: config.$space-10x;
-    }
-    tr:has(.alignment-right) {
-      padding-bottom: config.$space-2x;
     }
   }
 }

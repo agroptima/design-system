@@ -1,17 +1,9 @@
+@use '../settings/mixins';
 @use '../settings/color_alias';
 @use '../settings/typography/content' as typography;
 @use '../settings/config';
 @use '../settings/depth';
 @use '../settings/breakpoints';
-
-@mixin icon-color($color) {
-  .icon > svg {
-    fill: $color;
-    path {
-      fill: $color;
-    }
-  }
-}
 
 .modal-container {
   position: fixed;
@@ -100,26 +92,26 @@
 
     &.info {
       .header {
-        @include icon-color(color_alias.$info-color-1000);
+        @include mixins.icon-color(color_alias.$info-color-1000);
       }
     }
 
     &.success {
       .header {
-        @include icon-color(color_alias.$success-color-1000);
+        @include mixins.icon-color(color_alias.$success-color-1000);
       }
     }
 
     &.warning,
     &.discard {
       .header {
-        @include icon-color(color_alias.$warning-color-1000);
+        @include mixins.icon-color(color_alias.$warning-color-1000);
       }
     }
 
     &.error {
       .header {
-        @include icon-color(color_alias.$error-color-1000);
+        @include mixins.icon-color(color_alias.$error-color-1000);
       }
     }
   }
