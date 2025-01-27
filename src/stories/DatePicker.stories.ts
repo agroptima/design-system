@@ -39,6 +39,7 @@ export const PrimaryDateRange: Story = {
     variant: 'primary',
     footer: 'Pick a day.',
     onSelect: (date) => console.log('onSelect date:', date),
+    lng: 'en',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -49,6 +50,7 @@ export const WithDateRangeSelected: Story = {
     footer: 'From 2024-02-02 to 2024-02-15',
     onSelect: (date) => console.log('onSelect date:', date),
     selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 15) },
+    lng: 'en',
   },
   parameters: figmaPrimaryDesign,
 }

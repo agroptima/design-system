@@ -26,7 +26,7 @@ export interface DatePickerProps extends DivPropsWithoutOnSelect {
   onSelect: (dateRange: DateRange | undefined) => void
   footer: string
   selected?: DateRange
-  lng?: string
+  lng: keyof typeof availableLocales
 }
 
 export function DatePicker({
@@ -35,7 +35,7 @@ export function DatePicker({
   onSelect = () => {},
   footer = 'Pick a day',
   selected: preselected,
-  lng = 'es',
+  lng,
 }: DatePickerProps): React.JSX.Element {
   useEffect(() => {
     setSelected(preselected)
