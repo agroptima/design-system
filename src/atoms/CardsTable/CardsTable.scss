@@ -4,6 +4,21 @@
 @use '../../settings/config';
 @use '../../settings/breakpoints';
 
+@mixin generate-title-actions($max-actions: 5) {
+  @for $actions from 1 through $max-actions {
+    .title-actions-#{$actions} {
+      width: calc(
+        100% -
+          #{$actions} *
+          config.$icon-size-5x -
+          #{($actions - 1) *
+          config.$space-7x} -
+          config.$space-3x
+      );
+    }
+  }
+}
+
 .cards-table-list {
   border-collapse: separate;
   border-spacing: 0 config.$space-2x;
@@ -11,6 +26,7 @@
 
   th,
   td {
+    vertical-align: top;
     padding: config.$space-2x config.$space-3x;
     padding: config.$space-2x config.$space-3x;
   }
@@ -24,8 +40,12 @@
 
   .cell {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: config.$space-2x;
+  }
+
+  .checkbox {
+    margin-top: config.$space-1x;
   }
 
   .actions > .cell {
@@ -158,20 +178,6 @@
       margin-top: config.$space-2x;
     }
 
-    .title-actions-5 {
-      width: calc(100% - 5 * config.$icon-size-5x - 4 * config.$space-7x - 8px);
-    }
-    .title-actions-4 {
-      width: calc(100% - 4 * config.$icon-size-5x - 3 * config.$space-7x - 8px);
-    }
-    .title-actions-3 {
-      width: calc(100% - 3 * config.$icon-size-5x - 2 * config.$space-7x - 8px);
-    }
-    .title-actions-2 {
-      width: calc(100% - 2 * config.$icon-size-5x - 1 * config.$space-7x - 8px);
-    }
-    .title-actions-1 {
-      width: calc(100% - 1 * config.$icon-size-5x - 8px);
-    }
+    @include generate-title-actions(5);
   }
 }
