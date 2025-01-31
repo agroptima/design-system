@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.28.1",
+  "version": "0.28.2",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
@@ -26,7 +26,7 @@
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.16.0",
     "@storybook/addon-a11y": "^8.5.1",
-    "@storybook/addon-designs": "^8.0.4",
+    "@storybook/addon-designs": "^8.1.0",
     "@storybook/addon-essentials": "^8.5.1",
     "@storybook/addon-interactions": "^8.5.1",
     "@storybook/addon-links": "^8.5.1",
