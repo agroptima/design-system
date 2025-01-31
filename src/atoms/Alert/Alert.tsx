@@ -51,7 +51,7 @@ export function Alert({
           {text}
         </span>
       </div>
-      {button && <IconButton {...button} variant="primary" />}
+      {button && <IconButton {...button} variant="tertiary" />}
     </div>
   )
 }

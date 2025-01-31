@@ -5,7 +5,7 @@ import { Icon } from '../Icon'
 import type { BaseButtonProps } from './BaseButton'
 import { BaseButton } from './BaseButton'
 
-export type Variant = 'primary' | 'secondary'
+export type Variant = 'primary' | 'secondary' | 'tertiary'
 
 interface CustomProps {
   icon: IconType
