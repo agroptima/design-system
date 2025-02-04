@@ -70,3 +70,13 @@ export const Secondary: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const Tertiary: Story = {
+  args: {
+    icon: 'Delete',
+    variant: 'tertiary',
+    accessibilityLabel: 'Delete game',
+    disabled: false,
+  },
+  parameters: figmaPrimaryDesign,
+}

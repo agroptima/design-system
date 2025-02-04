@@ -54,6 +54,28 @@
     }
   }
 
+  &.tertiary {
+    > .icon {
+      > svg {
+        fill: color_alias.$neutral-color-400;
+        path {
+          fill: color_alias.$neutral-color-400;
+        }
+      }
+    }
+
+    &:hover {
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-color-400;
+          path {
+            fill: color_alias.$neutral-color-400;
+          }
+        }
+      }
+    }
+  }
+
   &.primary,
   &.secondary {
     &:disabled {
