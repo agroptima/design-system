@@ -1,0 +1,22 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/mixins';
+
+.divider-container {
+    @include mixins.icon-color(color_alias.$primary-color-600);
+    @include typography.body_bold;
+    display: flex;
+    align-items: center;
+    gap: config.$space-3x;
+
+  .line {
+    border: 1px solid color_alias.$neutral-color-200;
+    flex: 1; 
+  }
+
+  .short-line {
+    border: 1px solid color_alias.$neutral-color-200;
+    width: config.$space-6x;
+  }
+}
