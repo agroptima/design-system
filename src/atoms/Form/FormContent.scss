@@ -1,0 +1,35 @@
+@use '../../settings/config';
+@use '../../settings/breakpoints';
+@use '../../settings/color_alias';
+
+$gap: config.$space-4x;
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: $gap;
+  padding: 0;
+
+  width: breakpoints.$medium;
+  max-width: breakpoints.$medium;
+
+  &.full-width {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &:has(.footer-actions) {
+    padding-bottom: 6.25rem;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$large) {
+  .form-content {
+    max-width: 100%;
+    width: 100%;
+    &:has(.footer-actions) {
+      padding-bottom: 9rem;
+    }
+  }
+}
