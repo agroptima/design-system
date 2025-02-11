@@ -1,6 +1,20 @@
 @use '../settings/color_alias';
 @use '../settings/config';
 
+@mixin color($color) {
+  svg {
+    fill: $color;
+    path {
+      fill: $color;
+    }
+  }
+}
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
 .icon {
   display: inline-flex;
   justify-content: center;
@@ -12,36 +26,41 @@
   }
 
   &.size-1 {
-    width: config.$icon-size-1x;
-    height: config.$icon-size-1x;
+    @include size(config.$icon-size-1x);
   }
   &.size-2 {
-    width: config.$icon-size-2x;
-    height: config.$icon-size-2x;
+    @include size(config.$icon-size-2x);
   }
   &.size-3 {
-    width: config.$icon-size-3x;
-    height: config.$icon-size-3x;
+    @include size(config.$icon-size-3x);
   }
   &.size-4 {
-    width: config.$icon-size-4x;
-    height: config.$icon-size-4x;
+    @include size(config.$icon-size-4x);
   }
   &.size-5 {
-    width: config.$icon-size-5x;
-    height: config.$icon-size-5x;
+    @include size(config.$icon-size-5x);
   }
   &.size-6 {
-    width: config.$icon-size-6x;
-    height: config.$icon-size-6x;
+    @include size(config.$icon-size-6x);
   }
   &.size-7 {
-    width: config.$icon-size-7x;
-    height: config.$icon-size-7x;
+    @include size(config.$icon-size-7x);
   }
   &.size-8 {
-    width: config.$icon-size-8x;
-    height: config.$icon-size-8x;
+    @include size(config.$icon-size-8x);
+  }
+
+  &.info {
+    @include color(color_alias.$info-color-1000);
+  }
+  &.success {
+    @include color(color_alias.$success-color-1000);
+  }
+  &.warning {
+    @include color(color_alias.$warning-color-1000);
+  }
+  &.error {
+    @include color(color_alias.$error-color-1000);
   }
 
   @keyframes rotate {

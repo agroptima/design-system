@@ -1,0 +1,134 @@
+@use '../../settings/mixins';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/color_alias';
+@use '../../settings/breakpoints';
+@use '../../settings/depth';
+@use '../../settings/config';
+
+$modal-margin: 3rem;
+$modal-width: 34.5rem;
+$modal-detail-width: 50rem;
+$modal-background-color: color_alias.$neutral-white;
+$modal-boder-color: color_alias.$neutral-color-200;
+$backdrop-opacity: 0.4;
+$backdrop-background-color: color_alias.$neutral-color-900;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: depth.$z-modal;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal-dialog {
+  transition: transform 0.3s ease-out;
+  max-width: $modal-width;
+  position: relative;
+  width: auto;
+  margin-block: $modal-margin;
+  margin-inline: auto;
+  padding-inline: config.$space-4x;
+  pointer-events: none;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: $modal-background-color;
+  background-clip: padding-box;
+  outline: 0;
+  border-radius: config.$corner-radius-xxs;
+  padding: config.$space-4x;
+  box-shadow:
+    0px 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+    0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+}
+
+.modal-header {
+  gap: config.$space-2x;
+  padding-bottom: config.$space-1x;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  button {
+    margin-inline-start: auto;
+  }
+}
+
+.modal-title {
+  @include typography.h4;
+}
+
+.modal-body {
+  padding-top: config.$space-1x;
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.modal-footer {
+  padding-top: config.$space-2x;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: config.$space-2x;
+}
+
+.modal-backdrop {
+  opacity: $backdrop-opacity;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: depth.$z-modal;
+  width: 100vw;
+  height: 100vh;
+  background-color: $backdrop-background-color;
+  transition: opacity 0.15s linear;
+}
+
+.modal-details {
+  .modal-dialog {
+    max-width: 50rem;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid $modal-boder-color;
+    padding-bottom: config.$space-3x;
+  }
+
+  .modal-body {
+    padding-top: config.$space-3x;
+  }
+
+  .modal-footer {
+    padding-top: config.$space-3x;
+  }
+}
+
+.modal-dialog-scrollable {
+  height: calc(100vh - $modal-margin * 2);
+  .modal-content {
+    max-height: 100%;
+    overflow: hidden;
+  }
+  .modal-body {
+    overflow-y: auto;
+    margin-inline: config.$space-4x * -1;
+    padding-inline: config.$space-4x;
+  }
+}
+
+body:has(.modal-backdrop) {
+  overflow: hidden;
+  padding-right: 0px;
+}
