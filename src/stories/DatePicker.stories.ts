@@ -1,9 +1,9 @@
 import type { StoryObj } from '@storybook/react'
-import { DatePicker } from '../atoms/DatePicker'
+import { DateRangePicker } from '../atoms/DateRangePicker'
 
 const meta = {
-  title: 'Design System/Atoms/DatePicker',
-  component: DatePicker,
+  title: 'Design System/Atoms/DateRangePicker',
+  component: DateRangePicker,
   tags: ['autodocs'],
   argTypes: {
     footer: {
@@ -34,7 +34,7 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const PrimaryDateRange: Story = {
+export const Primary: Story = {
   args: {
     variant: 'primary',
     footer: 'Pick a day.',

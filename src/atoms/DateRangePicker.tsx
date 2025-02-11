@@ -1,5 +1,5 @@
 import 'react-day-picker/style.css'
-import './DatePicker.scss'
+import './DateRangePicker.scss'
 import { useEffect, useState } from 'react'
 import { type DateRange, DayPicker, type Locale } from 'react-day-picker'
 import { enGB, es } from 'react-day-picker/locale'
@@ -21,7 +21,7 @@ const availableLocales: AvailableLocale = {
   en: enGB,
 }
 
-export interface DatePickerProps extends DivPropsWithoutOnSelect {
+export interface DateRangePickerProps extends DivPropsWithoutOnSelect {
   variant?: Variant
   onSelect: (dateRange: DateRange | undefined) => void
   footer: string
@@ -29,14 +29,14 @@ export interface DatePickerProps extends DivPropsWithoutOnSelect {
   lng: keyof typeof availableLocales
 }
 
-export function DatePicker({
+export function DateRangePicker({
   className,
   variant = 'primary',
   onSelect = () => {},
   footer = 'Pick a day',
   selected: preselected,
   lng,
-}: DatePickerProps): React.JSX.Element {
+}: DateRangePickerProps): React.JSX.Element {
   useEffect(() => {
     setSelected(preselected)
   }, [preselected])
