@@ -19,7 +19,7 @@ export function Divider({
   return (
     <div className={cssClasses}>
       {withIcon ? (
-        <Icon name="DeliveryNote" />
+        <Icon name="DeliveryNote" size="3" />
       ) : (
         <div className="short-line"></div>
       )}
