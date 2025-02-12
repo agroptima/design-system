@@ -9,7 +9,7 @@ const meta = {
     title: {
       description: 'A title for divider',
     },
-    withIcon: {
+    icon: {
       description: 'Optional icon that is added next to the title divider ',
     },
     variant: 'primary',
@@ -29,7 +29,6 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     title: '19/01/2025 - Delivery Note',
-    withIcon: false,
     variant: 'primary',
   },
   parameters: figmaPrimaryDesign,
@@ -38,7 +37,7 @@ export const Primary: Story = {
 export const WithIcon: Story = {
   args: {
     title: '19/01/2025 - Delivery Note',
-    withIcon: true,
+    icon: 'DeliveryNote',
     variant: 'primary',
   },
   parameters: figmaPrimaryDesign,
