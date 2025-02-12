@@ -20,7 +20,7 @@ export function Divider({
   return (
     <div role="separator" className={cssClasses}>
       {icon ? (
-        <Icon name={icon} size="3" />
+        <Icon className="icon" name={icon} size="3" />
       ) : (
         <div className="short line"></div>
       )}
