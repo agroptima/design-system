@@ -128,6 +128,11 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   }
 }
 
+.modal-icon {
+  margin-top: config.$space-1x;
+  align-self: flex-start;
+}
+
 body:has(.modal-backdrop) {
   overflow: hidden;
   padding-right: 0px;

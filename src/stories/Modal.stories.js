@@ -1,9 +1,8 @@
 import React from 'react'
 import { Button, IconButton } from '../atoms/Button'
 import { Card } from '../atoms/Card'
-import { Collapsible } from '../atoms/Collapsible'
 import { DetailItem } from '../atoms/DetailItem'
-import { FormContent } from '../atoms/Form'
+import { FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
 import {
   ModalBody,
@@ -233,7 +232,7 @@ export const ScrollableModal = () => (
   </Modal>
 )
 
-export const OpenAndCloseModal = () => {
+const OpenAndCloseModalComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const closeModal = () => setIsOpen(false)
   return (
@@ -258,6 +257,12 @@ export const OpenAndCloseModal = () => {
   )
 }
 
+export const OpenAndCloseModal = {
+  render: () => {
+    return <OpenAndCloseModalComponent />
+  },
+}
+
 export const FormModal = () => (
   <form
     onSubmit={(e) => {
@@ -280,7 +285,7 @@ export const FormModal = () => (
         { label: 'Save', type: 'submit' },
       ]}
     >
-      <FormContent>
+      <FormContainer fluid>
         <Input name="input" label="Input" placeholder="Type something" />
         <Select
           label="Select"
@@ -305,7 +310,7 @@ export const FormModal = () => (
             { id: '15', label: 'Option 15' },
           ]}
         />
-      </FormContent>
+      </FormContainer>
     </Modal>
   </form>
 )

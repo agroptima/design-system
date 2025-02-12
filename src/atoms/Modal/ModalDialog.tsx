@@ -15,6 +15,7 @@ export function ModalDialog({
   children,
   details = false,
   scrollable = false,
+  ...props
 }: ModalDialogProps) {
   const handleClick = (event: React.MouseEvent) => {
     if (event.target !== event.currentTarget) return
@@ -41,6 +42,7 @@ export function ModalDialog({
         role="dialog"
         className={classNames('modal', className, { 'modal-details': details })}
         onClick={handleClick}
+        {...props}
       >
         <div
           className={classNames('modal-dialog', {

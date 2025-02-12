@@ -1,4 +1,4 @@
-export type { ModalProps } from './Modal'
+export type { ModalProps, Variant } from './Modal'
 import { Modal } from './Modal'
 export type { ModalBodyProps } from './ModalBody'
 import { ModalBody } from './ModalBody'

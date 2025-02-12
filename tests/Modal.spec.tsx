@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import { Modal } from '../src/atoms/Modal'
+import { Modal, type Variant } from '../src/atoms/Modal'
 
 describe('Modal', () => {
   const variants = ['info', 'success', 'warning', 'error']
@@ -11,6 +11,7 @@ describe('Modal', () => {
       const content = `${variant} modal content`
       const { getByRole, getByText } = render(
         <Modal
+          variant={variant as Variant}
           id={`${variant}-modal`}
           title={title}
           buttons={[
@@ -22,7 +23,7 @@ describe('Modal', () => {
           {content}
         </Modal>,
       )
-      expect(getByRole('img')).toHaveClass('info')
+      expect(getByRole('img')).toHaveClass(variant)
       expect(getByText(title)).toBeInTheDocument()
       expect(getByText(content)).toBeInTheDocument()
       expect(getByRole('button')).toHaveTextContent('Done')
@@ -52,7 +53,7 @@ describe('Modal', () => {
         {content}
       </Modal>,
     )
-    expect(getByRole('img')).toHaveClass('discard')
+    expect(getByRole('img')).toHaveClass('warning')
     expect(getByText(title)).toBeInTheDocument()
     expect(getByText(content)).toBeInTheDocument()
     expect(screen.getAllByRole('button')[0]).toHaveTextContent('Cancel')

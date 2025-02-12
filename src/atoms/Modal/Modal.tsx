@@ -33,21 +33,21 @@ export interface ModalProps {
 }
 
 const ICONS: { [key: string]: ReactNode } = {
-  info: <Icon name="Check" size="5" variant="info" />,
-  success: <Icon name="Check" size="5" variant="success" />,
-  warning: <Icon name="Warning" size="5" variant="warning" />,
-  error: <Icon name="Error" size="5" variant="error" />,
-  discard: <Icon name="Warning" size="5" variant="warning" />,
+  info: <Icon className="modal-icon" name="Info" variant="info" />,
+  success: <Icon className="modal-icon" name="Check" variant="success" />,
+  warning: <Icon className="modal-icon" name="Warning" variant="warning" />,
+  error: <Icon className="modal-icon" name="Error" variant="error" />,
+  discard: <Icon className="modal-icon" name="Warning" variant="warning" />,
 }
 
 export function Modal({
   id,
-  variant = 'details',
   title,
   buttons,
-  closeButton = false,
   onClose,
   children,
+  closeButton = false,
+  variant = 'details',
   ...props
 }: ModalProps) {
   return (

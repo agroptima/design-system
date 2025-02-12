@@ -4,7 +4,7 @@
 
 $gap: config.$space-4x;
 
-.form-content {
+.form-container {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -14,7 +14,7 @@ $gap: config.$space-4x;
   width: breakpoints.$medium;
   max-width: breakpoints.$medium;
 
-  &.full-width {
+  &.fluid {
     width: 100%;
     max-width: 100%;
   }
@@ -25,7 +25,7 @@ $gap: config.$space-4x;
 }
 
 @media only screen and (max-width: breakpoints.$large) {
-  .form-content {
+  .form-container {
     max-width: 100%;
     width: 100%;
     &:has(.footer-actions) {
