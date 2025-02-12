@@ -46,9 +46,6 @@ const meta = {
     onClose: {
       description: 'Function to be called when the modal is closed',
     },
-    closeButton: {
-      description: 'If the modal should have a close button',
-    },
   },
   parameters: figmaPrimaryDesign,
 }
@@ -158,7 +155,6 @@ export const DeleteOrDiscard = {
 export const LargeModal = () => (
   <Modal
     title="Large Modal"
-    closeButton
     onClose={() => alert('Close')}
     buttons={[
       { label: 'Close', variant: 'neutral', onClick: () => alert('Close') },
@@ -273,7 +269,6 @@ export const FormModal = () => (
   >
     <Modal
       title="Form Modal"
-      closeButton
       onClose={() => alert('Close')}
       buttons={[
         {
