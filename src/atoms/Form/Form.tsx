@@ -1,25 +1,14 @@
-import './Form.scss'
-import { classNames } from '../../utils/classNames'
+import { FormContainer } from './FormContainer'
 
 export interface FormProps extends React.ComponentPropsWithoutRef<'form'> {
-  fullWidth?: boolean
+  fluid?: boolean
   children: React.ReactNode
 }
 
-export default function Form({
-  className,
-  fullWidth,
-  children,
-  ...props
-}: FormProps) {
+export function Form({ fluid, children, ...props }: FormProps) {
   return (
-    <form
-      className={classNames(className, 'form', {
-        'full-width': fullWidth,
-      })}
-      {...props}
-    >
-      {children}
+    <form {...props}>
+      <FormContainer fluid={fluid}>{children}</FormContainer>
     </form>
   )
 }

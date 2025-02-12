@@ -3,6 +3,7 @@ import { Button } from '../atoms/Button'
 import { Card } from '../atoms/Card'
 import { Collapsible } from '../atoms/Collapsible'
 import { Actions, Form as FormComponent } from '../atoms/Form'
+import { FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
 import { Select } from '../atoms/Select'
 
@@ -39,14 +40,7 @@ export default meta
 export const Primary = {
   render: () => (
     <Collapsible title="My personal data" name="personal-data">
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          gap: '1rem',
-        }}
-      >
+      <FormContainer fluid>
         <Input
           accessibilityLabel="Fill the form name"
           helpText="This text can help you"
@@ -91,7 +85,7 @@ export const Primary = {
           placeholder="Select your favourite gaming system..."
           variant="primary"
         />
-      </div>
+      </FormContainer>
     </Collapsible>
   ),
 }
@@ -100,14 +94,7 @@ export const PrimaryOpened = {
   render: () => (
     <>
       <Collapsible title="My personal data" name="personal-data" open>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-            gap: '1rem',
-          }}
-        >
+        <FormContainer fluid>
           <Input
             accessibilityLabel="Fill the form name"
             helpText="This text can help you"
@@ -152,7 +139,7 @@ export const PrimaryOpened = {
             placeholder="Select your favourite gaming system..."
             variant="primary"
           />
-        </div>
+        </FormContainer>
       </Collapsible>
       <Collapsible title="Another data" name="another-data">
         <Input label="Another data" name="anotherData" placeholder="..." />
@@ -173,65 +160,67 @@ export const PrimaryOpened = {
 export const PrimaryDisabled = {
   render: () => (
     <Collapsible title="My personal data" name="personal-data" disabled>
-      <Input
-        accessibilityLabel="Fill the form name"
-        helpText="This text can help you"
-        id="name_input"
-        label="Name"
-        name="name"
-        placeholder="name..."
-        type="name"
-        variant="primary"
-      />
-      <Input
-        accessibilityLabel="Fill the form email"
-        helpText="This text can help you"
-        id="email_input"
-        label="Email"
-        name="email"
-        placeholder="Email..."
-        type="email"
-        variant="primary"
-      />
-      <Select
-        accessibilityLabel="Select your favourite gaming system options"
-        helpText="This text can help you"
-        id="select-videogames"
-        label="Videogames"
-        name="example"
-        onChange={() => {}}
-        options={[
-          {
-            id: '1',
-            label: 'Nintendo Switch',
-          },
-          {
-            id: '2',
-            label: 'PlayStation 5',
-          },
-          {
-            id: '3',
-            label: 'Xbox Series S/X',
-          },
-        ]}
-        placeholder="Select your favourite gaming system..."
-        variant="primary"
-      />
+      <FormContainer fluid>
+        <Input
+          accessibilityLabel="Fill the form name"
+          helpText="This text can help you"
+          id="name_input"
+          label="Name"
+          name="name"
+          placeholder="name..."
+          type="name"
+          variant="primary"
+        />
+        <Input
+          accessibilityLabel="Fill the form email"
+          helpText="This text can help you"
+          id="email_input"
+          label="Email"
+          name="email"
+          placeholder="Email..."
+          type="email"
+          variant="primary"
+        />
+        <Select
+          accessibilityLabel="Select your favourite gaming system options"
+          helpText="This text can help you"
+          id="select-videogames"
+          label="Videogames"
+          name="example"
+          onChange={() => {}}
+          options={[
+            {
+              id: '1',
+              label: 'Nintendo Switch',
+            },
+            {
+              id: '2',
+              label: 'PlayStation 5',
+            },
+            {
+              id: '3',
+              label: 'Xbox Series S/X',
+            },
+          ]}
+          placeholder="Select your favourite gaming system..."
+          variant="primary"
+        />
+      </FormContainer>
     </Collapsible>
   ),
 }
 
 export const Form = {
   render: () => (
-    <FormComponent>
-      <Collapsible open form title="User">
+    <Collapsible open form title="User">
+      <FormComponent>
         <Input label="First Name" placeholder="First Name" name="firstName" />
         <Input label="Last Name" placeholder="Last Name" name="lastName" />
         <Actions>
           <Button type="button" label="Cancel" variant="primary-outlined" />
           <Button type="submit" label="Sign in" variant="primary" />
         </Actions>
-      </Collapsible>
-    </FormComponent>
+      </FormComponent>
+    </Collapsible>
   ),
 }
