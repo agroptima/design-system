@@ -4,26 +4,6 @@
 
 $gap: config.$space-4x;
 
-.form {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  gap: $gap;
-  padding: 0;
-
-  width: breakpoints.$medium;
-  max-width: breakpoints.$medium;
-
-  &.full-width {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  &:has(.footer-actions) {
-    padding-bottom: 6.25rem;
-  }
-}
-
 .footer-actions {
   display: flex;
   justify-content: flex-end;
@@ -39,13 +19,6 @@ $gap: config.$space-4x;
 }
 
 @media only screen and (max-width: breakpoints.$large) {
-  .form {
-    max-width: 100%;
-    width: 100%;
-    &:has(.footer-actions) {
-      padding-bottom: 9rem;
-    }
-  }
   .footer-actions {
     background-color: color_alias.$neutral-white;
     border-top: 1px solid color_alias.$neutral-color-200;

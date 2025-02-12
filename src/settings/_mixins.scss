@@ -6,3 +6,17 @@
     }
   }
 }
+
+@mixin svg-color($color) {
+  svg {
+    fill: $color;
+    path {
+      fill: $color;
+    }
+  }
+}
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
