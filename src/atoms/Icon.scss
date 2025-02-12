@@ -1,19 +1,6 @@
 @use '../settings/color_alias';
 @use '../settings/config';
-
-@mixin color($color) {
-  svg {
-    fill: $color;
-    path {
-      fill: $color;
-    }
-  }
-}
-
-@mixin size($size) {
-  width: $size;
-  height: $size;
-}
+@use '../settings/mixins';
 
 .icon {
   display: inline-flex;
@@ -26,41 +13,41 @@
   }
 
   &.size-1 {
-    @include size(config.$icon-size-1x);
+    @include mixins.size(config.$icon-size-1x);
   }
   &.size-2 {
-    @include size(config.$icon-size-2x);
+    @include mixins.size(config.$icon-size-2x);
   }
   &.size-3 {
-    @include size(config.$icon-size-3x);
+    @include mixins.size(config.$icon-size-3x);
   }
   &.size-4 {
-    @include size(config.$icon-size-4x);
+    @include mixins.size(config.$icon-size-4x);
   }
   &.size-5 {
-    @include size(config.$icon-size-5x);
+    @include mixins.size(config.$icon-size-5x);
   }
   &.size-6 {
-    @include size(config.$icon-size-6x);
+    @include mixins.size(config.$icon-size-6x);
   }
   &.size-7 {
-    @include size(config.$icon-size-7x);
+    @include mixins.size(config.$icon-size-7x);
   }
   &.size-8 {
-    @include size(config.$icon-size-8x);
+    @include mixins.size(config.$icon-size-8x);
   }
 
   &.info {
-    @include color(color_alias.$info-color-1000);
+    @include mixins.svg-color(color_alias.$info-color-1000);
   }
   &.success {
-    @include color(color_alias.$success-color-1000);
+    @include mixins.svg-color(color_alias.$success-color-1000);
   }
   &.warning {
-    @include color(color_alias.$warning-color-1000);
+    @include mixins.svg-color(color_alias.$warning-color-1000);
   }
   &.error {
-    @include color(color_alias.$error-color-1000);
+    @include mixins.svg-color(color_alias.$error-color-1000);
   }
 
   @keyframes rotate {

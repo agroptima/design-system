@@ -1,14 +1,14 @@
 import { FormContainer } from './FormContainer'
 
 export interface FormProps extends React.ComponentPropsWithoutRef<'form'> {
-  fullWidth?: boolean
+  fluid?: boolean
   children: React.ReactNode
 }
 
-export function Form({ fullWidth, children, ...props }: FormProps) {
+export function Form({ fluid, children, ...props }: FormProps) {
   return (
     <form {...props}>
-      <FormContainer fluid={fullWidth}>{children}</FormContainer>
+      <FormContainer fluid={fluid}>{children}</FormContainer>
     </form>
   )
 }
