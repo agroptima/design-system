@@ -24,7 +24,6 @@ export interface ModalProps {
   id: string
   title: string
   variant?: Variant
-  closeButton?: boolean
   scrollable?: boolean
   className?: string
   onClose?: () => void
@@ -46,22 +45,23 @@ export function Modal({
   buttons,
   onClose,
   children,
-  closeButton = false,
   variant = 'details',
   ...props
 }: ModalProps) {
+  const isDetails = variant === 'details'
+  const showCloseButton = onClose && isDetails
   return (
     <ModalDialog
       aria-labelledby={`${id}-title`}
       aria-describedby={`${id}-body`}
       onClose={onClose}
-      details={variant === 'details'}
+      details={isDetails}
       {...props}
     >
       <ModalHeader>
         {ICONS[variant]}
         <ModalTitle id={`${id}-title`}>{title}</ModalTitle>
-        {closeButton && <ModalCloseButton onClick={onClose} />}
+        {showCloseButton && <ModalCloseButton onClick={onClose} />}
       </ModalHeader>
       <ModalBody id={`${id}-body`}>{children}</ModalBody>
       <ModalFooter>
