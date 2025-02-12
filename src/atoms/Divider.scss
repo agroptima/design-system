@@ -3,7 +3,9 @@
 @use '../settings/config';
 @use '../settings/mixins';
 
-.divider-container {
+$border-line: 1px solid color_alias.$neutral-color-200;
+
+.divider {
     @include mixins.icon-color(color_alias.$primary-color-600);
     @include typography.body_bold;
     display: flex;
@@ -11,12 +13,14 @@
     gap: config.$space-3x;
 
   .line {
-    border: 1px solid color_alias.$neutral-color-200;
-    flex: 1; 
+    border: $border-line;
   }
 
-  .short-line {
-    border: 1px solid color_alias.$neutral-color-200;
+  .long {
+    flex: 1;
+  }
+
+  .short {
     width: config.$space-6x;
   }
 }
