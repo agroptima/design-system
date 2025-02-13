@@ -1,8 +1,8 @@
-@use '../settings/color_alias';
-@use '../settings/typography/content' as typography;
-@use '../settings/config';
-@use '../settings/depth';
-@use '../settings/breakpoints';
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/breakpoints';
 
 // Interpolation applied: https://sass-lang.com/documentation/breaking-changes/css-vars/
 
