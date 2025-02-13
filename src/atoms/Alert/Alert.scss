@@ -46,7 +46,6 @@
     .icon {
       width: config.$icon-size-3x;
       height: config.$icon-size-3x;
-
       > svg {
         fill: color_alias.$neutral-color-400;
         path {
@@ -73,61 +72,21 @@
   &.info {
     border: 1px solid color_alias.$info-color-600;
     background: color_alias.$info-color-50;
-    .information-container {
-      .icon {
-        > svg {
-          fill: color_alias.$info-color-1000;
-          path {
-            fill: color_alias.$info-color-1000;
-          }
-        }
-      }
-    }
   }
 
   &.success {
     border: 1px solid color_alias.$success-color-300;
     background: color_alias.$success-color-50;
-    .information-container {
-      .icon {
-        > svg {
-          fill: color_alias.$success-color-1000;
-          path {
-            fill: color_alias.$success-color-1000;
-          }
-        }
-      }
-    }
   }
 
   &.warning {
     border: 1px solid color_alias.$warning-color-300;
     background: color_alias.$warning-color-50;
-    .information-container {
-      .icon {
-        > svg {
-          fill: color_alias.$warning-color-1000;
-          path {
-            fill: color_alias.$warning-color-1000;
-          }
-        }
-      }
-    }
   }
 
   &.error {
     border: 1px solid color_alias.$error-color-1000;
     background: color_alias.$error-color-50;
-    .information-container {
-      .icon {
-        > svg {
-          fill: color_alias.$error-color-1000;
-          path {
-            fill: color_alias.$error-color-1000;
-          }
-        }
-      }
-    }
   }
 
   @keyframes fadeOut {

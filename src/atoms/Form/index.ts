@@ -1,4 +1,5 @@
-import Actions from './Actions'
-import Form from './Form'
+import { Actions } from './Actions'
+import { Form } from './Form'
+import { FormContainer } from './FormContainer'
 
-export { Actions, Form }
+export { Actions, Form, FormContainer }
