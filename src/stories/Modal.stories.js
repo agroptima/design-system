@@ -233,7 +233,6 @@ const OpenAndCloseModalComponent = () => {
   const closeModal = () => setIsOpen(false)
   return (
     <>
-      <Button label="Open Modal" onClick={() => setIsOpen(true)} />
       {isOpen && (
         <ModalDialog details onClose={closeModal}>
           <ModalHeader>
@@ -249,6 +248,10 @@ const OpenAndCloseModalComponent = () => {
         </ModalDialog>
       )}
       <LoremIpsum lorems={10} />
+      <br />
+      <hr />
+      <br />
+      <Button label="Open Modal" onClick={() => setIsOpen(true)} />
     </>
   )
 }

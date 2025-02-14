@@ -1,6 +1,6 @@
 'use client'
 import './Modal.scss'
-import React, { useEffect } from 'react'
+import React, { use, useEffect } from 'react'
 import { classNames } from '../../utils/classNames'
 
 export interface ModalDialogProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,6 +21,16 @@ export function ModalDialog({
     if (event.target !== event.currentTarget) return
     onClose?.()
   }
+
+  useEffect(() => {
+    keepScrollbarSpace()
+    window.addEventListener('resize', keepScrollbarSpace)
+
+    return () => {
+      removeScrollbarSpace()
+      window.removeEventListener('resize', keepScrollbarSpace)
+    }
+  }, [])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -54,4 +64,24 @@ export function ModalDialog({
       </div>
     </>
   )
+}
+
+function keepScrollbarSpace() {
+  const html = document.documentElement
+  const scrollbarWidth = window.innerWidth - html.clientWidth
+  const hasScrollbar = scrollbarWidth > 0
+
+  if (hasScrollbar) {
+    html.style.setProperty('--modal-scroll-width', `${scrollbarWidth}px`)
+    html.classList.add('modal-scroll')
+  } else {
+    html.style.setProperty('--modal-scroll-width', '0px')
+    html.classList.remove('modal-scroll')
+  }
+}
+
+function removeScrollbarSpace() {
+  const html = document.documentElement
+  html.classList.remove('modal-scroll')
+  html.style.setProperty('--modal-scroll-width', '0px')
 }

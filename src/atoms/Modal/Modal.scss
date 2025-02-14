@@ -5,6 +5,10 @@
 @use '../../settings/depth';
 @use '../../settings/config';
 
+:root {
+  --modal-scroll-width: 0px;
+}
+
 $modal-margin: 3rem;
 $modal-width: 34.5rem;
 $modal-detail-width: 50rem;
@@ -133,7 +137,7 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   align-self: flex-start;
 }
 
-body:has(.modal-backdrop) {
+.modal-scroll {
   overflow: hidden;
-  padding-right: 0px;
+  padding-right: var(--modal-scroll-width);
 }
