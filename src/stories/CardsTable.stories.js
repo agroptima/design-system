@@ -1,7 +1,6 @@
 import React from 'react'
 import { Badge } from '../atoms/Badge'
 import { IconButton } from '../atoms/Button'
-import { Button } from '../atoms/Button'
 import {
   CardsTable,
   CardsTableBody,
@@ -24,13 +23,21 @@ const meta = {
   title: 'Design System/Atoms/CardsTable',
   component: CardsTable,
   tags: ['autodocs'],
-  parameters: figmaPrimaryDesign,
-  argTypes: {
-    variant: {
-      description: 'Select variant used',
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>The data table’s features are ideal for organizing and displaying data in a UI.</p><ul><li>Left align textual data</li><li>Right align numerical data</li><li>When having several numerical data columns, the Price one should be just before the Actions column.</li></ul>',
+      },
     },
-    withTitle: {
-      description: 'Add style to first column',
+    figmaPrimaryDesign,
+    argTypes: {
+      variant: {
+        description: 'Select variant used',
+      },
+      withTitle: {
+        description: 'Add style to first column',
+      },
     },
   },
 }
@@ -56,8 +63,8 @@ export const Primary = {
           </CardsTableHeader>
           <CardsTableHeader>Company address</CardsTableHeader>
           <CardsTableHeader>Customer service email</CardsTableHeader>
-          <CardsTableHeader>Price</CardsTableHeader>
           <CardsTableHeader>State</CardsTableHeader>
+          <CardsTableHeader>Price</CardsTableHeader>
           <CardsTableHeader actions>Actions</CardsTableHeader>
         </CardsTableRow>
       </CardsTableHead>
@@ -82,7 +89,6 @@ export const Primary = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell>Not available</CardsTableCell>
           <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is bought"
@@ -90,6 +96,7 @@ export const Primary = {
               variant="success-outlined"
             />
           </CardsTableCell>
+          <CardsTableCell>Not available</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -128,7 +135,6 @@ export const Primary = {
             CD PROJEKT S.A. ul. Jagiellońska 74 03-301 Warszawa Poland
           </CardsTableCell>
           <CardsTableCell>cdprojekt@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right">19,99 €</CardsTableCell>
           <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is booked"
@@ -136,6 +142,7 @@ export const Primary = {
               variant="info-outlined"
             />
           </CardsTableCell>
+          <CardsTableCell align="right">19,99 €</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -165,7 +172,6 @@ export const Primary = {
             135-0034, Japan
           </CardsTableCell>
           <CardsTableCell>namco@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right">79,99 €</CardsTableCell>
           <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is discontinued"
@@ -173,6 +179,7 @@ export const Primary = {
               variant="warning-outlined"
             />
           </CardsTableCell>
+          <CardsTableCell align="right">79,99 €</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -196,7 +203,6 @@ export const Primary = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right">6,99 €</CardsTableCell>
           <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is bought"
@@ -204,6 +210,7 @@ export const Primary = {
               variant="success-outlined"
             />
           </CardsTableCell>
+          <CardsTableCell align="right">6,99 €</CardsTableCell>
           <CardsTableCell actions>
             <Popover
               position="center"
@@ -256,15 +263,15 @@ export const Primary = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right" floatingRightMobile>
-            6,99 €
-          </CardsTableCell>
           <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is wishlisted"
               text="Wishlist"
               variant="neutral-outlined"
             />
+          </CardsTableCell>
+          <CardsTableCell align="right" floatingRightMobile>
+            6,99 €
           </CardsTableCell>
           <CardsTableCell actions>
             <IconButton
@@ -337,9 +344,9 @@ export const MultipleBadges = {
           </CardsTableHeader>
           <CardsTableHeader>Company address</CardsTableHeader>
           <CardsTableHeader>Customer service email</CardsTableHeader>
-          <CardsTableHeader>Price</CardsTableHeader>
           <CardsTableHeader>State</CardsTableHeader>
           <CardsTableHeader>Genre</CardsTableHeader>
+          <CardsTableHeader>Price</CardsTableHeader>
           <CardsTableHeader actions>Actions</CardsTableHeader>
         </CardsTableRow>
       </CardsTableHead>
@@ -364,9 +371,6 @@ export const MultipleBadges = {
             Tokyo, 104-0061 Japan
           </CardsTableCell>
           <CardsTableCell>konami@fakemail.com</CardsTableCell>
-          <CardsTableCell align="right" floatingRightMobile noWrap>
-            6,99 €
-          </CardsTableCell>
           <CardsTableCell floatingLeftMobile>
             <Badge
               accessibilityLabel="Game is bought"
@@ -380,6 +384,9 @@ export const MultipleBadges = {
               text="tactical role-playing"
               variant="neutral-outlined"
             />
+          </CardsTableCell>
+          <CardsTableCell align="right" floatingRightMobile noWrap>
+            6,99 €
           </CardsTableCell>
           <CardsTableCell actions>
             <IconButton

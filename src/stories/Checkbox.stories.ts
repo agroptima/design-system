@@ -4,6 +4,14 @@ import { Checkbox } from '../atoms/Checkbox'
 const meta = {
   title: 'Design System/Atoms/Checkbox',
   component: Checkbox,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "<h2>Usage guidelines</h2><p>Checkboxes are used for multiple choices, not for mutually exclusive choices.</p><ul><li>When a checkbox represents multiple values that are not identical, the checkbox should appear in the indeterminate state</li><li>It's used on forms, filtering and batch actions and on terms and conditions agreement</li></ul>",
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     accessibilityLabel: {

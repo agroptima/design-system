@@ -10,6 +10,15 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/RadioButton',
   component: RadioButton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>Radio button component allows a user to select only one value from several options. Radio options should not be too many because all the options are default visible to a user so that the user can make the selection via comparison.</p><ul><li>Always label radio groups</li><li>Radio buttons and checkboxes are not interchangeable.</li></ul>',
+      },
+    },
+    figmaPrimaryDesign,
+  },
   tags: ['autodocs'],
   argTypes: {
     accessibilityLabel: {
@@ -31,7 +40,6 @@ const meta = {
       description: 'Value needed for the label relation',
     },
   },
-  parameters: figmaPrimaryDesign,
 }
 
 export default meta

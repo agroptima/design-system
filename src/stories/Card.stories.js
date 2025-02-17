@@ -12,6 +12,15 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Card',
   component: Card,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>A card can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>',
+      },
+    },
+    figmaPrimaryDesign,
+  },
   tags: ['autodocs'],
   argTypes: {
     visible: {
@@ -46,7 +55,6 @@ const meta = {
       control: 'text',
     },
   },
-  parameters: figmaPrimaryDesign,
 }
 
 export default meta
