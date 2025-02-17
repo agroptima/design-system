@@ -1,0 +1,98 @@
+@use '../settings/color_alias';
+@use '../settings/typography/form' as typography;
+@use '../settings/config';
+
+.switch-group {
+  @include typography.checkbox-label;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: config.$space-1x;
+
+  .switch {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    font-size: inherit;
+    box-sizing: content-box;
+    border-radius: 1em;
+    vertical-align: text-bottom;
+    color: inherit;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      box-sizing: border-box;
+      border-radius: 50%;
+    }
+
+    &.primary {
+      border: 1px solid color_alias.$neutral-color-1000;
+    }
+
+    &.primary::before {
+      background-color: color_alias.$neutral-color-1000;
+    }
+
+    &.primary:checked {
+      border: 1px solid color_alias.$primary-color-600;
+    }
+
+    &.primary:checked::before {
+      background-color: color_alias.$primary-color-600;
+    }
+
+    &.primary:disabled {
+      background-color: color_alias.$neutral-color-50;
+      border: 1px solid color_alias.$neutral-color-400;
+    }
+
+    &.primary:checked:disabled {
+      background-color: color_alias.$primary-color-50;
+      border: 1px solid color_alias.$primary-color-400;
+    }
+
+    &.primary:disabled::before {
+      background-color: color_alias.$neutral-color-400;
+    }
+
+    &.primary:checked:disabled::before {
+      background-color: color_alias.$primary-color-400;
+    }
+
+    &.medium {
+      width: 2.75em;
+      height: 1.375em;
+    }
+
+    &.medium::before {
+      width: 1.1em;
+      height: 1.1em;
+      margin: 0 0.15em;
+    }
+
+    &.medium:checked::before {
+      left: 1.375em;
+    }
+
+    &.small {
+      width: 1.75em;
+      height: 1em;
+    }
+
+    &.small::before {
+      width: 0.75em;
+      height: 0.75em;
+      margin: 0 0.15em;
+    }
+
+    &.small:checked::before {
+      left: 0.75em;
+    }
+  }
+}
