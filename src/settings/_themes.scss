@@ -1,0 +1,34 @@
+@use './colors';
+
+$themes: (
+  'erp': (
+    'colors': (
+      'primary-color-1000': colors.$magenta-1000,
+      'primary-color-900': colors.$magenta-900,
+      'primary-color-800': colors.$magenta-800,
+      'primary-color-700': colors.$magenta-700,
+      'primary-color-600': colors.$magenta-600,
+      'primary-color-500': colors.$magenta-500,
+      'primary-color-400': colors.$magenta-400,
+      'primary-color-300': colors.$magenta-300,
+      'primary-color-200': colors.$magenta-200,
+      'primary-color-100': colors.$magenta-100,
+      'primary-color-50': colors.$magenta-50,
+    ),
+  ),
+  'users': (
+    'colors': (
+      'primary-color-1000': colors.$green-1000,
+      'primary-color-900': colors.$green-900,
+      'primary-color-800': colors.$green-800,
+      'primary-color-700': colors.$green-700,
+      'primary-color-600': colors.$green-600,
+      'primary-color-500': colors.$green-500,
+      'primary-color-400': colors.$green-400,
+      'primary-color-300': colors.$green-300,
+      'primary-color-200': colors.$green-200,
+      'primary-color-100': colors.$green-100,
+      'primary-color-50': colors.$green-50,
+    ),
+  ),
+);

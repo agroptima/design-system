@@ -1,12 +1,16 @@
-@use '../settings/color_alias';
+@use 'sass:map';
+@use '../settings/themes';
 @use '../settings/typography/content' as typography;
 @use '../settings/config';
 @use '../settings/mixins';
 
-$border-line: 1px solid color_alias.$neutral-color-200;
+$border-line: 1px solid
+  map.get(themes.$themes, 'users', 'colors', 'primary-color-600');
 
 .divider {
-  @include mixins.icon-color(color_alias.$primary-color-600);
+  @include mixins.icon-color(
+    map.get(themes.$themes, 'users', 'colors', 'primary-color-600')
+  );
   @include typography.body_bold;
   display: flex;
   align-items: center;
