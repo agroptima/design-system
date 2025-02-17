@@ -1,6 +1,8 @@
 @use './colors';
 
-/* Aliases  */
+// $erp-theme: true !default;
+$users-theme: true !default;
+
 $primary-color-1000: colors.$magenta-1000;
 $primary-color-900: colors.$magenta-900;
 $primary-color-800: colors.$magenta-800;
@@ -69,3 +71,75 @@ $info-color-100: colors.$dodger-blue-100;
 $info-color-50: colors.$dodger-blue-50;
 $neutral-black: colors.$black-1000;
 $neutral-white: colors.$white-1000;
+
+/* Aliases  */
+@if $users-theme {
+  $primary-color-1000: colors.$green-1000;
+  $primary-color-900: colors.$green-900;
+  $primary-color-800: colors.$green-800;
+  $primary-color-700: colors.$green-700;
+  $primary-color-600: colors.$green-600;
+  $primary-color-500: colors.$green-500;
+  $primary-color-400: colors.$green-400;
+  $primary-color-300: colors.$green-300;
+  $primary-color-200: colors.$green-200;
+  $primary-color-100: colors.$green-100;
+  $primary-color-50: colors.$green-50;
+  $neutral-color-1000: colors.$grey-1000;
+  $neutral-color-900: colors.$grey-900;
+  $neutral-color-800: colors.$grey-800;
+  $neutral-color-700: colors.$grey-700;
+  $neutral-color-600: colors.$grey-600;
+  $neutral-color-500: colors.$grey-500;
+  $neutral-color-400: colors.$grey-400;
+  $neutral-color-300: colors.$grey-300;
+  $neutral-color-200: colors.$grey-200;
+  $neutral-color-100: colors.$grey-100;
+  $neutral-color-50: colors.$grey-50;
+  $error-color-1000: colors.$red-1000;
+  $error-color-900: colors.$red-900;
+  $error-color-800: colors.$red-800;
+  $error-color-700: colors.$red-700;
+  $error-color-600: colors.$red-600;
+  $error-color-500: colors.$red-500;
+  $error-color-400: colors.$red-400;
+  $error-color-300: colors.$red-300;
+  $error-color-200: colors.$red-200;
+  $error-color-100: colors.$red-100;
+  $error-color-50: colors.$red-50;
+  $success-color-1000: colors.$green-1000;
+  $success-color-900: colors.$green-900;
+  $success-color-800: colors.$green-800;
+  $success-color-700: colors.$green-700;
+  $success-color-600: colors.$green-600;
+  $success-color-500: colors.$green-500;
+  $success-color-400: colors.$green-400;
+  $success-color-300: colors.$green-300;
+  $success-color-200: colors.$green-200;
+  $success-color-100: colors.$green-100;
+  $success-color-50: colors.$green-50;
+  $warning-color-1000: colors.$orange-1000;
+  $warning-color-900: colors.$orange-900;
+  $warning-color-800: colors.$orange-800;
+  $warning-color-700: colors.$orange-700;
+  $warning-color-600: colors.$orange-600;
+  $warning-color-500: colors.$orange-500;
+  $warning-color-400: colors.$orange-400;
+  $warning-color-300: colors.$orange-300;
+  $warning-color-200: colors.$orange-200;
+  $warning-color-100: colors.$orange-100;
+  $warning-color-50: colors.$orange-50;
+  $info-color-1000: colors.$dodger-blue-1000;
+  $info-color-900: colors.$dodger-blue-900;
+  $info-color-800: colors.$dodger-blue-800;
+  $info-color-700: colors.$dodger-blue-700;
+  $info-color-600: colors.$dodger-blue-600;
+  $info-color-500: colors.$dodger-blue-500;
+  $info-color-400: colors.$dodger-blue-400;
+  $info-color-300: colors.$dodger-blue-300;
+  $info-color-200: colors.$dodger-blue-200;
+  $info-color-100: colors.$dodger-blue-100;
+  $info-color-50: colors.$dodger-blue-50;
+  $neutral-black: colors.$black-1000;
+  $neutral-white: colors.$white-1000;
+}
