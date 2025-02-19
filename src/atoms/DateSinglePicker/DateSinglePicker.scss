@@ -1,0 +1,15 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/breakpoints';
+
+// Interpolation applied: https://sass-lang.com/documentation/breaking-changes/css-vars/
+
+.date-picker {
+  .rdp-root {
+    width: 309px;
+    --rdp-accent-color: #{color_alias.$primary-color-600};
+    --rdp-accent-background-color: #{color_alias.$primary-color-50};
+  }
+}
