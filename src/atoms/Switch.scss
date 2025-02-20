@@ -32,11 +32,11 @@
     }
 
     &.primary {
-      border: 1px solid color_alias.$neutral-color-1000;
+      border: 1px solid color_alias.$neutral-color-800;
     }
 
     &.primary::before {
-      background-color: color_alias.$neutral-color-1000;
+      background-color: color_alias.$neutral-color-800;
     }
 
     &.primary:checked {
