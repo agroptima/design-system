@@ -1,14 +1,11 @@
 import type { StoryObj } from '@storybook/react'
-import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
+import { DatePicker } from '../atoms/DatePicker/DatePicker'
 
 const meta = {
-  title: 'Design System/Atoms/DateRangePicker',
-  component: DateRangePicker,
+  title: 'Design System/Atoms/DatePicker',
+  component: DatePicker,
   tags: ['autodocs'],
   argTypes: {
-    footer: {
-      description: 'Text for the footer',
-    },
     variant: {
       description: 'Component variant used',
     },
@@ -20,6 +17,9 @@ const meta = {
     },
     lng: {
       description: 'String with the locale to be used on the translations',
+    },
+    type: {
+      description: 'Type of date that could be range or single',
     },
   },
 }
@@ -34,21 +34,21 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const SingleDatePicker: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
+    type: 'single',
   },
-  parameters: figmaPrimaryDesign,
 }
 
-export const WithDateRangeSelected: Story = {
+export const RangeDatePicker: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
-    selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 15) },
     lng: 'en',
+    type: 'range',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -57,8 +57,20 @@ export const WithSingleDaySelected: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
-    selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 2) },
+    selected: new Date(2024, 1, 2),
     lng: 'en',
+    type: 'single',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithRangeDateSelected: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 12) },
+    lng: 'en',
+    type: 'range',
   },
   parameters: figmaPrimaryDesign,
 }

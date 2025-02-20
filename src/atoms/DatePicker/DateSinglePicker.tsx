@@ -1,47 +1,29 @@
 import 'react-day-picker/style.css'
-import './DateSinglePicker.scss'
 import { useEffect, useState } from 'react'
 import { DayPicker, type Locale } from 'react-day-picker'
 import { enGB, es } from 'react-day-picker/locale'
-import { classNames } from '../../utils/classNames'
-import {
-  formatDatePickerFooterDate,
-  formatDatePickerParamsDate,
-} from '../../utils/dateHelpers'
+import { formatDatePickerFooterDate } from '../../utils/dateHelpers'
+import type { AvailableLocale } from './DatePicker'
 import { translations } from './translations'
-
-type Variant = 'primary'
-
-type DivPropsWithoutOnSelect = Omit<
-  React.ComponentPropsWithoutRef<'div'>,
-  'onSelect'
->
-
-interface AvailableLocale {
-  [index: string]: Locale
-}
 
 const availableLocales: AvailableLocale = {
   es: es,
   en: enGB,
 }
 
-export interface DateSinglePickerProps extends DivPropsWithoutOnSelect {
-  variant?: Variant
+export interface DateSinglePickerProps {
   onSelect: (date: Date | undefined) => void
   selected?: Date
   lng: keyof typeof availableLocales
 }
 
 export function DateSinglePicker({
-  variant,
-  className,
   onSelect = () => {},
   selected: preselected,
   lng,
 }: DateSinglePickerProps): React.JSX.Element {
   const manageFooterText = (): string => {
-    if (!selected) return translations[lng].pickDate
+    if (!selected) return translations[lng].pickSingleDate
 
     return translations[lng].selectedDate.replace(
       '${date}',
@@ -64,10 +46,9 @@ export function DateSinglePicker({
     setSelected(date)
     onSelect(date)
   }
-  const cssClasses = classNames('date-picker', variant, className)
 
   return (
-    <div className={cssClasses}>
+    <>
       <DayPicker
         locale={availableLocales[lng]}
         mode="single"
@@ -77,6 +58,6 @@ export function DateSinglePicker({
         required
         defaultMonth={selected}
       />
-    </div>
+    </>
   )
 }
