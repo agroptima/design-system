@@ -45,21 +45,20 @@ export function Button({
   disabled,
   variant = 'primary',
   loading = false,
+  className,
   ...props
 }: ButtonProps) {
-  if (loading) {
-    leftIcon = 'Loading'
-  }
-  const cssClasses = classNames(props.className, 'button', variant)
+  const leftIconName = loading ? 'Loading' : leftIcon
+  const cssClasses = classNames(className, 'button', variant)
 
   return (
     <BaseButton
       disabled={loading || disabled}
       aria-label={accessibilityLabel || label}
-      {...props}
       className={cssClasses}
+      {...props}
     >
-      {leftIcon && <Icon name={leftIcon} size="3" />}
+      {leftIconName && <Icon name={leftIconName} size="3" />}
       {label}
       {rightIcon && <Icon name={rightIcon} size="3" />}
     </BaseButton>

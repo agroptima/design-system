@@ -32,6 +32,7 @@ const meta = {
     },
     loading: {
       description: 'Is the button in loading state?',
+      control: { type: 'boolean', default: false },
     },
     leftIcon: {
       description: 'Button left icon from a list of values',
@@ -47,7 +48,7 @@ const meta = {
     },
     visible: {
       description: 'Is the button visible?',
-      control: { type: 'boolean', default: true },
+      control: { type: 'boolean' },
     },
   },
 }

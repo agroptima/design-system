@@ -15,6 +15,7 @@ interface CustomProps {
   disabled?: boolean
   accessibilityLabel: string
   shape?: Shape
+  loading?: boolean
 }
 
 export type FloatingButtonProps = CustomProps & BaseButtonProps
@@ -25,23 +26,21 @@ export function FloatingButton({
   disabled,
   variant = 'primary',
   shape = 'rounded-square',
+  loading = false,
+  className,
   ...props
 }: FloatingButtonProps) {
-  const cssClasses = classNames(
-    'floating-button',
-    variant,
-    props.className,
-    shape,
-  )
+  const cssClasses = classNames('floating-button', variant, className, shape)
+  const iconName = loading ? 'Loading' : icon
 
   return (
     <BaseButton
-      disabled={disabled}
+      disabled={loading || disabled}
       aria-label={accessibilityLabel}
-      {...props}
       className={cssClasses}
+      {...props}
     >
-      <Icon name={icon} />
+      <Icon name={iconName} />
     </BaseButton>
   )
 }
