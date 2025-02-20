@@ -12,6 +12,7 @@ interface CustomProps {
   variant?: Variant
   disabled?: boolean
   accessibilityLabel: string
+  loading?: boolean
   size?: IconSize
 }
 
@@ -22,17 +23,20 @@ export function IconButton({
   icon,
   disabled,
   variant = 'primary',
+  loading = false,
   size,
+  className,
   ...props
 }: IconButtonProps) {
+  const iconName = loading ? 'Loading' : icon
   return (
     <BaseButton
-      disabled={disabled}
+      disabled={loading || disabled}
       aria-label={accessibilityLabel}
+      className={classNames(className, 'icon-button', variant)}
       {...props}
-      className={classNames(props.className, 'icon-button', variant)}
     >
-      <Icon title={accessibilityLabel} name={icon} size={size} />
+      <Icon title={accessibilityLabel} name={iconName} size={size} />
     </BaseButton>
   )
 }

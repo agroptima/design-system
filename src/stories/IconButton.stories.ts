@@ -27,6 +27,10 @@ const meta = {
       description:
         'If a link is provided, the component will be rendered as NextLink, otherwise as button',
     },
+    loading: {
+      description: 'Is the button in loading state?',
+      control: { type: 'boolean' },
+    },
   },
 }
 
