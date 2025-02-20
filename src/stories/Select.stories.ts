@@ -4,6 +4,14 @@ import { Select } from '../atoms/Select'
 const meta = {
   title: 'Design System/Atoms/Select',
   component: Select,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>Use the select component inside a form where users are selecting from a list of options and submitting data.</p><ul><li>Include a label</li><li>Keep menu items concise</li><li>Mark the minority of pickers in a form as required or optional</li><li>Use help text to show context</li><li>Switch help text with error text</li><li>Write error text that shows a solution</li></ul>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     label: {
