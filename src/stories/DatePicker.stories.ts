@@ -8,7 +8,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Date pickers allow users to select past, present, or future dates in a visual way in range or single format.</p>',
+          '<h2>Usage guidelines</h2><p>DateRangePicker component allows users to select past, present, or future dates in a visual way in range or single format.</p>',
       },
     },
   },

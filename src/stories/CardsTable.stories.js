@@ -27,7 +27,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>The data table’s features are ideal for organizing and displaying data in a UI.</p><ul><li>Left align textual data</li><li>Right align numerical data</li><li>When having several numerical data columns, the Price one should be just before the Actions column.</li></ul>',
+          '<h2>Usage guidelines</h2><p>CardsTable component features are ideal for organizing and displaying data in a UI.</p><ul><li>Left align textual data</li><li>Right align numerical data</li><li>When having several numerical data columns, the Price one should be just before the Actions column</li></ul>',
       },
     },
     figmaPrimaryDesign,

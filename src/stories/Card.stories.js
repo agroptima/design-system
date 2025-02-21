@@ -16,7 +16,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A card can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>',
+          '<h2>Usage guidelines</h2><p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>',
       },
     },
     figmaPrimaryDesign,

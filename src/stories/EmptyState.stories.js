@@ -24,7 +24,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A default icon is set for the empty state. Used for informing about no data and user actions such as no results when searching.</p>',
+          '<h2>Usage guidelines</h2><p>EmptyState component is used for informing about no data and user actions such as no results when searching. A default icon is set for the empty state.</p>',
       },
     },
     figmaPrimaryDesign,
