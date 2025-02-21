@@ -5,6 +5,14 @@ import { Input } from '../atoms/Input'
 const meta = {
   title: 'Design System/Atoms/Form',
   component: Form,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>Forms are used when we need to create an instance or collect information.</p><ul><li>Keep the label short and concise</li><li>When used, helper text that appears persistently underneath the field is replaced by an error or warning message if a state change occurs</li><li>Mark the minority of inputs in a form as required or optional</li></ul>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     fullWidth: {

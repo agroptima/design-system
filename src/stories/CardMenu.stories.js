@@ -10,6 +10,15 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/CardMenu',
   component: CardMenuOption,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>CardMenu is used to hide less frequently used or advanced options until users specifically need them. This keeps the interface clean and focused on essential elements. Consider using short and precise labels for menu items as well as a suitable ordering and grouping.</p>',
+      },
+    },
+    figmaPrimaryDesign,
+  },
   tags: ['autodocs'],
   argTypes: {
     id: {
@@ -37,7 +46,6 @@ const meta = {
       description: 'Is the component marked as error?',
     },
   },
-  parameters: figmaPrimaryDesign,
 }
 
 export default meta

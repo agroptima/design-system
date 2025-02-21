@@ -4,6 +4,14 @@ import { QuantitySelector } from '../atoms/QuantitySelector'
 const meta = {
   title: 'Design System/Atoms/QuantitySelector',
   component: QuantitySelector,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>Quantity Selector component is similar to text inputs, but is used to specify only a numeric value. Quantity Selector incrementally increase or decrease the value with a two-segment control.</p>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     label: {
