@@ -11,6 +11,15 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Menu',
   component: Menu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>Menu component allows users to move around the site quickly and efficiently.</p><ul><li>Use concise & descriptive titles in order to ensure simplicity</li><li>Use icons in first-level items only</li></ul>',
+      },
+    },
+    figmaPrimaryDesign,
+  },
   tags: ['autodocs'],
   argTypes: {
     icon: {
@@ -32,7 +41,6 @@ const meta = {
       description: 'Is the dropdown open?',
     },
   },
-  parameters: figmaPrimaryDesign,
 }
 
 export default meta

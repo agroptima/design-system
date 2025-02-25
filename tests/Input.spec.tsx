@@ -62,7 +62,7 @@ describe('Input', () => {
         id="email_input"
         label="Email"
         name="email"
-        placeholder="Email..."
+        placeholder="janedoe@mail.com"
         type="email"
         variant="primary"
       />,

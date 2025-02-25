@@ -4,6 +4,14 @@ import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
 const meta = {
   title: 'Design System/Atoms/DateRangePicker',
   component: DateRangePicker,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>DateRangePicker component allows users to select past, present, or future dates in a visual way in range or single format.</p>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     footer: {
