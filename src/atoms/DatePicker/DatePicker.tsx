@@ -23,6 +23,7 @@ export interface DatePickerBaseProps extends DivPropsWithoutOnSelect {
   type: DatePickerType
   month?: Date
   onMonthChange?: (date: Date | undefined) => void
+  withInput?: boolean
 }
 
 export interface DateSinglePickerProps {
@@ -48,8 +49,7 @@ export function DatePicker(props: DatePickerProps): React.JSX.Element {
     lng,
     onSelect,
     selected,
-    month,
-    onMonthChange,
+    withInput = false,
   } = props
 
   const cssClasses = classNames('date-picker', variant, className)
@@ -61,8 +61,7 @@ export function DatePicker(props: DatePickerProps): React.JSX.Element {
           lng={lng}
           selected={selected}
           onSelect={onSelect}
-          month={month}
-          onMonthChange={onMonthChange}
+          withInput={withInput}
         />
       </div>
     )

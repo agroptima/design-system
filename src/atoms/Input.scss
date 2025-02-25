@@ -26,6 +26,10 @@
     @include typography.form-help-text-error;
   }
 
+  &:not(.visible) {
+    display: none;
+  }
+
   .input-container {
     position: relative;
     gap: config.$space-2x;
