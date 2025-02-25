@@ -29,10 +29,6 @@ const meta = {
     type: {
       description: 'Type of date that could be range or single',
     },
-    withInput: {
-      description: 'Date picker with input',
-      control: { type: 'boolean', default: false },
-    },
   },
 }
 
@@ -52,16 +48,6 @@ export const SingleDatePicker: Story = {
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
     type: 'single',
-  },
-}
-
-export const SingleDatePickerWithInput: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    lng: 'en',
-    type: 'single',
-    withInput: true,
   },
 }
 

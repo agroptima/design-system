@@ -26,10 +26,6 @@
     @include typography.form-help-text-error;
   }
 
-  &:not(.visible) {
-    display: none;
-  }
-
   .input-container {
     position: relative;
     gap: config.$space-2x;
@@ -41,10 +37,6 @@
     input[type='date'] {
       min-width: -webkit-fill-available;
     }
-    input[type='date']::-webkit-calendar-picker-indicator {
-      display: none;
-    }
-
     input[type='number'] {
       text-align: right;
     }

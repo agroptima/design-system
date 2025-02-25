@@ -21,9 +21,6 @@ export interface DatePickerBaseProps extends DivPropsWithoutOnSelect {
   variant?: Variant
   lng: keyof AvailableLocale
   type: DatePickerType
-  month?: Date
-  onMonthChange?: (date: Date | undefined) => void
-  withInput?: boolean
 }
 
 export interface DateSinglePickerProps {
@@ -42,27 +39,14 @@ type DatePickerProps = (DateSinglePickerProps | DateRangePickerProps) &
   DatePickerBaseProps
 
 export function DatePicker(props: DatePickerProps): React.JSX.Element {
-  const {
-    variant,
-    className,
-    type,
-    lng,
-    onSelect,
-    selected,
-    withInput = false,
-  } = props
+  const { variant, className, type, lng, onSelect, selected } = props
 
   const cssClasses = classNames('date-picker', variant, className)
 
   if (type === 'single') {
     return (
       <div className={cssClasses}>
-        <DateSinglePicker
-          lng={lng}
-          selected={selected}
-          onSelect={onSelect}
-          withInput={withInput}
-        />
+        <DateSinglePicker lng={lng} selected={selected} onSelect={onSelect} />
       </div>
     )
   }

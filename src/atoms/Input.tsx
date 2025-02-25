@@ -19,7 +19,6 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   suffix?: string
   errors?: string[]
   required?: boolean
-  visible?: boolean
 }
 
 export function Input({
@@ -37,7 +36,6 @@ export function Input({
   id,
   errors,
   required = false,
-  visible = true,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
@@ -63,7 +61,6 @@ export function Input({
       className={classNames('input-group', variant, className, {
         file: type === 'file',
         invalid: errors?.length,
-        visible: visible,
       })}
     >
       {!hideLabel && (
