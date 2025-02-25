@@ -4,6 +4,14 @@ import { Divider } from '../atoms/Divider'
 const meta = {
   title: 'Design System/Atoms/Divider',
   component: Divider,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>A Divider component separates different content.</p><ul><li>Place a divider below a header</li></ul>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     title: {
@@ -28,7 +36,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    title: '19/01/2025 - Delivery Note',
+    title: '19/01/2025 - My gaming diary',
     variant: 'primary',
   },
   parameters: figmaPrimaryDesign,
@@ -36,7 +44,7 @@ export const Primary: Story = {
 
 export const WithIcon: Story = {
   args: {
-    title: '19/01/2025 - Delivery Note',
+    title: '19/01/2025 - My gaming diary',
     icon: 'DeliveryNote',
     variant: 'primary',
   },

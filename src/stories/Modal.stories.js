@@ -26,6 +26,15 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Modal',
   component: Modal,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "<h2>Usage guidelines</h2><p>Modal component is used when requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow. It creates a new floating layer over the current page to get user feedback or display information.</p><ul><li>Require a response from the user</li><li>Notify the user of any related information</li><li>Confirm a user decision</li></ul>",
+      },
+    },
+    figmaPrimaryDesign,
+  },
   tags: ['autodocs'],
   argTypes: {
     id: {
@@ -47,7 +56,6 @@ const meta = {
       description: 'Function to be called when the modal is closed',
     },
   },
-  parameters: figmaPrimaryDesign,
 }
 
 export default meta

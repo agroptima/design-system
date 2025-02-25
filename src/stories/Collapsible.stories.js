@@ -32,7 +32,15 @@ const meta = {
       description: 'Is the component disabled?',
     },
   },
-  parameters: figmaPrimaryDesign,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>The Collapsible component delivers large amounts of content in a small space through progressive disclosure. The header title gives the user a high level overview of the content allowing the user to decide which sections to read.</p><ul><li>Always display the collapse and expand button</li><li>To shorten pages and reduce scrolling when content is not crucial to read in full</li></ul>',
+      },
+    },
+    figmaPrimaryDesign,
+  },
 }
 
 export default meta
@@ -57,7 +65,7 @@ export const Primary = {
           id="email_input"
           label="Email"
           name="email"
-          placeholder="Email..."
+          placeholder="janedoe@mail.com"
           type="email"
           variant="primary"
         />
@@ -111,7 +119,7 @@ export const PrimaryOpened = {
             id="email_input"
             label="Email"
             name="email"
-            placeholder="Email..."
+            placeholder="janedoe@mail.com"
             type="email"
             variant="primary"
           />
@@ -177,7 +185,7 @@ export const PrimaryDisabled = {
           id="email_input"
           label="Email"
           name="email"
-          placeholder="Email..."
+          placeholder="janedoe@mail.com"
           type="email"
           variant="primary"
         />

@@ -4,6 +4,16 @@ import { QuantitySelector } from '../atoms/QuantitySelector'
 const meta = {
   title: 'Design System/Atoms/QuantitySelector',
   component: QuantitySelector,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2>' +
+          '<p>Quantity Selector component is similar to text inputs, but is used to specify only a numeric value. Quantity Selector incrementally increases or decreases the value with a two-segment control.</p>' +
+          '<p>When using keyboard controls, increment and decrement buttons are ignored so the user is taken to the quantity input.</p>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     label: {
@@ -54,15 +64,11 @@ export const Primary: Story = {
     id: 'quantity',
     hideLabel: true,
     name: 'quantity',
-    value: 1,
-    onChange: () => alert('onChange'),
-    type: 'number',
     max: 10,
     step: 0.0001,
     min: 1,
     required: true,
-    onDecrement: () => alert('decrement'),
-    onIncrement: () => alert('increment'),
+    defaultValue: 1,
   },
   parameters: figmaPrimaryDesign,
 }
@@ -73,16 +79,13 @@ export const Disabled: Story = {
     accessibilityLabel: 'Quantity of items to wishlist',
     id: 'quantity',
     name: 'quantity',
-    value: 1,
+    defaultValue: 1,
     onChange: () => alert('onChange'),
-    type: 'number',
     max: 10,
     step: 0.0001,
     min: 1,
     required: true,
     disabled: true,
-    onDecrement: () => alert('decrement'),
-    onIncrement: () => alert('increment'),
   },
   parameters: figmaPrimaryDesign,
 }

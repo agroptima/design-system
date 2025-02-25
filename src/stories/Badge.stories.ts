@@ -4,6 +4,14 @@ import { Badge } from '../atoms/Badge'
 const meta = {
   title: 'Design System/Atoms/Badge',
   component: Badge,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '<h2>Usage guidelines</h2><p>Use Badge component when content is mapped to multiple categories and the user needs a way to differentiate between them such as labeling or read-only situations.</p>',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     variant: {

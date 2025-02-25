@@ -2,13 +2,13 @@ import './Input.scss'
 import React, { useState } from 'react'
 import { buildHelpText } from '../utils/buildHelpText'
 import { classNames } from '../utils/classNames'
-import { IconButton } from './Button/IconButton'
+import { IconButton } from './Button'
 import type { IconType } from './Icon'
 import { Icon } from './Icon'
 
 export type InputVariant = 'primary'
 
-export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
+export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   label: string
   accessibilityLabel?: string
   hideLabel?: boolean

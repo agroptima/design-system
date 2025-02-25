@@ -1,5 +1,5 @@
 import './QuantitySelector.scss'
-import React from 'react'
+import React, { useRef } from 'react'
 import { classNames } from '../utils/classNames'
 import { Button } from './Button'
 import type { InputProps } from './Input'
@@ -7,28 +7,38 @@ import { Input } from './Input'
 
 export type Variant = 'primary'
 
-export interface QuantitySelectorProps extends InputProps {
+export interface QuantitySelectorProps extends Omit<InputProps, 'type'> {
   label: string
   accessibilityLabel?: string
   hideLabel?: boolean
   id?: string
   variant?: Variant
-  onDecrement: () => void
-  onIncrement: () => void
 }
 
 export function QuantitySelector({
   id,
-  onDecrement,
-  onIncrement,
   label,
   accessibilityLabel,
   className,
+  disabled,
   hideLabel = false,
   variant = 'primary',
-  disabled,
   ...props
 }: QuantitySelectorProps): React.JSX.Element {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const handleIncrement = () => {
+    if (inputRef.current) {
+      inputRef.current.stepUp()
+      inputRef.current.dispatchEvent(new Event('input', { bubbles: true }))
+    }
+  }
+
+  const handleDecrement = () => {
+    if (inputRef.current) {
+      inputRef.current.stepDown()
+      inputRef.current.dispatchEvent(new Event('input', { bubbles: true }))
+    }
+  }
   return (
     <div className={classNames('quantity-selector-group', variant, className)}>
       {!hideLabel && (
@@ -49,13 +59,16 @@ export function QuantitySelector({
           leftIcon="Minus"
           className="decrement-button"
           disabled={disabled}
-          onClick={onDecrement}
+          onClick={handleDecrement}
+          tabIndex={-1}
         />
         <Input
           id={id}
+          ref={inputRef}
           label={label}
           accessibilityLabel={accessibilityLabel}
           disabled={disabled}
+          type="number"
           {...props}
           hideLabel={true}
         />
@@ -66,7 +79,8 @@ export function QuantitySelector({
           type="button"
           className="increment-button"
           disabled={disabled}
-          onClick={onIncrement}
+          onClick={handleIncrement}
+          tabIndex={-1}
         />
       </div>
     </div>

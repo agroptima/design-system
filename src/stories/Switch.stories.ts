@@ -1,14 +1,14 @@
 import type { StoryObj } from '@storybook/react'
-import { Checkbox } from '../atoms/Checkbox'
+import { Switch } from '../atoms/Switch'
 
 const meta = {
-  title: 'Design System/Atoms/Checkbox',
-  component: Checkbox,
+  title: 'Design System/Atoms/Switch',
+  component: Switch,
   parameters: {
     docs: {
       description: {
         component:
-          "<h2>Usage guidelines</h2><p>Checkboxes are used for multiple choices, not for mutually exclusive choices.</p><ul><li>When a checkbox represents multiple values that are not identical, the checkbox should appear in the indeterminate state</li><li>It's used on forms, filtering and batch actions and on terms and conditions agreement</li></ul>",
+          '<h2>Usage guidelines</h2><p>Switch component is a control that is used to quickly switch between two possible states. The difference between Switch component and Checkbox component is that Switch will trigger a state change directly when you toggle it, while Checkbox is generally used for state marking, which should work in conjunction with submit operation.</p>',
       },
     },
   },
@@ -29,13 +29,19 @@ const meta = {
     id: {
       description: 'Value needed for the label relation',
     },
+    size: {
+      description: 'Medium or small sizes available',
+    },
+    hideLabel: {
+      description: 'Show or hide label?',
+    },
   },
 }
 
 const figmaPrimaryDesign = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/DN2ova21vWqCRvPspBXgI1/Design-System?type=design&node-id=521-104&mode=dev',
+    url: 'https://www.figma.com/design/DN2ova21vWqCRvPspBXgI1/Design-System?node-id=3854-81&t=Hb5zHVDMclLNXeS6-4',
   },
 }
 
@@ -48,7 +54,9 @@ export const Primary: Story = {
     variant: 'primary',
     disabled: false,
     label: 'Do you like videogames?',
-    id: 'checkbox-videogames-preference',
+    id: 'switch-videogames-preference',
+    onClick: (e) =>
+      console.log('onClick: ', (e.target as HTMLInputElement).checked),
   },
   parameters: figmaPrimaryDesign,
 }
@@ -59,20 +67,10 @@ export const PrimaryWithoutLabel: Story = {
     variant: 'primary',
     disabled: false,
     label: 'Do you like videogames?',
-    id: 'checkbox-videogames-preference',
+    id: 'switch-videogames-preference',
     hideLabel: true,
-  },
-  parameters: figmaPrimaryDesign,
-}
-
-export const Indeterminate: Story = {
-  args: {
-    accessibilityLabel: 'Marks if the user likes videogames',
-    variant: 'primary',
-    disabled: false,
-    label: 'Do you like videogames?',
-    id: 'checkbox-videogames-preference',
-    indeterminate: true,
+    onClick: (e) =>
+      console.log('onClick: ', (e.target as HTMLInputElement).checked),
   },
   parameters: figmaPrimaryDesign,
 }
@@ -83,7 +81,21 @@ export const Disabled: Story = {
     variant: 'primary',
     disabled: true,
     label: 'Do you like videogames?',
-    id: 'checkbox-videogames-preference',
+    id: 'switch-videogames-preference',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const Small: Story = {
+  args: {
+    accessibilityLabel: 'Marks if the user likes videogames',
+    variant: 'primary',
+    disabled: false,
+    label: 'Do you like videogames?',
+    id: 'switch-videogames-preference',
+    onClick: (e) =>
+      console.log('onClick: ', (e.target as HTMLInputElement).checked),
+    size: 'small',
   },
   parameters: figmaPrimaryDesign,
 }
