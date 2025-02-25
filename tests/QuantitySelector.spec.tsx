@@ -8,12 +8,9 @@ describe('QuantitySelector', () => {
         label="Quantity"
         accessibilityLabel="Quantity of items to wishlist"
         id="quantity"
-        onDecrement={() => alert('decrement')}
-        onIncrement={() => alert('increment')}
         name="quantity"
         value={1}
         onChange={() => alert('onChange')}
-        type="number"
         max={10}
         step={0.0001}
         min={1}
