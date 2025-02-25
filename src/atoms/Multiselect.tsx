@@ -161,6 +161,7 @@ function OptionList({
     <div className="select-options">
       {isSearchable && (
         <Input
+          autoFocus
           label={searchLabel}
           hideLabel
           onChange={(e) => search(e.target.value)}

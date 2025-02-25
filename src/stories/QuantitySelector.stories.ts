@@ -8,7 +8,9 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Quantity Selector component is similar to text inputs, but is used to specify only a numeric value. Quantity Selector incrementally increase or decrease the value with a two-segment control.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Quantity Selector component is similar to text inputs, but is used to specify only a numeric value. Quantity Selector incrementally increases or decreases the value with a two-segment control.</p>' +
+          '<p>When using keyboard controls, increment and decrement buttons are ignored so the user is taken to the quantity input.</p>',
       },
     },
   },

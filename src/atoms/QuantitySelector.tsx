@@ -60,6 +60,7 @@ export function QuantitySelector({
           className="decrement-button"
           disabled={disabled}
           onClick={handleDecrement}
+          tabIndex={-1}
         />
         <Input
           id={id}
@@ -79,6 +80,7 @@ export function QuantitySelector({
           className="increment-button"
           disabled={disabled}
           onClick={handleIncrement}
+          tabIndex={-1}
         />
       </div>
     </div>
