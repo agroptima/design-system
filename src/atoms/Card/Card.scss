@@ -16,6 +16,8 @@ a.card {
   gap: config.$space-2x;
   padding: config.$space-3x;
   width: 100%;
+  justify-content: space-between;
+
   p {
     margin: 0;
   }
