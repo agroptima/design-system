@@ -31,6 +31,7 @@ export function CardMenuOption({
   href,
   active,
   error,
+  prefetch = false,
   ...props
 }: CardMenuOptionProps): React.JSX.Element {
   const cssClasses = classNames('card-menu-option', variant, className, {
@@ -45,6 +46,7 @@ export function CardMenuOption({
       className={cssClasses}
       href={disabled ? '#' : href}
       aria-disabled={disabled}
+      prefetch={prefetch}
       {...props}
     >
       <div className="left">
