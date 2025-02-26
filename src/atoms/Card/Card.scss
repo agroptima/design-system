@@ -51,8 +51,11 @@ a.card {
   }
 
   .footer {
-    margin-top: auto;
-    .button {
+    display: flex;
+    flex-direction: column;
+    gap: config.$space-2x;
+
+    > .button:last-child {
       width: 100%;
     }
   }
