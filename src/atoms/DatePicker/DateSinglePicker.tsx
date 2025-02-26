@@ -2,8 +2,12 @@ import 'react-day-picker/style.css'
 import { useEffect, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { enGB, es } from 'react-day-picker/locale'
-import { formatDatePickerFooterDate } from '../../utils/dateHelpers'
+import {
+  formatDatePickerFooterDate,
+  formatDatePickerParamsDate,
+} from '../../utils/dateHelpers'
 import type { AvailableLocale } from './DatePicker'
+import { InputPicker } from './InputPIcker'
 import { translations } from './translations'
 
 const availableLocales: AvailableLocale = {
@@ -15,12 +19,14 @@ export interface DateSinglePickerProps {
   onSelect: (date: Date | undefined) => void
   selected?: Date
   lng: keyof typeof availableLocales
+  withInput: boolean
 }
 
 export function DateSinglePicker({
   onSelect = () => {},
   selected: preselected,
   lng,
+  withInput,
 }: DateSinglePickerProps): React.JSX.Element {
   const manageFooterText = (): string => {
     if (!selected) return translations[lng].pickSingleDate
@@ -52,6 +58,11 @@ export function DateSinglePicker({
 
   return (
     <>
+      <InputPicker
+        withInput={withInput}
+        value={formatDatePickerParamsDate(selected)}
+      />
+
       <DayPicker
         locale={availableLocales[lng]}
         mode="single"

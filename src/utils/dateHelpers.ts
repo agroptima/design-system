@@ -1,3 +1,5 @@
+import type { DateRange } from 'react-day-picker'
+
 export function formatDate(date: string, lng: string) {
   if (!date) return ''
   return new Date(date).toLocaleDateString(lng)
@@ -16,4 +18,11 @@ export function formatDatePickerFooterDate(
   if (!date) return ''
 
   return formatDate(formatDatePickerParamsDate(date), lng)
+}
+
+export function formatRangeDatePickerParamsDate(
+  dateRange: DateRange | undefined,
+) {
+  const date = `${formatDatePickerParamsDate(dateRange?.from)} - ${formatDatePickerParamsDate(dateRange?.to)}`
+  return date
 }
