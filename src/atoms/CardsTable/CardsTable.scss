@@ -174,7 +174,7 @@
       }
     }
 
-    &.with-title td:not(.actions):nth-child(2) {
+    &.with-title td:not(.actions):has(.cell .badge) {
       margin-top: config.$space-2x;
     }
 
