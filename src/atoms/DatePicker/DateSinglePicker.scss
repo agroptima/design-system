@@ -1,0 +1,20 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/breakpoints';
+
+// Interpolation applied: https://sass-lang.com/documentation/breaking-changes/css-vars/
+
+.date-single-picker {
+  .rdp-root {
+    --rdp-accent-color: #{color_alias.$primary-color-600};
+  }
+  .rdp-selected .rdp-day_button {
+    background-color: #{color_alias.$primary-color-600};
+    color: white;
+  }
+  .rdp-caption_label {
+    text-transform: capitalize;
+  }
+}
