@@ -6,10 +6,13 @@
 
 // Interpolation applied: https://sass-lang.com/documentation/breaking-changes/css-vars/
 
-.date-picker {
+.date-range-picker {
   .rdp-root {
     width: 309px;
     --rdp-accent-color: #{color_alias.$primary-color-600};
-    --rdp-accent-background-color: #{color_alias.$primary-color-50};
+    --rdp-range_middle-background-color: #{color_alias.$primary-color-50};
+  }
+  .rdp-caption_label {
+    text-transform: capitalize;
   }
 }
