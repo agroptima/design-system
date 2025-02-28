@@ -2,12 +2,9 @@ import 'react-day-picker/style.css'
 import { useEffect, useState } from 'react'
 import { type DateRange, DayPicker, type Locale } from 'react-day-picker'
 import { enGB, es } from 'react-day-picker/locale'
-import {
-  formatDatePickerFooterDate,
-  formatRangeDatePickerParamsDate,
-} from '../../utils/dateHelpers'
+import { formatDatePickerFooterDate } from '../../utils/dateHelpers'
+import { Input } from '../Input'
 import type { AvailableLocale } from './DatePicker'
-import { InputPicker } from './InputPIcker'
 import { translations } from './translations'
 
 const availableLocales: AvailableLocale = {
@@ -26,7 +23,7 @@ export function DateRangePicker({
   onSelect = () => {},
   selected: preselected,
   lng,
-  withInput,
+  withInput = false,
 }: DateRangePickerProps): React.JSX.Element {
   const manageFooterText = (): string => {
     const hasDatesFilter = selected && selected.from && selected.to
@@ -45,10 +42,12 @@ export function DateRangePicker({
   const [footer, setFooter] = useState<string>(() => {
     return manageFooterText()
   })
+  const [open, setOpen] = useState<boolean>(true)
 
   useEffect(() => {
     setSelected(preselected)
     setFooter(manageFooterText())
+    if (withInput) setOpen(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preselected])
 
@@ -59,19 +58,28 @@ export function DateRangePicker({
 
   return (
     <>
-      <InputPicker
-        withInput={withInput}
-        value={formatRangeDatePickerParamsDate(selected)}
-      />
-      <DayPicker
-        locale={availableLocales[lng]}
-        mode="range"
-        min={1}
-        selected={selected}
-        onSelect={(dateRange) => selectDate(dateRange)}
-        footer={footer}
-        defaultMonth={selected?.from}
-      />
+      {withInput && (
+        <Input
+          label={''}
+          value={`${formatDatePickerFooterDate(selected?.from, lng as string)} - ${formatDatePickerFooterDate(selected?.to, lng as string)}`}
+          icon="Calendar"
+          name="date"
+          placeholder="dd/mm/yyyy - dd/mm/yyyy"
+          readOnly
+          onClick={() => setOpen(!open)}
+        />
+      )}
+      {open && (
+        <DayPicker
+          locale={availableLocales[lng]}
+          mode="range"
+          min={1}
+          selected={selected}
+          onSelect={(dateRange) => selectDate(dateRange)}
+          footer={footer}
+          defaultMonth={selected?.from}
+        />
+      )}
     </>
   )
 }

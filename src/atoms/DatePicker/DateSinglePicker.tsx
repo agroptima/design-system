@@ -2,12 +2,9 @@ import 'react-day-picker/style.css'
 import { useEffect, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { enGB, es } from 'react-day-picker/locale'
-import {
-  formatDatePickerFooterDate,
-  formatDatePickerParamsDate,
-} from '../../utils/dateHelpers'
+import { formatDatePickerFooterDate } from '../../utils/dateHelpers'
+import { Input } from '../Input'
 import type { AvailableLocale } from './DatePicker'
-import { InputPicker } from './InputPIcker'
 import { translations } from './translations'
 
 const availableLocales: AvailableLocale = {
@@ -42,11 +39,13 @@ export function DateSinglePicker({
   const [footer, setFooter] = useState<string>(() => {
     return manageFooterText()
   })
+  const [open, setOpen] = useState<boolean>(false)
 
   useEffect(() => {
     setSelected(preselected)
     setMonth(preselected)
     setFooter(manageFooterText())
+    if (withInput) setOpen(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preselected])
 
@@ -58,21 +57,29 @@ export function DateSinglePicker({
 
   return (
     <>
-      <InputPicker
-        withInput={withInput}
-        value={formatDatePickerParamsDate(selected)}
-      />
-
-      <DayPicker
-        locale={availableLocales[lng]}
-        mode="single"
-        selected={selected}
-        onSelect={(date) => selectDate(date)}
-        footer={footer}
-        required
-        month={month}
-        onMonthChange={(date) => setMonth(date)}
-      />
+      {withInput && (
+        <Input
+          label={''}
+          value={formatDatePickerFooterDate(selected, lng as string)}
+          icon="Calendar"
+          name="date"
+          placeholder="dd/mm/yyyy"
+          readOnly
+          onClick={() => setOpen(!open)}
+        />
+      )}
+      {open && (
+        <DayPicker
+          locale={availableLocales[lng]}
+          mode="single"
+          selected={selected}
+          onSelect={(date) => selectDate(date)}
+          footer={footer}
+          required
+          month={month}
+          onMonthChange={(date) => setMonth(date)}
+        />
+      )}
     </>
   )
 }

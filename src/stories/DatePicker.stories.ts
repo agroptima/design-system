@@ -29,6 +29,9 @@ const meta = {
     type: {
       description: 'Type of date that could be range or single',
     },
+    withInput: {
+      description: 'Optional input to write the date',
+    },
   },
 }
 
@@ -48,6 +51,7 @@ export const SingleDatePicker: Story = {
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
     type: 'single',
+    withInput: false,
   },
 }
 
@@ -57,6 +61,7 @@ export const RangeDatePicker: Story = {
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
     type: 'range',
+    withInput: false,
   },
   parameters: figmaPrimaryDesign,
 }
@@ -68,6 +73,7 @@ export const WithSingleDaySelected: Story = {
     selected: new Date(2024, 1, 2),
     lng: 'en',
     type: 'single',
+    withInput: false,
   },
   parameters: figmaPrimaryDesign,
 }
@@ -79,6 +85,31 @@ export const WithRangeDateSelected: Story = {
     selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 12) },
     lng: 'en',
     type: 'range',
+    withInput: false,
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithInputSingleSelector: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    selected: new Date(2024, 1, 12),
+    lng: 'en',
+    type: 'single',
+    withInput: true,
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithInputRangeSelector: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 12) },
+    lng: 'en',
+    type: 'range',
+    withInput: true,
   },
   parameters: figmaPrimaryDesign,
 }
