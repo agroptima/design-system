@@ -57,7 +57,7 @@ a.card {
     flex-direction: column;
     gap: config.$space-2x;
 
-    > .button:last-child {
+    > .button {
       width: 100%;
     }
   }
