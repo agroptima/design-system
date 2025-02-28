@@ -1,6 +1,7 @@
 import { IconButton } from '../atoms/Button'
 import { Button } from '../atoms/Button'
 import { Card, CardContent, CardFooter, CardHeader } from '../atoms/Card'
+import { QuantitySelector } from '../atoms/QuantitySelector'
 
 const figmaPrimaryDesign = {
   design: {
@@ -101,6 +102,18 @@ export const ProductCard = {
           </div>
         </CardContent>
         <CardFooter>
+          <QuantitySelector
+            accessibilityLabel="Quantity of items to wishlist"
+            defaultValue={1}
+            hideLabel
+            id="quantity"
+            label="Quantity"
+            max={10}
+            min={1}
+            name="quantity"
+            required
+            step={0.0001}
+          />
           <Button variant="primary-outlined" label="Buy" />
         </CardFooter>
       </Card>
