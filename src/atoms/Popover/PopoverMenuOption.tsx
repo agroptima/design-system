@@ -1,11 +1,12 @@
 import './Popover.scss'
 import type { LinkProps as NextLinkProps } from 'next/link'
 import Link from 'next/link'
+import React, { type AnchorHTMLAttributes } from 'react'
 import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 
-type LinkProps = NextLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+type LinkProps = NextLinkProps & AnchorHTMLAttributes<HTMLAnchorElement>
 export interface PopoverMenuOptionProps extends LinkProps {
   variant?: Variant
   title: string
@@ -21,6 +22,7 @@ export function PopoverMenuOption({
   disabled,
   href,
   active,
+  prefetch = false,
   ...props
 }: PopoverMenuOptionProps): React.JSX.Element {
   const cssClasses = classNames('popover-menu-option', variant, className, {
@@ -34,6 +36,7 @@ export function PopoverMenuOption({
       className={cssClasses}
       href={disabled ? '#' : href}
       aria-disabled={disabled}
+      prefetch={prefetch}
       {...props}
     >
       <span className="title">{title}</span>
