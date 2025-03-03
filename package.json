@@ -1,6 +1,6 @@
 {
   "name": "agroptima-design-system",
-  "version": "0.31.3",
+  "version": "0.31.4",
   "scripts": {
     "dev": "npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",

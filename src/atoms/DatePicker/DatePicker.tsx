@@ -39,20 +39,36 @@ type DatePickerProps = (DateSinglePickerProps | DateRangePickerProps) &
   DatePickerBaseProps
 
 export function DatePicker(props: DatePickerProps): React.JSX.Element {
-  const { variant, className, type, lng, onSelect, selected } = props
-
+  const {
+    variant = 'primary',
+    className,
+    type,
+    lng,
+    onSelect,
+    selected,
+  } = props
   const cssClasses = classNames('date-picker', variant, className)
 
   if (type === 'single') {
     return (
       <div className={cssClasses}>
-        <DateSinglePicker lng={lng} selected={selected} onSelect={onSelect} />
+        <DateSinglePicker
+          lng={lng}
+          selected={selected}
+          onSelect={onSelect}
+          className="single"
+        />
       </div>
     )
   }
   return (
     <div className={cssClasses}>
-      <DateRangePicker lng={lng} selected={selected} onSelect={onSelect} />
+      <DateRangePicker
+        lng={lng}
+        selected={selected}
+        onSelect={onSelect}
+        className="range"
+      />
     </div>
   )
 }
