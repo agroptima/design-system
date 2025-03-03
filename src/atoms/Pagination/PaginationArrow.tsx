@@ -1,4 +1,5 @@
 import './Pagination.scss'
+import type { LinkProps } from 'next/link'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 import type { IconButtonProps } from '../Button'
@@ -6,7 +7,7 @@ import { IconButton } from '../Button'
 
 export type Variant = 'primary'
 
-export interface CustomProps {
+export interface CustomProps extends LinkProps {
   href: string
   accessibilityLabel?: string
   variant?: Variant
@@ -20,6 +21,7 @@ export function PaginationArrow({
   href,
   className,
   disabled,
+  prefetch = false,
   ...props
 }: PaginationArrowProps): React.JSX.Element {
   const cssClasses = classNames('pagination-button', variant, className, {
@@ -32,6 +34,7 @@ export function PaginationArrow({
       href={disabled ? '#' : href}
       className={cssClasses}
       accessibilityLabel={accessibilityLabel}
+      prefetch={prefetch}
       {...props}
     />
   )
