@@ -1,9 +1,7 @@
 import 'react-day-picker/style.css'
-import './DateRangePicker.scss'
 import { useEffect, useState } from 'react'
 import { type DateRange, DayPicker } from 'react-day-picker'
 import { enGB, es } from 'react-day-picker/locale'
-import { classNames } from '../../utils/classNames'
 import { formatDatePickerFooterDate } from '../../utils/dateHelpers'
 import type { AvailableLocale } from './DatePicker'
 import { translations } from './translations'
@@ -17,8 +15,7 @@ export interface DateRangePickerProps {
   onSelect: (dateRange: DateRange | undefined) => void
   selected?: DateRange
   lng: keyof typeof availableLocales
-  className?: string
-  variant?: string
+  className: string
 }
 
 export function DateRangePicker({
@@ -26,7 +23,6 @@ export function DateRangePicker({
   selected: preselected,
   lng,
   className,
-  variant = 'primary',
 }: DateRangePickerProps): React.JSX.Element {
   const manageFooterText = (): string => {
     const hasDatesFilter = selected && selected.from && selected.to
@@ -57,19 +53,16 @@ export function DateRangePicker({
     onSelect(dateRange)
   }
 
-  const cssClasses = classNames('date-range-picker', variant, className)
-
   return (
-    <div className={cssClasses}>
-      <DayPicker
-        locale={availableLocales[lng]}
-        mode="range"
-        min={1}
-        selected={selected}
-        onSelect={(dateRange) => selectDate(dateRange)}
-        footer={footer}
-        defaultMonth={selected?.from}
-      />
-    </div>
+    <DayPicker
+      className={className}
+      locale={availableLocales[lng]}
+      mode="range"
+      min={1}
+      selected={selected}
+      onSelect={(dateRange) => selectDate(dateRange)}
+      footer={footer}
+      defaultMonth={selected?.from}
+    />
   )
 }

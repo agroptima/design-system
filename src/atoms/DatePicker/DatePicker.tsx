@@ -1,5 +1,7 @@
 import 'react-day-picker/style.css'
+import './DatePicker.scss'
 import { type DateRange, type Locale } from 'react-day-picker'
+import { classNames } from '../../utils/classNames'
 import { DateRangePicker } from './DateRangePicker'
 import { DateSinglePicker } from './DateSinglePicker'
 
@@ -37,30 +39,36 @@ type DatePickerProps = (DateSinglePickerProps | DateRangePickerProps) &
   DatePickerBaseProps
 
 export function DatePicker(props: DatePickerProps): React.JSX.Element {
-  const { variant, className, type, lng, onSelect, selected } = props
+  const {
+    variant = 'primary',
+    className,
+    type,
+    lng,
+    onSelect,
+    selected,
+  } = props
+  const cssClasses = classNames('date-picker', variant, className)
 
   if (type === 'single') {
     return (
-      <>
+      <div className={cssClasses}>
         <DateSinglePicker
           lng={lng}
           selected={selected}
           onSelect={onSelect}
-          className={className}
-          variant={variant}
+          className="single"
         />
-      </>
+      </div>
     )
   }
   return (
-    <>
+    <div className={cssClasses}>
       <DateRangePicker
         lng={lng}
         selected={selected}
         onSelect={onSelect}
-        className={className}
-        variant={variant}
+        className="range"
       />
-    </>
+    </div>
   )
 }
