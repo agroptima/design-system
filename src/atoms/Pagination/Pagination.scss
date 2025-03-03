@@ -40,13 +40,13 @@
         }
       }
 
-      &:hover {
+      &:not(:disabled):hover {
         border: 1px solid color_alias.$primary-color-1000;
         background: color_alias.$primary-color-50;
         color: color_alias.$primary-color-1000;
       }
 
-      &.selected {
+      &:not(:disabled).selected {
         border: 1px solid color_alias.$primary-color-1000;
         color: color_alias.$primary-color-1000;
       }
@@ -80,8 +80,8 @@
         border: 1px solid transparent;
         background: none;
 
-        &.selected,
-        &:hover {
+        &:not(:disabled).selected,
+        &:not(:disabled):hover {
           border: 1px solid color_alias.$primary-color-1000;
           color: color_alias.$primary-color-1000;
         }
