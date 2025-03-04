@@ -1,7 +1,7 @@
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible'
-import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
+import { DatePicker } from '../atoms/DatePicker/DatePicker'
 import { Drawer } from '../atoms/Drawer'
 
 const figmaPrimaryDesign = {
@@ -130,9 +130,10 @@ export const Filters = {
       </Collapsible>
       <Collapsible noHorizontalPadding open title="Date">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <DateRangePicker
+          <DatePicker
             selected={{ from: new Date(2025, 0, 1), to: new Date(2025, 0, 15) }}
             onSelect={(date) => console.log('date: ', date)}
+            type="range"
             lng="en"
           />
         </div>

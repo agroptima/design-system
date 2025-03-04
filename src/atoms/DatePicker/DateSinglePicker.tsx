@@ -15,12 +15,14 @@ export interface DateSinglePickerProps {
   onSelect: (date: Date | undefined) => void
   selected?: Date
   lng: keyof typeof availableLocales
+  className: string
 }
 
 export function DateSinglePicker({
   onSelect = () => {},
   selected: preselected,
   lng,
+  className,
 }: DateSinglePickerProps): React.JSX.Element {
   const manageFooterText = (): string => {
     if (!selected) return translations[lng].pickSingleDate
@@ -51,17 +53,17 @@ export function DateSinglePicker({
   }
 
   return (
-    <>
-      <DayPicker
-        locale={availableLocales[lng]}
-        mode="single"
-        selected={selected}
-        onSelect={(date) => selectDate(date)}
-        footer={footer}
-        required
-        month={month}
-        onMonthChange={(date) => setMonth(date)}
-      />
-    </>
+    <DayPicker
+      className={className}
+      locale={availableLocales[lng]}
+      mode="single"
+      selected={selected}
+      onSelect={(date) => selectDate(date)}
+      footer={footer}
+      required
+      month={month}
+      onMonthChange={(date) => setMonth(date)}
+      defaultMonth={selected}
+    />
   )
 }

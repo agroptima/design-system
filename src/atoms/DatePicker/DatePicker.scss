@@ -10,6 +10,19 @@
   .rdp-root {
     width: 309px;
     --rdp-accent-color: #{color_alias.$primary-color-600};
+  }
+  .rdp-caption_label {
+    text-transform: capitalize;
+  }
+
+  .single {
+    .rdp-selected .rdp-day_button {
+      background-color: #{color_alias.$primary-color-600} !important;
+      color: white !important;
+    }
+  }
+
+  .range {
     --rdp-accent-background-color: #{color_alias.$primary-color-50};
   }
 }
