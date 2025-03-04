@@ -17,7 +17,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>',
+          '<h2>Usage guidelines</h2><p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p><ul><li>The Card has a hover effect when being a link, being `clickable` or not having any buttons.</li></ul>',
       },
     },
     figmaPrimaryDesign,
@@ -510,6 +510,23 @@ export const WithLink = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card href="some-url">
+        <CardHeader title="Fallout 3" isBold />
+        <CardContent>
+          <p>
+            Fallout 3 is a post-apocalyptic action role-playing open world video
+            game developed by Bethesda Game Studios and published by Bethesda
+            Softworks.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  ),
+}
+
+export const Clickable = {
+  render: () => (
+    <div style={{ display: 'flex' }}>
+      <Card onClick={() => alert('click')}>
         <CardHeader title="Fallout 3" isBold />
         <CardContent>
           <p>
