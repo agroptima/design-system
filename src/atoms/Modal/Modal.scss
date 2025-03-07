@@ -29,6 +29,7 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   outline: 0;
   border: 0px;
   background-color: transparent;
+  margin: 0 auto;
 
   &::backdrop {
     opacity: $backdrop-opacity;
