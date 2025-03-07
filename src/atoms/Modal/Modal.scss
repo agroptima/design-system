@@ -27,6 +27,20 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
+  border: 0px;
+  background-color: transparent;
+
+  &::backdrop {
+    opacity: $backdrop-opacity;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: depth.$z-modal;
+    width: 100vw;
+    height: 100vh;
+    background-color: $backdrop-background-color;
+    transition: opacity 0.15s linear;
+  }
 }
 
 .modal-dialog {
@@ -86,18 +100,6 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   align-items: center;
   justify-content: flex-end;
   gap: config.$space-2x;
-}
-
-.modal-backdrop {
-  opacity: $backdrop-opacity;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: depth.$z-modal;
-  width: 100vw;
-  height: 100vh;
-  background-color: $backdrop-background-color;
-  transition: opacity 0.15s linear;
 }
 
 .modal-details {
