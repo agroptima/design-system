@@ -26,6 +26,7 @@ export interface ModalProps {
   variant?: Variant
   scrollable?: boolean
   className?: string
+  isOpen?: boolean
   onClose?: () => void
   buttons: ButtonProps[]
   children: ReactNode
@@ -43,6 +44,7 @@ export function Modal({
   id,
   title,
   buttons,
+  isOpen = true,
   onClose,
   children,
   variant = 'details',
@@ -54,6 +56,7 @@ export function Modal({
     <ModalDialog
       aria-labelledby={`${id}-title`}
       aria-describedby={`${id}-body`}
+      isOpen={isOpen}
       onClose={onClose}
       details={isDetails}
       {...props}

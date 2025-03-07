@@ -5,6 +5,7 @@ import { classNames } from '../../utils/classNames'
 
 export interface ModalDialogProps
   extends React.HTMLAttributes<HTMLDialogElement> {
+  isOpen?: boolean
   onClose?: () => void
   details?: boolean
   scrollable?: boolean
@@ -12,6 +13,7 @@ export interface ModalDialogProps
 
 export function ModalDialog({
   className,
+  isOpen = true,
   onClose,
   children,
   details = false,
@@ -35,8 +37,12 @@ export function ModalDialog({
   }, [])
 
   useEffect(() => {
-    dialogRef.current?.showModal()
-  })
+    if (isOpen) {
+      dialogRef.current?.showModal()
+    } else {
+      dialogRef.current?.close()
+    }
+  }, [isOpen])
 
   return (
     <dialog
