@@ -25,16 +25,24 @@ export function DateRangePicker({
   className,
 }: DateRangePickerProps): React.JSX.Element {
   const manageFooterText = (): string => {
-    const hasDatesFilter = selected && selected.from && selected.to
-
-    if (!hasDatesFilter) return translations[lng].pickDate
-
-    return translations[lng].selectedRangeOfDates
-      .replace(
-        '${from}',
-        formatDatePickerFooterDate(selected.from, lng as string),
-      )
-      .replace('${to}', formatDatePickerFooterDate(selected.to, lng as string))
+    if (!selected?.from && !selected?.to) {
+      return translations[lng].pickDate
+    }
+    if (selected?.to && selected?.from?.getTime() !== selected?.to?.getTime()) {
+      return translations[lng].selectedRangeOfDates
+        .replace(
+          '${from}',
+          formatDatePickerFooterDate(selected?.from, lng as string),
+        )
+        .replace(
+          '${to}',
+          formatDatePickerFooterDate(selected?.to, lng as string),
+        )
+    }
+    return translations[lng].selectedOnlyFrom.replace(
+      '${from}',
+      formatDatePickerFooterDate(selected?.from, lng as string),
+    )
   }
 
   const [selected, setSelected] = useState<DateRange | undefined>(preselected)
@@ -43,10 +51,13 @@ export function DateRangePicker({
   })
 
   useEffect(() => {
-    setSelected(preselected)
+    setSelected({ from: preselected?.from, to: preselected?.to ?? undefined })
+  }, [preselected])
+
+  useEffect(() => {
     setFooter(manageFooterText())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [preselected])
+  }, [selected])
 
   function selectDate(dateRange: DateRange | undefined) {
     setSelected(dateRange)
