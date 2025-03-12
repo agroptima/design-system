@@ -30,5 +30,12 @@
   background-color: var(--rdp-range_middle-background-color);
 }
 
+.toggle {
+  z-index: depth.$z-dropdown-options;
+  padding: config.$space-1x;
+  position: absolute;
+  width: fit-content;
+  border: 1px solid green;
+}
 
-
+  

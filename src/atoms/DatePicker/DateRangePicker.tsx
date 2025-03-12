@@ -11,6 +11,7 @@ import {
   fromDateToISOString,
   fromISOToDate,
 } from '../../utils/dateHelpers'
+import { Input } from '../Input'
 import { availableLocales, type Locale, translations } from './translations'
 
 export type Variant = 'primary'
@@ -22,6 +23,7 @@ export type DateRangePickerProps = {
   className?: string
   defaultValue?: DateRange
   onSelect?: (date: DateRange) => void
+  withInput?: boolean
 }
 
 export type DateRange = {
@@ -36,12 +38,19 @@ export function DateRangePicker({
   className,
   required = false,
   variant,
+  withInput = false,
 }: DateRangePickerProps): React.JSX.Element {
-  const cssClasses = classNames('date-picker', variant, className)
+  const inputType = withInput ? 'text' : 'hidden'
+  const showDefault = withInput ? false : true
+  const cssClasses = classNames('date-picker', variant, className, {
+    toggle: withInput,
+  })
 
   const [selected, setSelected] = useState<DateRangeReactDayPicker>(
     toDateRange(defaultValue),
   )
+
+  const [isOpen, setIsOpen] = useState<boolean>(showDefault)
 
   function selectDate(dateRange: DateRangeReactDayPicker | undefined) {
     const selectedDateRange = {
@@ -57,26 +66,45 @@ export function DateRangePicker({
   }, [defaultValue])
 
   return (
-    <DayPicker
-      className={cssClasses}
-      locale={availableLocales[lng]}
-      mode="range"
-      min={1}
-      selected={selected}
-      onSelect={selectDate}
-      footer={<Footer lng={lng} selected={selected} />}
-      defaultMonth={selected?.from}
-      required={required}
-    />
+    <div className={cssClasses}>
+      <Input
+        type={inputType}
+        label={''}
+        value={`${formatDatePickerFooterDate(selected.from, lng as string)} - ${formatDatePickerFooterDate(selected.to, lng as string)}`}
+        icon="Calendar"
+        name="date"
+        placeholder="dd/mm/yyyy - dd/mm/yyyy"
+        readOnly
+        onClick={() => setIsOpen(!isOpen)}
+      />
+      {isOpen && (
+        <DayPicker
+          locale={availableLocales[lng]}
+          mode="range"
+          min={1}
+          selected={selected}
+          onSelect={selectDate}
+          footer={
+            <Footer lng={lng} selected={selected} withInput={withInput} />
+          }
+          defaultMonth={selected?.from}
+          required={required}
+          className={cssClasses}
+        />
+      )}
+    </div>
   )
 }
 function Footer({
   lng,
   selected,
+  withInput,
 }: {
   lng: Locale
   selected: DateRangeReactDayPicker | undefined
+  withInput: boolean
 }): string {
+  if (withInput) return ''
   if (!selected?.from && !selected?.to) {
     return translations[lng].pickDate
   }

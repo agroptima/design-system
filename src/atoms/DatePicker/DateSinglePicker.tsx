@@ -8,6 +8,7 @@ import {
   fromDateToISOString,
   fromISOToDate,
 } from '../../utils/dateHelpers'
+import { Input } from '../Input'
 import { availableLocales, type Locale, translations } from './translations'
 
 export type Variant = 'primary'
@@ -19,6 +20,7 @@ export type DateSinglePickerProps = {
   className?: string
   defaultValue?: string
   onSelect?: (date: string) => void
+  withInput?: boolean
 }
 
 export function DateSinglePicker({
@@ -28,12 +30,19 @@ export function DateSinglePicker({
   className,
   required = false,
   variant,
+  withInput = false,
 }: DateSinglePickerProps): React.JSX.Element {
-  const cssClasses = classNames('date-picker', variant, className)
+  const inputType = withInput ? 'text' : 'hidden'
+  const showDefault = withInput ? false : true
+
+  const cssClasses = classNames('date-picker', variant, className, {
+    toggle: withInput,
+  })
 
   const [selected, setSelected] = useState<Date | undefined>(
     fromISOToDate(defaultValue),
   )
+  const [isOpen, setIsOpen] = useState<boolean>(showDefault)
 
   function selectDate(date: Date | undefined) {
     setSelected(date)
@@ -41,19 +50,44 @@ export function DateSinglePicker({
   }
 
   return (
-    <DayPicker
-      className={cssClasses}
-      locale={availableLocales[lng]}
-      mode="single"
-      selected={selected}
-      onSelect={selectDate}
-      footer={<Footer lng={lng} selected={selected} />}
-      required={required}
-      defaultMonth={selected}
-    />
+    <div className={cssClasses}>
+      <Input
+        type={inputType}
+        label={''}
+        value={formatDatePickerFooterDate(selected, lng as string)}
+        icon="Calendar"
+        name="date"
+        placeholder="dd/mm/yyyy"
+        readOnly
+        onClick={() => setIsOpen(!isOpen)}
+      />
+      {isOpen && (
+        <DayPicker
+          locale={availableLocales[lng]}
+          mode="single"
+          selected={selected}
+          onSelect={selectDate}
+          footer={
+            <Footer lng={lng} selected={selected} withInput={withInput} />
+          }
+          required={required}
+          defaultMonth={selected}
+          className={cssClasses}
+        />
+      )}
+    </div>
   )
 }
-function Footer({ lng, selected }: { selected?: Date; lng: Locale }): string {
+function Footer({
+  lng,
+  selected,
+  withInput,
+}: {
+  selected?: Date
+  lng: Locale
+  withInput: boolean
+}): string {
+  if (withInput) return ''
   if (!selected) return translations[lng].pickSingleDate
 
   return translations[lng].selectedDate.replace(

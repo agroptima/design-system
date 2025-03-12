@@ -25,10 +25,3 @@ export function formatDatePickerFooterDate(
 
   return formatDate(fromDateToISOString(date), lng)
 }
-
-export function formatRangeDatePickerParamsDate(
-  dateRange: DateRange | undefined,
-) {
-  const date = `${formatDatePickerParamsDate(dateRange?.from)} - ${formatDatePickerParamsDate(dateRange?.to)}`
-  return date
-}

@@ -33,7 +33,11 @@ const meta = {
       description: 'Optional parametre for add styles by className',
     },
     withInput: {
-      description: 'Optional input to write the date',
+      description: 'Optional input to read and select the date',
+      control: {
+        type: 'boolean',
+        default: false,
+      },
     },
   },
 }
@@ -63,6 +67,17 @@ export const WithRangeDateSelected: Story = {
     onSelect: (date) => console.log('onSelect date:', date),
     defaultValue: { from: '2024-01-02', to: '2024-01-12' },
     lng: 'en',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const RangeDatePickerWithInput: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    defaultValue: { from: '2024-01-02', to: '2024-01-12' },
+    lng: 'en',
+    withInput: true,
   },
   parameters: figmaPrimaryDesign,
 }
