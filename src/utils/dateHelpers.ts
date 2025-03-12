@@ -3,10 +3,16 @@ export function formatDate(date: string, lng: string) {
   return new Date(date).toLocaleDateString(lng)
 }
 
-export function formatDatePickerParamsDate(date: Date | undefined) {
+export function fromDateToISOString(date: Date | undefined) {
   if (!date) return ''
 
   return date.toLocaleDateString('sv-SE')
+}
+
+export function fromISOToDate(date: string | undefined) {
+  if (!date) return undefined
+
+  return new Date(date)
 }
 
 export function formatDatePickerFooterDate(
@@ -15,5 +21,5 @@ export function formatDatePickerFooterDate(
 ) {
   if (!date) return ''
 
-  return formatDate(formatDatePickerParamsDate(date), lng)
+  return formatDate(fromDateToISOString(date), lng)
 }

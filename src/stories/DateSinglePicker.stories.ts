@@ -1,9 +1,9 @@
 import type { StoryObj } from '@storybook/react'
-import { DatePicker } from '../atoms/DatePicker/DatePicker'
+import { DateSinglePicker } from '../atoms/DatePicker/DateSinglePicker'
 
 const meta = {
-  title: 'Design System/Atoms/DatePicker',
-  component: DatePicker,
+  title: 'Design System/Atoms/DateSinglePicker',
+  component: DateSinglePicker,
   parameters: {
     docs: {
       description: {
@@ -29,6 +29,12 @@ const meta = {
     type: {
       description: 'Type of date that could be range or single',
     },
+    required: {
+      description: 'Optional parametre for required pick date',
+    },
+    className: {
+      description: 'Optional parametre for add className',
+    },
   },
 }
 
@@ -47,38 +53,15 @@ export const SingleDatePicker: Story = {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
-    type: 'single',
   },
-}
-
-export const RangeDatePicker: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    lng: 'en',
-    type: 'range',
-  },
-  parameters: figmaPrimaryDesign,
 }
 
 export const WithSingleDaySelected: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
-    selected: new Date(2024, 1, 2),
+    defaultValue: '2024-01-20',
     lng: 'en',
-    type: 'single',
-  },
-  parameters: figmaPrimaryDesign,
-}
-
-export const WithRangeDateSelected: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 12) },
-    lng: 'en',
-    type: 'range',
   },
   parameters: figmaPrimaryDesign,
 }

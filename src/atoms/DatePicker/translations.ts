@@ -1,6 +1,20 @@
-interface Translation {
+import { type Locale as LocaleReactDayPicker } from 'react-day-picker'
+import { enGB, es } from 'react-day-picker/locale'
+
+export interface Translation {
   [index: string]: { [index: string]: string }
 }
+
+export interface AvailableLocale {
+  [index: string]: LocaleReactDayPicker
+}
+
+export const availableLocales: AvailableLocale = {
+  es: es,
+  en: enGB,
+}
+
+export type Locale = keyof typeof availableLocales
 
 export const translations: Translation = {
   en: {
