@@ -1,21 +1,21 @@
 import './Card.scss'
-import Link from 'next/link'
+import Link, { type LinkProps } from 'next/link'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 
-export interface CardProps {
+export interface CardProps extends Omit<LinkProps, 'href'> {
   visible?: boolean
   className?: string
   variant?: Variant
   isDisabled?: boolean
   isActive?: boolean
   error?: boolean
-  href?: string
   onClick?: () => void
   role?: string
   children: React.ReactNode
+  href?: string
 }
 
 export function Card({
@@ -25,6 +25,7 @@ export function Card({
   isDisabled = false,
   isActive = false,
   error = false,
+  prefetch = false,
   children,
   href,
   ...props
@@ -40,7 +41,7 @@ export function Card({
 
   if (href && !isDisabled) {
     return (
-      <Link href={href} className={cssClasses} {...props}>
+      <Link href={href} className={cssClasses} prefetch={prefetch} {...props}>
         {children}
       </Link>
     )

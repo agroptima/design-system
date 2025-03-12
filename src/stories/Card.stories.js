@@ -1,6 +1,7 @@
 import { IconButton } from '../atoms/Button'
 import { Button } from '../atoms/Button'
 import { Card, CardContent, CardFooter, CardHeader } from '../atoms/Card'
+import { QuantitySelector } from '../atoms/QuantitySelector'
 
 const figmaPrimaryDesign = {
   design: {
@@ -16,7 +17,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>',
+          '<h2>Usage guidelines</h2><p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p><ul><li>The Card has a hover effect when being a link, being `clickable` or not having any buttons.</li></ul>',
       },
     },
     figmaPrimaryDesign,
@@ -101,6 +102,18 @@ export const ProductCard = {
           </div>
         </CardContent>
         <CardFooter>
+          <QuantitySelector
+            accessibilityLabel="Quantity of items to wishlist"
+            defaultValue={1}
+            hideLabel
+            id="quantity"
+            label="Quantity"
+            max={10}
+            min={1}
+            name="quantity"
+            required
+            step={0.0001}
+          />
           <Button variant="primary-outlined" label="Buy" />
         </CardFooter>
       </Card>
@@ -497,6 +510,23 @@ export const WithLink = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card href="some-url">
+        <CardHeader title="Fallout 3" isBold />
+        <CardContent>
+          <p>
+            Fallout 3 is a post-apocalyptic action role-playing open world video
+            game developed by Bethesda Game Studios and published by Bethesda
+            Softworks.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  ),
+}
+
+export const Clickable = {
+  render: () => (
+    <div style={{ display: 'flex' }}>
+      <Card onClick={() => alert('click')}>
         <CardHeader title="Fallout 3" isBold />
         <CardContent>
           <p>

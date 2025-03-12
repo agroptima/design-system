@@ -1,85 +1,111 @@
 import 'react-day-picker/style.css'
+import './DatePicker.scss'
 import { useEffect, useState } from 'react'
-import { type DateRange, DayPicker, type Locale } from 'react-day-picker'
-import { enGB, es } from 'react-day-picker/locale'
-import { formatDatePickerFooterDate } from '../../utils/dateHelpers'
-import { Input } from '../Input'
-import type { AvailableLocale } from './DatePicker'
-import { translations } from './translations'
+import {
+  type DateRange as DateRangeReactDayPicker,
+  DayPicker,
+} from 'react-day-picker'
+import { classNames } from '../../utils/classNames'
+import {
+  formatDatePickerFooterDate,
+  fromDateToISOString,
+  fromISOToDate,
+} from '../../utils/dateHelpers'
+import { availableLocales, type Locale, translations } from './translations'
 
-const availableLocales: AvailableLocale = {
-  es: es,
-  en: enGB,
+export type Variant = 'primary'
+
+export type DateRangePickerProps = {
+  variant?: Variant
+  lng: Locale
+  required?: boolean
+  className?: string
+  defaultValue?: DateRange
+  onSelect?: (date: DateRange) => void
 }
 
-export interface DateRangePickerProps {
-  onSelect: (dateRange: DateRange | undefined) => void
-  selected?: DateRange
-  lng: keyof typeof availableLocales
-  withInput: boolean
+export type DateRange = {
+  from: string | undefined
+  to: string | undefined
 }
 
 export function DateRangePicker({
-  onSelect = () => {},
-  selected: preselected,
+  onSelect,
+  defaultValue,
   lng,
-  withInput = false,
+  className,
+  required = false,
+  variant,
 }: DateRangePickerProps): React.JSX.Element {
-  const manageFooterText = (): string => {
-    const hasDatesFilter = selected && selected.from && selected.to
+  const cssClasses = classNames('date-picker', variant, className)
 
-    if (!hasDatesFilter) return translations[lng].pickDate
+  const [selected, setSelected] = useState<DateRangeReactDayPicker>(
+    toDateRange(defaultValue),
+  )
 
+  function selectDate(dateRange: DateRangeReactDayPicker | undefined) {
+    const selectedDateRange = {
+      from: dateRange?.from,
+      to: dateRange?.to,
+    }
+    setSelected(selectedDateRange)
+    onSelect?.(toDateRangeISO(selectedDateRange))
+  }
+
+  useEffect(() => {
+    setSelected(toDateRange(defaultValue))
+  }, [defaultValue])
+
+  return (
+    <DayPicker
+      className={cssClasses}
+      locale={availableLocales[lng]}
+      mode="range"
+      min={1}
+      selected={selected}
+      onSelect={selectDate}
+      footer={<Footer lng={lng} selected={selected} />}
+      defaultMonth={selected?.from}
+      required={required}
+    />
+  )
+}
+function Footer({
+  lng,
+  selected,
+}: {
+  lng: Locale
+  selected: DateRangeReactDayPicker | undefined
+}): string {
+  if (!selected?.from && !selected?.to) {
+    return translations[lng].pickDate
+  }
+  if (selected?.to && selected?.from?.getTime() !== selected?.to?.getTime()) {
     return translations[lng].selectedRangeOfDates
       .replace(
         '${from}',
-        formatDatePickerFooterDate(selected.from, lng as string),
+        formatDatePickerFooterDate(selected?.from, lng as string),
       )
-      .replace('${to}', formatDatePickerFooterDate(selected.to, lng as string))
+      .replace('${to}', formatDatePickerFooterDate(selected?.to, lng as string))
   }
-
-  const [selected, setSelected] = useState<DateRange | undefined>(preselected)
-  const [footer, setFooter] = useState<string>(() => {
-    return manageFooterText()
-  })
-  const [open, setOpen] = useState<boolean>(true)
-
-  useEffect(() => {
-    setSelected(preselected)
-    setFooter(manageFooterText())
-    if (withInput) setOpen(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [preselected])
-
-  function selectDate(dateRange: DateRange | undefined) {
-    setSelected(dateRange)
-    onSelect(dateRange)
-  }
-
-  return (
-    <>
-      {withInput && (
-        <Input
-          label={''}
-          value={`${formatDatePickerFooterDate(selected?.from, lng as string)} - ${formatDatePickerFooterDate(selected?.to, lng as string)}`}
-          icon="Calendar"
-          name="date"
-          placeholder="dd/mm/yyyy - dd/mm/yyyy"
-          readOnly
-          onClick={() => setOpen(!open)}
-        />
-      )}
-      {open && (
-        <DayPicker
-          locale={availableLocales[lng]}
-          mode="range"
-          min={1}
-          selected={selected}
-          onSelect={(dateRange) => selectDate(dateRange)}
-          footer={footer}
-          defaultMonth={selected?.from}
-        />
-      )}
-    </>
+  return translations[lng].selectedOnlyFrom.replace(
+    '${from}',
+    formatDatePickerFooterDate(selected?.from, lng as string),
   )
+}
+
+function toDateRange(
+  dateRange: DateRange | undefined,
+): DateRangeReactDayPicker {
+  return {
+    from: fromISOToDate(dateRange?.from),
+    to: fromISOToDate(dateRange?.to),
+  }
+}
+
+function toDateRangeISO(dateRange: DateRangeReactDayPicker): DateRange {
+  return {
+    from: fromDateToISOString(dateRange?.from),
+    to: fromDateToISOString(dateRange?.to),
+  }
 }

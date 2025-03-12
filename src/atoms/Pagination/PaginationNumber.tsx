@@ -1,4 +1,5 @@
 import './Pagination.scss'
+import type { LinkProps } from 'next/link'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 import type { ButtonProps } from '../Button'
@@ -14,7 +15,7 @@ export interface CustomProps {
   variant?: Variant
 }
 
-export type PaginationNumberProps = CustomProps & ButtonProps
+export type PaginationNumberProps = CustomProps & ButtonProps & LinkProps
 
 export function PaginationNumber({
   label,
@@ -24,6 +25,7 @@ export function PaginationNumber({
   className,
   disabled,
   selected = false,
+  prefetch = false,
   ...props
 }: PaginationNumberProps): React.JSX.Element {
   const cssClasses = classNames('pagination-button', variant, className, {
@@ -38,6 +40,7 @@ export function PaginationNumber({
       href={disabled ? '#' : href}
       className={cssClasses}
       aria-current={selected}
+      prefetch={prefetch}
       {...props}
     />
   )
