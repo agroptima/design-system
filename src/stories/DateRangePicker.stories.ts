@@ -26,14 +26,11 @@ const meta = {
     lng: {
       description: 'String with the locale to be used on the translations',
     },
-    type: {
-      description: 'Type of date that could be range or single',
-    },
     required: {
       description: 'Optional parametre for required pick date',
     },
     className: {
-      description: 'Optional parametre for add className',
+      description: 'Optional parametre for add styles by className',
     },
   },
 }
