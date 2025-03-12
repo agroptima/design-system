@@ -1,9 +1,9 @@
 import type { StoryObj } from '@storybook/react'
-import { DatePicker } from '../atoms/DatePicker/DatePicker'
+import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
 
 const meta = {
-  title: 'Design System/Atoms/DatePicker',
-  component: DatePicker,
+  title: 'Design System/Atoms/DateRangePicker',
+  component: DateRangePicker,
   parameters: {
     docs: {
       description: {
@@ -26,8 +26,11 @@ const meta = {
     lng: {
       description: 'String with the locale to be used on the translations',
     },
-    type: {
-      description: 'Type of date that could be range or single',
+    required: {
+      description: 'Optional parametre for required pick date',
+    },
+    className: {
+      description: 'Optional parametre for add styles by className',
     },
   },
 }
@@ -42,32 +45,11 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const SingleDatePicker: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    lng: 'en',
-    type: 'single',
-  },
-}
-
 export const RangeDatePicker: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
-    type: 'range',
-  },
-  parameters: figmaPrimaryDesign,
-}
-
-export const WithSingleDaySelected: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    selected: new Date(2024, 1, 2),
-    lng: 'en',
-    type: 'single',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -76,9 +58,8 @@ export const WithRangeDateSelected: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
-    selected: { from: new Date(2024, 1, 2), to: new Date(2024, 1, 12) },
+    defaultValue: { from: '2024-01-02', to: '2024-01-12' },
     lng: 'en',
-    type: 'range',
   },
   parameters: figmaPrimaryDesign,
 }
