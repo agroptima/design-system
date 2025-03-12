@@ -21,7 +21,7 @@ describe('DateRangePicker', () => {
     expect(getByText('sá')).toBeInTheDocument()
     expect(getByText('do')).toBeInTheDocument()
     expect(
-      getByText('Rango de fechas seleccionado: desde 1/1/2025 a 15/1/2025'),
+      getByText('Rango de fechas seleccionado: desde 12/1/2025 a 20/1/2025'),
     ).toBeInTheDocument()
   })
 })

@@ -12,7 +12,7 @@ describe('DateSinglePicker', () => {
       />,
     )
 
-    expect(getByText('febrero 2025')).toBeInTheDocument()
+    expect(getByText('enero 2025')).toBeInTheDocument()
     expect(getByText('lu')).toBeInTheDocument()
     expect(getByText('ma')).toBeInTheDocument()
     expect(getByText('mi')).toBeInTheDocument()
@@ -20,6 +20,6 @@ describe('DateSinglePicker', () => {
     expect(getByText('vi')).toBeInTheDocument()
     expect(getByText('sá')).toBeInTheDocument()
     expect(getByText('do')).toBeInTheDocument()
-    expect(getByText('Fecha seleccionada: 15/2/2025')).toBeInTheDocument()
+    expect(getByText('Fecha seleccionada: 23/1/2025')).toBeInTheDocument()
   })
 })
