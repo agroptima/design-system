@@ -76,6 +76,7 @@ export function DateRangePicker({
         placeholder="dd/mm/yyyy - dd/mm/yyyy"
         readOnly
         onClick={() => setIsOpen(!isOpen)}
+        className="input"
       />
       {isOpen && (
         <DayPicker
@@ -89,7 +90,7 @@ export function DateRangePicker({
           }
           defaultMonth={selected?.from}
           required={required}
-          className={cssClasses}
+          className="calendar"
         />
       )}
     </div>

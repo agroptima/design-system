@@ -61,6 +61,7 @@ export function Input({
       className={classNames('input-group', variant, className, {
         file: type === 'file',
         invalid: errors?.length,
+        hidden: type === 'hidden',
       })}
     >
       {!hideLabel && (

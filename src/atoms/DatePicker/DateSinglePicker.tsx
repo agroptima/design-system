@@ -60,6 +60,7 @@ export function DateSinglePicker({
         placeholder="dd/mm/yyyy"
         readOnly
         onClick={() => setIsOpen(!isOpen)}
+        className="input"
       />
       {isOpen && (
         <DayPicker
@@ -72,7 +73,7 @@ export function DateSinglePicker({
           }
           required={required}
           defaultMonth={selected}
-          className={cssClasses}
+          className="calendar"
         />
       )}
     </div>
