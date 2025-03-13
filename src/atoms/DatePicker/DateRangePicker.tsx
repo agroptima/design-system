@@ -89,7 +89,7 @@ function Footer({
       .replace('${to}', formatDatePickerFooterDate(selected?.to, lng as string))
   }
   return translations[lng].selectedDate.replace(
-    '${from}',
+    '${date}',
     formatDatePickerFooterDate(selected?.from, lng as string),
   )
 }
