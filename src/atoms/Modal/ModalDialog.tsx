@@ -1,9 +1,11 @@
 'use client'
 import './Modal.scss'
-import React, { use, useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { classNames } from '../../utils/classNames'
 
-export interface ModalDialogProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalDialogProps
+  extends React.HTMLAttributes<HTMLDialogElement> {
+  isOpen?: boolean
   onClose?: () => void
   details?: boolean
   scrollable?: boolean
@@ -11,12 +13,14 @@ export interface ModalDialogProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function ModalDialog({
   className,
+  isOpen = true,
   onClose,
   children,
   details = false,
   scrollable = false,
   ...props
 }: ModalDialogProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null)
   const handleClick = (event: React.MouseEvent) => {
     if (event.target !== event.currentTarget) return
     onClose?.()
@@ -33,36 +37,28 @@ export function ModalDialog({
   }, [])
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose?.()
-      }
+    if (isOpen) {
+      dialogRef.current?.showModal()
+    } else {
+      dialogRef.current?.close()
     }
-    document.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [onClose])
+  }, [isOpen])
 
   return (
-    <>
-      <div className="modal-backdrop"></div>
+    <dialog
+      ref={dialogRef}
+      className={classNames('modal', className, { 'modal-details': details })}
+      onClick={handleClick}
+      {...props}
+    >
       <div
-        role="dialog"
-        className={classNames('modal', className, { 'modal-details': details })}
-        onClick={handleClick}
-        {...props}
+        className={classNames('modal-dialog', {
+          'modal-dialog-scrollable': scrollable,
+        })}
       >
-        <div
-          className={classNames('modal-dialog', {
-            'modal-dialog-scrollable': scrollable,
-          })}
-        >
-          <div className="modal-content">{children}</div>
-        </div>
+        <div className="modal-content">{children}</div>
       </div>
-    </>
+    </dialog>
   )
 }
 

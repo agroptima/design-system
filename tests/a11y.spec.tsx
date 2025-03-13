@@ -13,6 +13,11 @@ const stories = Object.values(components).map((component) => {
 })
 
 stories.forEach(({ title, stories }) => {
+  beforeAll(() => {
+    HTMLDialogElement.prototype.show = jest.fn()
+    HTMLDialogElement.prototype.showModal = jest.fn()
+    HTMLDialogElement.prototype.close = jest.fn()
+  })
   const variations = Object.entries(stories)
 
   variations.forEach(([variationName, story]: [string, any]) => {

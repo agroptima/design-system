@@ -116,8 +116,8 @@ function Footer({
       )
       .replace('${to}', formatDatePickerFooterDate(selected?.to, lng as string))
   }
-  return translations[lng].selectedOnlyFrom.replace(
-    '${from}',
+  return translations[lng].selectedDate.replace(
+    '${date}',
     formatDatePickerFooterDate(selected?.from, lng as string),
   )
 }
