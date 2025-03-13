@@ -54,7 +54,7 @@ export function DateSinglePicker({
   )
 }
 function Footer({ lng, selected }: { selected?: Date; lng: Locale }): string {
-  if (!selected) return translations[lng].pickSingleDate
+  if (!selected) return translations[lng].pickDate
 
   return translations[lng].selectedDate.replace(
     '${date}',
