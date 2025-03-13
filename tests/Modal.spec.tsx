@@ -3,6 +3,12 @@ import React from 'react'
 import { Modal, type Variant } from '../src/atoms/Modal'
 
 describe('Modal', () => {
+  beforeAll(() => {
+    HTMLDialogElement.prototype.show = jest.fn()
+    HTMLDialogElement.prototype.showModal = jest.fn()
+    HTMLDialogElement.prototype.close = jest.fn()
+  })
+
   const variants = ['info', 'success', 'warning', 'error']
   it.each(variants)(
     'renders the %s variant with title and the expected icon and button',
@@ -14,6 +20,7 @@ describe('Modal', () => {
           variant={variant as Variant}
           id={`${variant}-modal`}
           title={title}
+          isOpen={true}
           buttons={[
             {
               label: 'Done',
@@ -23,11 +30,11 @@ describe('Modal', () => {
           {content}
         </Modal>,
       )
-      expect(getByRole('img')).toHaveClass(variant)
+      expect(getByRole('img', { hidden: true })).toHaveClass(variant)
       expect(getByText(title)).toBeInTheDocument()
       expect(getByText(content)).toBeInTheDocument()
-      expect(getByRole('button')).toHaveTextContent('Done')
-      expect(getByRole('button')).toHaveClass('primary')
+      expect(getByRole('button', { hidden: true })).toHaveTextContent('Done')
+      expect(getByRole('button', { hidden: true })).toHaveClass('primary')
     },
   )
 
@@ -39,6 +46,7 @@ describe('Modal', () => {
         id="discard-modal"
         title={title}
         variant="discard"
+        isOpen={true}
         buttons={[
           {
             label: 'Cancel',
@@ -53,12 +61,20 @@ describe('Modal', () => {
         {content}
       </Modal>,
     )
-    expect(getByRole('img')).toHaveClass('warning')
+    expect(getByRole('img', { hidden: true })).toHaveClass('warning')
     expect(getByText(title)).toBeInTheDocument()
     expect(getByText(content)).toBeInTheDocument()
-    expect(screen.getAllByRole('button')[0]).toHaveTextContent('Cancel')
-    expect(screen.getAllByRole('button')[0]).toHaveClass('neutral')
-    expect(screen.getAllByRole('button')[1]).toHaveTextContent('Delete')
-    expect(screen.getAllByRole('button')[1]).toHaveClass('error')
+    expect(
+      screen.getAllByRole('button', { hidden: true })[0],
+    ).toHaveTextContent('Cancel')
+    expect(screen.getAllByRole('button', { hidden: true })[0]).toHaveClass(
+      'neutral',
+    )
+    expect(
+      screen.getAllByRole('button', { hidden: true })[1],
+    ).toHaveTextContent('Delete')
+    expect(screen.getAllByRole('button', { hidden: true })[1]).toHaveClass(
+      'error',
+    )
   })
 })
