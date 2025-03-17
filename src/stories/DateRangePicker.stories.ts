@@ -39,6 +39,13 @@ const meta = {
         default: false,
       },
     },
+    label: {
+      description: 'Optional label for input',
+      control: {
+        type: 'string',
+        default: 'Date',
+      },
+    },
   },
 }
 

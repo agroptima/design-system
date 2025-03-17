@@ -52,6 +52,10 @@ const meta = {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
+    datePickerIcon: {
+      description:
+        'Optional icon added to input when input is applied to the date picker component selection',
+    },
   },
 }
 

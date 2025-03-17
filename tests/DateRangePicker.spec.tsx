@@ -24,4 +24,17 @@ describe('DateRangePicker', () => {
       getByText('Rango de fechas seleccionado: desde 12/1/2025 a 20/1/2025'),
     ).toBeInTheDocument()
   })
+
+  it('renders with input that shows date picker value', () => {
+    const { getByRole } = render(
+      <DateRangePicker
+        defaultValue={{ from: '2025-01-12', to: '2025-01-20' }}
+        onSelect={() => jest.fn()}
+        lng={'es'}
+        withInput
+      />,
+    )
+
+    expect(getByRole('textbox')).toHaveValue('12/1/2025 - 20/1/2025')
+  })
 })

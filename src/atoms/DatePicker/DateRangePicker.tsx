@@ -24,6 +24,7 @@ export type DateRangePickerProps = {
   defaultValue?: DateRange
   onSelect?: (date: DateRange) => void
   withInput?: boolean
+  label?: string
 }
 
 export type DateRange = {
@@ -39,9 +40,9 @@ export function DateRangePicker({
   required = false,
   variant,
   withInput = false,
+  label = 'Date',
 }: DateRangePickerProps): React.JSX.Element {
   const inputType = withInput ? 'text' : 'hidden'
-  const showDefault = withInput ? false : true
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
   })
@@ -50,7 +51,7 @@ export function DateRangePicker({
     toDateRange(defaultValue),
   )
 
-  const [isOpen, setIsOpen] = useState<boolean>(showDefault)
+  const [isOpen, setIsOpen] = useState<boolean>(!withInput)
 
   function selectDate(dateRange: DateRangeReactDayPicker | undefined) {
     const selectedDateRange = {
@@ -67,17 +68,18 @@ export function DateRangePicker({
 
   return (
     <div className={cssClasses}>
-      <Input
-        type={inputType}
-        label={''}
-        value={`${formatDatePickerFooterDate(selected.from, lng as string)} - ${formatDatePickerFooterDate(selected.to, lng as string)}`}
-        icon="Calendar"
-        name="date"
-        placeholder="dd/mm/yyyy - dd/mm/yyyy"
-        readOnly
-        onClick={() => setIsOpen(!isOpen)}
-        className="input"
-      />
+      <div onClick={() => setIsOpen(!isOpen)}>
+        <Input
+          type={inputType}
+          label={label}
+          datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
+          value={`${formatDatePickerFooterDate(selected.from, lng as string)} - ${formatDatePickerFooterDate(selected.to, lng as string)}`}
+          icon="Calendar"
+          name="date"
+          placeholder={translations[lng].rangePlaceholder}
+          readOnly
+        />
+      </div>
       {isOpen && (
         <DayPicker
           locale={availableLocales[lng]}

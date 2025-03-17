@@ -22,4 +22,16 @@ describe('DateSinglePicker', () => {
     expect(getByText('do')).toBeInTheDocument()
     expect(getByText('Fecha seleccionada: 23/1/2025')).toBeInTheDocument()
   })
+  it('renders with input that whos date picker value', () => {
+    const { getByRole } = render(
+      <DateSinglePicker
+        defaultValue={'2025-01-23'}
+        onSelect={() => jest.fn()}
+        withInput
+        lng={'es'}
+      />,
+    )
+
+    expect(getByRole('textbox')).toHaveValue('23/1/2025')
+  })
 })

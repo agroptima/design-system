@@ -21,6 +21,7 @@ export type DateSinglePickerProps = {
   defaultValue?: string
   onSelect?: (date: string) => void
   withInput?: boolean
+  label?: string
 }
 
 export function DateSinglePicker({
@@ -31,9 +32,9 @@ export function DateSinglePicker({
   required = false,
   variant,
   withInput = false,
+  label = 'Date',
 }: DateSinglePickerProps): React.JSX.Element {
   const inputType = withInput ? 'text' : 'hidden'
-  const showDefault = withInput ? false : true
 
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
@@ -42,7 +43,7 @@ export function DateSinglePicker({
   const [selected, setSelected] = useState<Date | undefined>(
     fromISOToDate(defaultValue),
   )
-  const [isOpen, setIsOpen] = useState<boolean>(showDefault)
+  const [isOpen, setIsOpen] = useState<boolean>(!withInput)
 
   function selectDate(date: Date | undefined) {
     setSelected(date)
@@ -51,17 +52,18 @@ export function DateSinglePicker({
 
   return (
     <div className={cssClasses}>
-      <Input
-        type={inputType}
-        label={''}
-        value={formatDatePickerFooterDate(selected, lng as string)}
-        icon="Calendar"
-        name="date"
-        placeholder="dd/mm/yyyy"
-        readOnly
-        onClick={() => setIsOpen(!isOpen)}
-        className="input"
-      />
+      <div onClick={() => setIsOpen(!isOpen)}>
+        <Input
+          type={inputType}
+          label={label}
+          datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
+          value={formatDatePickerFooterDate(selected, lng as string)}
+          icon="Calendar"
+          name="date"
+          placeholder={translations[lng].singlePlaceholder}
+          readOnly
+        />
+      </div>
       {isOpen && (
         <DayPicker
           locale={availableLocales[lng]}
