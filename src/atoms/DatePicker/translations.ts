@@ -21,10 +21,14 @@ export const translations: Translation = {
     pickDate: 'Pick a date or a range of dates',
     selectedDate: 'Selected date: ${date}',
     selectedRangeOfDates: 'Selected dates range: from ${from} to ${to}',
+    singlePlaceholder: 'mm/dd/yyyy',
+    rangePlaceholder: 'mm/dd/yyyy - mm/dd/yyyy',
   },
   es: {
     pickDate: 'Selecciona una fecha o un rango de fechas',
     selectedDate: 'Fecha seleccionada: ${date}',
     selectedRangeOfDates: 'Rango de fechas seleccionado: desde ${from} a ${to}',
+    singlePlaceholder: 'dd/mm/yyyy',
+    rangePlaceholder: 'dd/mm/yyyy - dd/mm/yyyy',
   },
 }

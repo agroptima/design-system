@@ -1,3 +1,5 @@
+import type { DateRange } from 'react-day-picker'
+
 export function formatDate(date: string, lng: string) {
   if (!date) return ''
   return new Date(date).toLocaleDateString(lng)

@@ -32,6 +32,20 @@ const meta = {
     className: {
       description: 'Optional parametre for add styles by className',
     },
+    withInput: {
+      description: 'Optional input to read and select the date',
+      control: {
+        type: 'boolean',
+        default: false,
+      },
+    },
+    label: {
+      description: 'Optional label for input',
+      control: {
+        type: 'string',
+        default: 'Date',
+      },
+    },
   },
 }
 
@@ -59,6 +73,17 @@ export const WithSingleDaySelected: Story = {
     onSelect: (date) => console.log('onSelect date:', date),
     defaultValue: '2024-01-20',
     lng: 'en',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const SingleDatePickerWithInput: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    defaultValue: '2024-01-20',
+    lng: 'en',
+    withInput: true,
   },
   parameters: figmaPrimaryDesign,
 }
