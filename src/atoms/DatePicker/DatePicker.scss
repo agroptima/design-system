@@ -34,9 +34,16 @@
 }
 
 .toggle {
-  .input-group.primary .input-container .icon {
-    @include mixins.svg-color(color_alias.$primary-color-600);
-    @include mixins.size(config.$icon-size-3x)
+  .input-group.primary .input-container {
+    display: flex;
+    align-items: center;
+    gap: config.$space-1x;
+    padding: 8px 6px 8px;
+  
+    .icon {
+      @include mixins.svg-color(color_alias.$primary-color-600);
+      @include mixins.size(config.$icon-size-3x);
+    }
   }
   .calendar {
     display: flex;
