@@ -18,6 +18,7 @@ export type DateSinglePickerProps = {
   lng: Locale
   required?: boolean
   className?: string
+  name?: string
   defaultValue?: string
   onSelect?: (date: string) => void
   withInput?: boolean
@@ -29,6 +30,7 @@ export function DateSinglePicker({
   defaultValue,
   lng,
   className,
+  name = 'date',
   required = false,
   variant,
   withInput = false,
@@ -59,7 +61,7 @@ export function DateSinglePicker({
           datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
           value={formatDatePickerFooterDate(selected, lng as string)}
           icon="Calendar"
-          name="date"
+          name={name}
           placeholder={translations[lng].singlePlaceholder}
           readOnly
         />

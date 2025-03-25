@@ -25,6 +25,7 @@ export type DateRangePickerProps = {
   onSelect?: (date: DateRange) => void
   withInput?: boolean
   label?: string
+  name?: string
 }
 
 export type DateRange = {
@@ -40,6 +41,7 @@ export function DateRangePicker({
   required = false,
   variant,
   withInput = false,
+  name = 'date',
   label = 'Date',
 }: DateRangePickerProps): React.JSX.Element {
   const inputType = withInput ? 'text' : 'hidden'
@@ -75,7 +77,7 @@ export function DateRangePicker({
           datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
           value={`${formatDatePickerFooterDate(selected.from, lng as string)} - ${formatDatePickerFooterDate(selected.to, lng as string)}`}
           icon="Calendar"
-          name="date"
+          name={name}
           placeholder={translations[lng].rangePlaceholder}
           readOnly
         />
