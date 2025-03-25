@@ -2,6 +2,8 @@
 @use '../settings/typography/form' as typography;
 @use '../settings/config';
 @use '../settings/depth';
+@use '../settings/mixins';
+
 
 .select-group {
   display: flex;
@@ -62,14 +64,8 @@
         background: color_alias.$neutral-color-50;
         color: color_alias.$neutral-color-400;
 
-        > .icon {
-          > svg {
-            fill: color_alias.$neutral-color-400;
-            path {
-              fill: color_alias.$neutral-color-400;
-            }
-          }
-        }
+        @include mixins.icon-color(color_alias.$neutral-color-400);
+
       }
     }
 
