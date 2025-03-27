@@ -1,10 +1,12 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   type DateRange as DateRangeReactDayPicker,
   DayPicker,
 } from 'react-day-picker'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
 import {
   formatDatePickerFooterDate,
@@ -44,6 +46,10 @@ export function DateRangePicker({
   name = 'date',
   label = 'Date',
 }: DateRangePickerProps): React.JSX.Element {
+  const { isOpen, close, toggle } = useOpen(!withInput)
+  const pickerRef = useRef(null)
+  useOutsideClick(pickerRef, close)
+
   const inputType = withInput ? 'text' : 'hidden'
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
@@ -52,8 +58,6 @@ export function DateRangePicker({
   const [selected, setSelected] = useState<DateRangeReactDayPicker>(
     toDateRange(defaultValue),
   )
-
-  const [isOpen, setIsOpen] = useState<boolean>(!withInput)
 
   function selectDate(dateRange: DateRangeReactDayPicker | undefined) {
     const selectedDateRange = {
@@ -69,8 +73,8 @@ export function DateRangePicker({
   }, [defaultValue])
 
   return (
-    <div className={cssClasses}>
-      <div onClick={() => setIsOpen(!isOpen)}>
+    <div className={cssClasses} ref={pickerRef}>
+      <div onClick={toggle}>
         <Input
           type={inputType}
           label={label}

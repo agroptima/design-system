@@ -17,7 +17,7 @@ export function CardsTableRow({
   return (
     <tr
       role="row"
-      className={classNames('row', {
+      className={classNames('cards-table-row', {
         disabled,
         active,
       })}
