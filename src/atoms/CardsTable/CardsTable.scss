@@ -24,31 +24,29 @@
   border-spacing: 0 config.$space-2x;
   width: 100%;
 
-  th,
-  td {
+  .cards-table-header,
+  .cards-table-cell {
     vertical-align: top;
     padding: config.$space-2x config.$space-3x;
-    padding: config.$space-2x config.$space-3x;
   }
 
-  tbody {
-    tr {
-      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
-      cursor: default;
-    }
-  }
 
-  .cell {
-    display: flex;
-    align-items: flex-start;
-    gap: config.$space-2x;
+  .cards-table-body .cards-table-row {
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+    cursor: default;
   }
 
   .checkbox {
     margin-top: config.$space-1x;
   }
 
-  .actions > .cell {
+  .cards-table-inner-cell {
+    display: flex;
+    align-items: flex-start;
+    gap: config.$space-2x;
+  }
+
+  .actions > .cards-table-inner-cell {
     gap: config.$space-7x;
     justify-content: center;
   }
@@ -70,46 +68,46 @@
   }
 
   &.primary {
-    thead > tr {
+    .cards-table-head > .cards-table-row {
       @include typography.cards-table-list-header;
     }
 
-    th {
-      background: color_alias.$neutral-color-900;
+    .cards-table-header {
       @include mixins.icon-color(color_alias.$neutral-white);
+      background: color_alias.$neutral-color-900;
     }
 
-    th:first-child {
+    .cards-table-header:first-child {
       border-radius: config.$corner-radius-xxs 0px 0px config.$corner-radius-xxs;
     }
 
-    th:last-child {
+    .cards-table-header:last-child {
       border-radius: 0px config.$corner-radius-xxs config.$corner-radius-xxs 0px;
     }
 
-    tr {
+    .cards-table-head.cards-table-row {
       border: 1px solid transparent;
-      td {
+      .cards-table-cell {
         @include typography.cards-table-list-text;
       }
     }
 
-    tr:not(.disabled):hover {
+    .cards-table-row:not(.disabled):hover {
       background: color_alias.$primary-color-50;
     }
 
-    &.with-title tr > td:first-child {
+    &.with-title .cards-table-row > .cards-table-cell:first-child {
       @include typography.cards-table-list-highlight-text;
     }
-
-    tr.disabled {
+ 
+    .cards-table-row.disabled {
       background: color_alias.$neutral-color-50;
-      td {
+      .cards-table-cell {
         @include typography.cards-table-list-disabled-text;
       }
     }
 
-    tr > td {
+    .cards-table-row > .cards-table-cell {
       border-top: 1px solid transparent;
       border-bottom: 1px solid transparent;
       &:first-child {
@@ -120,20 +118,20 @@
       }
     }
 
-    tr.active {
+    .cards-table-row.active {
       box-shadow: none;
-      > td {
+      > .cards-table-cell {
         border-color: color_alias.$primary-color-1000;
       }
-    }
+    }  
   }
 
   @media only screen and (max-width: breakpoints.$large) {
-    thead {
+    .cards-table-head {
       display: none;
     }
 
-    tr {
+    .cards-table-row {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -143,7 +141,7 @@
       gap: config.$space-1x;
     }
 
-    td {
+    .cards-table-cell {
       width: 100%;
       flex: inherit;
       padding: 0px;
@@ -166,15 +164,15 @@
       order: 99;
     }
 
-    tr.active {
+    .cards-table-row.active {
       box-shadow: none;
       border: 1px solid color_alias.$primary-color-1000;
-      > td {
+      > .cards-table-cell {
         border-color: transparent !important;
       }
     }
 
-    &.with-title td:not(.actions):has(.cell .badge) {
+    &.with-title .cards-table-cell:not(.actions):has(.cards-table-cell .badge) {
       margin-top: config.$space-2x;
     }
 

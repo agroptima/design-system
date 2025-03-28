@@ -32,7 +32,7 @@ export function CardsTableCell({
   const titleActions =
     titleWithActions > 0 ? `title-actions-${titleWithActions}` : ''
   const cssClasses = classNames(
-    'cell',
+    'cards-table-inner-cell',
     `alignment-${align}`,
     titleActions,
     className,
@@ -48,7 +48,7 @@ export function CardsTableCell({
   return (
     <td
       role="cell"
-      className={classNames({
+      className={classNames('cards-table-cell', {
         actions,
         'floating-left-mobile': floatingLeftMobile,
         'floating-right-mobile': floatingRightMobile,

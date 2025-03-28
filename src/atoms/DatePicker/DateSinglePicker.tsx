@@ -1,7 +1,9 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
 import {
   formatDatePickerFooterDate,
@@ -36,6 +38,10 @@ export function DateSinglePicker({
   withInput = false,
   label = 'Date',
 }: DateSinglePickerProps): React.JSX.Element {
+  const { isOpen, close, toggle } = useOpen(!withInput)
+  const pickerRef = useRef(null)
+  useOutsideClick(pickerRef, close)
+
   const inputType = withInput ? 'text' : 'hidden'
 
   const cssClasses = classNames('date-picker', variant, className, {
@@ -45,7 +51,6 @@ export function DateSinglePicker({
   const [selected, setSelected] = useState<Date | undefined>(
     fromISOToDate(defaultValue),
   )
-  const [isOpen, setIsOpen] = useState<boolean>(!withInput)
 
   function selectDate(date: Date | undefined) {
     setSelected(date)
@@ -53,8 +58,8 @@ export function DateSinglePicker({
   }
 
   return (
-    <div className={cssClasses}>
-      <div onClick={() => setIsOpen(!isOpen)}>
+    <div className={cssClasses} ref={pickerRef}>
+      <div onClick={toggle}>
         <Input
           type={inputType}
           label={label}
