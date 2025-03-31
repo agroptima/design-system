@@ -103,7 +103,7 @@ function Footer({
   withInput: boolean
 }): string {
   if (withInput) return ''
-  if (!selected) return translations[lng].pickSingleDate
+  if (!selected) return translations[lng].pickDate
 
   return translations[lng].selectedDate.replace(
     '${date}',
