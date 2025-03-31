@@ -19,7 +19,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   suffix?: string
   errors?: string[]
   required?: boolean
-  datePickerIcon?: IconType
+  rightIcon?: IconType
 }
 
 export function Input({
@@ -37,7 +37,7 @@ export function Input({
   id,
   errors,
   required = false,
-  datePickerIcon,
+  rightIcon,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
@@ -91,9 +91,7 @@ export function Input({
           })}
           {...props}
         />
-        {datePickerIcon && (
-          <Icon className="right-icon" name={datePickerIcon} />
-        )}
+        {rightIcon && <Icon className="right-icon" name={rightIcon} />}
         {suffix && <span className="input-suffix">{suffix}</span>}
         {type === 'password' && (
           <IconButton

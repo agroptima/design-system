@@ -42,8 +42,6 @@ export function DateSinglePicker({
   const pickerRef = useRef(null)
   useOutsideClick(pickerRef, close)
 
-  const inputType = withInput ? 'text' : 'hidden'
-
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
   })
@@ -59,18 +57,25 @@ export function DateSinglePicker({
 
   return (
     <div className={cssClasses} ref={pickerRef}>
-      <div onClick={toggle}>
-        <Input
-          type={inputType}
-          label={label}
-          datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
-          value={formatDatePickerFooterDate(selected, lng as string)}
-          icon="Calendar"
-          name={name}
-          placeholder={translations[lng].singlePlaceholder}
-          readOnly
-        />
-      </div>
+      <Input
+        type="hidden"
+        label=""
+        value={fromDateToISOString(selected)}
+        name={name}
+      />
+      {withInput && (
+        <div onClick={toggle}>
+          <Input
+            type="text"
+            label={label}
+            rightIcon={isOpen ? 'AngleUp' : 'AngleDown'}
+            value={formatDatePickerFooterDate(selected, lng as string)}
+            icon="Calendar"
+            placeholder={translations[lng].singlePlaceholder}
+            readOnly
+          />
+        </div>
+      )}
       {isOpen && (
         <DayPicker
           locale={availableLocales[lng]}

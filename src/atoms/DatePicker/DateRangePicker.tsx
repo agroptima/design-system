@@ -1,10 +1,12 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   type DateRange as DateRangeReactDayPicker,
   DayPicker,
 } from 'react-day-picker'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
 import {
   formatDatePickerFooterDate,
@@ -44,7 +46,6 @@ export function DateRangePicker({
   name = 'date',
   label = 'Date',
 }: DateRangePickerProps): React.JSX.Element {
-  const inputType = withInput ? 'text' : 'hidden'
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
   })
@@ -52,7 +53,6 @@ export function DateRangePicker({
   const [selected, setSelected] = useState<DateRangeReactDayPicker>(
     toDateRange(defaultValue),
   )
-
   const [isOpen, setIsOpen] = useState<boolean>(!withInput)
 
   function selectDate(dateRange: DateRangeReactDayPicker | undefined) {
@@ -70,18 +70,26 @@ export function DateRangePicker({
 
   return (
     <div className={cssClasses}>
-      <div onClick={() => setIsOpen(!isOpen)}>
-        <Input
-          type={inputType}
-          label={label}
-          datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
-          value={`${formatDatePickerFooterDate(selected.from, lng as string)} - ${formatDatePickerFooterDate(selected.to, lng as string)}`}
-          icon="Calendar"
-          name={name}
-          placeholder={translations[lng].rangePlaceholder}
-          readOnly
-        />
-      </div>
+      <Input
+        type="hidden"
+        label=""
+        value={`${toDateRangeISO(selected)} - ${toDateRangeISO(selected)}`}
+        name={name}
+      />
+      {withInput && (
+        <div onClick={() => setIsOpen(!isOpen)}>
+          <Input
+            type="text"
+            label={label}
+            rightIcon={isOpen ? 'AngleUp' : 'AngleDown'}
+            value={`${formatDatePickerFooterDate(selected.from, lng as string)} - ${formatDatePickerFooterDate(selected.to, lng as string)}`}
+            icon="Calendar"
+            name={name}
+            placeholder={translations[lng].rangePlaceholder}
+            readOnly
+          />
+        </div>
+      )}
       {isOpen && (
         <DayPicker
           locale={availableLocales[lng]}
