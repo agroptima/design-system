@@ -1,7 +1,9 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
 import {
   formatDatePickerFooterDate,
@@ -36,7 +38,9 @@ export function DateSinglePicker({
   withInput = false,
   label = 'Date',
 }: DateSinglePickerProps): React.JSX.Element {
-  const inputType = withInput ? 'text' : 'hidden'
+  const { isOpen, close, toggle } = useOpen(!withInput)
+  const pickerRef = useRef(null)
+  useOutsideClick(pickerRef, close)
 
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
@@ -45,7 +49,6 @@ export function DateSinglePicker({
   const [selected, setSelected] = useState<Date | undefined>(
     fromISOToDate(defaultValue),
   )
-  const [isOpen, setIsOpen] = useState<boolean>(!withInput)
 
   function selectDate(date: Date | undefined) {
     setSelected(date)
@@ -53,19 +56,26 @@ export function DateSinglePicker({
   }
 
   return (
-    <div className={cssClasses}>
-      <div onClick={() => setIsOpen(!isOpen)}>
-        <Input
-          type={inputType}
-          label={label}
-          datePickerIcon={isOpen ? 'AngleUp' : 'AngleDown'}
-          value={formatDatePickerFooterDate(selected, lng as string)}
-          icon="Calendar"
-          name={name}
-          placeholder={translations[lng].singlePlaceholder}
-          readOnly
-        />
-      </div>
+    <div className={cssClasses} ref={pickerRef}>
+      <Input
+        type="hidden"
+        label=""
+        value={fromDateToISOString(selected)}
+        name={name}
+      />
+      {withInput && (
+        <div onClick={toggle}>
+          <Input
+            type="text"
+            label={label}
+            rightIcon={isOpen ? 'AngleUp' : 'AngleDown'}
+            value={formatDatePickerFooterDate(selected, lng as string)}
+            icon="Calendar"
+            placeholder={translations[lng].singlePlaceholder}
+            readOnly
+          />
+        </div>
+      )}
       {isOpen && (
         <DayPicker
           locale={availableLocales[lng]}
@@ -93,7 +103,7 @@ function Footer({
   withInput: boolean
 }): string {
   if (withInput) return ''
-  if (!selected) return translations[lng].pickSingleDate
+  if (!selected) return translations[lng].pickDate
 
   return translations[lng].selectedDate.replace(
     '${date}',

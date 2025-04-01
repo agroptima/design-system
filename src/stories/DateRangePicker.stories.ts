@@ -26,6 +26,9 @@ const meta = {
     lng: {
       description: 'String with the locale to be used on the translations',
     },
+    name: {
+      description: 'Optional parameter for custom name input',
+    },
     required: {
       description: 'Optional parametre for required pick date',
     },

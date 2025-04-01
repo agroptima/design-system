@@ -14,18 +14,20 @@ export function CardsTableHeader({
   actions = false,
   ...props
 }: CardsTableHeaderProps) {
-  const cssClasses = classNames(
-    'header',
-    'cell',
-    `alignment-${align}`,
-    className,
-    {
-      actions,
-    },
-  )
   return (
-    <th role="columnheader" {...props}>
-      <div className={cssClasses}>{children}</div>
+    <th role="columnheader" className="cards-table-header" {...props}>
+      <div
+        className={classNames(
+          'cards-table-inner-cell',
+          `alignment-${align}`,
+          className,
+          {
+            actions,
+          },
+        )}
+      >
+        {children}
+      </div>
     </th>
   )
 }

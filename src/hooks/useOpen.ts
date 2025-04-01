@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-function useOpen() {
-  const [isOpen, setIsOpen] = useState(false)
+function useOpen(defaultToggle?: boolean) {
+  const [isOpen, setIsOpen] = useState(defaultToggle || false)
 
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
