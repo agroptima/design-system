@@ -90,3 +90,13 @@ export const SingleDatePickerWithInput: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const SingleDatePickerWithErrors: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    lng: 'en',
+    errors: ['Date is required', 'Another error'],
+  },
+  parameters: figmaPrimaryDesign,
+}

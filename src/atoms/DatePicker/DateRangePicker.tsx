@@ -1,12 +1,11 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import { useEffect, useRef, useState } from 'react'
+import { type JSX, useEffect, useState } from 'react'
 import {
   type DateRange as DateRangeReactDayPicker,
   DayPicker,
 } from 'react-day-picker'
-import { useOpen } from '../../hooks/useOpen'
-import { useOutsideClick } from '../../hooks/useOutsideClick'
+import { buildHelpText } from '../../utils/buildHelpText'
 import { classNames } from '../../utils/classNames'
 import {
   formatDatePickerFooterDate,
@@ -28,6 +27,8 @@ export type DateRangePickerProps = {
   withInput?: boolean
   label?: string
   name?: string
+  helpText?: string
+  errors?: string[]
 }
 
 export type DateRange = {
@@ -45,10 +46,14 @@ export function DateRangePicker({
   withInput = false,
   name = 'date',
   label = 'Date',
-}: DateRangePickerProps): React.JSX.Element {
+  errors,
+  helpText,
+}: DateRangePickerProps): JSX.Element {
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
+    invalid: errors?.length,
   })
+  const helpTexts = buildHelpText(helpText, errors)
 
   const [selected, setSelected] = useState<DateRangeReactDayPicker>(
     toDateRange(defaultValue),
@@ -98,7 +103,12 @@ export function DateRangePicker({
           selected={selected}
           onSelect={selectDate}
           footer={
-            <Footer lng={lng} selected={selected} withInput={withInput} />
+            <Footer
+              lng={lng}
+              selected={selected}
+              withInput={withInput}
+              helpTexts={helpTexts}
+            />
           }
           defaultMonth={selected?.from}
           required={required}
@@ -112,12 +122,15 @@ function Footer({
   lng,
   selected,
   withInput,
+  helpTexts,
 }: {
   lng: Locale
   selected: DateRangeReactDayPicker | undefined
+  helpTexts?: string[]
   withInput: boolean
 }): string {
   if (withInput) return ''
+  if (helpTexts?.length) return helpTexts.join(', ')
   if (!selected?.from && !selected?.to) {
     return translations[lng].pickDate
   }
