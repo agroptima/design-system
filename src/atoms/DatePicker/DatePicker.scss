@@ -1,5 +1,6 @@
 @use '../../settings/color_alias';
 @use '../../settings/typography/content' as typography;
+@use '../../settings/typography/form' as form-typography;
 @use '../../settings/config';
 @use '../../settings/depth';
 @use '../../settings/mixins';
@@ -88,4 +89,11 @@
   }
 }
 
-
+.date-picker {
+  .rdp-footer {
+    @include form-typography.form-help-text;
+  }
+  &.invalid .rdp-footer {
+    @include form-typography.form-help-text-error;
+  }
+}

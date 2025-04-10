@@ -91,3 +91,13 @@ export const RangeDatePickerWithInput: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const RangeDatePickerWithErrors: Story = {
+  args: {
+    variant: 'primary',
+    onSelect: (date) => console.log('onSelect date:', date),
+    lng: 'en',
+    errors: ['Date is required', 'Another error'],
+  },
+  parameters: figmaPrimaryDesign,
+}
