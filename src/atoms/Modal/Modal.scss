@@ -13,7 +13,7 @@ $modal-margin: 3rem;
 $modal-width: 34.5rem;
 $modal-detail-width: 50rem;
 $modal-background-color: color_alias.$neutral-white;
-$modal-boder-color: color_alias.$neutral-color-200;
+$modal-border-color: color_alias.$neutral-color-200;
 $backdrop-opacity: 0.4;
 $backdrop-background-color: color_alias.$neutral-color-900;
 
@@ -27,18 +27,17 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
-  border: 0px;
+  border: 0;
   background-color: transparent;
   margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
 
   &::backdrop {
     opacity: $backdrop-opacity;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: depth.$z-modal;
-    width: 100vw;
-    height: 100vh;
     background-color: $backdrop-background-color;
     transition: opacity 0.15s linear;
   }
@@ -109,7 +108,7 @@ $backdrop-background-color: color_alias.$neutral-color-900;
   }
 
   .modal-header {
-    border-bottom: 1px solid $modal-boder-color;
+    border-bottom: 1px solid $modal-border-color;
     padding-bottom: config.$space-3x;
   }
 
