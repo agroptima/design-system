@@ -27,11 +27,6 @@ a.card {
     gap: config.$space-4x;
   }
 
-  .icon {
-    width: config.$icon-size-4x;
-    height: config.$icon-size-4x;
-  }
-
   .header {
     display: flex;
     flex-direction: row;
