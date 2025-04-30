@@ -1,12 +1,12 @@
-import './Select/Select.scss'
+import './Select.scss'
 import React, { useRef, useState } from 'react'
-import { useOpen } from '../hooks/useOpen'
-import { useOutsideClick } from '../hooks/useOutsideClick'
-import { classNames } from '../utils/classNames'
-import { HelpText } from './HelpText'
-import { Label } from './Label'
-import { SelectItems } from './Select/SelectItems'
-import { SelectTrigger } from './Select/SelectTrigger'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
+import { classNames } from '../../utils/classNames'
+import { HelpText } from '../HelpText'
+import { Label } from '../Label'
+import { SelectItems } from './SelectItems'
+import { SelectTrigger } from './SelectTrigger'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -16,7 +16,7 @@ type InputPropsWithoutOnChange = Omit<
   'onChange'
 >
 
-export interface MultiselectProps extends InputPropsWithoutOnChange {
+export interface SelectProps extends InputPropsWithoutOnChange {
   placeholder?: string
   helpText?: string
   variant?: Variant
@@ -24,62 +24,61 @@ export interface MultiselectProps extends InputPropsWithoutOnChange {
   errors?: string[]
   label: string
   accessibilityLabel?: string
-  selectedLabel?: string
   hideLabel?: boolean
-  defaultValue?: string[]
-  onChange?: (value: string[]) => void
+  defaultValue?: string
+  onChange?: (value: string) => void
   isSearchable?: boolean
   searchLabel?: string
 }
 
-export function Multiselect({
+const EMPTY_OPTION = { id: '', label: '' }
+
+export function Select({
   className,
   placeholder,
   helpText,
+  variant = 'primary',
   disabled,
   errors,
-  id,
   name,
+  id,
   options,
   label,
   accessibilityLabel,
-  onChange = () => {},
-  variant = 'primary',
-  selectedLabel = 'items selected',
   hideLabel = false,
-  defaultValue = [],
+  onChange = () => {},
+  defaultValue,
   isSearchable = false,
   searchLabel = 'Search',
   ...props
-}: MultiselectProps): React.JSX.Element {
+}: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
+  const defaultOption =
+    options.find((option) => option.id === defaultValue) || EMPTY_OPTION
+  const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
+  const isEmpty = selectedOption.id === EMPTY_OPTION.id
+  const isInvalid = Boolean(errors?.length)
   const selectRef = useRef(null)
   useOutsideClick(selectRef, close)
-  const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
-  const isInvalid = Boolean(errors?.length)
-  const hasSelectedOptions = selectedOptions.length > 0
 
-  function handleSelectOption({ id }: Option) {
-    const isOptionSelected = selectedOptions.includes(id)
-    const options = isOptionSelected
-      ? selectedOptions.filter((optionId) => optionId !== id)
-      : [...selectedOptions, id]
-
-    setSelectedOptions(options)
-    onChange(options)
+  function handleSelectOption(option: Option) {
+    setSelectedOption(option)
+    onChange(option.id)
   }
 
   function handleClear(event: React.MouseEvent) {
+    if (disabled) return
     event.stopPropagation()
-    setSelectedOptions([])
-    onChange([])
+    setSelectedOption(EMPTY_OPTION)
+    onChange('')
   }
+
   const identifier = id || name
   return (
     <div
       className={classNames('select-group', variant, className, {
         disabled,
-        filled: hasSelectedOptions,
+        filled: selectedOption.id,
         invalid: isInvalid,
       })}
       ref={selectRef}
@@ -89,6 +88,7 @@ export function Multiselect({
           {label}
         </Label>
       )}
+
       <SelectTrigger
         id={identifier}
         label={label}
@@ -98,30 +98,23 @@ export function Multiselect({
         isOpen={isOpen}
         onClick={toggle}
         onClear={handleClear}
-        isEmpty={!hasSelectedOptions}
+        isEmpty={isEmpty}
       >
-        {hasSelectedOptions
-          ? `${selectedOptions.length} ${selectedLabel}`
-          : placeholder}
+        {selectedOption.label || placeholder}
       </SelectTrigger>
       {isOpen && (
         <SelectItems
-          multiple
           id={`${identifier}-options`}
           options={options}
-          selectedOptions={selectedOptions}
+          selectedOptions={[selectedOption.id]}
           selectOption={handleSelectOption}
+          onClick={close}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />
-      <input
-        type="hidden"
-        name={name}
-        value={selectedOptions.toString()}
-        {...props}
-      />
+      <input type="hidden" name={name} value={selectedOption.id} {...props} />
     </div>
   )
 }

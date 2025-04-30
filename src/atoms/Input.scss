@@ -9,23 +9,6 @@
   flex-direction: column;
   gap: config.$space-2x;
 
-  .input-help-text {
-    @include typography.form-help-text;
-  }
-
-  .input-label {
-    @include typography.form-label;
-  
-    &.is-required::after {
-      content: '*';
-      color: color_alias.$primary-color-600;
-    }
-  }
-
-  &.invalid .input-help-text {
-    @include typography.form-help-text-error;
-  }
-
   .input-container {
     position: relative;
     gap: config.$space-2x;

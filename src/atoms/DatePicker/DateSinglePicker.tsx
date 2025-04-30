@@ -1,6 +1,6 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import React, { type JSX, useId, useRef, useState } from 'react'
+import React, { type JSX, useRef, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'

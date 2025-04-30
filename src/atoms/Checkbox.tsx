@@ -1,5 +1,7 @@
 import './Checkbox.scss'
+import React from 'react'
 import { classNames } from '../utils/classNames'
+import { Label } from './Label'
 
 export type Variant = 'primary'
 
@@ -42,12 +44,14 @@ export function Checkbox({
         aria-label={accessibilityLabel || label}
         {...props}
       />
-      <label
+      <Label
         htmlFor={identifier}
+        required={props.required}
+        disabled={disabled}
         className={classNames({ 'visually-hidden': hideLabel })}
       >
         {label}
-      </label>
+      </Label>
     </div>
   )
 }

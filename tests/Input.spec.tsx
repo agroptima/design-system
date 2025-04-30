@@ -98,6 +98,6 @@ describe('Input', () => {
       />,
     )
 
-    expect(getByText('Required input')).toHaveClass('input-label is-required')
+    expect(getByText('Required input')).toHaveClass('form-label is-required')
   })
 })

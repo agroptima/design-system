@@ -32,7 +32,7 @@
     "src/stories/Menu.stories.js",
     "src/stories/EmptyState.stories.js",
     "src/stories/CheckableTag.stories.js",
-    "src/stories/RadioButton.stories.js"
+    "src/stories/RadioGroup.stories"
   ],
   "exclude": ["node_modules"]
 }

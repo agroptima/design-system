@@ -29,6 +29,10 @@ const meta = {
     id: {
       description: 'Value needed for the label relation',
     },
+    required: {
+      description: 'Is required?',
+      type: 'boolean',
+    },
   },
 }
 
