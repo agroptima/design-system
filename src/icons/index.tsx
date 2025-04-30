@@ -37,6 +37,7 @@ import Logout from './logout.svg'
 import Minus from './minus.svg'
 import PDF from './pdf.svg'
 import Product from './product.svg'
+import Reason from './reason.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
@@ -89,6 +90,7 @@ export {
   Minus,
   PDF,
   Product,
+  Reason,
   ReturnDeliveryNote,
   Salesman,
   Search,
