@@ -31,6 +31,7 @@ export function SelectTrigger({
     <div className="select-container">
       <button
         id={id}
+        type="button"
         role="combobox"
         className="select"
         tabIndex={0}

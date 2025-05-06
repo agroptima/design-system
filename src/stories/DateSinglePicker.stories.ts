@@ -30,10 +30,10 @@ const meta = {
       description: 'Optional parameter for custom name input',
     },
     required: {
-      description: 'Optional parameter for required pick date',
+      description: 'Optional parameter to require selecting a date',
     },
     className: {
-      description: 'Optional parameter for add styles by className',
+      description: 'Optional parameter to add styles by className',
     },
     withInput: {
       description: 'Optional input to read and select the date',
