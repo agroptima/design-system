@@ -1,10 +1,11 @@
 import './Input.scss'
 import React, { useState } from 'react'
-import { buildHelpText } from '../utils/buildHelpText'
 import { classNames } from '../utils/classNames'
 import { IconButton } from './Button'
+import { HelpText } from './HelpText'
 import type { IconType } from './Icon'
 import { Icon } from './Icon'
+import { Label } from './Label'
 
 export type InputVariant = 'primary'
 
@@ -18,7 +19,6 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   id?: string
   suffix?: string
   errors?: string[]
-  required?: boolean
   rightIcon?: IconType
 }
 
@@ -36,13 +36,11 @@ export function Input({
   name,
   id,
   errors,
-  required = false,
   rightIcon,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
   const [showPassword, setShowPassword] = useState(false)
-  const helpTexts = buildHelpText(helpText, errors)
 
   function handlePasswordIcon() {
     return showPassword ? 'ShowOff' : 'Show'
@@ -67,14 +65,9 @@ export function Input({
       })}
     >
       {!hideLabel && (
-        <label
-          className={classNames('input-label', {
-            'is-required': required,
-          })}
-          htmlFor={identifier}
-        >
+        <Label required={props.required} htmlFor={identifier}>
           {label}
-        </label>
+        </Label>
       )}
 
       <div className="input-container">
@@ -85,7 +78,6 @@ export function Input({
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}
-          required={required}
           className={classNames({
             'primary-outlined': type === 'file',
           })}
@@ -103,11 +95,7 @@ export function Input({
           />
         )}
       </div>
-      {helpTexts.map((helpText) => (
-        <span key={`${identifier}-${helpText}`} className="input-help-text">
-          {helpText}
-        </span>
-      ))}
+      <HelpText helpText={helpText} errors={errors} />
     </div>
   )
 }

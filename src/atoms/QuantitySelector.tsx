@@ -4,6 +4,7 @@ import { classNames } from '../utils/classNames'
 import { Button } from './Button'
 import type { InputProps } from './Input'
 import { Input } from './Input'
+import { Label } from './Label'
 
 export type Variant = 'primary'
 
@@ -42,14 +43,9 @@ export function QuantitySelector({
   return (
     <div className={classNames('quantity-selector-group', variant, className)}>
       {!hideLabel && (
-        <label
-          className={classNames('quantity-selector-label', {
-            'is-required': props.required,
-          })}
-          htmlFor={id}
-        >
+        <Label required={props.required} htmlFor={id}>
           {label}
-        </label>
+        </Label>
       )}
       <div className="quantity-selector">
         <Button

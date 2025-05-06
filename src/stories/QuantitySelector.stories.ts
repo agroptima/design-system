@@ -44,6 +44,10 @@ const meta = {
     quantityInput: {
       description: 'Input component props for quantityInput',
     },
+    required: {
+      description: 'Is required?',
+      type: 'boolean',
+    },
   },
 }
 

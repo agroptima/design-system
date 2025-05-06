@@ -1,6 +1,8 @@
 import './Input.scss'
-import { buildHelpText } from '../utils/buildHelpText'
+import React from 'react'
 import { classNames } from '../utils/classNames'
+import { HelpText } from './HelpText'
+import { Label } from './Label'
 
 export type TextAreaVariant = 'primary'
 
@@ -29,7 +31,6 @@ export function TextArea({
   ...props
 }: TextAreaProps) {
   const identifier = id || name
-  const helpTexts = buildHelpText(helpText, errors)
   return (
     <div
       className={classNames('input-group', variant, className, {
@@ -37,9 +38,9 @@ export function TextArea({
       })}
     >
       {!hideLabel && (
-        <label className="input-label" htmlFor={identifier}>
+        <Label required={props.required} htmlFor={identifier}>
           {label}
-        </label>
+        </Label>
       )}
       <div className="input-container">
         <textarea
@@ -50,11 +51,7 @@ export function TextArea({
           {...props}
         />
       </div>
-      {helpTexts.map((helpText) => (
-        <span key={`${identifier}-${helpText}`} className="input-help-text">
-          {helpText}
-        </span>
-      ))}
+      <HelpText helpText={helpText} errors={errors} />
     </div>
   )
 }
