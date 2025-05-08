@@ -56,6 +56,10 @@ const meta = {
       description:
         'Optional icon added to input when input is applied to the date picker component selection',
     },
+    required: {
+      description: 'Is required?',
+      type: 'boolean',
+    },
   },
 }
 

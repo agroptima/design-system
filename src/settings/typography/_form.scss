@@ -31,10 +31,6 @@
   @include content.body-regular-primary;
 }
 
-@mixin checkbox-label {
-  @include content.body-regular-primary;
-}
-
-@mixin checkbox-disabled-label {
+@mixin form-label-disabled {
   @include content.body-regular-disabled;
 }

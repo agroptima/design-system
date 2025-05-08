@@ -3,7 +3,6 @@
 @use '../settings/config';
 
 .checkbox-group {
-  @include typography.checkbox-label;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -16,10 +15,6 @@
     width: config.$icon-size-4x;
     height: config.$icon-size-4x;
     min-width: config.$icon-size-4x;
-  }
-
-  &.disabled {
-    @include typography.checkbox-disabled-label;
   }
 
   &.primary {

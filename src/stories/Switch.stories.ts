@@ -35,6 +35,10 @@ const meta = {
     hideLabel: {
       description: 'Show or hide label?',
     },
+    required: {
+      description: 'Is required?',
+      type: 'boolean',
+    },
   },
 }
 

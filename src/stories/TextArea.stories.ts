@@ -39,6 +39,10 @@ const meta = {
     id: {
       description: 'Value needed for the label relation',
     },
+    required: {
+      description: 'Is required?',
+      type: 'boolean',
+    },
     errors: {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',

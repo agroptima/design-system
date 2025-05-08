@@ -1,5 +1,7 @@
 import './Switch.scss'
+import React from 'react'
 import { classNames } from '../utils/classNames'
+import { Label } from './Label'
 
 export type Variant = 'primary'
 export type Size = 'small' | 'medium'
@@ -14,7 +16,6 @@ export interface SwitchProps extends InputPropsWithoutSize {
   accessibilityLabel?: string
   hideLabel?: boolean
   variant?: Variant
-  id?: string
   size?: Size
 }
 
@@ -26,19 +27,24 @@ export function Switch({
   variant = 'primary',
   size = 'medium',
   id,
+  name,
   className,
   ...props
 }: SwitchProps) {
+  const identifier = id || name
+
   return (
     <div className={classNames('switch-group', className)}>
-      <label
-        htmlFor={id}
+      <Label
+        htmlFor={identifier}
+        required={props.required}
         className={classNames({ 'visually-hidden': hideLabel })}
       >
         {label}
-      </label>
+      </Label>
       <input
-        id={id}
+        id={identifier}
+        name={name}
         type="checkbox"
         className={classNames('switch', variant, size)}
         disabled={disabled}

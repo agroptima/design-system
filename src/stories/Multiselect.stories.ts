@@ -55,6 +55,10 @@ const meta = {
     searchLabel: {
       description: 'Label for the search ',
     },
+    required: {
+      description: 'Is required?',
+      type: 'boolean',
+    },
   },
 }
 

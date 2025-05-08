@@ -3,7 +3,6 @@
 @use '../settings/config';
 
 .switch-group {
-  @include typography.checkbox-label;
   display: flex;
   justify-content: space-between;
   align-items: center;

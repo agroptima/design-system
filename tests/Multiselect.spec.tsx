@@ -1,8 +1,25 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
-import { Placeholder } from 'storybook/internal/components'
 import { Multiselect } from '../src/atoms/Multiselect'
+import type { Option } from '../src/atoms/Select'
+
+const zelda = {
+  id: '1',
+  label: 'The Legend of Zelda: Ocarina of Time',
+}
+
+const OPTIONS: Option[] = [
+  zelda,
+  {
+    id: '2',
+    label: 'Spyro the Dragon',
+  },
+  {
+    id: '3',
+    label: 'Halo',
+  },
+]
 
 describe('Multiselect', () => {
   it('renders', async () => {
@@ -13,20 +30,7 @@ describe('Multiselect', () => {
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
-        options={[
-          {
-            id: '1',
-            label: 'The Legend of Zelda: Ocarina of Time',
-          },
-          {
-            id: '2',
-            label: 'Spyro the Dragon',
-          },
-          {
-            id: '3',
-            label: 'Halo',
-          },
-        ]}
+        options={OPTIONS}
         placeholder="Select your favourite videogames..."
         selectedLabel="videogames selected"
         variant="primary"
@@ -34,13 +38,12 @@ describe('Multiselect', () => {
       />,
     )
 
+    await user.click(screen.getByLabelText('Videogames'))
+
     expect(getAllByRole('generic')[1]).toHaveClass('select-group primary')
     expect(getByText('Videogames')).toBeInTheDocument()
     expect(getByText(/Select your favourite videogames.../)).toBeInTheDocument()
     expect(getByText(/This text can help you/i)).toBeInTheDocument()
-
-    await user.click(screen.getByRole('alert'))
-
     expect(getByText(/Zelda/i)).toBeInTheDocument()
     expect(getByText(/Spyro/i)).toBeInTheDocument()
     expect(getByText(/Halo/i)).toBeInTheDocument()
@@ -53,20 +56,7 @@ describe('Multiselect', () => {
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
-        options={[
-          {
-            id: '1',
-            label: 'The Legend of Zelda: Ocarina of Time',
-          },
-          {
-            id: '2',
-            label: 'Spyro the Dragon',
-          },
-          {
-            id: '3',
-            label: 'Halo',
-          },
-        ]}
+        options={OPTIONS}
         placeholder="Select your favourite videogames..."
         defaultValue={['2', '1']}
         selectedLabel="videogames selected"
@@ -77,10 +67,11 @@ describe('Multiselect', () => {
 
     expect(getByText(/2 videogames selected/i)).toBeInTheDocument()
 
-    await user.click(screen.getByRole('alert'))
-    await user.click(screen.getAllByRole('option')[0])
-
-    expect(getByText(/1 videogames selected/i)).toBeInTheDocument()
+    await user.click(screen.getByLabelText('Videogames'))
+    await user.click(screen.getByRole('option', { name: zelda.label }))
+    expect(screen.getByLabelText('Videogames')).toHaveTextContent(
+      /1 videogames selected/i,
+    )
   })
 
   it('renders with errors', () => {
@@ -91,20 +82,7 @@ describe('Multiselect', () => {
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
-        options={[
-          {
-            id: '1',
-            label: 'The Legend of Zelda: Ocarina of Time',
-          },
-          {
-            id: '2',
-            label: 'Spyro the Dragon',
-          },
-          {
-            id: '3',
-            label: 'Halo',
-          },
-        ]}
+        options={OPTIONS}
         placeholder="Select your favourite videogames..."
         selectedLabel="videogames selected"
         variant="primary"
@@ -124,20 +102,7 @@ describe('Multiselect', () => {
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
-        options={[
-          {
-            id: '1',
-            label: 'The Legend of Zelda: Ocarina of Time',
-          },
-          {
-            id: '2',
-            label: 'Spyro the Dragon',
-          },
-          {
-            id: '3',
-            label: 'Halo',
-          },
-        ]}
+        options={OPTIONS}
         placeholder={placeholder}
         defaultValue={['2', '1']}
         selectedLabel="videogames selected"
@@ -156,20 +121,6 @@ describe('Multiselect', () => {
   it('return filtered options by search', async () => {
     const user = userEvent.setup()
     const placeholder = 'Select your favourite gaming system...'
-    const options = [
-      {
-        id: '1',
-        label: 'Nintendo Switch',
-      },
-      {
-        id: '2',
-        label: 'PlayStation 5',
-      },
-      {
-        id: '3',
-        label: 'Xbox Series S/X',
-      },
-    ]
     const { queryByText, getByText } = render(
       <Multiselect
         helpText="This text can help you"
@@ -177,20 +128,19 @@ describe('Multiselect', () => {
         label="Videogames"
         name="example"
         isSearchable={true}
-        options={options}
+        options={OPTIONS}
         placeholder={placeholder}
         variant="primary"
       />,
     )
 
-    await user.click(screen.getByRole('alert'))
+    await user.click(screen.getByLabelText('Videogames'))
+    await user.type(screen.getByRole('textbox'), ' Zelda')
 
-    const input = screen.getByRole('textbox')
-
-    await user.type(input, ' PlaySta')
-
-    expect(getByText('PlayStation 5')).toBeInTheDocument()
-    expect(queryByText('Nintendo Switch')).not.toBeInTheDocument()
-    expect(queryByText('Xbox Series S/X')).not.toBeInTheDocument()
+    expect(
+      getByText(/The Legend of Zelda: Ocarina of Time/i),
+    ).toBeInTheDocument()
+    expect(queryByText('Spyro the Dragon')).not.toBeInTheDocument()
+    expect(queryByText('Halo')).not.toBeInTheDocument()
   })
 })
