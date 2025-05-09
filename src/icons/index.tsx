@@ -15,6 +15,7 @@ import Client from './client.svg'
 import Close from './close.svg'
 import Comment from './comment.svg'
 import CreditCard from './credit-card.svg'
+import CreditNote from './credit-note.svg'
 import Delete from './delete.svg'
 import Delivery from './delivery.svg'
 import DeliveryNote from './delivery-note.svg'
@@ -37,6 +38,7 @@ import Logout from './logout.svg'
 import Minus from './minus.svg'
 import PDF from './pdf.svg'
 import Product from './product.svg'
+import Reason from './reason.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
@@ -67,6 +69,7 @@ export {
   Close,
   Comment,
   CreditCard,
+  CreditNote,
   Delete,
   Delivery,
   DeliveryNote,
@@ -89,6 +92,7 @@ export {
   Minus,
   PDF,
   Product,
+  Reason,
   ReturnDeliveryNote,
   Salesman,
   Search,
