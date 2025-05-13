@@ -1,0 +1,69 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+
+.tabmenu-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .tabmenu {
+    position: absolute;
+    top: 0px;
+    z-index: 999;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    align-items: flex-start;
+    gap: config.$space-5x;
+    padding: 0;
+    margin-left: config.$space-7x;
+
+    &-item {
+      display: flex;
+      text-decoration: none;
+      color: inherit;
+      cursor: default;
+      padding-bottom: config.$space-1x;
+
+      .title {
+        flex: 1;
+      }
+
+      &.primary {
+        @include typography.body-regular-primary;
+        border-bottom: 2px solid color_alias.$neutral-color-200;
+
+        &:hover {
+          color: color_alias.$primary-color-600;
+          border-bottom: 2px solid color_alias.$primary-color-600;
+        }
+
+        &.active {
+          color: color_alias.$primary-color-600;
+          border-bottom: 2px solid color_alias.$primary-color-600;
+        }
+
+        &.disabled {
+          color: color_alias.$neutral-color-400;
+          border-bottom: 2px solid color_alias.$neutral-color-200;
+        }
+      }
+    }
+
+    .tabmenu-item::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  .tabmenu-divider {
+    z-index: 1;
+    position: absolute;
+    top: 28px;
+    width: 100%;
+    height: config.$space-halfx;
+    background-color: color_alias.$neutral-color-200;
+  }
+}
