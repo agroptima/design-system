@@ -87,7 +87,9 @@
       &:has(textarea:disabled) {
         border: 1px solid color_alias.$neutral-color-400;
         background: color_alias.$neutral-color-50;
-        color: color_alias.$neutral-color-400;
+        input {
+          color: color_alias.$neutral-color-400;
+        }
 
         input::placeholder,
         textarea::placeholder {

@@ -100,7 +100,7 @@ describe('Select', () => {
       />,
     )
 
-    await user.click(screen.getByRole('button', { name: /close/i }))
+    await user.click(screen.getByRole('button', { name: /clear/i }))
 
     expect(getByText(placeholder)).toBeInTheDocument()
     expect(mockChange).toHaveBeenCalledWith('')
@@ -123,5 +123,47 @@ describe('Select', () => {
     expect(getByText('PlayStation 5')).toBeInTheDocument()
     expect(queryByText('Nintendo Switch')).not.toBeInTheDocument()
     expect(queryByText('Xbox Series S/X')).not.toBeInTheDocument()
+  })
+  it('deselects when click on deselect button', async () => {
+    const user = userEvent.setup()
+    const placeholder = 'Select your favourite gaming system...'
+    const handleSubmit = jest.fn()
+
+    render(
+      <form onSubmit={handleSubmit}>
+        <Select
+          label="Videogames"
+          name="select-videogames"
+          isSearchable
+          placeholder={placeholder}
+          defaultValue={playstation5.id}
+          options={OPTIONS}
+        />
+      </form>,
+    )
+
+    await user.click(screen.getByLabelText(/clear/i))
+
+    expect(screen.getByLabelText('Videogames')).toHaveTextContent(placeholder)
+    expect(handleSubmit).toHaveBeenCalledTimes(0)
+  })
+  it('disables deselect button when is disabled', async () => {
+    const user = userEvent.setup()
+    render(
+      <Select
+        label="Videogames"
+        name="select-videogames"
+        isSearchable
+        disabled
+        defaultValue={playstation5.id}
+        options={OPTIONS}
+      />,
+    )
+
+    await user.click(screen.getByLabelText(/clear/i))
+
+    expect(screen.getByLabelText('Videogames')).toHaveTextContent(
+      playstation5.label,
+    )
   })
 })
