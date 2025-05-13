@@ -34,11 +34,11 @@
 
       &.primary {
         @include typography.body-regular-primary;
-        border-bottom: 2px solid color_alias.$neutral-color-200;
+        border-bottom: 1px solid color_alias.$neutral-color-200;
 
         &:hover {
           color: color_alias.$primary-color-600;
-          border-bottom: 2px solid color_alias.$primary-color-600;
+          border-bottom: 1px solid color_alias.$primary-color-600;
         }
 
         &.active {
@@ -48,7 +48,7 @@
 
         &.disabled {
           color: color_alias.$neutral-color-400;
-          border-bottom: 2px solid color_alias.$neutral-color-200;
+          border-bottom: 1px solid color_alias.$neutral-color-200;
         }
       }
     }
@@ -63,7 +63,7 @@
     position: absolute;
     top: 28px;
     width: 100%;
-    height: config.$space-halfx;
+    height: 1px;
     background-color: color_alias.$neutral-color-200;
   }
 }
