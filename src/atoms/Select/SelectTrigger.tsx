@@ -27,6 +27,10 @@ export function SelectTrigger({
   isEmpty,
   children,
 }: SelectTriggerProps) {
+  const handleClear = (event: React.MouseEvent) => {
+    if (disabled) return
+    onClear(event)
+  }
   return (
     <div className="select-container">
       <button
@@ -51,11 +55,12 @@ export function SelectTrigger({
         />
       </button>
       <IconButton
+        type="button"
         size="3"
         icon="Close"
         className="clear-button"
-        accessibilityLabel="close"
-        onClick={onClear}
+        accessibilityLabel="clear"
+        onClick={handleClear}
         visible={!isEmpty}
       />
     </div>

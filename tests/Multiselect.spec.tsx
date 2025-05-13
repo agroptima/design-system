@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { Multiselect } from '../src/atoms/Multiselect'
-import type { Option } from '../src/atoms/Select'
+import { type Option, Select } from '../src/atoms/Select'
 
 const zelda = {
   id: '1',
@@ -112,7 +112,7 @@ describe('Multiselect', () => {
       />,
     )
 
-    await user.click(screen.getByRole('button', { name: /close/i }))
+    await user.click(screen.getByRole('button', { name: /clear/i }))
 
     expect(getByText(placeholder)).toBeInTheDocument()
     expect(mockChange).toHaveBeenCalledWith([])
@@ -142,5 +142,47 @@ describe('Multiselect', () => {
     ).toBeInTheDocument()
     expect(queryByText('Spyro the Dragon')).not.toBeInTheDocument()
     expect(queryByText('Halo')).not.toBeInTheDocument()
+  })
+
+  it('deselects when click on deselect button', async () => {
+    const user = userEvent.setup()
+    const placeholder = 'Select your favourite gaming system...'
+    const handleSubmit = jest.fn()
+
+    render(
+      <form onSubmit={handleSubmit}>
+        <Multiselect
+          label="Videogames"
+          name="select-videogames"
+          placeholder="Select your favourite gaming system..."
+          defaultValue={[zelda.id]}
+          options={OPTIONS}
+        />
+      </form>,
+    )
+
+    await user.click(screen.getByLabelText(/clear/i))
+
+    expect(screen.getByLabelText('Videogames')).toHaveTextContent(placeholder)
+    expect(handleSubmit).toHaveBeenCalledTimes(0)
+  })
+
+  it('disables deselect button when is disabled', async () => {
+    const user = userEvent.setup()
+    render(
+      <Multiselect
+        disabled
+        label="Videogames"
+        name="select-videogames"
+        defaultValue={[zelda.id]}
+        options={OPTIONS}
+      />,
+    )
+
+    await user.click(screen.getByLabelText(/clear/i))
+
+    expect(screen.getByLabelText('Videogames')).toHaveTextContent(
+      /1 items selected/i,
+    )
   })
 })

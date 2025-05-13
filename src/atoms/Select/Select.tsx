@@ -67,7 +67,6 @@ export function Select({
   }
 
   function handleClear(event: React.MouseEvent) {
-    if (disabled) return
     event.stopPropagation()
     setSelectedOption(EMPTY_OPTION)
     onChange('')
