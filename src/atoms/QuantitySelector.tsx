@@ -14,6 +14,7 @@ export interface QuantitySelectorProps extends Omit<InputProps, 'type'> {
   hideLabel?: boolean
   id?: string
   variant?: Variant
+  fullWidth?: boolean
 }
 
 export function QuantitySelector({
@@ -24,6 +25,7 @@ export function QuantitySelector({
   disabled,
   hideLabel = false,
   variant = 'primary',
+  fullWidth = false,
   ...props
 }: QuantitySelectorProps): React.JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -41,7 +43,11 @@ export function QuantitySelector({
     }
   }
   return (
-    <div className={classNames('quantity-selector-group', variant, className)}>
+    <div
+      className={classNames('quantity-selector-group', variant, className, {
+        'full-width': fullWidth,
+      })}
+    >
       {!hideLabel && (
         <Label required={props.required} htmlFor={id}>
           {label}

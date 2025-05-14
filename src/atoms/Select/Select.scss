@@ -4,11 +4,15 @@
 @use '../../settings/depth';
 @use '../../settings/mixins';
 
+$elements-space: config.$space-2x;
 
 .select-group {
   display: flex;
   flex-direction: column;
-  gap: config.$space-2x;
+
+  label {
+    margin-bottom: $elements-space;
+  }
 
   .select {
     @include typography.select-text;
@@ -31,6 +35,9 @@
     height: config.$icon-size-3x;
   }
 
+  .help-text {
+    margin-top: $elements-space;
+  }
 
   &.primary {
     &.disabled .select-container {
@@ -120,7 +127,7 @@
       overflow-y: auto;
       overflow-anchor: none;
       z-index: depth.$z-dropdown-options;
-      margin: 0;
+      margin: $elements-space 0 0;
       padding: config.$space-1x 0;
       text-align: left;
       position: absolute;

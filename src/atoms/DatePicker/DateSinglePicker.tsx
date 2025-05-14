@@ -28,6 +28,7 @@ export type DateSinglePickerProps = {
   label?: string
   helpText?: string
   errors?: string[]
+  fullWidth?: boolean
 }
 
 export function DateSinglePicker({
@@ -42,6 +43,7 @@ export function DateSinglePicker({
   label = 'Date',
   errors,
   helpText,
+  fullWidth = false,
 }: DateSinglePickerProps): JSX.Element {
   const { isOpen, close, toggle } = useOpen(!withInput)
   const pickerRef = useRef(null)
@@ -51,6 +53,7 @@ export function DateSinglePicker({
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
     invalid: errors?.length,
+    'full-width': fullWidth,
   })
 
   const [selected, setSelected] = useState<Date | undefined>(

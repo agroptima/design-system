@@ -20,6 +20,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   suffix?: string
   errors?: string[]
   rightIcon?: IconType
+  fullWidth?: boolean
 }
 
 export function Input({
@@ -37,6 +38,7 @@ export function Input({
   id,
   errors,
   rightIcon,
+  fullWidth = false,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
@@ -62,6 +64,7 @@ export function Input({
         file: type === 'file',
         invalid: errors?.length,
         hidden: type === 'hidden',
+        'full-width': fullWidth,
       })}
     >
       {!hideLabel && (

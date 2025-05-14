@@ -30,6 +30,7 @@ export interface MultiselectProps extends InputPropsWithoutOnChange {
   onChange?: (value: string[]) => void
   isSearchable?: boolean
   searchLabel?: string
+  fullWidth?: boolean
 }
 
 export function Multiselect({
@@ -50,6 +51,7 @@ export function Multiselect({
   defaultValue = [],
   isSearchable = false,
   searchLabel = 'Search',
+  fullWidth = false,
   ...props
 }: MultiselectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
@@ -81,6 +83,7 @@ export function Multiselect({
         disabled,
         filled: hasSelectedOptions,
         invalid: isInvalid,
+        'full-width': fullWidth,
       })}
       ref={selectRef}
     >
