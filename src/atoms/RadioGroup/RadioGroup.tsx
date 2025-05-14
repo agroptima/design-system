@@ -22,6 +22,7 @@ export interface RadioGroupProps {
   disabled?: boolean
   variant?: Variant
   helpText?: string
+  onChange?: (value: string) => void
 }
 
 export function RadioGroup({
@@ -35,7 +36,14 @@ export function RadioGroup({
   required = false,
   disabled = false,
   variant = 'primary',
+  onChange = () => {},
 }: RadioGroupProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value
+    if (onChange) {
+      onChange(value)
+    }
+  }
   return (
     <div className={classNames('radio-group', variant, className)}>
       <Label required={required}>{label}</Label>
@@ -50,6 +58,7 @@ export function RadioGroup({
             defaultChecked={defaultValue === option.value}
             variant={variant}
             disabled={disabled}
+            onChange={handleChange}
           />
         ))}
       </fieldset>
