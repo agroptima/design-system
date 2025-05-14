@@ -22,6 +22,9 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    onChange: {
+      description: 'Function onChange',
+    },
     variant: {
       description: 'Variant used from a list of values',
     },
@@ -47,6 +50,9 @@ export const Default: Story = {
     label: 'Select your videogame preference',
     name: 'videogames-preference',
     helpText: 'This is a help text',
+    onChange: (itemId) => {
+      console.log('onChange itemId', itemId)
+    },
     options: [
       { label: 'Action games', value: 'action' },
       { label: 'Party games', value: 'party' },
