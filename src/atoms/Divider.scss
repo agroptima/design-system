@@ -11,6 +11,12 @@ $border-line: 1px solid color_alias.$neutral-color-200;
   display: flex;
   align-items: center;
 
+  
+  .short {
+    width: config.$space-6x;
+    margin-right: config.$space-3x;
+  }
+
   .line {
     border: $border-line;
   }
@@ -20,12 +26,11 @@ $border-line: 1px solid color_alias.$neutral-color-200;
     margin-left: config.$space-3x;
   }
 
-  .short {
-    width: config.$space-6x;
-    margin-right: config.$space-3x;
-  }
-
   .icon {
     margin-right: config.$space-2x;
+  }
+
+  .iconButton {
+    margin-left: config.$space-3x;
   }
 }

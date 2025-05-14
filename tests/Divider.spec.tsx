@@ -20,4 +20,13 @@ describe('Divider', () => {
     expect(getAllByRole('generic')[2]).toHaveClass('long line')
     expect(getByText('A title divider with icon')).toBeInTheDocument()
   })
+
+  it('renders with icon', () => {
+    const { getByRole, getAllByRole, getByText } = render(
+      <Divider title="A title divider with icon button" icon="Delete" />,
+    )
+    expect(getByRole('img')).toHaveClass(/icon/i)
+    expect(getAllByRole('generic')[2]).toHaveClass('long line')
+    expect(getByText('A title divider with icon button')).toBeInTheDocument()
+  })
 })
