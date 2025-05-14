@@ -20,6 +20,14 @@ const meta = {
     icon: {
       description: 'Optional icon that is added next to the title divider ',
     },
+    iconButton: {
+      description:
+        'Optional icon button that is added in right side of divider ',
+    },
+    iconClick: {
+      description:
+        'Optional function that is called when icon button is clicked',
+    },
     variant: 'primary',
   },
 }
@@ -57,6 +65,18 @@ export const WithLink: Story = {
     variant: 'primary',
     hasAction: true,
     onClick: () => alert('click'),
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithButton: Story = {
+  args: {
+    title: '19/01/2025 - My gaming diary',
+    iconButton: 'Delete',
+    variant: 'primary',
+    iconClick: () => {
+      console.log('Icon button clicked')
+    },
   },
   parameters: figmaPrimaryDesign,
 }
