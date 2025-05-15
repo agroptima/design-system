@@ -116,6 +116,7 @@ export function Select({
       focusableElements[currentFocus].id,
       { open, toggle, close },
       { option, handleSelectOption },
+      { focusableElements, setCurrentFocus },
     )
   }
 

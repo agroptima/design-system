@@ -1,5 +1,5 @@
 import type { Option } from '../atoms/Select'
-import { SELECT_ELEMENTS } from '../atoms/Select/Select'
+import { type FocusableElement, SELECT_ELEMENTS } from '../atoms/Select/Select'
 
 const KEY_CODES = {
   DOWN_ARROW: 40,
@@ -18,11 +18,17 @@ interface OptionHandler {
   handleSelectOption: (option: Option) => void
 }
 
+interface FocusableElementHandler {
+  focusableElements: FocusableElement[]
+  setCurrentFocus: (elementIndex: number) => void
+}
+
 export function manageKeyboardActions(
   keyCode: number,
   focusedElementId: string,
   { open, toggle, close }: DropdownActions,
   { option, handleSelectOption }: OptionHandler,
+  { focusableElements, setCurrentFocus }: FocusableElementHandler,
 ) {
   switch (keyCode) {
     case KEY_CODES.DOWN_ARROW:
@@ -45,6 +51,11 @@ export function manageKeyboardActions(
       }
 
       if (focusedElementId === option?.id) {
+        setCurrentFocus(
+          focusableElements
+            .map((e) => e.id)
+            .indexOf(SELECT_ELEMENTS.selectContainer),
+        )
         close()
       }
       break
