@@ -34,13 +34,18 @@ export interface SelectProps extends InputPropsWithoutOnChange {
 
 const EMPTY_OPTION: Option = { id: '', label: '' }
 
+const SelectElements = {
+  selectContainer: 'select-container',
+  search: 'search',
+}
+
 export interface FocusableElement {
   id: string
 }
+
 const elementsToFocus: FocusableElement[] = [
-  { id: 'select-container' },
-  // { id: 'search' },
-  // { id: 'dropdown-ul' },
+  { id: SelectElements.selectContainer },
+  // { id: selectElements.search },
 ]
 
 export function Select({
@@ -62,14 +67,18 @@ export function Select({
   searchLabel = 'Search',
   ...props
 }: SelectProps): React.JSX.Element {
-  const { currentFocus, setCurrentFocus, focusableElements } =
-    useRoveFocus(elementsToFocus)
+  function addOptionsToFocusableElements(options: Option[]) {
+    options.map((option) => elementsToFocus.push({ id: option.id }))
+  }
 
   useEffect(() => {
     addOptionsToFocusableElements(options)
   }, [])
 
+  const { currentFocus, setCurrentFocus, focusableElements } =
+    useRoveFocus(elementsToFocus)
   const { isOpen, close, toggle } = useOpen()
+
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
   const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
@@ -78,12 +87,6 @@ export function Select({
   const selectRef = useRef(null)
 
   useOutsideClick(selectRef, close)
-
-  function addOptionsToFocusableElements(options: Option[]) {
-    if (focusableElements.length === elementsToFocus.length) {
-      options.map((option) => focusableElements.push({ id: option.id }))
-    }
-  }
 
   function handleSelectOption(option: Option) {
     setSelectedOption(option)
@@ -104,7 +107,9 @@ export function Select({
 
       if (
         elementIndex ===
-        elementsToFocus.map((e) => e.id).indexOf('select-container')
+        focusableElements
+          .map((e) => e.id)
+          .indexOf(SelectElements.selectContainer)
       ) {
         if (event?.keyCode === 40) {
           // arrow down
@@ -153,15 +158,14 @@ export function Select({
         isEmpty={isEmpty}
         handleCurrentFocus={(event: any) =>
           handleCurrentFocus(
-            elementsToFocus.map((e) => e.id).indexOf('select-container'),
+            focusableElements
+              .map((e) => e.id)
+              .indexOf(SelectElements.selectContainer),
             event,
           )
         }
         hasFocus={
-          focusableElements[currentFocus].id ===
-          elementsToFocus[
-            elementsToFocus.map((e) => e.id).indexOf('select-container')
-          ].id
+          focusableElements[currentFocus].id === SelectElements.selectContainer
         }
       >
         {selectedOption.label || placeholder}
@@ -175,7 +179,6 @@ export function Select({
           onClick={close}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
-          elementsToFocus={elementsToFocus}
           focusableElements={focusableElements}
           currentFocus={currentFocus}
           handleCurrentFocus={handleCurrentFocus}

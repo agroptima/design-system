@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from 'react'
-import { useOpen } from '../../hooks/useOpen'
-import useRoveFocus from '../../hooks/useRoveFocus'
+import React from 'react'
 import { useSearch } from '../../hooks/useSearch'
 import { Input } from '../Input'
 import type { Option } from './Select'
@@ -21,7 +19,6 @@ interface OptionListProps {
     option?: Option,
   ) => void
   focusableElements: any
-  elementsToFocus: any
   currentFocus: any
 }
 
@@ -36,7 +33,6 @@ export function SelectItems({
   searchLabel,
   handleCurrentFocus,
   focusableElements,
-  elementsToFocus,
   currentFocus,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
@@ -56,7 +52,7 @@ export function SelectItems({
             id="search"
           />
         )}
-        <ul role="listbox" onClick={onClick} id="dropdown-ul">
+        <ul role="listbox" onClick={onClick}>
           {findItems.map((option) => (
             <SelectItem
               multiple={multiple}
@@ -66,17 +62,12 @@ export function SelectItems({
               onClick={selectOption}
               handleCurrentFocus={(event: any) =>
                 handleCurrentFocus(
-                  elementsToFocus.map((e: any) => e.id).indexOf(option.id),
+                  focusableElements.map((e: any) => e.id).indexOf(option.id),
                   event,
                   option,
                 )
               }
-              hasFocus={
-                focusableElements[currentFocus].id ===
-                elementsToFocus[
-                  elementsToFocus.map((e: any) => e.id).indexOf(option.id)
-                ].id
-              }
+              hasFocus={focusableElements[currentFocus].id === option.id}
             />
           ))}
         </ul>
