@@ -4,6 +4,7 @@ import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import useRoveFocus from '../../hooks/useRoveFocus'
 import { classNames } from '../../utils/classNames'
+import { manageKeyboardActions } from '../../utils/manageKeyboardActions'
 import { HelpText } from '../HelpText'
 import { Label } from '../Label'
 import { SelectItems } from './SelectItems'
@@ -34,7 +35,10 @@ export interface SelectProps extends InputPropsWithoutOnChange {
 
 const EMPTY_OPTION: Option = { id: '', label: '' }
 
-const SelectElements = {
+interface SelectElement {
+  [index: string]: string
+}
+export const SELECT_ELEMENTS: SelectElement = {
   selectContainer: 'select-container',
   search: 'search',
 }
@@ -44,7 +48,7 @@ export interface FocusableElement {
 }
 
 const elementsToFocus: FocusableElement[] = [
-  { id: SelectElements.selectContainer },
+  { id: SELECT_ELEMENTS.selectContainer },
   // { id: selectElements.search },
 ]
 
@@ -77,7 +81,7 @@ export function Select({
 
   const { currentFocus, setCurrentFocus, focusableElements } =
     useRoveFocus(elementsToFocus)
-  const { isOpen, close, toggle } = useOpen()
+  const { isOpen, close, toggle, open } = useOpen()
 
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
@@ -99,36 +103,21 @@ export function Select({
     onChange('')
   }
 
-  const handleCurrentFocus = useCallback(
-    (elementIndex: number, event: any, option?: Option) => {
-      console.log('handle current focus: ', elementIndex, event?.keyCode)
-      // set focus to the elementIndex when it's selected from a keydown event
-      setCurrentFocus(elementIndex)
+  function handleCurrentFocus(
+    elementIndex: number,
+    event: any,
+    option?: Option,
+  ) {
+    console.log('handle current focus: ', elementIndex, event?.keyCode)
 
-      if (
-        elementIndex ===
-        focusableElements
-          .map((e) => e.id)
-          .indexOf(SelectElements.selectContainer)
-      ) {
-        if (event?.keyCode === 40) {
-          // arrow down
-          toggle()
-        }
-        if (event?.keyCode === 27) {
-          // Esc
-          close()
-        }
-      }
-
-      if (event?.keyCode === 13 && option) {
-        // Intro
-        handleSelectOption(option)
-        close()
-      }
-    },
-    [setCurrentFocus],
-  )
+    setCurrentFocus(elementIndex)
+    manageKeyboardActions(
+      event?.keyCode,
+      focusableElements[currentFocus].id,
+      { open, toggle, close },
+      { option, handleSelectOption },
+    )
+  }
 
   const identifier = id || name
   return (
@@ -160,12 +149,12 @@ export function Select({
           handleCurrentFocus(
             focusableElements
               .map((e) => e.id)
-              .indexOf(SelectElements.selectContainer),
+              .indexOf(SELECT_ELEMENTS.selectContainer),
             event,
           )
         }
         hasFocus={
-          focusableElements[currentFocus].id === SelectElements.selectContainer
+          focusableElements[currentFocus].id === SELECT_ELEMENTS.selectContainer
         }
       >
         {selectedOption.label || placeholder}
