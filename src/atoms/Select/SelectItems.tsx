@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useOpen } from '../../hooks/useOpen'
+import useRoveFocus from '../../hooks/useRoveFocus'
 import { useSearch } from '../../hooks/useSearch'
 import { Input } from '../Input'
 import type { Option } from './Select'
@@ -13,6 +15,14 @@ interface OptionListProps {
   onClick?: () => void
   isSearchable: boolean
   searchLabel: string
+  handleCurrentFocus: (
+    elementIndex: number,
+    event: any,
+    option?: Option,
+  ) => void
+  focusableElements: any
+  elementsToFocus: any
+  currentFocus: any
 }
 
 export function SelectItems({
@@ -24,8 +34,13 @@ export function SelectItems({
   onClick,
   isSearchable,
   searchLabel,
+  handleCurrentFocus,
+  focusableElements,
+  elementsToFocus,
+  currentFocus,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
+
   return (
     <div className="select-options-container">
       <div className="select-options" id={id}>
@@ -38,9 +53,10 @@ export function SelectItems({
             placeholder={searchLabel}
             icon="Search"
             className="search"
+            id="search"
           />
         )}
-        <ul role="listbox" onClick={onClick}>
+        <ul role="listbox" onClick={onClick} id="dropdown-ul">
           {findItems.map((option) => (
             <SelectItem
               multiple={multiple}
@@ -48,6 +64,19 @@ export function SelectItems({
               option={option}
               isSelected={selectedOptions.includes(option.id)}
               onClick={selectOption}
+              handleCurrentFocus={(event: any) =>
+                handleCurrentFocus(
+                  elementsToFocus.map((e: any) => e.id).indexOf(option.id),
+                  event,
+                  option,
+                )
+              }
+              hasFocus={
+                focusableElements[currentFocus].id ===
+                elementsToFocus[
+                  elementsToFocus.map((e: any) => e.id).indexOf(option.id)
+                ].id
+              }
             />
           ))}
         </ul>

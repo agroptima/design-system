@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import { Icon } from '../Icon'
 import type { Option } from './Select'
 
@@ -7,6 +7,8 @@ interface OptionProps {
   multiple?: boolean
   isSelected: boolean
   onClick: (option: Option) => void
+  handleCurrentFocus: () => void
+  hasFocus: boolean
 }
 
 export function SelectItem({
@@ -14,15 +16,31 @@ export function SelectItem({
   isSelected,
   onClick,
   multiple,
+  hasFocus,
+  handleCurrentFocus,
 }: OptionProps) {
+  const ref = useRef(null)
+  useEffect(() => {
+    if (hasFocus && ref.current) {
+      ref.current.focus()
+    }
+  }, [hasFocus])
+
+  function handleSelectOption(option: Option) {
+    onClick(option)
+  }
+
   return (
     <li
+      id={option.id}
       className="option"
-      tabIndex={0}
       role="option"
       aria-selected={isSelected}
       data-option={option}
-      onClick={() => onClick(option)}
+      onClick={() => handleSelectOption(option)}
+      tabIndex={hasFocus ? 0 : -1}
+      ref={ref}
+      onKeyDown={handleCurrentFocus}
     >
       {multiple && <CheckboxIcon selected={isSelected} />}
       {option.label}

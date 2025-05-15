@@ -1,7 +1,8 @@
 import './Select.scss'
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
+import useRoveFocus from '../../hooks/useRoveFocus'
 import { classNames } from '../../utils/classNames'
 import { HelpText } from '../HelpText'
 import { Label } from '../Label'
@@ -31,7 +32,16 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   searchLabel?: string
 }
 
-const EMPTY_OPTION = { id: '', label: '' }
+const EMPTY_OPTION: Option = { id: '', label: '' }
+
+export interface FocusableElement {
+  id: string
+}
+const elementsToFocus: FocusableElement[] = [
+  { id: 'select-container' },
+  // { id: 'search' },
+  // { id: 'dropdown-ul' },
+]
 
 export function Select({
   className,
@@ -52,6 +62,13 @@ export function Select({
   searchLabel = 'Search',
   ...props
 }: SelectProps): React.JSX.Element {
+  const { currentFocus, setCurrentFocus, focusableElements } =
+    useRoveFocus(elementsToFocus)
+
+  useEffect(() => {
+    addOptionsToFocusableElements(options)
+  }, [])
+
   const { isOpen, close, toggle } = useOpen()
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
@@ -59,7 +76,14 @@ export function Select({
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
   const isInvalid = Boolean(errors?.length)
   const selectRef = useRef(null)
+
   useOutsideClick(selectRef, close)
+
+  function addOptionsToFocusableElements(options: Option[]) {
+    if (focusableElements.length === elementsToFocus.length) {
+      options.map((option) => focusableElements.push({ id: option.id }))
+    }
+  }
 
   function handleSelectOption(option: Option) {
     setSelectedOption(option)
@@ -71,6 +95,35 @@ export function Select({
     setSelectedOption(EMPTY_OPTION)
     onChange('')
   }
+
+  const handleCurrentFocus = useCallback(
+    (elementIndex: number, event: any, option?: Option) => {
+      console.log('handle current focus: ', elementIndex, event?.keyCode)
+      // set focus to the elementIndex when it's selected from a keydown event
+      setCurrentFocus(elementIndex)
+
+      if (
+        elementIndex ===
+        elementsToFocus.map((e) => e.id).indexOf('select-container')
+      ) {
+        if (event?.keyCode === 40) {
+          // arrow down
+          toggle()
+        }
+        if (event?.keyCode === 27) {
+          // Esc
+          close()
+        }
+      }
+
+      if (event?.keyCode === 13 && option) {
+        // Intro
+        handleSelectOption(option)
+        close()
+      }
+    },
+    [setCurrentFocus],
+  )
 
   const identifier = id || name
   return (
@@ -98,6 +151,18 @@ export function Select({
         onClick={toggle}
         onClear={handleClear}
         isEmpty={isEmpty}
+        handleCurrentFocus={(event: any) =>
+          handleCurrentFocus(
+            elementsToFocus.map((e) => e.id).indexOf('select-container'),
+            event,
+          )
+        }
+        hasFocus={
+          focusableElements[currentFocus].id ===
+          elementsToFocus[
+            elementsToFocus.map((e) => e.id).indexOf('select-container')
+          ].id
+        }
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
@@ -110,6 +175,10 @@ export function Select({
           onClick={close}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
+          elementsToFocus={elementsToFocus}
+          focusableElements={focusableElements}
+          currentFocus={currentFocus}
+          handleCurrentFocus={handleCurrentFocus}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
 
@@ -13,6 +13,8 @@ export interface SelectTriggerProps {
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
+  handleCurrentFocus: () => void
+  hasFocus: boolean
 }
 
 export function SelectTrigger({
@@ -25,20 +27,34 @@ export function SelectTrigger({
   onClick,
   onClear,
   isEmpty,
+  handleCurrentFocus,
+  hasFocus,
   children,
 }: SelectTriggerProps) {
   const handleClear = (event: React.MouseEvent) => {
     if (disabled) return
     onClear(event)
   }
+  const ref = useRef(null)
+  useEffect(() => {
+    if (hasFocus && ref.current) {
+      ref.current.focus()
+    }
+  }, [hasFocus])
+
   return (
-    <div className="select-container">
+    <div
+      className="select-container"
+      id="select-container"
+      tabIndex={hasFocus ? 0 : -1}
+      ref={ref}
+      onKeyDown={handleCurrentFocus}
+    >
       <button
         id={id}
         type="button"
         role="combobox"
         className="select"
-        tabIndex={0}
         onClick={onClick}
         aria-label={accessibilityLabel || label}
         aria-controls={`${id}-options`}
