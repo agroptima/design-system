@@ -110,13 +110,12 @@ export function Select({
   ) {
     console.log('handle current focus: ', elementIndex, event?.keyCode)
 
-    setCurrentFocus(elementIndex)
     manageKeyboardActions(
       event?.keyCode,
-      focusableElements[currentFocus].id,
+      elementIndex,
       { open, toggle, close },
       { option, handleSelectOption },
-      { focusableElements, setCurrentFocus },
+      { focusableElements, currentFocus, setCurrentFocus },
     )
   }
 

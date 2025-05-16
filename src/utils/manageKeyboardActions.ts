@@ -20,19 +20,23 @@ interface OptionHandler {
 
 interface FocusableElementHandler {
   focusableElements: FocusableElement[]
+  currentFocus: number
   setCurrentFocus: (elementIndex: number) => void
 }
 
 export function manageKeyboardActions(
   keyCode: number,
-  focusedElementId: string,
+  elementIndex: number,
   { open, toggle, close }: DropdownActions,
   { option, handleSelectOption }: OptionHandler,
-  { focusableElements, setCurrentFocus }: FocusableElementHandler,
+  { focusableElements, currentFocus, setCurrentFocus }: FocusableElementHandler,
 ) {
+  const focusedElementId: string = focusableElements[currentFocus].id
+
   switch (keyCode) {
     case KEY_CODES.DOWN_ARROW:
       if (focusedElementId === SELECT_ELEMENTS.selectContainer) {
+        setCurrentFocus(elementIndex)
         open()
       }
       break
@@ -40,6 +44,11 @@ export function manageKeyboardActions(
     case KEY_CODES.ENTER:
       if (focusedElementId === option?.id) {
         handleSelectOption(option)
+        setCurrentFocus(
+          focusableElements
+            .map((e) => e.id)
+            .indexOf(SELECT_ELEMENTS.selectContainer),
+        )
         close()
       }
 
@@ -47,6 +56,7 @@ export function manageKeyboardActions(
 
     case KEY_CODES.ESC:
       if (focusedElementId === SELECT_ELEMENTS.selectContainer) {
+        setCurrentFocus(elementIndex)
         close()
       }
 
