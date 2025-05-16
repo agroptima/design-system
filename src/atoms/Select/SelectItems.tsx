@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSearch } from '../../hooks/useSearch'
 import { Search } from './Search'
-import { type Option, type SelectElement } from './Select'
+import { type Option } from './Select'
+import { SELECT_ELEMENTS } from './selectElements'
 import { SelectItem } from './SelectItem'
 
 interface OptionListProps {
@@ -20,7 +21,6 @@ interface OptionListProps {
   ) => void
   focusableElements: any
   currentFocus: any
-  SELECT_ELEMENTS: SelectElement
 }
 
 export function SelectItems({
@@ -35,7 +35,6 @@ export function SelectItems({
   handleCurrentFocus,
   focusableElements,
   currentFocus,
-  SELECT_ELEMENTS,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
 

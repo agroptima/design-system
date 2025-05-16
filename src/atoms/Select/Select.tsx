@@ -7,6 +7,7 @@ import { classNames } from '../../utils/classNames'
 import { manageKeyboardActions } from '../../utils/manageKeyboardActions'
 import { HelpText } from '../HelpText'
 import { Label } from '../Label'
+import { defineSelectElements, SELECT_ELEMENTS } from './selectElements'
 import { SelectItems } from './SelectItems'
 import { SelectTrigger } from './SelectTrigger'
 
@@ -63,10 +64,7 @@ export function Select({
   ...props
 }: SelectProps): React.JSX.Element {
   const identifier = id || name
-  const SELECT_ELEMENTS: SelectElement = {
-    selectContainer: `${identifier}-container`,
-    search: `${identifier}-search`,
-  }
+  defineSelectElements(identifier as string)
 
   function initFocusableElements() {
     const elements = [
@@ -143,7 +141,6 @@ export function Select({
         setIsActive,
         isActive,
       },
-      SELECT_ELEMENTS,
     )
   }
 
@@ -184,7 +181,6 @@ export function Select({
           focusableElements[currentFocus]?.id ===
           SELECT_ELEMENTS.selectContainer
         }
-        SELECT_ELEMENTS={SELECT_ELEMENTS}
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
@@ -201,7 +197,6 @@ export function Select({
           focusableElements={focusableElements}
           currentFocus={currentFocus}
           handleCurrentFocus={handleCurrentFocus}
-          SELECT_ELEMENTS={SELECT_ELEMENTS}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />

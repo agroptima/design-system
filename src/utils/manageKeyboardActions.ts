@@ -1,8 +1,6 @@
 import type { Option } from '../atoms/Select'
-import {
-  type FocusableElement,
-  type SelectElement,
-} from '../atoms/Select/Select'
+import { type FocusableElement } from '../atoms/Select/Select'
+import { SELECT_ELEMENTS } from '../atoms/Select/selectElements'
 
 export const KEY_CODES = {
   UP_ARROW: 38,
@@ -43,7 +41,6 @@ export function manageKeyboardActions(
     setIsActive,
     isActive,
   }: FocusableElementHandler,
-  SELECT_ELEMENTS: SelectElement,
 ) {
   function enableActiveFocus() {
     setIsActive(true)

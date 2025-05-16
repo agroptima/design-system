@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
-import type { SelectElement } from './Select'
+import { SELECT_ELEMENTS } from './selectElements'
 
 export interface SelectTriggerProps {
   id?: string
@@ -16,7 +16,6 @@ export interface SelectTriggerProps {
   children: React.ReactNode
   handleCurrentFocus: () => void
   hasFocus: boolean
-  SELECT_ELEMENTS: SelectElement
 }
 
 export function SelectTrigger({
@@ -32,7 +31,6 @@ export function SelectTrigger({
   handleCurrentFocus,
   hasFocus,
   children,
-  SELECT_ELEMENTS,
 }: SelectTriggerProps) {
   const handleClear = (event: React.MouseEvent) => {
     if (disabled) return
