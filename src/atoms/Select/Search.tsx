@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { Input } from '../Input'
-import { type Option, SELECT_ELEMENTS } from './Select'
 
 interface SearchProps {
+  id: string
   searchLabel: string
   search: (term: string) => void
   hasFocus: boolean
@@ -10,6 +10,7 @@ interface SearchProps {
 }
 
 export function Search({
+  id,
   search,
   searchLabel,
   hasFocus,
@@ -25,6 +26,7 @@ export function Search({
 
   return (
     <Input
+      id={id}
       autoFocus
       label={searchLabel}
       hideLabel
@@ -32,7 +34,6 @@ export function Search({
       placeholder={searchLabel}
       icon="Search"
       className="search"
-      id="search"
       tabIndex={hasFocus ? 0 : -1}
       ref={ref}
       onKeyDown={handleCurrentFocus}

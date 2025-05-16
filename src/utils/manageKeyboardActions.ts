@@ -1,7 +1,11 @@
 import type { Option } from '../atoms/Select'
-import { type FocusableElement, SELECT_ELEMENTS } from '../atoms/Select/Select'
+import {
+  type FocusableElement,
+  type SelectElement,
+} from '../atoms/Select/Select'
 
-const KEY_CODES = {
+export const KEY_CODES = {
+  UP_ARROW: 38,
   DOWN_ARROW: 40,
   ESC: 27,
   ENTER: 13,
@@ -23,19 +27,43 @@ interface FocusableElementHandler {
   focusableElements: FocusableElement[]
   currentFocus: number
   setCurrentFocus: (elementIndex: number) => void
+  setIsActive: (boolean: any) => void
+  isActive: boolean
 }
 
 export function manageKeyboardActions(
-  keyCode: number,
+  event: any,
   elementIndex: number,
   { open, toggle, close }: DropdownActions,
   { option, handleSelectOption }: OptionHandler,
-  { focusableElements, currentFocus, setCurrentFocus }: FocusableElementHandler,
+  {
+    focusableElements,
+    currentFocus,
+    setCurrentFocus,
+    setIsActive,
+    isActive,
+  }: FocusableElementHandler,
+  SELECT_ELEMENTS: SelectElement,
 ) {
-  const focusedElementId: string = focusableElements[currentFocus].id
+  function enableActiveFocus() {
+    setIsActive(true)
+    setCurrentFocus(0)
+  }
 
-  switch (keyCode) {
+  function disableActiveFocus() {
+    setIsActive(false)
+    setCurrentFocus(-1)
+  }
+
+  if (!isActive) {
+    enableActiveFocus()
+  }
+
+  const focusedElementId: string = focusableElements[currentFocus]?.id
+
+  switch (event?.keyCode) {
     case KEY_CODES.DOWN_ARROW:
+      event.preventDefault()
       if (focusedElementId === SELECT_ELEMENTS.selectContainer) {
         setCurrentFocus(elementIndex)
         open()
@@ -43,6 +71,7 @@ export function manageKeyboardActions(
       break
 
     case KEY_CODES.ENTER:
+      event.preventDefault()
       if (focusedElementId === option?.id) {
         handleSelectOption(option)
         setCurrentFocus(
@@ -56,6 +85,7 @@ export function manageKeyboardActions(
       break
 
     case KEY_CODES.ESC:
+      event.preventDefault()
       if (focusedElementId === SELECT_ELEMENTS.selectContainer) {
         setCurrentFocus(elementIndex)
         close()
@@ -72,10 +102,10 @@ export function manageKeyboardActions(
       break
 
     case KEY_CODES.TAB:
+      event.preventDefault()
       close()
+      disableActiveFocus()
 
       break
-
-    default:
   }
 }

@@ -1,5 +1,5 @@
 import './Select.scss'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import useRoveFocus from '../../hooks/useRoveFocus'
@@ -35,21 +35,13 @@ export interface SelectProps extends InputPropsWithoutOnChange {
 
 const EMPTY_OPTION: Option = { id: '', label: '' }
 
-interface SelectElement {
+export interface SelectElement {
   [index: string]: string
-}
-export const SELECT_ELEMENTS: SelectElement = {
-  selectContainer: 'select-container',
-  search: 'search',
 }
 
 export interface FocusableElement {
   id: string
 }
-
-const elementsToFocus: FocusableElement[] = [
-  { id: SELECT_ELEMENTS.selectContainer },
-]
 
 export function Select({
   className,
@@ -70,19 +62,40 @@ export function Select({
   searchLabel = 'Search',
   ...props
 }: SelectProps): React.JSX.Element {
-  function addOptionsToFocusableElements(options: Option[]) {
-    console.log('options: ', options)
-    if (isSearchable) elementsToFocus.push({ id: SELECT_ELEMENTS.search })
-    options.map((option) => elementsToFocus.push({ id: option.id }))
-    console.log('elementstofocus: ', elementsToFocus)
+  const identifier = id || name
+  const SELECT_ELEMENTS: SelectElement = {
+    selectContainer: `${identifier}-container`,
+    search: `${identifier}-search`,
   }
 
-  useEffect(() => {
-    addOptionsToFocusableElements(options)
-  }, [])
+  function initFocusableElements() {
+    const elements = [
+      {
+        id: SELECT_ELEMENTS.selectContainer,
+      },
+    ]
 
-  const { currentFocus, setCurrentFocus, focusableElements } =
-    useRoveFocus(elementsToFocus)
+    if (isSearchable)
+      elements.push({
+        id: SELECT_ELEMENTS.search,
+      })
+
+    options.forEach((option) => elements.push({ id: option.id }))
+
+    return elements
+  }
+
+  const [elementsToFocus, setElementsToFocus] = useState<FocusableElement[]>(
+    initFocusableElements,
+  )
+
+  const {
+    currentFocus,
+    setCurrentFocus,
+    focusableElements,
+    setIsActive,
+    isActive,
+  } = useRoveFocus(elementsToFocus)
   const { isOpen, close, toggle, open } = useOpen()
 
   const defaultOption =
@@ -113,20 +126,27 @@ export function Select({
     console.log(
       'handle current focus: ',
       elementIndex,
+      currentFocus,
       event?.keyCode,
       focusableElements,
     )
 
     manageKeyboardActions(
-      event?.keyCode,
+      event,
       elementIndex,
       { open, toggle, close },
       { option, handleSelectOption },
-      { focusableElements, currentFocus, setCurrentFocus },
+      {
+        focusableElements,
+        currentFocus,
+        setCurrentFocus,
+        setIsActive,
+        isActive,
+      },
+      SELECT_ELEMENTS,
     )
   }
 
-  const identifier = id || name
   return (
     <div
       className={classNames('select-group', variant, className, {
@@ -161,14 +181,17 @@ export function Select({
           )
         }
         hasFocus={
-          focusableElements[currentFocus].id === SELECT_ELEMENTS.selectContainer
+          focusableElements[currentFocus]?.id ===
+          SELECT_ELEMENTS.selectContainer
         }
+        SELECT_ELEMENTS={SELECT_ELEMENTS}
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
       {isOpen && (
         <SelectItems
           id={`${identifier}-options`}
+          identifier={identifier as string}
           options={options}
           selectedOptions={[selectedOption.id]}
           selectOption={handleSelectOption}
@@ -178,6 +201,7 @@ export function Select({
           focusableElements={focusableElements}
           currentFocus={currentFocus}
           handleCurrentFocus={handleCurrentFocus}
+          SELECT_ELEMENTS={SELECT_ELEMENTS}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />
