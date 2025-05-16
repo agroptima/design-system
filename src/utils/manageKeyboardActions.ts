@@ -5,6 +5,7 @@ const KEY_CODES = {
   DOWN_ARROW: 40,
   ESC: 27,
   ENTER: 13,
+  TAB: 9,
 }
 
 interface DropdownActions {
@@ -68,6 +69,11 @@ export function manageKeyboardActions(
         )
         close()
       }
+      break
+
+    case KEY_CODES.TAB:
+      close()
+
       break
 
     default:
