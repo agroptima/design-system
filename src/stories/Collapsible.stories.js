@@ -123,7 +123,7 @@ export const PrimaryOpened = {
             type="email"
             variant="primary"
           />
-          <Select
+          {/* <Select
             accessibilityLabel="Select your favourite gaming system options"
             helpText="This text can help you"
             id="select-videogames"
@@ -141,6 +141,31 @@ export const PrimaryOpened = {
               },
               {
                 id: '3',
+                label: 'Xbox Series S/X',
+              },
+            ]}
+            placeholder="Select your favourite gaming system..."
+            variant="primary"
+          /> */}
+          <Select
+            accessibilityLabel="Select your favourite gaming system options"
+            helpText="This text can help you"
+            id="select-videogames-with-search"
+            label="Videogames with search"
+            name="example-with-search"
+            onChange={() => {}}
+            isSearchable={true}
+            options={[
+              {
+                id: '11',
+                label: 'Nintendo Switch',
+              },
+              {
+                id: '12',
+                label: 'PlayStation 5',
+              },
+              {
+                id: '13',
                 label: 'Xbox Series S/X',
               },
             ]}

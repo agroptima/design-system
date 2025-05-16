@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSearch } from '../../hooks/useSearch'
 import { Input } from '../Input'
-import type { Option } from './Select'
+import { SELECT_ELEMENTS, type Option } from './Select'
 import { SelectItem } from './SelectItem'
+import { Search } from './Search'
 
 interface OptionListProps {
   id: string
@@ -41,15 +42,21 @@ export function SelectItems({
     <div className="select-options-container">
       <div className="select-options" id={id}>
         {isSearchable && (
-          <Input
+          <Search
             autoFocus
-            label={searchLabel}
-            hideLabel
-            onChange={(e) => search(e.target.value)}
-            placeholder={searchLabel}
-            icon="Search"
-            className="search"
-            id="search"
+            searchLabel={searchLabel}
+            search={search}
+            handleCurrentFocus={(event: any) =>
+              handleCurrentFocus(
+                focusableElements
+                  .map((e: any) => e.id)
+                  .indexOf(SELECT_ELEMENTS.search),
+                event,
+              )
+            }
+            hasFocus={
+              focusableElements[currentFocus].id === SELECT_ELEMENTS.search
+            }
           />
         )}
         <ul role="listbox" onClick={onClick}>

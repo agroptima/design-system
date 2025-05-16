@@ -49,7 +49,6 @@ export interface FocusableElement {
 
 const elementsToFocus: FocusableElement[] = [
   { id: SELECT_ELEMENTS.selectContainer },
-  // { id: selectElements.search },
 ]
 
 export function Select({
@@ -72,7 +71,10 @@ export function Select({
   ...props
 }: SelectProps): React.JSX.Element {
   function addOptionsToFocusableElements(options: Option[]) {
+    console.log('options: ', options)
+    if (isSearchable) elementsToFocus.push({ id: SELECT_ELEMENTS.search })
     options.map((option) => elementsToFocus.push({ id: option.id }))
+    console.log('elementstofocus: ', elementsToFocus)
   }
 
   useEffect(() => {
@@ -108,7 +110,12 @@ export function Select({
     event: any,
     option?: Option,
   ) {
-    console.log('handle current focus: ', elementIndex, event?.keyCode)
+    console.log(
+      'handle current focus: ',
+      elementIndex,
+      event?.keyCode,
+      focusableElements,
+    )
 
     manageKeyboardActions(
       event?.keyCode,
