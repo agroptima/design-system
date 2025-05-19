@@ -123,7 +123,7 @@ export const PrimaryOpened = {
             type="email"
             variant="primary"
           />
-          {/* <Select
+          <Select
             accessibilityLabel="Select your favourite gaming system options"
             helpText="This text can help you"
             id="select-videogames"
@@ -146,7 +146,7 @@ export const PrimaryOpened = {
             ]}
             placeholder="Select your favourite gaming system..."
             variant="primary"
-          /> */}
+          />
           <Select
             accessibilityLabel="Select your favourite gaming system options"
             helpText="This text can help you"
