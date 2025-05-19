@@ -6,7 +6,7 @@ interface SearchProps {
   searchLabel: string
   search: (term: string) => void
   hasFocus: boolean
-  handleCurrentFocus: () => void
+  handleCurrentFocus: (event: any) => void
 }
 
 export function Search({
@@ -16,7 +16,7 @@ export function Search({
   hasFocus,
   handleCurrentFocus,
 }: SearchProps) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (hasFocus && ref.current) {

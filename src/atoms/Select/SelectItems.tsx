@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSearch } from '../../hooks/useSearch'
 import { Search } from './Search'
-import { type Option } from './Select'
+import { type FocusableElement, type Option } from './Select'
 import { SELECT_ELEMENTS } from './selectElements'
 import { SelectItem } from './SelectItem'
 
@@ -19,8 +19,8 @@ interface OptionListProps {
     event: any,
     option?: Option,
   ) => void
-  focusableElements: any
-  currentFocus: any
+  focusableElements: FocusableElement[]
+  currentFocus: number
 }
 
 export function SelectItems({
@@ -43,7 +43,6 @@ export function SelectItems({
       <div className="select-options" id={id}>
         {isSearchable && (
           <Search
-            autoFocus
             id={SELECT_ELEMENTS.search}
             searchLabel={searchLabel}
             search={search}

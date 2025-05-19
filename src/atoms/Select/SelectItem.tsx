@@ -7,7 +7,7 @@ interface OptionProps {
   multiple?: boolean
   isSelected: boolean
   onClick: (option: Option) => void
-  handleCurrentFocus: () => void
+  handleCurrentFocus: (event: any) => void
   hasFocus: boolean
 }
 
@@ -19,7 +19,7 @@ export function SelectItem({
   hasFocus,
   handleCurrentFocus,
 }: OptionProps) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLLIElement>(null)
   useEffect(() => {
     if (hasFocus && ref.current) {
       ref.current.focus()

@@ -14,7 +14,7 @@ export interface SelectTriggerProps {
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
-  handleCurrentFocus: () => void
+  handleCurrentFocus: (event: any) => void
   hasFocus: boolean
 }
 
@@ -36,7 +36,7 @@ export function SelectTrigger({
     if (disabled) return
     onClear(event)
   }
-  const ref = useRef(null)
+  const ref = useRef<HTMLButtonElement>(null)
   console.log('hasfocus: ', hasFocus)
   useEffect(() => {
     if (hasFocus && ref.current) {
