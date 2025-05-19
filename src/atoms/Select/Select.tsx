@@ -132,7 +132,7 @@ export function Select({
     manageKeyboardActions(
       event,
       elementIndex,
-      { open, toggle, close },
+      { open, toggle, close, isOpen },
       { option, handleSelectOption },
       {
         focusableElements,

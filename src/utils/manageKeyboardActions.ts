@@ -14,6 +14,7 @@ interface DropdownActions {
   open: () => void
   toggle: () => void
   close: () => void
+  isOpen: boolean
 }
 
 interface OptionHandler {
@@ -32,7 +33,7 @@ interface FocusableElementHandler {
 export function manageKeyboardActions(
   event: any,
   elementIndex: number,
-  { open, toggle, close }: DropdownActions,
+  { open, toggle, close, isOpen }: DropdownActions,
   { option, handleSelectOption }: OptionHandler,
   {
     focusableElements,
@@ -99,9 +100,7 @@ export function manageKeyboardActions(
       break
 
     case KEY_CODES.TAB:
-      event.preventDefault()
-      close()
-      disableActiveFocus()
+      if (isOpen) close()
 
       break
   }
