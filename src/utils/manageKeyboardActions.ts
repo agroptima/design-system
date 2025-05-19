@@ -66,7 +66,7 @@ export function manageKeyboardActions(
   switch (event?.keyCode) {
     case KEY_CODES.DOWN_ARROW:
       event.preventDefault()
-      if (focusedElementId === SELECT_ELEMENTS.selectContainer) {
+      if (focusedElementId === SELECT_ELEMENTS.selectButton) {
         setCurrentFocus(elementIndex)
         open()
       }
@@ -79,7 +79,7 @@ export function manageKeyboardActions(
         setCurrentFocus(
           focusableElements
             .map((e) => e.id)
-            .indexOf(SELECT_ELEMENTS.selectContainer),
+            .indexOf(SELECT_ELEMENTS.selectButton),
         )
         close()
       }
@@ -88,7 +88,7 @@ export function manageKeyboardActions(
 
     case KEY_CODES.ESC:
       event.preventDefault()
-      if (focusedElementId === SELECT_ELEMENTS.selectContainer) {
+      if (focusedElementId === SELECT_ELEMENTS.selectButton) {
         setCurrentFocus(elementIndex)
         close()
       }
@@ -97,7 +97,7 @@ export function manageKeyboardActions(
         setCurrentFocus(
           focusableElements
             .map((e) => e.id)
-            .indexOf(SELECT_ELEMENTS.selectContainer),
+            .indexOf(SELECT_ELEMENTS.selectButton),
         )
         close()
       }

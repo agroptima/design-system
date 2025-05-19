@@ -9,7 +9,17 @@
   flex-direction: column;
   gap: config.$space-2x;
 
-  .select {
+  .select-container {
+    position: relative;
+  }
+
+  .clear-button {
+    position: absolute;
+    right: config.$space-3x;
+    top: config.$space-4x;
+  }
+
+  .select-button {
     @include typography.select-text;
     width: 100%;
     display: flex;
@@ -23,6 +33,11 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    &:focus-visible {
+      outline: color_alias.$primary-color-600;
+      border: 1px solid color_alias.$primary-color-600;
+    }
   }
 
   .clear-button > .icon {
@@ -31,33 +46,33 @@
   }
 
   &.primary {
-    &.disabled .select-container {
+    &.disabled .select-button {
       border: 1px solid color_alias.$neutral-color-400;
       background: color_alias.$neutral-color-50;
       @include mixins.icon-color(color_alias.$neutral-color-400);
 
-      .select {
+      .select-button {
         color: color_alias.$neutral-color-400;
       }
     }
 
     &.invalid {
-      .select-container {
+      .select-button {
         border: 1px solid color_alias.$error-color-1000;
       }
     }
 
-    &.filled .select {
+    &.filled .select-button {
       @include typography.select-option-text;
     }
 
-    .select-container {
+    .select-button {
       border-radius: config.$corner-radius-m;
       border: 1px solid color_alias.$neutral-color-600;
       background: color_alias.$neutral-white;
       @include mixins.icon-color(color_alias.$primary-color-600);
 
-      &:focus {
+      &:focus-visible {
         outline: color_alias.$primary-color-600;
         border: 1px solid color_alias.$primary-color-600;
       }
@@ -100,7 +115,7 @@
     }
   }
 
-  .select-container {
+  .select-button {
     text-align: left;
     position: relative;
     display: flex;

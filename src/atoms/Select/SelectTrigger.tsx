@@ -45,19 +45,10 @@ export function SelectTrigger({
   }, [hasFocus])
 
   return (
-    <div
-      className="select-container"
-      id={SELECT_ELEMENTS.selectContainer}
-      tabIndex={hasFocus ? 0 : -1}
-      ref={ref}
-      onKeyDown={handleCurrentFocus}
-      onFocus={handleCurrentFocus}
-    >
+    <div className="select-container">
       <button
-        id={id}
         type="button"
         role="combobox"
-        className="select"
         onClick={onClick}
         aria-label={accessibilityLabel || label}
         aria-controls={`${id}-options`}
@@ -65,6 +56,12 @@ export function SelectTrigger({
         aria-live="assertive"
         aria-invalid={invalid}
         disabled={disabled}
+        className="select-button"
+        id={SELECT_ELEMENTS.selectButton}
+        // tabIndex={hasFocus ? 0 : -1}
+        ref={ref}
+        onKeyDown={handleCurrentFocus}
+        onFocus={handleCurrentFocus}
       >
         <span>{children}</span>
         <Icon

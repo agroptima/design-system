@@ -6,7 +6,7 @@ let SELECT_ELEMENTS: SelectElement = {}
 
 function defineSelectElements(id: string) {
   SELECT_ELEMENTS = {
-    selectContainer: `${id}-container`,
+    selectButton: `${id}-button`,
     search: `${id}-search`,
   }
 }

@@ -69,7 +69,7 @@ export function Select({
   function initFocusableElements() {
     const elements = [
       {
-        id: SELECT_ELEMENTS.selectContainer,
+        id: SELECT_ELEMENTS.selectButton,
       },
     ]
 
@@ -173,13 +173,12 @@ export function Select({
           handleCurrentFocus(
             focusableElements
               .map((e) => e.id)
-              .indexOf(SELECT_ELEMENTS.selectContainer),
+              .indexOf(SELECT_ELEMENTS.selectButton),
             event,
           )
         }
         hasFocus={
-          focusableElements[currentFocus]?.id ===
-          SELECT_ELEMENTS.selectContainer
+          focusableElements[currentFocus]?.id === SELECT_ELEMENTS.selectButton
         }
       >
         {selectedOption.label || placeholder}
@@ -187,7 +186,6 @@ export function Select({
       {isOpen && (
         <SelectItems
           id={`${identifier}-options`}
-          identifier={identifier as string}
           options={options}
           selectedOptions={[selectedOption.id]}
           selectOption={handleSelectOption}
