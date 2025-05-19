@@ -74,6 +74,7 @@ export function SelectTrigger({
         />
       </button>
       <IconButton
+        tabIndex={-1}
         type="button"
         size="3"
         icon="Close"

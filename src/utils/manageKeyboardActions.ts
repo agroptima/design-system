@@ -8,6 +8,7 @@ export const KEY_CODES = {
   ESC: 27,
   ENTER: 13,
   TAB: 9,
+  DELETE: 8,
 }
 
 interface DropdownActions {
@@ -20,6 +21,7 @@ interface DropdownActions {
 interface OptionHandler {
   option?: Option
   handleSelectOption: (option: Option) => void
+  handleClear: (event: React.MouseEvent) => void
 }
 
 interface FocusableElementHandler {
@@ -34,7 +36,7 @@ export function manageKeyboardActions(
   event: any,
   elementIndex: number,
   { open, toggle, close, isOpen }: DropdownActions,
-  { option, handleSelectOption }: OptionHandler,
+  { option, handleSelectOption, handleClear }: OptionHandler,
   {
     focusableElements,
     currentFocus,
@@ -58,6 +60,8 @@ export function manageKeyboardActions(
   }
 
   const focusedElementId: string = focusableElements[currentFocus]?.id
+
+  console.log('keycode: ', event?.keyCode)
 
   switch (event?.keyCode) {
     case KEY_CODES.DOWN_ARROW:
@@ -102,6 +106,10 @@ export function manageKeyboardActions(
     case KEY_CODES.TAB:
       if (isOpen) close()
 
+      break
+
+    case KEY_CODES.DELETE:
+      handleClear(event)
       break
   }
 }

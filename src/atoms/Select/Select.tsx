@@ -133,7 +133,7 @@ export function Select({
       event,
       elementIndex,
       { open, toggle, close, isOpen },
-      { option, handleSelectOption },
+      { option, handleSelectOption, handleClear },
       {
         focusableElements,
         currentFocus,
