@@ -6,7 +6,7 @@ interface SearchProps {
   searchLabel: string
   search: (term: string) => void
   hasFocus: boolean
-  handleCurrentFocus: (event: any) => void
+  handleKeyAction: (event: any) => void
 }
 
 export function Search({
@@ -14,7 +14,7 @@ export function Search({
   search,
   searchLabel,
   hasFocus,
-  handleCurrentFocus,
+  handleKeyAction,
 }: SearchProps) {
   const ref = useRef<HTMLInputElement>(null)
 
@@ -36,7 +36,7 @@ export function Search({
       className="search"
       tabIndex={hasFocus ? 0 : -1}
       ref={ref}
-      onKeyDown={handleCurrentFocus}
+      onKeyDown={handleKeyAction}
     />
   )
 }

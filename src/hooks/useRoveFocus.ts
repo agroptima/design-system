@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { type FocusableElement } from '../atoms/Select/Select'
-import { KEY_CODES } from '../utils/manageKeyboardActions'
+import { KEY_CODES } from '../utils/manageKeyActions'
 
 function useRoveFocus(focusableElements: FocusableElement[]) {
   const [isActive, setIsActive] = useState(false)
   const [currentFocus, setCurrentFocus] = useState(isActive ? 0 : -1)
   const size = focusableElements?.length
-  console.log('size: ', size, isActive, currentFocus)
 
   const handleKeyDown = useCallback(
     (e: any) => {

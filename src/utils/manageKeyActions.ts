@@ -1,6 +1,6 @@
 import type { Option } from '../atoms/Select'
+import { SELECT_ELEMENTS } from '../atoms/Select/manageSelectElements'
 import { type FocusableElement } from '../atoms/Select/Select'
-import { SELECT_ELEMENTS } from '../atoms/Select/selectElements'
 
 export const KEY_CODES = {
   UP_ARROW: 38,
@@ -13,7 +13,6 @@ export const KEY_CODES = {
 
 interface DropdownActions {
   open: () => void
-  toggle: () => void
   close: () => void
   isOpen: boolean
 }
@@ -32,10 +31,10 @@ interface FocusableElementHandler {
   isActive: boolean
 }
 
-export function manageKeyboardActions(
+export function manageKeyActions(
   event: any,
   elementIndex: number,
-  { open, toggle, close, isOpen }: DropdownActions,
+  { open, close, isOpen }: DropdownActions,
   { option, handleSelectOption, handleClear }: OptionHandler,
   {
     focusableElements,
@@ -50,18 +49,11 @@ export function manageKeyboardActions(
     setCurrentFocus(0)
   }
 
-  function disableActiveFocus() {
-    setIsActive(false)
-    setCurrentFocus(-1)
-  }
-
   if (!isActive) {
     enableActiveFocus()
   }
 
   const focusedElementId: string = focusableElements[currentFocus]?.id
-
-  console.log('keycode: ', event?.keyCode)
 
   switch (event?.keyCode) {
     case KEY_CODES.DOWN_ARROW:

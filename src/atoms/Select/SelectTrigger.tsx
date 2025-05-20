@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
-import { SELECT_ELEMENTS } from './selectElements'
+import { SELECT_ELEMENTS } from './manageSelectElements'
 
 export interface SelectTriggerProps {
   id?: string
@@ -14,7 +14,7 @@ export interface SelectTriggerProps {
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
-  handleCurrentFocus: (event: any) => void
+  handleKeyAction: (event: any) => void
   hasFocus: boolean
 }
 
@@ -28,7 +28,7 @@ export function SelectTrigger({
   onClick,
   onClear,
   isEmpty,
-  handleCurrentFocus,
+  handleKeyAction,
   hasFocus,
   children,
 }: SelectTriggerProps) {
@@ -37,7 +37,7 @@ export function SelectTrigger({
     onClear(event)
   }
   const ref = useRef<HTMLButtonElement>(null)
-  console.log('hasfocus: ', hasFocus)
+
   useEffect(() => {
     if (hasFocus && ref.current) {
       ref.current.focus()
@@ -58,10 +58,9 @@ export function SelectTrigger({
         disabled={disabled}
         className="select-button"
         id={SELECT_ELEMENTS.selectButton}
-        // tabIndex={hasFocus ? 0 : -1}
         ref={ref}
-        onKeyDown={handleCurrentFocus}
-        onFocus={handleCurrentFocus}
+        onKeyDown={handleKeyAction}
+        onFocus={handleKeyAction}
       >
         <span>{children}</span>
         <Icon

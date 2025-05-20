@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSearch } from '../../hooks/useSearch'
+import { SELECT_ELEMENTS } from './manageSelectElements'
 import { Search } from './Search'
 import { type FocusableElement, type Option } from './Select'
-import { SELECT_ELEMENTS } from './selectElements'
 import { SelectItem } from './SelectItem'
 
 interface OptionListProps {
@@ -14,11 +14,7 @@ interface OptionListProps {
   onClick?: () => void
   isSearchable: boolean
   searchLabel: string
-  handleCurrentFocus: (
-    elementIndex: number,
-    event: any,
-    option?: Option,
-  ) => void
+  handleKeyAction: (elementIndex: number, event: any, option?: Option) => void
   focusableElements: FocusableElement[]
   currentFocus: number
 }
@@ -32,7 +28,7 @@ export function SelectItems({
   onClick,
   isSearchable,
   searchLabel,
-  handleCurrentFocus,
+  handleKeyAction,
   focusableElements,
   currentFocus,
 }: OptionListProps) {
@@ -46,8 +42,8 @@ export function SelectItems({
             id={SELECT_ELEMENTS.search}
             searchLabel={searchLabel}
             search={search}
-            handleCurrentFocus={(event: any) =>
-              handleCurrentFocus(
+            handleKeyAction={(event: any) =>
+              handleKeyAction(
                 focusableElements
                   .map((e: any) => e.id)
                   .indexOf(SELECT_ELEMENTS.search),
@@ -67,8 +63,8 @@ export function SelectItems({
               option={option}
               isSelected={selectedOptions.includes(option.id)}
               onClick={selectOption}
-              handleCurrentFocus={(event: any) =>
-                handleCurrentFocus(
+              handleKeyAction={(event: any) =>
+                handleKeyAction(
                   focusableElements.map((e: any) => e.id).indexOf(option.id),
                   event,
                   option,

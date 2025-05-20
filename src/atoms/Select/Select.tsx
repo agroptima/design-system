@@ -4,10 +4,14 @@ import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import useRoveFocus from '../../hooks/useRoveFocus'
 import { classNames } from '../../utils/classNames'
-import { manageKeyboardActions } from '../../utils/manageKeyboardActions'
+import { manageKeyActions as manageKeyActions } from '../../utils/manageKeyActions'
 import { HelpText } from '../HelpText'
 import { Label } from '../Label'
-import { defineSelectElements, SELECT_ELEMENTS } from './selectElements'
+import {
+  defineSelectElements,
+  initFocusableElements,
+  SELECT_ELEMENTS,
+} from './manageSelectElements'
 import { SelectItems } from './SelectItems'
 import { SelectTrigger } from './SelectTrigger'
 
@@ -64,29 +68,11 @@ export function Select({
   ...props
 }: SelectProps): React.JSX.Element {
   const identifier = id || name
+
   defineSelectElements(identifier as string)
-
-  function initFocusableElements() {
-    const elements = [
-      {
-        id: SELECT_ELEMENTS.selectButton,
-      },
-    ]
-
-    if (isSearchable)
-      elements.push({
-        id: SELECT_ELEMENTS.search,
-      })
-
-    options.forEach((option) => elements.push({ id: option.id }))
-
-    return elements
-  }
-
-  const [elementsToFocus, setElementsToFocus] = useState<FocusableElement[]>(
-    initFocusableElements,
+  const [elementsToFocus] = useState<FocusableElement[]>(
+    initFocusableElements(isSearchable, options),
   )
-
   const {
     currentFocus,
     setCurrentFocus,
@@ -94,6 +80,7 @@ export function Select({
     setIsActive,
     isActive,
   } = useRoveFocus(elementsToFocus)
+
   const { isOpen, close, toggle, open } = useOpen()
 
   const defaultOption =
@@ -116,23 +103,11 @@ export function Select({
     onChange('')
   }
 
-  function handleCurrentFocus(
-    elementIndex: number,
-    event: any,
-    option?: Option,
-  ) {
-    console.log(
-      'handle current focus: ',
-      elementIndex,
-      currentFocus,
-      event?.keyCode,
-      focusableElements,
-    )
-
-    manageKeyboardActions(
+  function handleKeyAction(elementIndex: number, event: any, option?: Option) {
+    manageKeyActions(
       event,
       elementIndex,
-      { open, toggle, close, isOpen },
+      { open, close, isOpen },
       { option, handleSelectOption, handleClear },
       {
         focusableElements,
@@ -169,8 +144,8 @@ export function Select({
         onClick={toggle}
         onClear={handleClear}
         isEmpty={isEmpty}
-        handleCurrentFocus={(event: any) =>
-          handleCurrentFocus(
+        handleKeyAction={(event: any) =>
+          handleKeyAction(
             focusableElements
               .map((e) => e.id)
               .indexOf(SELECT_ELEMENTS.selectButton),
@@ -194,7 +169,7 @@ export function Select({
           searchLabel={searchLabel}
           focusableElements={focusableElements}
           currentFocus={currentFocus}
-          handleCurrentFocus={handleCurrentFocus}
+          handleKeyAction={handleKeyAction}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />

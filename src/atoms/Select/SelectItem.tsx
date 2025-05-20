@@ -7,7 +7,7 @@ interface OptionProps {
   multiple?: boolean
   isSelected: boolean
   onClick: (option: Option) => void
-  handleCurrentFocus: (event: any) => void
+  handleKeyAction: (event: any) => void
   hasFocus: boolean
 }
 
@@ -17,7 +17,7 @@ export function SelectItem({
   onClick,
   multiple,
   hasFocus,
-  handleCurrentFocus,
+  handleKeyAction,
 }: OptionProps) {
   const ref = useRef<HTMLLIElement>(null)
   useEffect(() => {
@@ -40,7 +40,7 @@ export function SelectItem({
       onClick={() => handleSelectOption(option)}
       tabIndex={hasFocus ? 0 : -1}
       ref={ref}
-      onKeyDown={handleCurrentFocus}
+      onKeyDown={handleKeyAction}
     >
       {multiple && <CheckboxIcon selected={isSelected} />}
       {option.label}
