@@ -1,0 +1,153 @@
+@use '../../settings/color_alias';
+@use '../../settings/typography/form' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/mixins';
+
+.multiselect-group {
+  display: flex;
+  flex-direction: column;
+  gap: config.$space-2x;
+
+  .select {
+    @include typography.select-text;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .clear-button > .icon {
+    width: config.$icon-size-3x;
+    height: config.$icon-size-3x;
+  }
+
+  &.primary {
+    &.disabled .select-container {
+      border: 1px solid color_alias.$neutral-color-400;
+      background: color_alias.$neutral-color-50;
+      @include mixins.icon-color(color_alias.$neutral-color-400);
+
+      .select {
+        color: color_alias.$neutral-color-400;
+      }
+    }
+
+    &.invalid {
+      .select-container {
+        border: 1px solid color_alias.$error-color-1000;
+      }
+    }
+
+    &.filled .select {
+      @include typography.select-option-text;
+    }
+
+    .select-container {
+      border-radius: config.$corner-radius-m;
+      border: 1px solid color_alias.$neutral-color-600;
+      background: color_alias.$neutral-white;
+      @include mixins.icon-color(color_alias.$primary-color-600);
+
+      &:focus {
+        outline: color_alias.$primary-color-600;
+        border: 1px solid color_alias.$primary-color-600;
+      }
+    }
+
+    .select-options {
+      border-radius: config.$corner-radius-xxs;
+      background: color_alias.$neutral-white;
+      box-shadow:
+        0px 9px 28px 8px rgba(0, 0, 0, 0.05),
+        0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+        0px 3px 6px -4px rgba(0, 0, 0, 0.12);
+
+      .option {
+        background: color_alias.$neutral-white;
+        @include typography.select-option-text;
+
+        &:hover {
+          background-color: color_alias.$primary-color-50;
+        }
+
+        > .icon {
+          > svg {
+            border-radius: config.$corner-radius-xxs;
+
+            .checkbox-active_svg__border {
+              fill: color_alias.$primary-color-600;
+            }
+
+            .checkbox-active_svg__background {
+              fill: color_alias.$primary-color-600;
+            }
+
+            .checkbox-inactive_svg__border {
+              fill: color_alias.$neutral-color-600;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .select-container {
+    text-align: left;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: config.$space-2x config.$space-3x;
+  }
+
+  .select-options-container {
+    position: relative;
+
+    .select-options {
+      top: 0;
+      left: 0;
+      max-height: 256px;
+      overflow-y: auto;
+      overflow-anchor: none;
+      z-index: depth.$z-dropdown-options;
+      margin: 0;
+      padding: config.$space-1x 0;
+      text-align: left;
+      position: absolute;
+      width: 100%;
+
+      .search {
+        margin: config.$space-2x config.$space-3x;
+      }
+
+      ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        cursor: default;
+        list-style-type: none;
+        padding: config.$space-2x config.$space-3x;
+
+        > .icon {
+          width: config.$icon-size-4x;
+          height: config.$icon-size-4x;
+          margin-right: config.$space-1x;
+        }
+      }
+    }
+  }
+}
