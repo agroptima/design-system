@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
-import { Multiselect } from '../src/atoms/Multiselect'
+import { Multiselect } from '../src/atoms/Multiselect/Multiselect'
 import { type Option, Select } from '../src/atoms/Select'
 
 const zelda = {
@@ -40,7 +40,7 @@ describe('Multiselect', () => {
 
     await user.click(screen.getByLabelText('Videogames'))
 
-    expect(getAllByRole('generic')[1]).toHaveClass('select-group primary')
+    expect(getAllByRole('generic')[1]).toHaveClass('multiselect-group primary')
     expect(getByText('Videogames')).toBeInTheDocument()
     expect(getByText(/Select your favourite videogames.../)).toBeInTheDocument()
     expect(getByText(/This text can help you/i)).toBeInTheDocument()

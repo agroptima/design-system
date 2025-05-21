@@ -1,14 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { Icon } from '../Icon'
-import type { Option } from './Select'
+import type { Option } from './Multiselect'
 
 interface OptionProps {
   option: Option
   multiple?: boolean
   isSelected: boolean
   onClick: (option: Option) => void
-  handleKeyAction: (event: any) => void
-  hasFocus: boolean
 }
 
 export function SelectItem({
@@ -16,31 +14,15 @@ export function SelectItem({
   isSelected,
   onClick,
   multiple,
-  hasFocus,
-  handleKeyAction,
 }: OptionProps) {
-  const ref = useRef<HTMLLIElement>(null)
-  useEffect(() => {
-    if (hasFocus && ref.current) {
-      ref.current.focus()
-    }
-  }, [hasFocus])
-
-  function handleSelectOption(option: Option) {
-    onClick(option)
-  }
-
   return (
     <li
-      id={option.id}
       className="option"
+      tabIndex={0}
       role="option"
       aria-selected={isSelected}
       data-option={option}
-      onClick={() => handleSelectOption(option)}
-      tabIndex={hasFocus ? 0 : -1}
-      ref={ref}
-      onKeyDown={handleKeyAction}
+      onClick={() => onClick(option)}
     >
       {multiple && <CheckboxIcon selected={isSelected} />}
       {option.label}

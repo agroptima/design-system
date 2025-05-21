@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
-import { SELECT_ELEMENTS } from './manageSelectElements'
 
 export interface SelectTriggerProps {
   id?: string
@@ -14,8 +13,6 @@ export interface SelectTriggerProps {
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
-  handleKeyAction: (event: any) => void
-  hasFocus: boolean
 }
 
 export function SelectTrigger({
@@ -28,27 +25,20 @@ export function SelectTrigger({
   onClick,
   onClear,
   isEmpty,
-  handleKeyAction,
-  hasFocus,
   children,
 }: SelectTriggerProps) {
   const handleClear = (event: React.MouseEvent) => {
     if (disabled) return
     onClear(event)
   }
-  const ref = useRef<HTMLButtonElement>(null)
-
-  useEffect(() => {
-    if (hasFocus && ref.current) {
-      ref.current.focus()
-    }
-  }, [hasFocus])
-
   return (
     <div className="select-container">
       <button
+        id={id}
         type="button"
         role="combobox"
+        className="select"
+        tabIndex={0}
         onClick={onClick}
         aria-label={accessibilityLabel || label}
         aria-controls={`${id}-options`}
@@ -56,11 +46,6 @@ export function SelectTrigger({
         aria-live="assertive"
         aria-invalid={invalid}
         disabled={disabled}
-        className="select-button"
-        id={SELECT_ELEMENTS.selectButton}
-        ref={ref}
-        onKeyDown={handleKeyAction}
-        onFocus={handleKeyAction}
       >
         <span>{children}</span>
         <Icon
@@ -70,7 +55,6 @@ export function SelectTrigger({
         />
       </button>
       <IconButton
-        tabIndex={-1}
         type="button"
         size="3"
         icon="Close"

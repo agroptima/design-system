@@ -1,12 +1,12 @@
-import './Select/Select.scss'
+import './Multiselect.scss'
 import React, { useRef, useState } from 'react'
-import { useOpen } from '../hooks/useOpen'
-import { useOutsideClick } from '../hooks/useOutsideClick'
-import { classNames } from '../utils/classNames'
-import { HelpText } from './HelpText'
-import { Label } from './Label'
-import { SelectItems } from './Select/SelectItems'
-import { SelectTrigger } from './Select/SelectTrigger'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
+import { classNames } from '../../utils/classNames'
+import { HelpText } from '../HelpText'
+import { Label } from '../Label'
+import { SelectItems } from '../Multiselect/SelectItems'
+import { SelectTrigger } from '../Multiselect/SelectTrigger'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
@@ -77,7 +77,7 @@ export function Multiselect({
   const identifier = id || name
   return (
     <div
-      className={classNames('select-group', variant, className, {
+      className={classNames('multiselect-group', variant, className, {
         disabled,
         filled: hasSelectedOptions,
         invalid: isInvalid,
