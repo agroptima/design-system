@@ -1,57 +1,40 @@
 import './Divider.scss'
+import type { ComponentPropsWithoutRef } from 'react'
 import { classNames } from '../utils/classNames'
-import { IconButton } from './Button'
 import type { IconType } from './Icon'
 import { Icon } from './Icon'
 
-export interface DividerProps extends React.ComponentPropsWithoutRef<'div'> {
+type DividerIconTypes = IconType | 'Line'
+
+export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
   title: string
   variant?: string
-  icon?: IconType
-  iconButton?: IconType
-  iconClick?: () => void
+  icon?: DividerIconTypes
 }
 
 export function Divider({
   title,
   variant = 'primary',
   icon,
-  iconButton,
   className,
-  iconClick,
+  children,
 }: DividerProps) {
   const cssClasses = classNames('divider', variant, className)
 
   return (
     <div role="separator" className={cssClasses}>
-      <DividerWithIcon icon={icon} />
-      {!icon && !iconButton && <div className="short line"></div>}
-      <span>{title}</span>
+      <div className="divider-title">
+        <DividerIcon icon={icon} />
+        <span>{title}</span>
+      </div>
       <div className="long line"></div>
-      <DividerWithIconButton iconButton={iconButton} iconClick={iconClick} />
+      {children}
     </div>
   )
 }
 
-function DividerWithIconButton({
-  iconButton,
-  iconClick,
-}: {
-  iconButton?: IconType
-  iconClick?: () => void
-}) {
-  if (!iconButton) return null
-  return (
-    <IconButton
-      accessibilityLabel="icon button"
-      icon={iconButton}
-      className="iconButton"
-      onClick={iconClick}
-    />
-  )
-}
-
-function DividerWithIcon({ icon }: { icon?: IconType }) {
+function DividerIcon({ icon }: { icon?: DividerIconTypes }) {
   if (!icon) return null
+  if (icon === 'Line') return <div className="short line" />
   return <Icon className="icon" name={icon} size="3" />
 }
