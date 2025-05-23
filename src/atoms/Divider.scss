@@ -14,7 +14,7 @@ $border-line: 1px solid color_alias.$neutral-color-200;
   .line {
     border: $border-line;
   }
-  
+
   .long {
     flex: 1;
     margin-left: config.$space-3x;
@@ -27,5 +27,11 @@ $border-line: 1px solid color_alias.$neutral-color-200;
 
   .icon {
     margin-right: config.$space-2x;
+  }
+
+  .link {
+    color: color_alias.$primary-color-600;
+    text-decoration-line: underline;
+    cursor: default;
   }
 }
