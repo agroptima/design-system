@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { type KeyboardEventHandler, useEffect, useRef } from 'react'
 import { Icon } from '../Icon'
 import type { Option } from './Select'
 
@@ -7,7 +7,11 @@ interface OptionProps {
   multiple?: boolean
   isSelected: boolean
   onClick: (option: Option) => void
-  handleKeyAction: (event: any) => void
+  handleKeyAction: (
+    elementIndex: number,
+    event: KeyboardEvent,
+    option?: Option,
+  ) => void
   hasFocus: boolean
 }
 
@@ -40,7 +44,9 @@ export function SelectItem({
       onClick={() => handleSelectOption(option)}
       tabIndex={hasFocus ? 0 : -1}
       ref={ref}
-      onKeyDown={handleKeyAction}
+      onKeyDown={
+        handleKeyAction as unknown as KeyboardEventHandler<HTMLLIElement>
+      }
     >
       {multiple && <CheckboxIcon selected={isSelected} />}
       {option.label}

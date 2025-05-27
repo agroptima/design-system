@@ -103,7 +103,11 @@ export function Select({
     onChange('')
   }
 
-  function handleKeyAction(elementIndex: number, event: any, option?: Option) {
+  function handleKeyAction(
+    elementIndex: number,
+    event: KeyboardEvent,
+    option?: Option,
+  ) {
     manageKeyActions(
       event,
       elementIndex,
@@ -144,12 +148,12 @@ export function Select({
         onClick={toggle}
         onClear={handleClear}
         isEmpty={isEmpty}
-        handleKeyAction={(event: any) =>
+        handleKeyAction={(event) =>
           handleKeyAction(
             focusableElements
               .map((e) => e.id)
               .indexOf(SELECT_ELEMENTS.selectButton),
-            event,
+            event as unknown as KeyboardEvent,
           )
         }
         hasFocus={

@@ -14,7 +14,11 @@ interface OptionListProps {
   onClick?: () => void
   isSearchable: boolean
   searchLabel: string
-  handleKeyAction: (elementIndex: number, event: any, option?: Option) => void
+  handleKeyAction: (
+    elementIndex: number,
+    event: KeyboardEvent,
+    option?: Option,
+  ) => void
   focusableElements: FocusableElement[]
   currentFocus: number
 }
@@ -42,12 +46,12 @@ export function SelectItems({
             id={SELECT_ELEMENTS.search}
             searchLabel={searchLabel}
             search={search}
-            handleKeyAction={(event: any) =>
+            handleKeyAction={(event) =>
               handleKeyAction(
                 focusableElements
-                  .map((e: any) => e.id)
+                  .map((e) => e.id)
                   .indexOf(SELECT_ELEMENTS.search),
-                event,
+                event as unknown as KeyboardEvent,
               )
             }
             hasFocus={
@@ -63,10 +67,10 @@ export function SelectItems({
               option={option}
               isSelected={selectedOptions.includes(option.id)}
               onClick={selectOption}
-              handleKeyAction={(event: any) =>
+              handleKeyAction={(event) =>
                 handleKeyAction(
-                  focusableElements.map((e: any) => e.id).indexOf(option.id),
-                  event,
+                  focusableElements.map((e) => e.id).indexOf(option.id),
+                  event as unknown as KeyboardEvent,
                   option,
                 )
               }

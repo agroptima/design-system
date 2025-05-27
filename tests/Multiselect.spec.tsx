@@ -40,7 +40,9 @@ describe('Multiselect', () => {
 
     await user.click(screen.getByLabelText('Videogames'))
 
-    expect(getAllByRole('generic')[1]).toHaveClass('multiselect-group primary')
+    expect(
+      document.querySelector('.multiselect-group.primary'),
+    ).toBeInTheDocument()
     expect(getByText('Videogames')).toBeInTheDocument()
     expect(getByText(/Select your favourite videogames.../)).toBeInTheDocument()
     expect(getByText(/This text can help you/i)).toBeInTheDocument()

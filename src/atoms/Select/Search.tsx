@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { type KeyboardEvent, useEffect, useRef } from 'react'
 import { Input } from '../Input'
 
 interface SearchProps {
@@ -6,7 +6,7 @@ interface SearchProps {
   searchLabel: string
   search: (term: string) => void
   hasFocus: boolean
-  handleKeyAction: (event: any) => void
+  handleKeyAction: (event: KeyboardEvent) => void
 }
 
 export function Search({

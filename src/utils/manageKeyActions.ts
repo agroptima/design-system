@@ -3,12 +3,12 @@ import { SELECT_ELEMENTS } from '../atoms/Select/manageSelectElements'
 import { type FocusableElement } from '../atoms/Select/Select'
 
 export const KEY_CODES = {
-  UP_ARROW: 38,
-  DOWN_ARROW: 40,
-  ESC: 27,
-  ENTER: 13,
-  TAB: 9,
-  DELETE: 8,
+  UP_ARROW: 'ArrowUp',
+  DOWN_ARROW: 'ArrowDown',
+  ESC: 'Escape',
+  ENTER: 'Enter',
+  TAB: 'Tab',
+  DELETE: 'Backspace',
 }
 
 interface DropdownActions {
@@ -27,12 +27,12 @@ interface FocusableElementHandler {
   focusableElements: FocusableElement[]
   currentFocus: number
   setCurrentFocus: (elementIndex: number) => void
-  setIsActive: (boolean: any) => void
+  setIsActive: (value: boolean) => void
   isActive: boolean
 }
 
 export function manageKeyActions(
-  event: any,
+  event: KeyboardEvent,
   elementIndex: number,
   { open, close, isOpen }: DropdownActions,
   { option, handleSelectOption, handleClear }: OptionHandler,
@@ -55,7 +55,7 @@ export function manageKeyActions(
 
   const focusedElementId: string = focusableElements[currentFocus]?.id
 
-  switch (event?.keyCode) {
+  switch (event?.key) {
     case KEY_CODES.DOWN_ARROW:
       event.preventDefault()
       if (focusedElementId === SELECT_ELEMENTS.selectButton) {
@@ -101,7 +101,7 @@ export function manageKeyActions(
       break
 
     case KEY_CODES.DELETE:
-      handleClear(event)
+      handleClear(event as unknown as React.MouseEvent)
       break
   }
 }

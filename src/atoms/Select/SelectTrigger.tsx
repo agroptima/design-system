@@ -1,7 +1,13 @@
-import React, { useEffect, useRef } from 'react'
+import React, {
+  type FocusEventHandler,
+  type KeyboardEventHandler,
+  useEffect,
+  useRef,
+} from 'react'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
 import { SELECT_ELEMENTS } from './manageSelectElements'
+import { type Option } from './Select'
 
 export interface SelectTriggerProps {
   id?: string
@@ -14,7 +20,11 @@ export interface SelectTriggerProps {
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
-  handleKeyAction: (event: any) => void
+  handleKeyAction: (
+    elementIndex: number,
+    event: KeyboardEvent,
+    option?: Option,
+  ) => void
   hasFocus: boolean
 }
 
@@ -59,8 +69,12 @@ export function SelectTrigger({
         className="select-button"
         id={SELECT_ELEMENTS.selectButton}
         ref={ref}
-        onKeyDown={handleKeyAction}
-        onFocus={handleKeyAction}
+        onKeyDown={
+          handleKeyAction as unknown as KeyboardEventHandler<HTMLButtonElement>
+        }
+        onFocus={
+          handleKeyAction as unknown as FocusEventHandler<HTMLButtonElement>
+        }
       >
         <span>{children}</span>
         <Icon

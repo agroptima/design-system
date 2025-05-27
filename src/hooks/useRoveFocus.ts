@@ -8,14 +8,14 @@ function useRoveFocus(focusableElements: FocusableElement[]) {
   const size = focusableElements?.length
 
   const handleKeyDown = useCallback(
-    (e: any) => {
+    (e: KeyboardEvent) => {
       if (!isActive) return
 
       if (size) {
-        if (e.keyCode === KEY_CODES.DOWN_ARROW) {
+        if (e.key === KEY_CODES.DOWN_ARROW) {
           e.preventDefault()
           setCurrentFocus(currentFocus === size - 1 ? 0 : currentFocus + 1)
-        } else if (e.keyCode === KEY_CODES.UP_ARROW) {
+        } else if (e.key === KEY_CODES.UP_ARROW) {
           e.preventDefault()
           setCurrentFocus(currentFocus === 0 ? size - 1 : currentFocus - 1)
         }
