@@ -50,3 +50,13 @@ export const WithIcon: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const WithLink: Story = {
+  args: {
+    title: '19/01/2025 - My gaming diary',
+    variant: 'primary',
+    hasAction: true,
+    onClick: () => alert('click'),
+  },
+  parameters: figmaPrimaryDesign,
+}

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, IconButton } from '../atoms/Button'
-import { Card } from '../atoms/Card'
-import { DetailItem } from '../atoms/DetailItem'
+import { Button } from '../atoms/Button'
+import { Collapsible } from '../atoms/Collapsible'
+import { Divider } from '../atoms/Divider'
 import { FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
 import {
@@ -393,32 +393,39 @@ const OpenAndCloseFormModal = () => {
           { label: 'Save', type: 'submit' },
         ]}
       >
-        <FormContainer fluid>
-          <Input name="input" label="Input" placeholder="Type something" />
-          <Select
-            label="Select"
-            name="select"
-            helpText="This is a help text"
-            placeholder="Select an option"
-            options={[
-              { id: '1', label: 'Option 1' },
-              { id: '2', label: 'Option 2' },
-              { id: '3', label: 'Option 3' },
-              { id: '4', label: 'Option 4' },
-              { id: '5', label: 'Option 5' },
-              { id: '6', label: 'Option 6' },
-              { id: '7', label: 'Option 7' },
-              { id: '8', label: 'Option 8' },
-              { id: '9', label: 'Option 9' },
-              { id: '10', label: 'Option 10' },
-              { id: '11', label: 'Option 11' },
-              { id: '12', label: 'Option 12' },
-              { id: '13', label: 'Option 13' },
-              { id: '14', label: 'Option 14' },
-              { id: '15', label: 'Option 15' },
-            ]}
+        <Collapsible title="My personal data" name="personal-data">
+          <Divider
+            title="19/01/2025 - My gaming diary"
+            variant="primary"
+            href="link.com"
           />
-        </FormContainer>
+          <FormContainer fluid>
+            <Input name="input" label="Input" placeholder="Type something" />
+            <Select
+              label="Select"
+              name="select"
+              helpText="This is a help text"
+              placeholder="Select an option"
+              options={[
+                { id: '1', label: 'Option 1' },
+                { id: '2', label: 'Option 2' },
+                { id: '3', label: 'Option 3' },
+                { id: '4', label: 'Option 4' },
+                { id: '5', label: 'Option 5' },
+                { id: '6', label: 'Option 6' },
+                { id: '7', label: 'Option 7' },
+                { id: '8', label: 'Option 8' },
+                { id: '9', label: 'Option 9' },
+                { id: '10', label: 'Option 10' },
+                { id: '11', label: 'Option 11' },
+                { id: '12', label: 'Option 12' },
+                { id: '13', label: 'Option 13' },
+                { id: '14', label: 'Option 14' },
+                { id: '15', label: 'Option 15' },
+              ]}
+            />
+          </FormContainer>
+        </Collapsible>
       </Modal>
 
       <Button

@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from '../atoms/Button'
 import { Card } from '../atoms/Card'
 import { Collapsible } from '../atoms/Collapsible'
+import { Divider } from '../atoms/Divider'
 import { Actions, Form as FormComponent } from '../atoms/Form'
 import { FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
@@ -102,6 +103,7 @@ export const PrimaryOpened = {
   render: () => (
     <>
       <Collapsible title="My personal data" name="personal-data" open>
+        <Divider title="19/01/2025 - My gaming diary" variant="primary" />
         <FormContainer fluid>
           <Input
             accessibilityLabel="Fill the form name"
