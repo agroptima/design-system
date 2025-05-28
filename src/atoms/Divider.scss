@@ -10,6 +10,17 @@ $border-line: 1px solid color_alias.$neutral-color-200;
   @include typography.body_bold;
   display: flex;
   align-items: center;
+  gap: config.$space-3x;
+
+  &-title {
+    display: flex;
+    align-items: center;
+  }
+
+  .short {
+    width: config.$space-6x;
+    margin-right: config.$space-3x;
+  }
 
   .line {
     border: $border-line;
@@ -17,12 +28,6 @@ $border-line: 1px solid color_alias.$neutral-color-200;
   
   .long {
     flex: 1;
-    margin-left: config.$space-3x;
-  }
-
-  .short {
-    width: config.$space-6x;
-    margin-right: config.$space-3x;
   }
 
   .icon {
