@@ -1,6 +1,5 @@
 import './Divider.scss'
 import type { ComponentPropsWithoutRef } from 'react'
-import Link from 'next/link'
 import { classNames } from '../utils/classNames'
 import type { IconType } from './Icon'
 import { Icon } from './Icon'
@@ -11,7 +10,6 @@ export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
   title: string
   variant?: string
   icon?: DividerIconTypes
-  icon?: IconType
   iconButton?: IconType
   iconClick?: () => void
   hasAction?: boolean
@@ -33,19 +31,10 @@ export function Divider({
     <div role="separator" className={cssClasses}>
       <div className="divider-title">
         <DividerIcon icon={icon} />
-        <span>{title}</span>
+        <span onClick={onClick} className={classNames({ link: hasAction })}>
+          {title}
+        </span>
       </div>
-      {icon ? (
-        <Icon className="icon" name={icon} size="3" />
-      ) : (
-        <div className="short line"></div>
-      )}
-      <span onClick={onClick} className={classNames({ link: hasAction })}>
-        {title}
-      </span>
-      <DividerWithIcon icon={icon} />
-      {!icon && !iconButton && <div className="short line"></div>}
-      <span>{title}</span>
       <div className="long line"></div>
       {children}
     </div>

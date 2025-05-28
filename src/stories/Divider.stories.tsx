@@ -21,14 +21,6 @@ const meta = {
     icon: {
       description: 'Optional icon that is added next to the title divider ',
     },
-    iconButton: {
-      description:
-        'Optional icon button that is added in right side of divider ',
-    },
-    iconClick: {
-      description:
-        'Optional function that is called when icon button is clicked',
-    },
     variant: 'primary',
   },
 }
