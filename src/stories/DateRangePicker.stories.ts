@@ -67,16 +67,7 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const RangeDatePicker: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    lng: 'en',
-  },
-  parameters: figmaPrimaryDesign,
-}
-
-export const WithRangeDateSelected: Story = {
+export const WithDateRangeSelected: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
@@ -86,7 +77,7 @@ export const WithRangeDateSelected: Story = {
   parameters: figmaPrimaryDesign,
 }
 
-export const RangeDatePickerWithInput: Story = {
+export const DateRangePickerWithInput: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
@@ -97,11 +88,12 @@ export const RangeDatePickerWithInput: Story = {
   parameters: figmaPrimaryDesign,
 }
 
-export const RangeDatePickerWithErrors: Story = {
+export const DateRangePickerWithErrors: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
     lng: 'en',
+    defaultValue: { from: '2024-01-02', to: '2024-01-12' },
     errors: ['Date is required', 'Another error'],
   },
   parameters: figmaPrimaryDesign,
