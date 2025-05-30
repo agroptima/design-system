@@ -131,7 +131,7 @@ export const Filters = {
       <Collapsible noHorizontalPadding open title="Date">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <DateRangePicker
-            selected={{ from: new Date(2025, 0, 1), to: new Date(2025, 0, 15) }}
+            defaultValue={{ from: '2024-01-02', to: '2024-01-12' }}
             onSelect={(date) => console.log('date: ', date)}
             lng="en"
           />
