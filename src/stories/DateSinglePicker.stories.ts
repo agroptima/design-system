@@ -8,7 +8,7 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>DateRangePicker component allows users to select past, present, or future dates in a visual way in range or single format.</p>',
+          '<h2>Usage guidelines</h2><p>DateRangePicker component allows users to select past, present, or future dates in a visual way in range or single format. To avoid problems with Chromatic builds, always add a defaultValue.</p>',
       },
     },
   },
@@ -62,15 +62,7 @@ const figmaPrimaryDesign = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const SingleDatePicker: Story = {
-  args: {
-    variant: 'primary',
-    onSelect: (date) => console.log('onSelect date:', date),
-    lng: 'en',
-  },
-}
-
-export const WithSingleDaySelected: Story = {
+export const WithSingleDateSelected: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
@@ -95,6 +87,7 @@ export const SingleDatePickerWithErrors: Story = {
   args: {
     variant: 'primary',
     onSelect: (date) => console.log('onSelect date:', date),
+    defaultValue: '2024-01-20',
     lng: 'en',
     errors: ['Date is required', 'Another error'],
   },
