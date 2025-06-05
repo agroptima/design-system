@@ -20,31 +20,20 @@ details summary::-webkit-details-marker {
 
   .header {
     display: flex;
-    align-items: center !important;
+    align-items: center;
     gap: config.$space-3x;
     padding: config.$space-5x;
-    padding-bottom: config.$space-5x !important;
     cursor: default;
 
-    .icon {
-      width: config.$icon-size-4x !important;
-      height: config.$icon-size-4x !important;
-      > svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
     .title {
-      font-size: 1rem !important;
-      font-weight: normal !important;
+      font-size: 1rem;
+      font-weight: normal;
       flex: 1;
     }
   }
 
   .content {
-    padding: config.$space-7x;
-    padding-bottom: config.$space-3x;
+    padding: config.$space-7x config.$space-7x config.$space-3x;
 
     &.no-horizontal-padding {
       padding-left: 0;
@@ -52,7 +41,7 @@ details summary::-webkit-details-marker {
     }
   }
 
-  &.primary {
+  &.primary, &.secondary {
     &[open] {
       .header {
         background: transparent;
@@ -69,6 +58,7 @@ details summary::-webkit-details-marker {
         .icon {
           > svg {
             fill: color_alias.$neutral-color-200;
+
             path {
               fill: color_alias.$neutral-color-200;
             }
@@ -85,6 +75,7 @@ details summary::-webkit-details-marker {
       .icon {
         > svg {
           fill: color_alias.$primary-color-600;
+
           path {
             fill: color_alias.$primary-color-600;
           }
@@ -95,6 +86,14 @@ details summary::-webkit-details-marker {
         background: color_alias.$primary-color-50;
       }
     }
+  }
+
+  &.secondary .content {
+    padding: config.$space-3x config.$space-4x config.$space-6x;
+    border: 1px solid color_alias.$neutral-color-200;
+    border-top: none;
+    border-bottom-left-radius: config.$corner-radius-m;
+    border-bottom-right-radius: config.$corner-radius-m;
   }
 }
 

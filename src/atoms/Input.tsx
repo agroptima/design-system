@@ -7,7 +7,7 @@ import type { IconType } from './Icon'
 import { Icon } from './Icon'
 import { Label } from './Label'
 
-export type InputVariant = 'primary'
+export type InputVariant = 'primary' | 'borderless'
 
 export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   label: string
@@ -21,6 +21,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   errors?: string[]
   rightIcon?: IconType
   fullWidth?: boolean
+  ellipsis?: boolean
 }
 
 export function Input({
@@ -39,6 +40,7 @@ export function Input({
   errors,
   rightIcon,
   fullWidth = false,
+  ellipsis = false,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
@@ -65,6 +67,7 @@ export function Input({
         invalid: errors?.length,
         hidden: type === 'hidden',
         'full-width': fullWidth,
+        ellipsis: ellipsis,
       })}
     >
       {!hideLabel && (

@@ -64,6 +64,11 @@ const meta = {
       description: 'Makes the input take the full width of the container',
       type: 'boolean',
     },
+    ellipsis: {
+      description:
+        'If true, the input will truncate the text with an ellipsis when it overflows',
+      type: 'boolean',
+    },
   },
 }
 
@@ -141,6 +146,29 @@ export const WithSuffix: Story = {
     name: 'price',
     type: 'number',
     suffix: '€/Bottle',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const Borderless: Story = {
+  args: {
+    label: 'Delivery data',
+    defaultValue: '221b Baker St, London NW1, 6XE, United Kingdom',
+    variant: 'borderless',
+    readOnly: true,
+    helpText: 'This text can help you',
+    name: 'delivery_data',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const Ellipsis: Story = {
+  args: {
+    label: 'Label for input with ellipsis',
+    defaultValue:
+      "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn., Nnnhafh'drn bug ep Tsathoggua sgn'wahl nghupadgh, nglui syha'h y-ee y-n'gha. NaflDagon y-zhro lw'nafh stell'bsna h'li'hee vulgtm R'lyeh hafh'drnyar, goka nnnAzathoth sgn'wahl gebor shogg ftaghu y'hah, naorr'e lloig hupadghog nageb k'yarnakagl ph'sgn'wahl. Nnngnaiih stell'bsna 'bthnk mnahn' h'goka hrii zhro hai 'fhalma h'geb, goka f'vulgtlagln nilgh'ri y-chtenff Hastur 'fhalma mnahn' fm'latgh. Nauln vulgtm y-shtunggli uaaah li'hee y'hah hlirgh, orr'e nglui hafh'drn ngstell'bsna ngep hupadgh, 'bthnkagl hafh'drnog s'uhn chtenff ya. Syha'h 'bthnk vulgtlagln ah zhro f'n'gha uh'e Nyarlathotep sgn'wahl ebunma 'ai fhtagn sll'ha ehye, ckadishtu hrii nahai 'ai ilyaa namg n'gha ooboshu mnahn' Azathoth cHastur wgah'n.",
+    name: 'ellipsis',
+    ellipsis: true,
   },
   parameters: figmaPrimaryDesign,
 }

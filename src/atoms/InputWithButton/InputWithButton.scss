@@ -1,0 +1,8 @@
+@use '../../settings/config';
+
+.input-with-button {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: config.$space-2x;
+}
