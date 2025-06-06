@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { Input } from '../src/atoms/Input'
 import type { Option } from '../src/atoms/Select'
 import { Select } from '../src/atoms/Select'
 
@@ -34,7 +35,7 @@ describe('Select', () => {
         placeholder="Select your favourite gaming system..."
       />,
     )
-    await user.click(screen.getByLabelText('Videogames'))
+    await user.click(screen.getByRole('combobox'))
 
     expect(
       getByText(/Select your favourite gaming system.../),
@@ -165,5 +166,62 @@ describe('Select', () => {
     expect(screen.getByLabelText('Videogames')).toHaveTextContent(
       playstation5.label,
     )
+  })
+
+  test('Keyboard control: User can tab to the Select and show its options', async () => {
+    const user = userEvent.setup()
+    render(
+      <div>
+        <Input
+          accessibilityLabel="Fill the form email"
+          helpText="This text can help you"
+          id="email_input"
+          label="Email"
+          name="email"
+          placeholder="janedoe@mail.com"
+          type="email"
+          variant="primary"
+        />
+        <Select
+          accessibilityLabel="Select your favourite gaming system options"
+          helpText="This text can help you"
+          id="select-videogames"
+          label="Videogames"
+          name="example"
+          onChange={() => {}}
+          options={[
+            {
+              id: '1',
+              label: 'Nintendo Switch',
+            },
+            {
+              id: '2',
+              label: 'PlayStation 5',
+            },
+            {
+              id: '3',
+              label: 'Xbox Series S/X',
+            },
+          ]}
+          placeholder="Select your favourite gaming system..."
+          variant="primary"
+        />
+      </div>,
+    )
+
+    const input = screen.getByRole('textbox')
+    const select = screen.getByRole('combobox')
+
+    await user.tab()
+    expect(input).toHaveFocus()
+
+    await user.tab()
+    expect(select).toHaveFocus()
+
+    await userEvent.type(select, '{arrowDown}')
+
+    expect(screen.getByText('Nintendo Switch')).toBeInTheDocument()
+    expect(screen.getByText('PlayStation 5')).toBeInTheDocument()
+    expect(screen.getByText(/Xbox Series/i)).toBeInTheDocument()
   })
 })
