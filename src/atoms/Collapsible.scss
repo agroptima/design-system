@@ -18,14 +18,14 @@ details summary::-webkit-details-marker {
     user-select: none;
   }
 
-  .header {
+  .collapsible-header {
     display: flex;
     align-items: center;
     gap: config.$space-3x;
     padding: config.$space-5x;
     cursor: default;
 
-    .title {
+    .collapsible-title {
       font-size: 1rem;
       font-weight: normal;
       flex: 1;
@@ -43,14 +43,14 @@ details summary::-webkit-details-marker {
 
   &.primary, &.secondary {
     &[open] {
-      .header {
+      .collapsible-header {
         background: transparent;
         border-bottom: 3px solid color_alias.$primary-color-600;
       }
     }
 
     &.disabled {
-      .header {
+      .collapsible-header {
         background: color_alias.$neutral-color-50;
         border-bottom: 1px solid color_alias.$neutral-color-200;
         color: color_alias.$neutral-color-200;
@@ -67,7 +67,7 @@ details summary::-webkit-details-marker {
       }
     }
 
-    .header {
+    .collapsible-header {
       color: color_alias.$neutral-color-1000;
       background: transparent;
       border-bottom: 1px solid color_alias.$neutral-color-200;
@@ -98,7 +98,7 @@ details summary::-webkit-details-marker {
 }
 
 .collapsible[open] {
-  .arrow {
+  .collapsible-arrow {
     transform: rotate(90deg);
   }
 }

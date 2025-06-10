@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react'
+import { Button } from '../atoms/Button'
 import { Input } from '../atoms/Input'
 import { InputWithButton } from '../atoms/InputWithButton'
 
@@ -47,9 +48,27 @@ export const Primary: Story = {
           id="input-with-button"
           readOnly
         />
-        <button type="button" className="button">
-          Action
-        </button>
+        <Button type="button" label="Action" className="button" />
+      </>
+    ),
+  },
+}
+
+export const WithError: Story = {
+  args: {
+    children: (
+      <>
+        <Input
+          fullWidth
+          ellipsis
+          defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          variant="borderless"
+          label="Input with button"
+          id="input-with-button"
+          readOnly
+          errors={['This is an error message']}
+        />
+        <Button type="button" label="Action" className="button" />
       </>
     ),
   },

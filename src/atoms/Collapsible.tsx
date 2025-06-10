@@ -29,16 +29,16 @@ export function Collapsible({
     open: props.open,
     disabled: disabled,
   })
-  const contentCssClasses = classNames('content', {
+  const contentCssClasses = classNames('collapsible-content', {
     'no-horizontal-padding': noHorizontalPadding,
     form: form,
   })
 
   return (
     <details name={name} className={cssClasses} aria-label={title} {...props}>
-      <summary className="header">
-        <Icon className="arrow" name="AngleRight" size="4" />
-        <span className="title">{title}</span>
+      <summary className="collapsible-header">
+        <Icon className="collapsible-arrow" name="AngleRight" size="4" />
+        <span className="collapsible-title">{title}</span>
       </summary>
       <div className={contentCssClasses}>{children}</div>
     </details>
