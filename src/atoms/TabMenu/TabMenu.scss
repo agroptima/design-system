@@ -37,7 +37,7 @@
 
         &:hover {
           color: color_alias.$primary-color-600;
-          border-bottom: 1px solid color_alias.$primary-color-600;
+          border-bottom: 2px solid color_alias.$primary-color-600;
         }
 
         &.active {
