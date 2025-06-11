@@ -42,7 +42,7 @@
 
         &.active {
           color: color_alias.$primary-color-600;
-          border-bottom: 2px solid color_alias.$primary-color-600;
+          border-bottom: 3px solid color_alias.$primary-color-600;
         }
 
         &.disabled {
