@@ -29,6 +29,11 @@
       position: sticky;
       top: 60px;
     }
+
+    .cards-table-head {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .cards-table-header,
