@@ -56,7 +56,7 @@ $elements-space: config.$space-2x;
       }
     }
 
-    &.filled .select{
+    &.filled .select {
       @include typography.select-option-text;
     }
 

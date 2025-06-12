@@ -24,12 +24,23 @@
   border-spacing: 0 config.$space-2x;
   width: 100%;
 
+  &.is-sticky {
+    .cards-table-header {
+      position: sticky;
+      top: 60px;
+    }
+
+    .cards-table-head {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
   .cards-table-header,
   .cards-table-cell {
     vertical-align: top;
     padding: config.$space-2x config.$space-3x;
   }
-
 
   .cards-table-body .cards-table-row {
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
@@ -99,7 +110,7 @@
     &.with-title .cards-table-row > .cards-table-cell:first-child {
       @include typography.cards-table-list-highlight-text;
     }
- 
+
     .cards-table-row.disabled {
       background: color_alias.$neutral-color-50;
       .cards-table-cell {
@@ -123,7 +134,7 @@
       > .cards-table-cell {
         border-color: color_alias.$primary-color-1000;
       }
-    }  
+    }
   }
 
   @media only screen and (max-width: breakpoints.$large) {

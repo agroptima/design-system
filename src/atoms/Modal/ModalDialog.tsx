@@ -62,6 +62,8 @@ export function ModalDialog({
 
   return (
     <dialog
+      role="dialog"
+      aria-modal="true"
       ref={dialogRef}
       className={classNames('modal', className, { 'modal-details': details })}
       onClick={handleClick}

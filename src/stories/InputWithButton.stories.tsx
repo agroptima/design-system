@@ -10,16 +10,16 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2>\n' +
-          '<p>The InputWithButton component is used when a user needs to input information and immediately trigger an action, such as searching, submitting, or generating content. It combines an input field with a complementary interactive element, typically a button, placed within the same container.</p>\n' +
-          '<ul>\n' +
-          '  <li>Use when the action is closely tied to the input (e.g., "Search", "Add", "Go")</li>\n' +
-          '  <li>Always include a visible label for accessibility and clarity</li>\n' +
-          '  <li>Use concise and descriptive button text or icons</li>\n' +
-          '  <li>Ensure the input and button are visually grouped and aligned</li>\n' +
-          '  <li>Support help and error text as in a standard input</li>\n' +
-          '  <li>Pass the button or other actionable element through the <code>children</code> prop</li>\n' +
-          '  <li>Do not overload with multiple actions—one clear purpose per instance</li>\n' +
+          '<h2>Usage guidelines</h2>' +
+          '<p>The InputWithButton component is used when a user needs to input information and immediately trigger an action, such as searching, submitting, or generating content. It combines an input field with a complementary interactive element, typically a button, placed within the same container.</p>' +
+          '<ul>' +
+          '  <li>Use when the action is closely tied to the input (e.g., "Search", "Add", "Go")</li>' +
+          '  <li>Always include a visible label for accessibility and clarity</li>' +
+          '  <li>Use concise and descriptive button text or icons</li>' +
+          '  <li>Ensure the input and button are visually grouped and aligned</li>' +
+          '  <li>Support help and error text as in a standard input</li>' +
+          '  <li>Pass the button or other actionable element through the <code>children</code> prop</li>' +
+          '  <li>Do not overload with multiple actions—one clear purpose per instance</li>' +
           '</ul>',
       },
     },
