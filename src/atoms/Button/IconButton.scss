@@ -76,14 +76,27 @@
     }
   }
 
-  &.primary,
-  &.secondary {
+  &.primary {
     &:disabled {
       > .icon {
         > svg {
           fill: color_alias.$neutral-color-400;
           path {
             fill: color_alias.$neutral-color-400;
+          }
+        }
+      }
+    }
+  }
+
+  &.secondary {
+    &:disabled {
+      > .icon {
+        > svg {
+          fill: color_alias.$neutral-white;
+          fill-opacity: 0.6;
+          path {
+            fill: color_alias.$neutral-white;
           }
         }
       }
