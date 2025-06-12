@@ -12,7 +12,6 @@
   .tabmenu {
     position: absolute;
     top: 0px;
-    z-index: 999;
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -38,12 +37,12 @@
 
         &:hover {
           color: color_alias.$primary-color-600;
-          border-bottom: 1px solid color_alias.$primary-color-600;
+          border-bottom: 2px solid color_alias.$primary-color-600;
         }
 
         &.active {
           color: color_alias.$primary-color-600;
-          border-bottom: 2px solid color_alias.$primary-color-600;
+          border-bottom: 3px solid color_alias.$primary-color-600;
         }
 
         &.disabled {
@@ -59,7 +58,6 @@
   }
 
   .tabmenu-divider {
-    z-index: 1;
     position: absolute;
     top: 28px;
     width: 100%;
