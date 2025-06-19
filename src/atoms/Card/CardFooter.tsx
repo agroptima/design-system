@@ -10,7 +10,7 @@ export function CardFooter({
   children,
   ...props
 }: CardFooterProps): React.JSX.Element {
-  const cssClasses = classNames('footer', className)
+  const cssClasses = classNames('card-footer', className)
 
   return (
     <div className={cssClasses} {...props}>

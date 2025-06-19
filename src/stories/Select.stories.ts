@@ -59,6 +59,10 @@ const meta = {
       description: 'Is required?',
       type: 'boolean',
     },
+    fullWidth: {
+      description: 'Makes the Select take the full width of the container',
+      type: 'boolean',
+    },
   },
 }
 

@@ -29,6 +29,7 @@ export type DateRangePickerProps = {
   name?: string
   helpText?: string
   errors?: string[]
+  fullWidth?: boolean
 }
 
 export type DateRange = {
@@ -48,10 +49,12 @@ export function DateRangePicker({
   label = 'Date',
   errors,
   helpText,
+  fullWidth = false,
 }: DateRangePickerProps): JSX.Element {
   const cssClasses = classNames('date-picker', variant, className, {
     toggle: withInput,
     invalid: errors?.length,
+    'full-width': fullWidth,
   })
   const helpTexts = buildHelpText(helpText, errors)
 

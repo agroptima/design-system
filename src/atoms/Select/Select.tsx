@@ -29,6 +29,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   onChange?: (value: string) => void
   isSearchable?: boolean
   searchLabel?: string
+  fullWidth?: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -50,6 +51,7 @@ export function Select({
   defaultValue,
   isSearchable = false,
   searchLabel = 'Search',
+  fullWidth = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
@@ -79,6 +81,7 @@ export function Select({
         disabled,
         filled: selectedOption.id,
         invalid: isInvalid,
+        'full-width': fullWidth,
       })}
       ref={selectRef}
     >
