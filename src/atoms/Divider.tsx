@@ -11,7 +11,6 @@ export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
   variant?: string
   icon?: DividerIconTypes
   iconButton?: IconType
-  iconClick?: () => void
   hasAction?: boolean
   onClick?: () => void
 }
