@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSearch } from '../../hooks/useSearch'
-import { Input } from '../Input'
-import type { Option } from './Select'
+import { SELECT_ELEMENTS } from './manageSelectElements'
+import { Search } from './Search'
+import { type FocusableElement, type Option } from './Select'
 import { SelectItem } from './SelectItem'
 
 interface OptionListProps {
@@ -13,6 +14,13 @@ interface OptionListProps {
   onClick?: () => void
   isSearchable: boolean
   searchLabel: string
+  handleKeyAction: (
+    elementIndex: number,
+    event: KeyboardEvent,
+    option?: Option,
+  ) => void
+  focusableElements: FocusableElement[]
+  currentFocus: number
 }
 
 export function SelectItems({
@@ -24,20 +32,31 @@ export function SelectItems({
   onClick,
   isSearchable,
   searchLabel,
+  handleKeyAction,
+  focusableElements,
+  currentFocus,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
+
   return (
     <div className="select-options-container">
       <div className="select-options" id={id}>
         {isSearchable && (
-          <Input
-            autoFocus
-            label={searchLabel}
-            hideLabel
-            onChange={(e) => search(e.target.value)}
-            placeholder={searchLabel}
-            icon="Search"
-            className="search"
+          <Search
+            id={SELECT_ELEMENTS.search}
+            searchLabel={searchLabel}
+            search={search}
+            handleKeyAction={(event) =>
+              handleKeyAction(
+                focusableElements
+                  .map((e) => e.id)
+                  .indexOf(SELECT_ELEMENTS.search),
+                event as unknown as KeyboardEvent,
+              )
+            }
+            hasFocus={
+              focusableElements[currentFocus].id === SELECT_ELEMENTS.search
+            }
           />
         )}
         <ul role="listbox" onClick={onClick}>
@@ -48,6 +67,14 @@ export function SelectItems({
               option={option}
               isSelected={selectedOptions.includes(option.id)}
               onClick={selectOption}
+              handleKeyAction={(event) =>
+                handleKeyAction(
+                  focusableElements.map((e) => e.id).indexOf(option.id),
+                  event as unknown as KeyboardEvent,
+                  option,
+                )
+              }
+              hasFocus={focusableElements[currentFocus].id === option.id}
             />
           ))}
         </ul>
