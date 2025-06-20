@@ -8,7 +8,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>DateRangePicker component allows users to select past, present, or future dates in a visual way in range or single format. To avoid problems with Chromatic builds, always add a defaultValue.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>DateRangePicker component allows users to select past, present, or future dates in a visual way in range or single format. To avoid problems with Chromatic builds, always add a defaultValue.</p>',
       },
     },
   },

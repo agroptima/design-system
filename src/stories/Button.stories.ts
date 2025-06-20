@@ -8,7 +8,14 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><ul><li>Button can be used as an action trigger or as a navigational component</li><li>Use icons at the page first level actions such as Create, Edit, Delete or mass actions</li><li>Display a popover when featuring subsequent options</li><li>Be aware of color and semantic meaning</li><li>Write labels as verbs</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<ul>' +
+          ' <li>Button can be used as an action trigger or as a navigational component</li>' +
+          ' <li>Use icons at the page first level actions such as Create, Edit, Delete or mass actions</li>' +
+          ' <li>Display a popover when featuring subsequent options</li>' +
+          ' <li>Be aware of color and semantic meaning</li>' +
+          ' <li>Write labels as verbs</li>' +
+          '</ul>',
       },
     },
   },

@@ -14,7 +14,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>CardMenu is used to hide less frequently used or advanced options until users specifically need them. This keeps the interface clean and focused on essential elements. Consider using short and precise labels for menu items as well as a suitable ordering and grouping.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>CardMenu is used to hide less frequently used or advanced options until users specifically need them. This keeps the interface clean and focused on essential elements. Consider using short and precise labels for menu items as well as a suitable ordering and grouping.</p>',
       },
     },
     figmaPrimaryDesign,

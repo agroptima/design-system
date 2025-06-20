@@ -8,7 +8,14 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data.</p><ul><li>Graphics that are clear, intuitive, and simple enjoy a higher degree of recognition and are more easily understood</li><li>All icons in the user interface should be consistent in style (detail design, perspective, stroke weight, etc.)</li><li>Use tooltips</li></ul><p>For more information about the Button usage, check its guidelines.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data.</p>' +
+          '<ul>' +
+          ' <li>Graphics that are clear, intuitive, and simple enjoy a higher degree of recognition and are more easily understood</li>' +
+          ' <li>All icons in the user interface should be consistent in style (detail design, perspective, stroke weight, etc.)</li>' +
+          ' <li>Use tooltips</li>' +
+          '</ul>' +
+          '<p>For more information about the Button usage, check its guidelines.</p>',
       },
     },
   },

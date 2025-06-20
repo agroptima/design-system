@@ -44,7 +44,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Pagination component organizes and divides large amounts of content on separate pages and gives the user control over how much content they want to view on each page.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Pagination component organizes and divides large amounts of content on separate pages and gives the user control over how much content they want to view on each page.</p>',
       },
     },
     figmaPrimaryDesign,

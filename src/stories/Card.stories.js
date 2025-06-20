@@ -17,7 +17,11 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p><ul><li>The Card has a hover effect when being a link, being `clickable` or not having any buttons.</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>' +
+          '<ul>' +
+          ' <li>The Card has a hover effect when being a link, being `clickable` or not having any buttons.</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,

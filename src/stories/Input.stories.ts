@@ -8,7 +8,14 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Input component is used when a user needs to input unique information that cannot be predicted with a preset of options or that can be entered more quickly in a free-hand format.</p><ul><li>By default, include a label</li><li>Mark the minority of inputs in a form as required or optional</li><li>Use help text to show hints, formatting, and requirements</li><li>Optional placeholder text provides hints or examples of what to enter</li><li>Switch help text with error text</li><li>Write error text that shows a solution</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Input component is used when a user needs to input unique information that cannot be predicted with a preset of options or that can be entered more quickly in a free-hand format.</p>' +
+          '<ul>' +
+          ' <li>By default, include a label</li><li>Mark the minority of inputs in a form as required or optional</li>' +
+          ' <li>Use help text to show hints, formatting, and requirements</li>' +
+          ' <li>Optional placeholder text provides hints or examples of what to enter</li>' +
+          ' <li>Switch help text with error text</li><li>Write error text that shows a solution</li>' +
+          '</ul>',
       },
     },
   },

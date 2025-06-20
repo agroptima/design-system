@@ -32,7 +32,11 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>CheckableTags allow users to categorize content. This component is used as a quick access to the most used filter.</p><ul><li>Allow bulk actions</li><li>Avoid disabling a large group of tags</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>CheckableTags allow users to categorize content. This component is used as a quick access to the most used filter.</p>' +
+          '<ul>' +
+          ' <li>Allow bulk actions</li><li>Avoid disabling a large group of tags</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,

@@ -30,7 +30,16 @@ const meta = {
     docs: {
       description: {
         component:
-          "<h2>Usage guidelines</h2><p>Modal component is used when requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow. It creates a new floating layer over the current page to get user feedback or display information.</p><ul><li>Require a response from the user</li><li>Notify the user of any related information</li><li>Confirm a user decision</li><li>It's opened/closed through `isOpen` prop. If we don't want it to be part of the DOM, we can also add a conditional render on the frontend project.</li><li>Natively, focus is set on the first nested focusable element and explicitly indicated by default by the browser</li><li>When nesting a Form inside Modal component, remember to add `type='button'` to all Cancel buttons to not to be considered as submitable</li></ul>",
+          '<h2>Usage guidelines</h2>' +
+          "<p>Modal component is used when requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow. It creates a new floating layer over the current page to get user feedback or display information.</p>" +
+          '<ul>' +
+          ' <li>Require a response from the user</li>' +
+          ' <li>Notify the user of any related information</li>' +
+          ' <li>Confirm a user decision</li>' +
+          " <li>It's opened/closed through `isOpen` prop. If we don't want it to be part of the DOM, we can also add a conditional render on the frontend project.</li>" +
+          ' <li>Natively, focus is set on the first nested focusable element and explicitly indicated by default by the browser</li>' +
+          " <li>When nesting a Form inside Modal component, remember to add `type='button'` to all Cancel buttons to not to be considered as submitable</li>" +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
