@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Card } from '../atoms/Card'
@@ -50,8 +51,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Primary = {
+export const Primary: Story = {
   render: () => (
     <Collapsible title="My personal data" name="personal-data">
       <FormContainer fluid>
@@ -102,9 +104,9 @@ export const Primary = {
       </FormContainer>
     </Collapsible>
   ),
-}
+} as unknown as Story
 
-export const PrimaryOpened = {
+export const PrimaryOpened: Story = {
   render: () => (
     <>
       <Collapsible title="My personal data" name="personal-data" open>
@@ -170,9 +172,9 @@ export const PrimaryOpened = {
       </Collapsible>
     </>
   ),
-}
+} as unknown as Story
 
-export const PrimaryDisabled = {
+export const PrimaryDisabled: Story = {
   render: () => (
     <Collapsible title="My personal data" name="personal-data" disabled>
       <FormContainer fluid>
@@ -223,9 +225,9 @@ export const PrimaryDisabled = {
       </FormContainer>
     </Collapsible>
   ),
-}
+} as unknown as Story
 
-export const Form = {
+export const Form: Story = {
   render: () => (
     <Collapsible open form title="User">
       <FormComponent>
@@ -238,4 +240,4 @@ export const Form = {
       </FormComponent>
     </Collapsible>
   ),
-}
+} as unknown as Story

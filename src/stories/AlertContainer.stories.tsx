@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Alert, AlertContainer } from '../atoms/Alert'
 
@@ -17,8 +18,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Primary = {
+export const Primary: Story = {
   render: () => (
     <AlertContainer>
       <Alert variant="success" id="success" text="This is a success alert" />

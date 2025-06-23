@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
@@ -39,9 +40,14 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Menu = {
-  render: ({ position }) => (
+interface Position {
+  position?: 'left' | 'right' | 'center'
+}
+
+export const Menu: Story = {
+  render: ({ position }: Position) => (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Popover
         position={position}
@@ -75,4 +81,4 @@ export const Menu = {
       </Popover>
     </div>
   ),
-}
+} as unknown as Story

@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import { IconButton } from '../atoms/Button'
 import { Button } from '../atoms/Button'
 import { Card, CardContent, CardFooter, CardHeader } from '../atoms/Card'
@@ -63,8 +64,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const ProductCard = {
+export const ProductCard: Story = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card variant="primary">
@@ -123,9 +125,9 @@ export const ProductCard = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story
 
-export const ProductCardsGroup = {
+export const ProductCardsGroup: Story = {
   render: () => (
     <div
       style={{
@@ -419,9 +421,9 @@ export const ProductCardsGroup = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story
 
-export const Primary = {
+export const Primary: Story = {
   render: () => (
     <div style={{ display: 'flex', width: '700px', gap: '20px' }}>
       <Card variant="primary">
@@ -472,9 +474,9 @@ export const Primary = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story
 
-export const Disabled = {
+export const Disabled: Story = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card isDisabled variant="primary">
@@ -496,9 +498,9 @@ export const Disabled = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story
 
-export const Active = {
+export const Active: Story = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card isActive>
@@ -508,9 +510,9 @@ export const Active = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story
 
-export const WithLink = {
+export const WithLink: Story = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card href="some-url">
@@ -525,9 +527,9 @@ export const WithLink = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story
 
-export const Clickable = {
+export const Clickable: Story = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <Card onClick={() => alert('click')}>
@@ -542,4 +544,4 @@ export const Clickable = {
       </Card>
     </div>
   ),
-}
+} as unknown as Story

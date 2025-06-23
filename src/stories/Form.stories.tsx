@@ -1,5 +1,8 @@
+import type { StoryObj } from '@storybook/react'
+import type { JSX } from 'react'
 import { Button } from '../atoms/Button'
 import { Actions, Form } from '../atoms/Form'
+import type { FormProps } from '../atoms/Form/Form'
 import { Input } from '../atoms/Input'
 
 const meta = {
@@ -28,9 +31,10 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const FormWithActions = {
-  render: (args) => (
+export const FormWithActions: Story = {
+  render: (args: JSX.IntrinsicAttributes & FormProps) => (
     <Form {...args}>
       <Input label="First Name" placeholder="First Name" name="firstName" />
       <Input label="Last Name" placeholder="Last Name" name="lastName" />
@@ -54,4 +58,4 @@ export const FormWithActions = {
       </Actions>
     </Form>
   ),
-}
+} as unknown as Story

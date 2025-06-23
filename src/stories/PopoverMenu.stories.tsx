@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
 
@@ -42,8 +43,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Menu = {
+export const Menu: Story = {
   render: () => (
     <PopoverMenu>
       <PopoverMenuOption active href="#" variant="primary" title="Profile" />
@@ -51,4 +53,4 @@ export const Menu = {
       <PopoverMenuOption disabled href="#" variant="primary" title="Logout" />
     </PopoverMenu>
   ),
-}
+} as unknown as Story

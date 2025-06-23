@@ -26,12 +26,12 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/stories/Typography.stories.mdx",
-    "src/stories/CardsTable.stories.js",
-    "src/stories/Modal.stories.js",
-    "src/stories/Card.stories.js",
-    "src/stories/Menu.stories.js",
-    "src/stories/EmptyState.stories.js",
-    "src/stories/CheckableTag.stories.js",
+    "src/stories/CardsTable.stories.tsx",
+    "src/stories/Modal.stories.tsx",
+    "src/stories/Card.stories.tsx",
+    "src/stories/Menu.stories.tsx",
+    "src/stories/EmptyState.stories.tsx",
+    "src/stories/CheckableTag.stories.tsx",
     "src/stories/RadioGroup.stories"
   ],
   "exclude": ["node_modules"]

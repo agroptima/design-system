@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Menu, MenuDropdown, MenuLink } from '../atoms/Menu'
 
@@ -49,8 +50,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const MenuWithLinks = {
+export const MenuWithLinks: Story = {
   render: () => (
     <Menu>
       <MenuLink title="Tekken 8" href="some-link" />

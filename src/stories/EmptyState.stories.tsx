@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import { Button } from '../atoms/Button'
 import { EmptyState } from '../atoms/EmptyState'
 
@@ -33,8 +34,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const PrimaryCustom = {
+export const PrimaryCustom: Story = {
   render: () => (
     <EmptyState variant="primary">
       <p>
@@ -46,7 +48,7 @@ export const PrimaryCustom = {
   ),
 }
 
-export const PrimaryBasic = {
+export const PrimaryBasic: Story = {
   render: () => (
     <EmptyState variant="primary">
       <p>No data</p>

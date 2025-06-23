@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Typography as TypographyExamples } from '../examples/Typography'
 
@@ -15,8 +16,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Typography = {
+export const Typography: Story = {
   render: () => (
     <div
       style={{

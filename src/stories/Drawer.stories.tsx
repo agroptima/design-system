@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible'
@@ -42,8 +43,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Filters = {
+export const Filters: Story = {
   render: () => (
     <Drawer
       id="videogames-filters"
@@ -59,6 +61,7 @@ export const Filters = {
           onClick: () => alert('click'),
         },
       ]}
+      onClose={() => {}}
     >
       <Collapsible noHorizontalPadding open title="Genres">
         <CheckableTagGroup>
@@ -140,4 +143,4 @@ export const Filters = {
       </Collapsible>
     </Drawer>
   ),
-}
+} as unknown as Story

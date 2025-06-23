@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import { TabLink, TabMenu } from '../atoms/TabMenu'
 
 const figmaPrimaryDesign = {
@@ -44,8 +45,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Tabs = {
+export const Tabs: Story = {
   render: () => (
     <TabMenu>
       <TabLink title="Videogames" href="some-link" />
