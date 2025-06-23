@@ -82,6 +82,7 @@ export const Primary: Story = {
     accessibilityLabel: 'Select your favourite gaming system options',
     hideLabel: false,
     isSearchable: false,
+    isClereable:  true,
     placeholder: 'Select your favourite gaming system...',
     options: [
       { id: '1', label: 'Nintendo Switch' },
@@ -120,6 +121,7 @@ export const PrimaryWithSelectedOptions: Story = {
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
     isSearchable: false,
+    isClereable:  true,
     options: [
       { id: '1', label: 'Nintendo Switch' },
       { id: '2', label: 'PlayStation 5' },
@@ -142,6 +144,7 @@ export const PrimaryWithErrors: Story = {
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
     isSearchable: false,
+    isClereable:  true,
     options: [
       { id: '1', label: 'Nintendo Switch' },
       { id: '2', label: 'PlayStation 5' },
@@ -187,6 +190,7 @@ export const PrimaryWithSearch: Story = {
     id: 'select-videogames',
     onChange: (optionId) => console.log('onChange optionId:', optionId),
     isSearchable: true,
+    isClereable:  true,
     searchLabel: 'Search',
   },
   parameters: figmaPrimaryDesign,

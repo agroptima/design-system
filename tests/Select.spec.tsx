@@ -166,4 +166,43 @@ describe('Select', () => {
       playstation5.label,
     )
   })
+
+  describe('when isClereable is false', () => {
+    it('hides deselect button', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <Select
+          label="Videogames"
+          name="select-videogames"
+          isSearchable
+          disabled
+          defaultValue={playstation5.id}
+          options={OPTIONS}
+          isClereable={false}
+        />,
+      )
+
+      expect(screen.queryByLabelText(/clear/i)).not.toBeInTheDocument()
+    })
+
+    it('renders first option by default if no other is passed', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <Select
+          isClereable={false}
+          helpText="This text can help you"
+          label="Videogames"
+          name="videogames"
+          options={OPTIONS}
+          placeholder="Select your favourite gaming system..."
+        />,
+      )
+
+      expect(screen.getByLabelText('Videogames')).toHaveTextContent(
+        'Nintendo Switch',
+      )
+    })
+  })
 })
