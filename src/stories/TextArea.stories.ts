@@ -8,7 +8,15 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A text area component lets a user input a longer amount of text than a standard text field.</p><ul><li>Include a label</li><li>Mark the minority of text areas in a form as required or optional</li><li>Because text areas are typically taller and wider than other components, it’s important to include the background of the field in order to help a user know where to click or tap to start entering text</li><li>Use help text to show hints, formatting, and requirements</li><li>Switch help text with error text</li><li>Write error text that shows a solution</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>A text area component lets a user input a longer amount of text than a standard text field.</p>' +
+          '<ul>' +
+          ' <li>Include a label</li><li>Mark the minority of text areas in a form as required or optional</li>' +
+          ' <li>Because text areas are typically taller and wider than other components, it’s important to include the background of the field in order to help a user know where to click or tap to start entering text</li>' +
+          ' <li>Use help text to show hints, formatting, and requirements</li>' +
+          ' <li>Switch help text with error text</li>' +
+          ' <li>Write error text that shows a solution</li>' +
+          '</ul>',
       },
     },
   },

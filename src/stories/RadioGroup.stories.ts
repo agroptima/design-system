@@ -15,7 +15,12 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Radio group component allows a user to select only one value from several options. Radio options should not be too many because all the options are default visible to a user so that the user can make the selection via comparison.</p><ul><li>Always label radio groups</li><li>Radio buttons and checkboxes are not interchangeable.</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Radio group component allows a user to select only one value from several options. Radio options should not be too many because all the options are default visible to a user so that the user can make the selection via comparison.</p>' +
+          '<ul>' +
+          ' <li>Always label radio groups</li>' +
+          ' <li>Radio buttons and checkboxes are not interchangeable.</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,

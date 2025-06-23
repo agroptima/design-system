@@ -1,7 +1,9 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Badge } from '../atoms/Badge'
 import { IconButton } from '../atoms/Button'
 import {
+  Alignment,
   CardsTable,
   CardsTableBody,
   CardsTableCell,
@@ -27,7 +29,12 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>CardsTable component features are ideal for organizing and displaying data in a UI.</p><ul><li>Left align textual data</li><li>Right align numerical data</li><li>When having several numerical data columns, the Price one should be just before the Actions column</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>CardsTable component features are ideal for organizing and displaying data in a UI.</p>' +
+          '<ul>' +
+          ' <li>Left align textual data</li><li>Right align numerical data</li>' +
+          ' <li>When having several numerical data columns, the Price one should be just before the Actions column</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
@@ -43,8 +50,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Primary = {
+export const Primary: Story = {
   render: (args) => (
     <CardsTable withTitle {...args}>
       <CardsTableHead>
@@ -73,6 +81,7 @@ export const Primary = {
           <CardsTableCell titleWithActions={3}>
             <Checkbox
               hideLabel
+              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -120,6 +129,7 @@ export const Primary = {
           <CardsTableCell titleWithActions={2}>
             <Checkbox
               hideLabel
+              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -142,7 +152,7 @@ export const Primary = {
               variant="info-outlined"
             />
           </CardsTableCell>
-          <CardsTableCell align="right">19,99 €</CardsTableCell>
+          <CardsTableCell align={Alignment.Right}>19,99 €</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -161,6 +171,7 @@ export const Primary = {
           <CardsTableCell titleWithActions={1}>
             <Checkbox
               hideLabel
+              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -179,7 +190,7 @@ export const Primary = {
               variant="warning-outlined"
             />
           </CardsTableCell>
-          <CardsTableCell align="right">79,99 €</CardsTableCell>
+          <CardsTableCell align={Alignment.Right}>79,99 €</CardsTableCell>
           <CardsTableCell actions>
             <IconButton
               icon="Edit"
@@ -192,6 +203,7 @@ export const Primary = {
           <CardsTableCell titleWithActions={5}>
             <Checkbox
               hideLabel
+              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -210,12 +222,16 @@ export const Primary = {
               variant="success-outlined"
             />
           </CardsTableCell>
-          <CardsTableCell align="right">6,99 €</CardsTableCell>
+          <CardsTableCell align={Alignment.Right}>6,99 €</CardsTableCell>
           <CardsTableCell actions>
             <Popover
               position="center"
               renderButton={({ toggle }) => (
-                <IconButton icon="PDF" label="Open popover" onClick={toggle} />
+                <IconButton
+                  icon="PDF"
+                  accessibilityLabel="Open popover"
+                  onClick={toggle}
+                />
               )}
             >
               <PopoverMenu>
@@ -252,6 +268,7 @@ export const Primary = {
           <CardsTableCell titleWithActions={5}>
             <Checkbox
               hideLabel
+              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -270,7 +287,7 @@ export const Primary = {
               variant="neutral-outlined"
             />
           </CardsTableCell>
-          <CardsTableCell align="right" floatingRightMobile>
+          <CardsTableCell align={Alignment.Right} floatingRightMobile>
             6,99 €
           </CardsTableCell>
           <CardsTableCell actions>
@@ -306,13 +323,13 @@ export const Primary = {
   ),
 }
 
-export const OnlyTitle = {
+export const OnlyTitle: Story = {
   render: (args) => (
     <CardsTable {...args}>
       <CardsTableBody>
         <CardsTableRow isActive onClick={() => alert('Click')}>
           <CardsTableCell titleWithActions={1}>Only title</CardsTableCell>
-          <CardsTableCell actions align="right">
+          <CardsTableCell actions align={Alignment.Right}>
             <IconButton
               icon="Edit"
               accessibilityLabel="Edit game"
@@ -325,7 +342,7 @@ export const OnlyTitle = {
   ),
 }
 
-export const MultipleBadges = {
+export const MultipleBadges: Story = {
   render: (args) => (
     <CardsTable withTitle {...args}>
       <CardsTableHead>
@@ -355,6 +372,7 @@ export const MultipleBadges = {
           <CardsTableCell titleWithActions={3}>
             <Checkbox
               hideLabel
+              label="Select"
               accessibilityLabel="Select"
               id="checkbox-select-all"
               variant="primary"
@@ -385,7 +403,7 @@ export const MultipleBadges = {
               variant="neutral-outlined"
             />
           </CardsTableCell>
-          <CardsTableCell align="right" floatingRightMobile noWrap>
+          <CardsTableCell align={Alignment.Right} floatingRightMobile noWrap>
             6,99 €
           </CardsTableCell>
           <CardsTableCell actions>

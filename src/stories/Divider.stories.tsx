@@ -9,7 +9,11 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A Divider component separates different content.</p><ul><li>Place a divider below a header</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>A Divider component separates different content.</p>' +
+          '<ul>' +
+          ' <li>Place a divider below a header</li>' +
+          '</ul>',
       },
     },
   },

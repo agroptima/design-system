@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Collapsible } from '../atoms/Collapsible'
@@ -30,7 +31,16 @@ const meta = {
     docs: {
       description: {
         component:
-          "<h2>Usage guidelines</h2><p>Modal component is used when requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow. It creates a new floating layer over the current page to get user feedback or display information.</p><ul><li>Require a response from the user</li><li>Notify the user of any related information</li><li>Confirm a user decision</li><li>It's opened/closed through `isOpen` prop. If we don't want it to be part of the DOM, we can also add a conditional render on the frontend project.</li><li>Natively, focus is set on the first nested focusable element and explicitly indicated by default by the browser</li><li>When nesting a Form inside Modal component, remember to add `type='button'` to all Cancel buttons to not to be considered as submitable</li></ul>",
+          '<h2>Usage guidelines</h2>' +
+          "<p>Modal component is used when requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow. It creates a new floating layer over the current page to get user feedback or display information.</p>" +
+          '<ul>' +
+          ' <li>Require a response from the user</li>' +
+          ' <li>Notify the user of any related information</li>' +
+          ' <li>Confirm a user decision</li>' +
+          " <li>It's opened/closed through `isOpen` prop. If we don't want it to be part of the DOM, we can also add a conditional render on the frontend project.</li>" +
+          ' <li>Natively, focus is set on the first nested focusable element and explicitly indicated by default by the browser</li>' +
+          " <li>When nesting a Form inside Modal component, remember to add `type='button'` to all Cancel buttons to not to be considered as submitable</li>" +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
@@ -63,6 +73,7 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
 const OpenAndCloseInfo = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -88,11 +99,11 @@ const OpenAndCloseInfo = () => {
   )
 }
 
-export const Info = {
+export const Info: Story = {
   render: () => {
     return <OpenAndCloseInfo />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseSuccess = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -118,11 +129,11 @@ const OpenAndCloseSuccess = () => {
   )
 }
 
-export const Success = {
+export const Success: Story = {
   render: () => {
     return <OpenAndCloseSuccess />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseWarning = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -148,11 +159,11 @@ const OpenAndCloseWarning = () => {
   )
 }
 
-export const Warning = {
+export const Warning: Story = {
   render: () => {
     return <OpenAndCloseWarning />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseError = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -178,11 +189,11 @@ const OpenAndCloseError = () => {
   )
 }
 
-export const Error = {
+export const Error: Story = {
   render: () => {
     return <OpenAndCloseError />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseDeleteOrDiscard = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -218,11 +229,11 @@ const OpenAndCloseDeleteOrDiscard = () => {
   )
 }
 
-export const DeleteOrDiscard = {
+export const DeleteOrDiscard: Story = {
   render: () => {
     return <OpenAndCloseDeleteOrDiscard />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseLargeModal = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -230,6 +241,7 @@ const OpenAndCloseLargeModal = () => {
   return (
     <>
       <Modal
+        id="large-modal"
         title="Large Modal"
         isOpen={isOpen}
         onClose={() => alert('Close')}
@@ -273,11 +285,11 @@ const OpenAndCloseLargeModal = () => {
   )
 }
 
-export const LargeModal = {
+export const LargeModal: Story = {
   render: () => {
     return <OpenAndCloseLargeModal />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseScrollableModal = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -285,6 +297,7 @@ const OpenAndCloseScrollableModal = () => {
   return (
     <>
       <Modal
+        id="scrollable-modal"
         title="Scrollable Modal Title"
         isOpen={isOpen}
         onClose={() => console.log('close')}
@@ -327,11 +340,11 @@ const OpenAndCloseScrollableModal = () => {
   )
 }
 
-export const ScrollableModal = {
+export const ScrollableModal: Story = {
   render: () => {
     return <OpenAndCloseScrollableModal />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseModalComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -360,11 +373,11 @@ const OpenAndCloseModalComponent = () => {
   )
 }
 
-export const OpenAndCloseModal = {
+export const OpenAndCloseModal: Story = {
   render: () => {
     return <OpenAndCloseModalComponent />
   },
-}
+} as unknown as Story
 
 const OpenAndCloseFormModal = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -380,6 +393,7 @@ const OpenAndCloseFormModal = () => {
       }}
     >
       <Modal
+        id="form-modal"
         isOpen={isOpen}
         title="Form Modal"
         onClose={() => alert('Close')}
@@ -394,11 +408,7 @@ const OpenAndCloseFormModal = () => {
         ]}
       >
         <Collapsible title="My personal data" name="personal-data">
-          <Divider
-            title="19/01/2025 - My gaming diary"
-            variant="primary"
-            href="link.com"
-          />
+          <Divider title="19/01/2025 - My gaming diary" variant="primary" />
           <FormContainer fluid>
             <Input name="input" label="Input" placeholder="Type something" />
             <Select
@@ -437,8 +447,8 @@ const OpenAndCloseFormModal = () => {
   )
 }
 
-export const FormModal = {
+export const FormModal: Story = {
   render: () => {
     return <OpenAndCloseFormModal />
   },
-}
+} as unknown as Story

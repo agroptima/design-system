@@ -8,7 +8,10 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><ul><li>Element represents a caption for an item in a user interface.</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<ul>' +
+          ' <li>Element represents a caption for an item in a user interface.</li>' +
+          '</ul>',
       },
     },
   },

@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import {
   Ellipsis,
@@ -27,9 +28,6 @@ const meta = {
     href: {
       description: 'Link to the page',
     },
-    variant: {
-      description: 'Component variant used',
-    },
     selected: {
       description: 'Is PageNumber the current page?',
     },
@@ -44,7 +42,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Pagination component organizes and divides large amounts of content on separate pages and gives the user control over how much content they want to view on each page.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Pagination component organizes and divides large amounts of content on separate pages and gives the user control over how much content they want to view on each page.</p>',
       },
     },
     figmaPrimaryDesign,
@@ -52,8 +51,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const BasicPagination = {
+export const BasicPagination: Story = {
   render: () => (
     <Pagination>
       <PaginationArrow
@@ -89,7 +89,7 @@ export const BasicPagination = {
   ),
 }
 
-export const MiniPagination = {
+export const MiniPagination: Story = {
   render: () => (
     <Pagination size="small">
       <PaginationArrow
@@ -146,7 +146,7 @@ export const MiniPagination = {
   ),
 }
 
-export const AdvancedPagination = {
+export const AdvancedPagination: Story = {
   render: () => (
     <Pagination>
       <PaginationArrow
