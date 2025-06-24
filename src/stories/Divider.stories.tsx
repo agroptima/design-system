@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react'
+import { IconButton } from '../atoms/Button'
 import { Divider } from '../atoms/Divider'
 
 const meta = {
@@ -38,6 +39,15 @@ export const Primary: Story = {
   args: {
     title: '19/01/2025 - My gaming diary',
     variant: 'primary',
+    icon: 'DeliveryNote',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithLine: Story = {
+  args: {
+    title: '19/01/2025 - My gaming diary',
+    icon: 'Line',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -46,7 +56,6 @@ export const WithIcon: Story = {
   args: {
     title: '19/01/2025 - My gaming diary',
     icon: 'DeliveryNote',
-    variant: 'primary',
   },
   parameters: figmaPrimaryDesign,
 }
@@ -57,6 +66,22 @@ export const WithLink: Story = {
     variant: 'primary',
     hasAction: true,
     onClick: () => alert('click'),
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const WithButton: Story = {
+  args: {
+    title: '19/01/2025 - My gaming diary',
+    icon: 'Delete',
+    children: <IconButton icon="Delete" accessibilityLabel="Delete" />,
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const NoIcon: Story = {
+  args: {
+    title: '19/01/2025 - My gaming diary',
   },
   parameters: figmaPrimaryDesign,
 }
