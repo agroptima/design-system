@@ -2,9 +2,16 @@ import './Select.scss'
 import React, { useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
+import useRoveFocus from '../../hooks/useRoveFocus'
 import { classNames } from '../../utils/classNames'
+import { manageKeyActions as manageKeyActions } from '../../utils/manageKeyActions'
 import { HelpText } from '../HelpText'
 import { Label } from '../Label'
+import {
+  defineSelectElements,
+  initFocusableElements,
+  SELECT_ELEMENTS,
+} from './manageSelectElements'
 import { SelectItems } from './SelectItems'
 import { SelectTrigger } from './SelectTrigger'
 
@@ -31,7 +38,15 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   searchLabel?: string
 }
 
-const EMPTY_OPTION = { id: '', label: '' }
+const EMPTY_OPTION: Option = { id: '', label: '' }
+
+export interface SelectElement {
+  [index: string]: string
+}
+
+export interface FocusableElement {
+  id: string
+}
 
 export function Select({
   className,
@@ -52,13 +67,29 @@ export function Select({
   searchLabel = 'Search',
   ...props
 }: SelectProps): React.JSX.Element {
-  const { isOpen, close, toggle } = useOpen()
+  const identifier = id || name
+
+  defineSelectElements(identifier as string)
+  const [elementsToFocus] = useState<FocusableElement[]>(
+    initFocusableElements(isSearchable, options),
+  )
+  const {
+    currentFocus,
+    setCurrentFocus,
+    focusableElements,
+    setIsActive,
+    isActive,
+  } = useRoveFocus(elementsToFocus)
+
+  const { isOpen, close, toggle, open } = useOpen()
+
   const defaultOption =
     options.find((option) => option.id === defaultValue) || EMPTY_OPTION
   const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
   const isInvalid = Boolean(errors?.length)
   const selectRef = useRef(null)
+
   useOutsideClick(selectRef, close)
 
   function handleSelectOption(option: Option) {
@@ -72,7 +103,26 @@ export function Select({
     onChange('')
   }
 
-  const identifier = id || name
+  function handleKeyAction(
+    elementIndex: number,
+    event: KeyboardEvent,
+    option?: Option,
+  ) {
+    manageKeyActions(
+      event,
+      elementIndex,
+      { open, close, isOpen },
+      { option, handleSelectOption, handleClear },
+      {
+        focusableElements,
+        currentFocus,
+        setCurrentFocus,
+        setIsActive,
+        isActive,
+      },
+    )
+  }
+
   return (
     <div
       className={classNames('select-group', variant, className, {
@@ -98,6 +148,17 @@ export function Select({
         onClick={toggle}
         onClear={handleClear}
         isEmpty={isEmpty}
+        handleKeyAction={(event) =>
+          handleKeyAction(
+            focusableElements
+              .map((e) => e.id)
+              .indexOf(SELECT_ELEMENTS.selectButton),
+            event as unknown as KeyboardEvent,
+          )
+        }
+        hasFocus={
+          focusableElements[currentFocus]?.id === SELECT_ELEMENTS.selectButton
+        }
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
@@ -110,6 +171,9 @@ export function Select({
           onClick={close}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
+          focusableElements={focusableElements}
+          currentFocus={currentFocus}
+          handleKeyAction={handleKeyAction}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />
