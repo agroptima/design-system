@@ -12,7 +12,7 @@ export interface SelectTriggerProps {
   isEmpty: boolean
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
-  isClereable?: boolean
+  canBeEmpty?: boolean
   children: React.ReactNode
 }
 
@@ -25,7 +25,7 @@ export function SelectTrigger({
   isOpen,
   onClick,
   onClear,
-  isClereable = true,
+  canBeEmpty = true,
   isEmpty,
   children,
 }: SelectTriggerProps) {
@@ -53,7 +53,7 @@ export function SelectTrigger({
         <Icon
           size="3"
           name={isOpen ? 'AngleUp' : 'AngleDown'}
-          visible={isEmpty || !isClereable}
+          visible={isEmpty || !canBeEmpty}
         />
       </button>
       <IconButton
@@ -63,7 +63,7 @@ export function SelectTrigger({
         className="clear-button"
         accessibilityLabel="clear"
         onClick={handleClear}
-        visible={!isEmpty && isClereable}
+        visible={!isEmpty && canBeEmpty}
       />
     </div>
   )

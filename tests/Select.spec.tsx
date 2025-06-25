@@ -167,7 +167,7 @@ describe('Select', () => {
     )
   })
 
-  describe('when isClereable is false', () => {
+  describe('when canBeEmpty is false', () => {
     it('hides deselect button', async () => {
       const user = userEvent.setup()
 
@@ -179,7 +179,7 @@ describe('Select', () => {
           disabled
           defaultValue={playstation5.id}
           options={OPTIONS}
-          isClereable={false}
+          canBeEmpty={false}
         />,
       )
 
@@ -191,7 +191,7 @@ describe('Select', () => {
 
       render(
         <Select
-          isClereable={false}
+          canBeEmpty={false}
           helpText="This text can help you"
           label="Videogames"
           name="videogames"

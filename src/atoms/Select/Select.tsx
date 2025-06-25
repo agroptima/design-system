@@ -29,7 +29,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   onChange?: (value: string) => void
   isSearchable?: boolean
   searchLabel?: string
-  isClereable?: boolean
+  canBeEmpty?: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -51,13 +51,13 @@ export function Select({
   defaultValue,
   isSearchable = false,
   searchLabel = 'Search',
-  isClereable = true,
+  canBeEmpty = true,
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
   const defaultOption =
     options.find((option) => option.id === defaultValue) ||
-    (isClereable ? EMPTY_OPTION : options[0])
+    (canBeEmpty ? EMPTY_OPTION : options[0])
   const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
   const isInvalid = Boolean(errors?.length)
@@ -101,7 +101,7 @@ export function Select({
         onClick={toggle}
         onClear={handleClear}
         isEmpty={isEmpty}
-        isClereable={isClereable}
+        canBeEmpty={canBeEmpty}
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
