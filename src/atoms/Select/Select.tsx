@@ -61,7 +61,12 @@ export function Select({
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
   const isInvalid = Boolean(errors?.length)
   const selectRef = useRef(null)
-  useOutsideClick(selectRef, close)
+  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
+  const handleClose = () => {
+    close()
+    selectTriggerRef?.current?.focus()
+  }
+  useOutsideClick(selectRef, handleClose)
 
   function handleSelectOption(option: Option) {
     setSelectedOption(option)
@@ -93,6 +98,7 @@ export function Select({
 
       <SelectTrigger
         id={identifier}
+        buttonRef={selectTriggerRef}
         label={label}
         accessibilityLabel={accessibilityLabel}
         invalid={isInvalid}
@@ -110,9 +116,10 @@ export function Select({
           options={options}
           selectedOptions={[selectedOption.id]}
           selectOption={handleSelectOption}
-          onClick={close}
+          onClick={handleClose}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
+          onClose={handleClose}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />
