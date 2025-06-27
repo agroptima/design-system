@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
-import { Collapsible } from '../atoms/Collapsible'
+import { Collapsible } from '../atoms/Collapsible/Collapsible'
 import { Divider } from '../atoms/Divider'
 import { Actions, Form as FormComponent, FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
@@ -245,6 +245,7 @@ export const PrimaryDisabled: Story = {
 export const Form: Story = {
   args: {
     form: true,
+    open: true,
     title: 'User',
     name: 'user-form',
     variant: 'primary',

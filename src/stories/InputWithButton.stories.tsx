@@ -19,7 +19,7 @@ const meta = {
           '  <li>Ensure the input and button are visually grouped and aligned</li>' +
           '  <li>Support help and error text as in a standard input</li>' +
           '  <li>Pass the button or other actionable element through the <code>children</code> prop</li>' +
-          '  <li>Do not overload with multiple actions—one clear purpose per instance</li>' +
+          '  <li>Do not overload with multiple actions: Only one clear purpose per instance</li>' +
           '</ul>',
       },
     },

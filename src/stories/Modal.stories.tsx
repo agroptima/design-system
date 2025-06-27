@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
-import { Collapsible } from '../atoms/Collapsible'
+import { Collapsible } from '../atoms/Collapsible/Collapsible'
 import { Divider } from '../atoms/Divider'
 import { FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
@@ -61,10 +61,10 @@ const meta = {
       description: 'Component title text',
     },
     buttons: {
-      description: 'Array of button to be shown on the footer',
+      description: 'Array of buttons to be shown on the footer',
     },
     scrollable: {
-      description: 'If the body modal should be scrollable',
+      description: 'Is the modal body scrollable?',
     },
     onClose: {
       description: 'Function to be called when the modal is closed',
@@ -77,6 +77,7 @@ type Story = StoryObj<typeof meta>
 
 export const Info: Story = {
   args: {
+    isOpen: true,
     id: 'info-dangerous-alone',
     variant: 'info',
     title: "It's dangerous to go alone!",
@@ -92,6 +93,7 @@ export const Info: Story = {
 
 export const Success: Story = {
   args: {
+    isOpen: true,
     id: 'success-dangerous-alone',
     variant: 'success',
     title: "It's dangerous to go alone!",
@@ -107,6 +109,7 @@ export const Success: Story = {
 
 export const Warning: Story = {
   args: {
+    isOpen: true,
     id: 'warning-dangerous-alone',
     variant: 'warning',
     title: "It's dangerous to go alone!",
@@ -122,6 +125,7 @@ export const Warning: Story = {
 
 export const Error: Story = {
   args: {
+    isOpen: true,
     id: 'error-dangerous-alone',
     variant: 'error',
     title: "It's dangerous to go alone!",
@@ -137,6 +141,7 @@ export const Error: Story = {
 
 export const DeleteOrDiscard: Story = {
   args: {
+    isOpen: true,
     id: 'discard-dangerous-alone',
     variant: 'discard',
     title: 'The far horizon was always steamy and indistinct',
@@ -163,6 +168,7 @@ export const DeleteOrDiscard: Story = {
 
 export const LargeModal: Story = {
   args: {
+    isOpen: true,
     id: 'large-modal',
     title: 'Large Modal Example',
     buttons: [
@@ -180,6 +186,7 @@ export const LargeModal: Story = {
 
 export const ScrollableModal: Story = {
   args: {
+    isOpen: true,
     id: 'scrollable-modal',
     scrollable: true,
     onClose: () => alert('close'),

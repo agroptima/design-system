@@ -1,7 +1,7 @@
 import './Collapsible.scss'
 import type { ComponentPropsWithoutRef } from 'react'
-import { classNames } from '../utils/classNames'
-import { Icon } from './Icon'
+import { classNames } from '../../utils/classNames'
+import { Icon } from '../Icon'
 
 export type Variant = 'primary' | 'secondary'
 

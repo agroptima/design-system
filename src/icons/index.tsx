@@ -24,6 +24,7 @@ import Done from './done.svg'
 import DoubleArrowLeft from './double-arrow-left.svg'
 import DoubleArrowRight from './double-arrow-right.svg'
 import Download from './download.svg'
+import Duplicate from './duplicate.svg'
 import Edit from './edit.svg'
 import EditColumns from './edit-columns.svg'
 import ElectronicInvoice from './electronic-invoice.svg'
@@ -80,6 +81,7 @@ export {
   DoubleArrowLeft,
   DoubleArrowRight,
   Download,
+  Duplicate,
   Edit,
   EditColumns,
   ElectronicInvoice,

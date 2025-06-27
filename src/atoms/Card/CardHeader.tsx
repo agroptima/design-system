@@ -18,7 +18,7 @@ export function CardHeader({
 
   return (
     <div className={cssClasses} {...props}>
-      <span className={classNames('card-title', { bold: isBold })}>
+      <span className={classNames('card-title', { 'card-bold': isBold })}>
         {title}
       </span>
       {children && <div className="actions">{children}</div>}

@@ -63,6 +63,7 @@ export function Select({
   const selectRef = useRef(null)
   const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
   const handleClose = () => {
+    if (!isOpen) return
     close()
     selectTriggerRef?.current?.focus()
   }

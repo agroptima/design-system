@@ -63,6 +63,7 @@ export function Multiselect({
   const hasSelectedOptions = selectedOptions.length > 0
 
   const handleClose = () => {
+    if (!isOpen) return
     close()
     selectTriggerRef?.current?.focus()
   }
