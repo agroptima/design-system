@@ -55,7 +55,7 @@ export function Checkbox({
         disabled={disabled}
         className={classNames({ 'visually-hidden': hideLabel })}
       >
-        {children}
+        {children || accessibilityLabel}
       </Label>
     </div>
   )
