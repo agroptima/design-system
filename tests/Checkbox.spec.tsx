@@ -10,9 +10,10 @@ describe('Checkbox', () => {
       <Checkbox
         accessibilityLabel="Marks if the user likes videogames"
         id="checkbox-videogames-preference"
-        label="Do you like videogames?"
         variant="primary"
-      />,
+      >
+        Do you like videogames?
+      </Checkbox>,
     )
     expect(getAllByRole('generic')[1]).toHaveClass(`checkbox-group ${variant}`)
     expect(getByRole('checkbox')).toHaveClass('checkbox')
@@ -26,10 +27,11 @@ describe('Checkbox', () => {
         <Checkbox
           accessibilityLabel="Marks if the user likes videogames"
           id="checkbox-videogames-preference"
-          label="Do you like videogames?"
           variant="primary"
           indeterminate
-        />,
+        >
+          Do you like videogames?
+        </Checkbox>,
       )
       expect(getAllByRole('generic')[1]).toHaveClass(
         `checkbox-group ${variant} indeterminate`,
