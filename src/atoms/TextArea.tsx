@@ -15,6 +15,7 @@ export interface TextAreaProps
   variant?: TextAreaVariant
   id?: string
   errors?: string[]
+  fullWidth?: boolean
 }
 
 export function TextArea({
@@ -28,6 +29,7 @@ export function TextArea({
   disabled,
   name,
   errors,
+  fullWidth = false,
   ...props
 }: TextAreaProps) {
   const identifier = id || name
@@ -35,6 +37,7 @@ export function TextArea({
     <div
       className={classNames('input-group', variant, className, {
         invalid: errors?.length,
+        'full-width': fullWidth,
       })}
     >
       {!hideLabel && (

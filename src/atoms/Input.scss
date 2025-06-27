@@ -17,16 +17,20 @@
     flex-direction: row;
     width: 100%;
     padding: config.$space-2x config.$space-3x config.$space-2x;
+
     input[type='date'] {
       min-width: -webkit-fill-available;
     }
+
     input[type='number'] {
       text-align: right;
     }
+
     input::placeholder,
     textarea::placeholder {
       @include typography.input-placeholder-text;
     }
+
     input,
     input:hover,
     input:focus,
@@ -52,10 +56,12 @@
       -moz-appearance: none;
       appearance: none;
     }
+
     .input-suffix {
       text-wrap: nowrap;
       color: color_alias.$neutral-color-600;
     }
+
     .icon {
       min-width: config.$icon-size-5x;
       width: config.$icon-size-5x;
@@ -72,6 +78,7 @@
     &.invalid .input-container {
       border: 1px solid color_alias.$error-color-1000;
     }
+
     .input-container {
       border-radius: config.$corner-radius-m;
       border: 1px solid color_alias.$neutral-color-600;
@@ -87,6 +94,7 @@
       &:has(textarea:disabled) {
         border: 1px solid color_alias.$neutral-color-400;
         background: color_alias.$neutral-color-50;
+
         input {
           color: color_alias.$neutral-color-400;
         }
@@ -96,9 +104,11 @@
           color: color_alias.$neutral-color-400;
         }
       }
+
       .icon {
         > svg {
           fill: color_alias.$neutral-color-400;
+
           path {
             fill: color_alias.$neutral-color-400;
           }
@@ -108,6 +118,7 @@
       .password-icon {
         > svg {
           fill: color_alias.$neutral-color-600;
+
           path {
             fill: color_alias.$neutral-color-600;
           }
@@ -115,20 +126,25 @@
       }
     }
   }
+
   &.file .input-container {
     padding: 0;
     border: transparent;
+
     &:has(input:focus) {
       border: transparent;
     }
+
     input {
       color: color_alias.$neutral-color-600;
+
       &::before {
         content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='12' fill='none'%3E%3Cpath d='M2.943 8.718h4.114V4.694H9.8L5 0 .2 4.694h2.743v4.024ZM5 1.898l1.488 1.455h-.802v4.023H4.314V3.353h-.802L5 1.898Zm-4.8 8.16h9.6V11.4H.2v-1.341Z' fill='%23EB004D'/%3E%3C/svg%3E");
         position: absolute;
         left: config.$space-3x;
         bottom: config.$space-2x;
       }
+
       &::file-selector-button {
         margin-right: config.$space-2x;
         padding-left: config.$space-3x + config.$icon-size-2x + config.$space-1x;
@@ -136,8 +152,23 @@
       }
     }
   }
+
   &.hidden {
     display: none;
   }
 
+  &.ellipsis {
+    input {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  &.borderless {
+    .input-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }

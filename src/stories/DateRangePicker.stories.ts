@@ -49,6 +49,11 @@ const meta = {
         default: 'Date',
       },
     },
+    fullWidth: {
+      description:
+        'Makes the DateRangePicker take the full width of the container',
+      type: 'boolean',
+    },
   },
 }
 

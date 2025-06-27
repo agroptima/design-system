@@ -166,4 +166,21 @@ describe('Select', () => {
       playstation5.label,
     )
   })
+  it('closes when Escape key is pressed', async () => {
+    const user = userEvent.setup()
+    render(
+      <Select
+        label="Videogames"
+        name="select-videogames"
+        isSearchable
+        options={OPTIONS}
+      />,
+    )
+
+    await user.click(screen.getByLabelText('Videogames'))
+    expect(screen.getByText(playstation5.label)).toBeInTheDocument()
+    await user.keyboard('{Escape}')
+
+    expect(screen.queryByText(playstation5.label)).not.toBeInTheDocument()
+  })
 })

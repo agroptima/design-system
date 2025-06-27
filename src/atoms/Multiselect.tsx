@@ -30,6 +30,7 @@ export interface MultiselectProps extends InputPropsWithoutOnChange {
   onChange?: (value: string[]) => void
   isSearchable?: boolean
   searchLabel?: string
+  fullWidth?: boolean
 }
 
 export function Multiselect({
@@ -50,14 +51,21 @@ export function Multiselect({
   defaultValue = [],
   isSearchable = false,
   searchLabel = 'Search',
+  fullWidth = false,
   ...props
 }: MultiselectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
   const selectRef = useRef(null)
+  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
   useOutsideClick(selectRef, close)
   const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
   const isInvalid = Boolean(errors?.length)
   const hasSelectedOptions = selectedOptions.length > 0
+
+  const handleClose = () => {
+    close()
+    selectTriggerRef?.current?.focus()
+  }
 
   function handleSelectOption({ id }: Option) {
     const isOptionSelected = selectedOptions.includes(id)
@@ -74,6 +82,7 @@ export function Multiselect({
     setSelectedOptions([])
     onChange([])
   }
+
   const identifier = id || name
   return (
     <div
@@ -81,6 +90,7 @@ export function Multiselect({
         disabled,
         filled: hasSelectedOptions,
         invalid: isInvalid,
+        'full-width': fullWidth,
       })}
       ref={selectRef}
     >
@@ -99,6 +109,7 @@ export function Multiselect({
         onClick={toggle}
         onClear={handleClear}
         isEmpty={!hasSelectedOptions}
+        buttonRef={selectTriggerRef}
       >
         {hasSelectedOptions
           ? `${selectedOptions.length} ${selectedLabel}`
@@ -113,6 +124,7 @@ export function Multiselect({
           selectOption={handleSelectOption}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
+          onClose={handleClose}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />

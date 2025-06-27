@@ -37,6 +37,22 @@ export function ModalDialog({
   }, [])
 
   useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) return
+
+    const handleCancel = (event: Event) => {
+      event.preventDefault()
+      onClose?.()
+    }
+
+    dialog.addEventListener('cancel', handleCancel)
+
+    return () => {
+      dialog.removeEventListener('cancel', handleCancel)
+    }
+  }, [onClose])
+
+  useEffect(() => {
     if (isOpen) {
       dialogRef.current?.showModal()
     } else {
@@ -46,6 +62,8 @@ export function ModalDialog({
 
   return (
     <dialog
+      role="dialog"
+      aria-modal="true"
       ref={dialogRef}
       className={classNames('modal', className, { 'modal-details': details })}
       onClick={handleClick}

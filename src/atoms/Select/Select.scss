@@ -4,11 +4,15 @@
 @use '../../settings/depth';
 @use '../../settings/mixins';
 
+$elements-space: config.$space-2x;
 
 .select-group {
   display: flex;
   flex-direction: column;
-  gap: config.$space-2x;
+
+  label {
+    margin-bottom: $elements-space;
+  }
 
   .select {
     @include typography.select-text;
@@ -31,6 +35,9 @@
     height: config.$icon-size-3x;
   }
 
+  .help-text {
+    margin-top: $elements-space;
+  }
 
   &.primary {
     &.disabled .select-container {
@@ -49,7 +56,7 @@
       }
     }
 
-    &.filled .select{
+    &.filled .select {
       @include typography.select-option-text;
     }
 
@@ -59,8 +66,7 @@
       background: color_alias.$neutral-white;
       @include mixins.icon-color(color_alias.$primary-color-600);
 
-      &:focus {
-        outline: color_alias.$primary-color-600;
+      &:has(.select:focus) {
         border: 1px solid color_alias.$primary-color-600;
       }
     }
@@ -68,9 +74,9 @@
     .select-options {
       border-radius: config.$corner-radius-xxs;
       background: color_alias.$neutral-white;
-      box-shadow: 0px 9px 28px 8px rgba(0, 0, 0, 0.05),
-      0px 6px 16px 0px rgba(0, 0, 0, 0.08),
-      0px 3px 6px -4px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12);
 
       .option {
         background: color_alias.$neutral-white;
@@ -120,7 +126,7 @@
       overflow-y: auto;
       overflow-anchor: none;
       z-index: depth.$z-dropdown-options;
-      margin: 0;
+      margin: $elements-space 0 0;
       padding: config.$space-1x 0;
       text-align: left;
       position: absolute;

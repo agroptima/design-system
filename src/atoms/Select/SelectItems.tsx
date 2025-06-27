@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSearch } from '../../hooks/useSearch'
 import { Input } from '../Input'
 import type { Option } from './Select'
@@ -13,7 +13,10 @@ interface OptionListProps {
   onClick?: () => void
   isSearchable: boolean
   searchLabel: string
+  onClose: () => void
 }
+
+const ESCAPE_KEY = 'Escape'
 
 export function SelectItems({
   id,
@@ -24,8 +27,21 @@ export function SelectItems({
   onClick,
   isSearchable,
   searchLabel,
+  onClose,
 }: OptionListProps) {
   const { findItems, search } = useSearch(options, 'label')
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === ESCAPE_KEY) {
+        onClose()
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [onClose])
+
   return (
     <div className="select-options-container">
       <div className="select-options" id={id}>
@@ -47,7 +63,8 @@ export function SelectItems({
               key={option.id}
               option={option}
               isSelected={selectedOptions.includes(option.id)}
-              onClick={selectOption}
+              onSelectOption={selectOption}
+              onClose={onClose}
             />
           ))}
         </ul>

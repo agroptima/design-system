@@ -1,6 +1,6 @@
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
-import { Collapsible } from '../atoms/Collapsible'
+import { Collapsible } from '../atoms/Collapsible/Collapsible'
 import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
 import { Drawer } from '../atoms/Drawer'
 

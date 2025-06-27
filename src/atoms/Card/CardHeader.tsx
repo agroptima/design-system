@@ -14,11 +14,13 @@ export function CardHeader({
   children,
   ...props
 }: CardHeaderProps): React.JSX.Element {
-  const cssClasses = classNames('header', className, { bold: isBold })
+  const cssClasses = classNames('card-header', className, { bold: isBold })
 
   return (
     <div className={cssClasses} {...props}>
-      <span className={classNames('title', { bold: isBold })}>{title}</span>
+      <span className={classNames('card-title', { 'card-bold': isBold })}>
+        {title}
+      </span>
       {children && <div className="actions">{children}</div>}
     </div>
   )

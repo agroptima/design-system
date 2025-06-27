@@ -1,11 +1,11 @@
 import './Collapsible.scss'
-import { classNames } from '../utils/classNames'
-import { Icon } from './Icon'
+import type { ComponentPropsWithoutRef } from 'react'
+import { classNames } from '../../utils/classNames'
+import { Icon } from '../Icon'
 
-export type Variant = 'primary'
+export type Variant = 'primary' | 'secondary'
 
-export interface CollapsibleProps
-  extends React.ComponentPropsWithoutRef<'details'> {
+export interface CollapsibleProps extends ComponentPropsWithoutRef<'details'> {
   title: string
   variant?: Variant
   name?: string
@@ -24,21 +24,21 @@ export function Collapsible({
   form = false,
   noHorizontalPadding = false,
   ...props
-}: CollapsibleProps): React.JSX.Element {
+}: CollapsibleProps) {
   const cssClasses = classNames('collapsible', variant, className, {
     open: props.open,
     disabled: disabled,
   })
-  const contentCssClasses = classNames('content', {
+  const contentCssClasses = classNames('collapsible-content', {
     'no-horizontal-padding': noHorizontalPadding,
     form: form,
   })
 
   return (
     <details name={name} className={cssClasses} aria-label={title} {...props}>
-      <summary className="header">
-        <Icon className="arrow" name="AngleRight" />
-        <span className="title">{title}</span>
+      <summary className="collapsible-header">
+        <Icon className="collapsible-arrow" name="AngleRight" size="4" />
+        <span className="collapsible-title">{title}</span>
       </summary>
       <div className={contentCssClasses}>{children}</div>
     </details>

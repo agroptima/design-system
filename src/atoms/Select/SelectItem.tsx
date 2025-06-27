@@ -6,15 +6,29 @@ interface OptionProps {
   option: Option
   multiple?: boolean
   isSelected: boolean
-  onClick: (option: Option) => void
+  onSelectOption: (option: Option) => void
+  onClose: () => void
 }
+
+const ENTER_KEY = 'Enter'
+const SPACE_KEY = ' '
 
 export function SelectItem({
   option,
   isSelected,
-  onClick,
+  onSelectOption,
   multiple,
+  onClose,
 }: OptionProps) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>) => {
+    if (e.key === ENTER_KEY || e.key === SPACE_KEY) {
+      e.preventDefault()
+      onSelectOption(option)
+      if (!multiple) {
+        onClose()
+      }
+    }
+  }
   return (
     <li
       className="option"
@@ -22,7 +36,8 @@ export function SelectItem({
       role="option"
       aria-selected={isSelected}
       data-option={option}
-      onClick={() => onClick(option)}
+      onClick={() => onSelectOption(option)}
+      onKeyDown={handleKeyDown}
     >
       {multiple && <CheckboxIcon selected={isSelected} />}
       {option.label}

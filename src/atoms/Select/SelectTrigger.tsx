@@ -13,6 +13,7 @@ export interface SelectTriggerProps {
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
+  buttonRef: React.RefObject<HTMLButtonElement | null>
 }
 
 export function SelectTrigger({
@@ -26,6 +27,7 @@ export function SelectTrigger({
   onClear,
   isEmpty,
   children,
+  buttonRef,
 }: SelectTriggerProps) {
   const handleClear = (event: React.MouseEvent) => {
     if (disabled) return
@@ -35,6 +37,7 @@ export function SelectTrigger({
     <div className="select-container">
       <button
         id={id}
+        ref={buttonRef}
         type="button"
         role="combobox"
         className="select"
@@ -56,6 +59,7 @@ export function SelectTrigger({
       </button>
       <IconButton
         type="button"
+        tabIndex={-1}
         size="3"
         icon="Close"
         className="clear-button"
