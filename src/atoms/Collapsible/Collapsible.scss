@@ -1,7 +1,8 @@
-@use '../settings/color_alias';
-@use '../settings/typography/content' as typography;
-@use '../settings/config';
-@use '../settings/depth';
+@use '../../settings/color_alias';
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/mixins';
 
 details summary::-webkit-details-marker {
   display: none;
@@ -32,7 +33,7 @@ details summary::-webkit-details-marker {
     }
   }
 
-  .content {
+  .collapsible-content {
     padding: config.$space-7x config.$space-7x config.$space-3x;
 
     &.no-horizontal-padding {
@@ -54,16 +55,7 @@ details summary::-webkit-details-marker {
         background: color_alias.$neutral-color-50;
         border-bottom: 1px solid color_alias.$neutral-color-200;
         color: color_alias.$neutral-color-200;
-
-        .icon {
-          > svg {
-            fill: color_alias.$neutral-color-200;
-
-            path {
-              fill: color_alias.$neutral-color-200;
-            }
-          }
-        }
+        @include mixins.svg-color(color_alias.$neutral-color-200);
       }
     }
 
@@ -71,16 +63,7 @@ details summary::-webkit-details-marker {
       color: color_alias.$neutral-color-1000;
       background: transparent;
       border-bottom: 1px solid color_alias.$neutral-color-200;
-
-      .icon {
-        > svg {
-          fill: color_alias.$primary-color-600;
-
-          path {
-            fill: color_alias.$primary-color-600;
-          }
-        }
-      }
+      @include mixins.svg-color(color_alias.$primary-color-600);
 
       &:hover {
         background: color_alias.$primary-color-50;
@@ -88,7 +71,7 @@ details summary::-webkit-details-marker {
     }
   }
 
-  &.secondary .content {
+  &.secondary .collapsible-content {
     padding: config.$space-3x config.$space-4x config.$space-6x;
     border: 1px solid color_alias.$neutral-color-200;
     border-top: none;

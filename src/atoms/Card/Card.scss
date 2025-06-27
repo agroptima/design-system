@@ -41,7 +41,7 @@ a.card {
       display: -webkit-box;
     }
 
-    > .bold {
+    > .card-bold {
       @include typography.body-bold;
     }
   }
@@ -77,7 +77,7 @@ a.card {
       @include typography.body-regular-disabled;
       background: color_alias.$neutral-color-50;
 
-      .header .bold {
+      .card-header .card-bold {
         color: color_alias.$neutral-color-400;
       }
     }

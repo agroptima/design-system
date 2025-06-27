@@ -63,8 +63,11 @@ export function Select({
   const selectRef = useRef(null)
   const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
   const handleClose = () => {
+    const closed = isOpen
     close()
-    selectTriggerRef?.current?.focus()
+    if (closed) {
+      selectTriggerRef?.current?.focus()
+    }
   }
   useOutsideClick(selectRef, handleClose)
 
