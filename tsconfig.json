@@ -27,7 +27,6 @@
     ".next/types/**/*.ts",
     "src/stories/Typography.stories.mdx",
     "src/stories/CardsTable.stories.js",
-    "src/stories/ModalOpenAndClose.stories.js",
     "src/stories/Card.stories.js",
     "src/stories/Menu.stories.js",
     "src/stories/EmptyState.stories.js",
