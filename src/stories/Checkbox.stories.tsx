@@ -94,13 +94,17 @@ export const Disabled: Story = {
 }
 
 export const WithLink: Story = {
-  render: () => (
-    <Checkbox
-      accessibilityLabel="Marks if the user likes videogames"
-      id="checkbox-videogames-preference"
-      variant="primary"
-    >
-      Do you like <NextLink href="link.com">videogames</NextLink>?
-    </Checkbox>
-  ),
-} as unknown as Story
+  args: {
+    children: (
+      <>
+        <Checkbox
+          accessibilityLabel="Marks if the user likes videogames"
+          id="checkbox-videogames-preference"
+          variant="primary"
+        >
+          Do you like <NextLink href="link.com">videogames</NextLink>?
+        </Checkbox>
+      </>
+    ),
+  },
+}
