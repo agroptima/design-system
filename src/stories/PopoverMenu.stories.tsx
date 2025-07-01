@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
 
@@ -30,7 +31,11 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A Popover component is a layer that appears above all other content on the page. Only one popover can appear at a time and can contain varying text and interactive elements.</p><ul><li>Use when you need to display additional details for specific elements on a page.</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>A Popover component is a layer that appears above all other content on the page. Only one popover can appear at a time and can contain varying text and interactive elements.</p>' +
+          '<ul>' +
+          ' <li>Use when you need to display additional details for specific elements on a page.</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
@@ -38,8 +43,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Menu = {
+export const Menu: Story = {
   render: () => (
     <PopoverMenu>
       <PopoverMenuOption active href="#" variant="primary" title="Profile" />
@@ -47,4 +53,4 @@ export const Menu = {
       <PopoverMenuOption disabled href="#" variant="primary" title="Logout" />
     </PopoverMenu>
   ),
-}
+} as unknown as Story

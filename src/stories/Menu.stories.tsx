@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Menu, MenuDropdown, MenuLink } from '../atoms/Menu'
 
@@ -15,7 +16,12 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Menu component allows users to move around the site quickly and efficiently.</p><ul><li>Use concise & descriptive titles in order to ensure simplicity</li><li>Use icons in first-level items only</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Menu component allows users to move around the site quickly and efficiently.</p>' +
+          '<ul>' +
+          ' <li>Use concise & descriptive titles in order to ensure simplicity</li>' +
+          ' <li>Use icons in first-level items only</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
@@ -44,8 +50,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const MenuWithLinks = {
+export const MenuWithLinks: Story = {
   render: () => (
     <Menu>
       <MenuLink title="Tekken 8" href="some-link" />

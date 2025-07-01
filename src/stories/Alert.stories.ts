@@ -8,7 +8,15 @@ const meta = {
     docs: {
       description: {
         component:
-          "<h2>Usage guidelines</h2><ul><li>Make Alerts actionable and including a close button</li><li>Be aware of color and semantic meaning</li><li>Include only one action per Alert</li><li>Place Alerts at the top</li><li>Don't place Alerts over navigation</li><li>Persist errors to maintain visibility</li></ul>",
+          '<h2>Usage guidelines</h2>' +
+          '<ul>' +
+          ' <li>Make Alerts actionable and including a close button</li>' +
+          ' <li>Be aware of color and semantic meaning</li>' +
+          ' <li>Include only one action per Alert</li>' +
+          ' <li>Place Alerts at the top</li>' +
+          " <li>Don't place Alerts over navigation</li>" +
+          ' <li>Persist errors to maintain visibility</li>' +
+          '</ul>',
       },
     },
   },

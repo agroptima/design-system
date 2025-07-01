@@ -8,7 +8,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>Switch component is a control that is used to quickly switch between two possible states. The difference between Switch component and Checkbox component is that Switch will trigger a state change directly when you toggle it, while Checkbox is generally used for state marking, which should work in conjunction with submit operation.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>Switch component is a control that is used to quickly switch between two possible states. The difference between Switch component and Checkbox component is that Switch will trigger a state change directly when you toggle it, while Checkbox is generally used for state marking, which should work in conjunction with submit operation.</p>',
       },
     },
   },
