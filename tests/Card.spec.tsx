@@ -52,9 +52,9 @@ describe('Product card', () => {
 
     expect(container.getElementsByClassName('card').length).toBe(1)
     expect(container.getElementsByClassName('primary').length).toBe(1)
-    expect(container.getElementsByClassName('header').length).toBe(1)
-    expect(container.getElementsByClassName('content').length).toBe(1)
-    expect(container.getElementsByClassName('footer').length).toBe(1)
+    expect(container.getElementsByClassName('card-header').length).toBe(1)
+    expect(container.getElementsByClassName('card-content').length).toBe(1)
+    expect(container.getElementsByClassName('card-footer').length).toBe(1)
 
     expect(getByText(/Metal Gear Solid 5/i)).toBeInTheDocument()
     expect(getByText(/PlayStation/i)).toBeInTheDocument()

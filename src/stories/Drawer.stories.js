@@ -1,6 +1,6 @@
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
-import { Collapsible } from '../atoms/Collapsible'
+import { Collapsible } from '../atoms/Collapsible/Collapsible'
 import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
 import { Drawer } from '../atoms/Drawer'
 
@@ -26,7 +26,7 @@ const meta = {
       description: 'Component title text',
     },
     buttons: {
-      description: 'Array of button to be shown on the footer',
+      description: 'Array of buttons to be shown on the footer',
     },
   },
   parameters: {

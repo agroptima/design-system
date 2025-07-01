@@ -10,7 +10,7 @@ export function CardContent({
   children,
   ...props
 }: CardContentProps): React.JSX.Element {
-  const cssClasses = classNames('content', className)
+  const cssClasses = classNames('card-content', className)
 
   return (
     <div className={cssClasses} {...props}>

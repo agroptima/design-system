@@ -1,0 +1,11 @@
+@use '../../settings/config';
+
+.input-with-button {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: config.$space-2x;
+
+  > .button {
+    margin-top: 32px;
+  }
+}

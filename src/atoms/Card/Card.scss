@@ -27,13 +27,13 @@ a.card {
     gap: config.$space-4x;
   }
 
-  .header {
+  .card-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: config.$space-1x;
 
-    .title {
+    .card-title {
       overflow: hidden;
       text-overflow: ellipsis;
       line-clamp: 2;
@@ -41,16 +41,16 @@ a.card {
       display: -webkit-box;
     }
 
-    > .bold {
+    > .card-bold {
       @include typography.body-bold;
     }
   }
 
-  .content {
+  .card-content {
     margin-bottom: config.$space-1x;
   }
 
-  .footer {
+  .card-footer {
     display: flex;
     flex-direction: column;
     gap: config.$space-2x;
@@ -77,7 +77,7 @@ a.card {
       @include typography.body-regular-disabled;
       background: color_alias.$neutral-color-50;
 
-      .header .bold {
+      .card-header .card-bold {
         color: color_alias.$neutral-color-400;
       }
     }
