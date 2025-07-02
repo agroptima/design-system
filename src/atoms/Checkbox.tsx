@@ -5,17 +5,21 @@ import { Label } from './Label'
 
 export type Variant = 'primary'
 
-export interface CheckboxProps extends React.ComponentPropsWithoutRef<'input'> {
-  label: string
+type InputPropsWithoutChildren = Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  'children'
+>
+
+export interface CheckboxProps extends InputPropsWithoutChildren {
   accessibilityLabel?: string
   hideLabel?: boolean
   variant?: Variant
   id?: string
   indeterminate?: boolean
+  children?: React.ReactNode
 }
 
 export function Checkbox({
-  label,
   accessibilityLabel,
   hideLabel = false,
   disabled,
@@ -24,6 +28,7 @@ export function Checkbox({
   indeterminate = false,
   name,
   className,
+  children,
   ...props
 }: CheckboxProps) {
   const identifier = id || name
@@ -41,7 +46,7 @@ export function Checkbox({
         type="checkbox"
         className="checkbox"
         disabled={disabled}
-        aria-label={accessibilityLabel || label}
+        aria-label={accessibilityLabel}
         {...props}
       />
       <Label
@@ -50,7 +55,7 @@ export function Checkbox({
         disabled={disabled}
         className={classNames({ 'visually-hidden': hideLabel })}
       >
-        {label}
+        {children || accessibilityLabel}
       </Label>
     </div>
   )
