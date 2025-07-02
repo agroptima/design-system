@@ -11,6 +11,7 @@ import Check from './check.svg'
 import CheckboxActive from './checkbox-active.svg'
 import CheckboxInactive from './checkbox-inactive.svg'
 import CheckboxIndeterminate from './checkbox-indeterminate.svg'
+import ClassicView from './classic-view.svg'
 import Client from './client.svg'
 import Close from './close.svg'
 import Comment from './comment.svg'
@@ -23,6 +24,7 @@ import Done from './done.svg'
 import DoubleArrowLeft from './double-arrow-left.svg'
 import DoubleArrowRight from './double-arrow-right.svg'
 import Download from './download.svg'
+import Duplicate from './duplicate.svg'
 import Edit from './edit.svg'
 import EditColumns from './edit-columns.svg'
 import ElectronicInvoice from './electronic-invoice.svg'
@@ -36,6 +38,7 @@ import Invoice from './invoice.svg'
 import Loading from './loading.svg'
 import Logout from './logout.svg'
 import Minus from './minus.svg'
+import NewView from './new-view.svg'
 import PDF from './pdf.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
@@ -65,6 +68,7 @@ export {
   CheckboxActive,
   CheckboxInactive,
   CheckboxIndeterminate,
+  ClassicView,
   Client,
   Close,
   Comment,
@@ -77,6 +81,7 @@ export {
   DoubleArrowLeft,
   DoubleArrowRight,
   Download,
+  Duplicate,
   Edit,
   EditColumns,
   ElectronicInvoice,
@@ -90,6 +95,7 @@ export {
   Loading,
   Logout,
   Minus,
+  NewView,
   PDF,
   Product,
   Reason,

@@ -48,6 +48,11 @@ const meta = {
       description: 'Is required?',
       type: 'boolean',
     },
+    fullWidth: {
+      description:
+        'Makes the QuantitySelector take the full width of the container',
+      type: 'boolean',
+    },
   },
 }
 

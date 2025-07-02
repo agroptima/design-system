@@ -1,6 +1,6 @@
 'use client'
 import './Popover.scss'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'

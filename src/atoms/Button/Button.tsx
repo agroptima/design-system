@@ -13,6 +13,7 @@ interface CustomProps {
   variant?: ButtonVariant
   loading?: boolean
   disabled?: boolean
+  fullWidth?: boolean
 }
 
 export type ButtonProps = CustomProps & BaseButtonProps
@@ -43,13 +44,16 @@ export function Button({
   leftIcon,
   rightIcon,
   disabled,
+  className,
   variant = 'primary',
   loading = false,
-  className,
+  fullWidth = false,
   ...props
 }: ButtonProps) {
   const leftIconName = loading ? 'Loading' : leftIcon
-  const cssClasses = classNames(className, 'button', variant)
+  const cssClasses = classNames(className, 'button', variant, {
+    'full-width': fullWidth,
+  })
 
   return (
     <BaseButton

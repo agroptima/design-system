@@ -29,6 +29,7 @@ export interface SelectProps extends InputPropsWithoutOnChange {
   onChange?: (value: string) => void
   isSearchable?: boolean
   searchLabel?: string
+  fullWidth?: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -50,6 +51,7 @@ export function Select({
   defaultValue,
   isSearchable = false,
   searchLabel = 'Search',
+  fullWidth = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
@@ -59,7 +61,13 @@ export function Select({
   const isEmpty = selectedOption.id === EMPTY_OPTION.id
   const isInvalid = Boolean(errors?.length)
   const selectRef = useRef(null)
-  useOutsideClick(selectRef, close)
+  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
+  const handleClose = () => {
+    if (!isOpen) return
+    close()
+    selectTriggerRef?.current?.focus()
+  }
+  useOutsideClick(selectRef, handleClose)
 
   function handleSelectOption(option: Option) {
     setSelectedOption(option)
@@ -79,6 +87,7 @@ export function Select({
         disabled,
         filled: selectedOption.id,
         invalid: isInvalid,
+        'full-width': fullWidth,
       })}
       ref={selectRef}
     >
@@ -90,6 +99,7 @@ export function Select({
 
       <SelectTrigger
         id={identifier}
+        buttonRef={selectTriggerRef}
         label={label}
         accessibilityLabel={accessibilityLabel}
         invalid={isInvalid}
@@ -107,9 +117,10 @@ export function Select({
           options={options}
           selectedOptions={[selectedOption.id]}
           selectOption={handleSelectOption}
-          onClick={close}
+          onClick={handleClose}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
+          onClose={handleClose}
         />
       )}
       <HelpText helpText={helpText} errors={errors} />
