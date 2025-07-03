@@ -39,6 +39,7 @@ import Loading from './loading.svg'
 import Logout from './logout.svg'
 import Minus from './minus.svg'
 import NewView from './new-view.svg'
+import Orders from './orders.svg'
 import PDF from './pdf.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
@@ -97,6 +98,7 @@ export {
   Logout,
   Minus,
   NewView,
+  Orders,
   PDF,
   Product,
   Reason,
