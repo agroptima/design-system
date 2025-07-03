@@ -43,6 +43,7 @@ import Orders from './orders.svg'
 import PDF from './pdf.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
+import Reports from './reports.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
@@ -101,6 +102,7 @@ export {
   PDF,
   Product,
   Reason,
+  Reports,
   ReturnDeliveryNote,
   Salesman,
   Search,
