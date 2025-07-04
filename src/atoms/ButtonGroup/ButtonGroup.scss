@@ -1,0 +1,20 @@
+.button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+
+  > .button:first-child, > .popover-container:first-child > .button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  > .button:last-child, > .popover-container:last-child > .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  > .button:not(:first-child):not(:last-child), > .popover-container:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}

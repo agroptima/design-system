@@ -1,4 +1,5 @@
 import './Popover.scss'
+import React from 'react'
 import { classNames } from '../../utils/classNames'
 
 export interface PopoverMenuProps
