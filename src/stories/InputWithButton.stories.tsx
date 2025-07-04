@@ -3,6 +3,13 @@ import { Button } from '../atoms/Button'
 import { Input } from '../atoms/Input'
 import { InputWithButton } from '../atoms/InputWithButton'
 
+const figmaDesign = {
+  design: {
+    type: 'figma',
+    url: '',
+  },
+}
+
 const meta = {
   title: 'Design System/Atoms/InputWithButton',
   component: InputWithButton,
@@ -23,6 +30,7 @@ const meta = {
           '</ul>',
       },
     },
+    figmaDesign,
   },
   tags: ['autodocs'],
   argTypes: {

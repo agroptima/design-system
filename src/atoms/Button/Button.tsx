@@ -7,6 +7,7 @@ import { BaseButton } from './BaseButton'
 
 interface CustomProps {
   label: string
+  icon?: IconType
   accessibilityLabel?: string
   leftIcon?: IconType
   rightIcon?: IconType
@@ -40,6 +41,7 @@ export type ButtonVariant =
 
 export function Button({
   label,
+  icon,
   accessibilityLabel,
   leftIcon,
   rightIcon,
@@ -63,7 +65,7 @@ export function Button({
       {...props}
     >
       {leftIconName && <Icon name={leftIconName} size="3" />}
-      {label}
+      {icon ? <Icon name={icon} size="3" /> : label}
       {rightIcon && <Icon name={rightIcon} size="3" />}
     </BaseButton>
   )
