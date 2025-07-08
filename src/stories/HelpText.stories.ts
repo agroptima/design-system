@@ -8,7 +8,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>HelpText component provides either an informative description or an error message that gives more context about what a user needs to input. It’s commonly used in forms.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>HelpText component provides either an informative description or an error message that gives more context about what a user needs to input. It’s commonly used in forms.</p>',
       },
     },
   },

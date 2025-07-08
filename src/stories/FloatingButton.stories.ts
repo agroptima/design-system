@@ -8,7 +8,8 @@ const meta = {
     docs: {
       description: {
         component:
-          "<h2>Usage guidelines</h2><p>The floating action button (FAB) performs the primary, or most common, action on a screen. It appears in front of all screen content, typically as a circular shape with an icon in its center. Only use a FAB if it is the most suitable way to present a screen's primary action. It's FABulous!✨</p>",
+          '<h2>Usage guidelines</h2>' +
+          "<p>The floating action button (FAB) performs the primary, or most common, action on a screen. It appears in front of all screen content, typically as a circular shape with an icon in its center. Only use a FAB if it is the most suitable way to present a screen's primary action. It's FABulous!✨</p>",
       },
     },
   },

@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
-import { Collapsible } from '../atoms/Collapsible/Collapsible'
+import { Collapsible } from '../atoms/Collapsible'
 import { Divider } from '../atoms/Divider'
 import { FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'

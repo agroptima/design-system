@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible/Collapsible'
@@ -33,7 +34,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since the user can interact with the Drawer without leaving the current page, tasks can be achieved more efficiently within the same context.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since the user can interact with the Drawer without leaving the current page, tasks can be achieved more efficiently within the same context.</p>',
       },
     },
     figmaPrimaryDesign,
@@ -41,8 +43,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Filters = {
+export const Filters: Story = {
   render: () => (
     <Drawer
       id="videogames-filters"
@@ -58,6 +61,7 @@ export const Filters = {
           onClick: () => alert('click'),
         },
       ]}
+      onClose={() => {}}
     >
       <Collapsible noHorizontalPadding open title="Genres">
         <CheckableTagGroup>
@@ -139,4 +143,4 @@ export const Filters = {
       </Collapsible>
     </Drawer>
   ),
-}
+} as unknown as Story

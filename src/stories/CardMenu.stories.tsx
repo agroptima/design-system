@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import { CardMenu, CardMenuOption } from '../atoms/CardMenu'
 
 const figmaPrimaryDesign = {
@@ -14,7 +15,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>CardMenu is used to hide less frequently used or advanced options until users specifically need them. This keeps the interface clean and focused on essential elements. Consider using short and precise labels for menu items as well as a suitable ordering and grouping.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>CardMenu is used to hide less frequently used or advanced options until users specifically need them. This keeps the interface clean and focused on essential elements. Consider using short and precise labels for menu items as well as a suitable ordering and grouping.</p>',
       },
     },
     figmaPrimaryDesign,
@@ -36,6 +38,9 @@ const meta = {
     description: {
       description: 'Component description text',
     },
+    href: {
+      description: 'Component link',
+    },
     disabled: {
       description: 'Is the component disabled?',
     },
@@ -49,21 +54,22 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Option = {
+export const Option: Story = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
-      href="#"
+      href="http://olakas.com"
       icon="Info"
       variant="primary"
       title="It's dangerous to go alone!"
       description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
     />
   ),
-}
+} as unknown as Story
 
-export const DisabledOption = {
+export const DisabledOption: Story = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
@@ -75,9 +81,9 @@ export const DisabledOption = {
       disabled
     />
   ),
-}
+} as unknown as Story
 
-export const ActiveOption = {
+export const ActiveOption: Story = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
@@ -89,9 +95,9 @@ export const ActiveOption = {
       active
     />
   ),
-}
+} as unknown as Story
 
-export const ErrorOption = {
+export const ErrorOption: Story = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
@@ -103,9 +109,9 @@ export const ErrorOption = {
       error
     />
   ),
-}
+} as unknown as Story
 
-export const Menu = {
+export const Menu: Story = {
   render: () => (
     <CardMenu>
       <CardMenuOption
@@ -135,4 +141,4 @@ export const Menu = {
       />
     </CardMenu>
   ),
-}
+} as unknown as Story

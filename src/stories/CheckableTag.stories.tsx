@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 
 const figmaPrimaryDesign = {
@@ -32,7 +33,11 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>CheckableTags allow users to categorize content. This component is used as a quick access to the most used filter.</p><ul><li>Allow bulk actions</li><li>Avoid disabling a large group of tags</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>CheckableTags allow users to categorize content. This component is used as a quick access to the most used filter.</p>' +
+          '<ul>' +
+          ' <li>Allow bulk actions</li><li>Avoid disabling a large group of tags</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
@@ -40,8 +45,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const TagGroup = {
+export const TagGroup: Story = {
   render: () => (
     <CheckableTagGroup>
       <CheckableTag
@@ -103,4 +109,4 @@ export const TagGroup = {
       />
     </CheckableTagGroup>
   ),
-}
+} as unknown as Story

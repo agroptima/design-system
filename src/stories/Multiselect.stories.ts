@@ -8,7 +8,14 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>When there are more than a few options to choose from, you can wrap them in a Multiselect component. By clicking on the trigger, a menu will appear, which allows you to choose an option and execute the relevant action.</p><ul><li>By default, include a label</li><li>Mark the minority of components in a form as required or optional</li><li>Use help text to show hints, formatting, and requirements</li><li>Switch help text with error text</li><li>Write error text that shows a solution</li></ul>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>When there are more than a few options to choose from, you can wrap them in a Multiselect component. By clicking on the trigger, a menu will appear, which allows you to choose an option and execute the relevant action.</p>' +
+          '<ul>' +
+          ' <li>By default, include a label</li><li>Mark the minority of components in a form as required or optional</li>' +
+          ' <li>Use help text to show hints, formatting, and requirements</li>' +
+          ' <li>Switch help text with error text</li>' +
+          ' <li>Write error text that shows a solution</li>' +
+          '</ul>',
       },
     },
   },

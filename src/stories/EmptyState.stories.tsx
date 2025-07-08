@@ -1,3 +1,4 @@
+import type { StoryObj } from '@storybook/react'
 import { Button } from '../atoms/Button'
 import { EmptyState } from '../atoms/EmptyState'
 
@@ -24,7 +25,8 @@ const meta = {
     docs: {
       description: {
         component:
-          '<h2>Usage guidelines</h2><p>EmptyState component is used for informing about no data and user actions such as no results when searching. A default icon is set for the empty state.</p>',
+          '<h2>Usage guidelines</h2>' +
+          '<p>EmptyState component is used for informing about no data and user actions such as no results when searching. A default icon is set for the empty state.</p>',
       },
     },
     figmaPrimaryDesign,
@@ -32,8 +34,9 @@ const meta = {
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const PrimaryCustom = {
+export const PrimaryCustom: Story = {
   render: () => (
     <EmptyState variant="primary">
       <p>
@@ -45,7 +48,7 @@ export const PrimaryCustom = {
   ),
 }
 
-export const PrimaryBasic = {
+export const PrimaryBasic: Story = {
   render: () => (
     <EmptyState variant="primary">
       <p>No data</p>
