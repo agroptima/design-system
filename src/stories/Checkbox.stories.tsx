@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react'
+import NextLink from 'next/link'
 import { Checkbox } from '../atoms/Checkbox'
 
 const meta = {
@@ -56,7 +57,7 @@ export const Primary: Story = {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: false,
-    label: 'Do you like videogames?',
+    children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
   },
   parameters: figmaPrimaryDesign,
@@ -67,7 +68,7 @@ export const PrimaryWithoutLabel: Story = {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: false,
-    label: 'Do you like videogames?',
+    children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
     hideLabel: true,
   },
@@ -79,7 +80,7 @@ export const Indeterminate: Story = {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: false,
-    label: 'Do you like videogames?',
+    children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
     indeterminate: true,
   },
@@ -91,8 +92,20 @@ export const Disabled: Story = {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: true,
-    label: 'Do you like videogames?',
+    children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const WithLink: Story = {
+  render: () => (
+    <Checkbox
+      accessibilityLabel="Marks if the user likes videogames"
+      id="checkbox-videogames-preference"
+      variant="primary"
+    >
+      Do you like <NextLink href="link.com">videogames</NextLink>?
+    </Checkbox>
+  ),
+} as unknown as Story

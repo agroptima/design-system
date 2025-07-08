@@ -55,6 +55,10 @@ const meta = {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
+    fullWidth: {
+      description: 'Makes the TextArea take the full width of the container',
+      type: 'boolean',
+    },
   },
 }
 

@@ -1,11 +1,9 @@
 import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
-import { Card } from '../atoms/Card'
 import { Collapsible } from '../atoms/Collapsible'
 import { Divider } from '../atoms/Divider'
-import { Actions, Form as FormComponent } from '../atoms/Form'
-import { FormContainer } from '../atoms/Form'
+import { Actions, Form as FormComponent, FormContainer } from '../atoms/Form'
 import { Input } from '../atoms/Input'
 import { Select } from '../atoms/Select'
 
@@ -54,8 +52,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  render: () => (
-    <Collapsible title="My personal data" name="personal-data">
+  args: {
+    title: 'My personal data',
+    name: 'personal-data',
+    variant: 'primary',
+    disabled: false,
+    children: (
       <FormContainer fluid>
         <Input
           accessibilityLabel="Fill the form name"
@@ -102,14 +104,40 @@ export const Primary: Story = {
           variant="primary"
         />
       </FormContainer>
-    </Collapsible>
-  ),
-} as unknown as Story
+    ),
+  },
+}
 
-export const PrimaryOpened: Story = {
-  render: () => (
-    <>
-      <Collapsible title="My personal data" name="personal-data" open>
+export const Secondary: Story = {
+  args: {
+    open: true,
+    title: 'My personal data',
+    name: 'personal-data',
+    variant: 'secondary',
+    children: (
+      <Input
+        accessibilityLabel="Fill the form name"
+        helpText="This text can help you"
+        id="name_input"
+        label="Name"
+        name="name"
+        placeholder="name..."
+        type="name"
+        variant="primary"
+      />
+    ),
+  },
+}
+
+export const PrimaryOpened = {
+  args: {
+    title: 'My personal data',
+    name: 'personal-data',
+    variant: 'primary',
+    disabled: false,
+    open: true,
+    children: (
+      <>
         <Divider title="19/01/2025 - My gaming diary" variant="primary" />
         <FormContainer fluid>
           <Input
@@ -157,26 +185,18 @@ export const PrimaryOpened: Story = {
             variant="primary"
           />
         </FormContainer>
-      </Collapsible>
-      <Collapsible title="Another data" name="another-data">
-        <Input label="Another data" name="anotherData" placeholder="..." />
-      </Collapsible>
-      <Collapsible
-        noHorizontalPadding
-        title="Important information"
-        name="no-horizontal-padding-example"
-      >
-        <Card>
-          <p>Not available</p>
-        </Card>
-      </Collapsible>
-    </>
-  ),
-} as unknown as Story
+      </>
+    ),
+  },
+}
 
 export const PrimaryDisabled: Story = {
-  render: () => (
-    <Collapsible title="My personal data" name="personal-data" disabled>
+  args: {
+    title: 'My personal data',
+    name: 'personal-data',
+    variant: 'primary',
+    disabled: true,
+    children: (
       <FormContainer fluid>
         <Input
           accessibilityLabel="Fill the form name"
@@ -223,13 +243,18 @@ export const PrimaryDisabled: Story = {
           variant="primary"
         />
       </FormContainer>
-    </Collapsible>
-  ),
-} as unknown as Story
+    ),
+  },
+}
 
 export const Form: Story = {
-  render: () => (
-    <Collapsible open form title="User">
+  args: {
+    form: true,
+    open: true,
+    title: 'User',
+    name: 'user-form',
+    variant: 'primary',
+    children: (
       <FormComponent>
         <Input label="First Name" placeholder="First Name" name="firstName" />
         <Input label="Last Name" placeholder="Last Name" name="lastName" />
@@ -238,6 +263,6 @@ export const Form: Story = {
           <Button type="submit" label="Sign in" variant="primary" />
         </Actions>
       </FormComponent>
-    </Collapsible>
-  ),
-} as unknown as Story
+    ),
+  },
+}

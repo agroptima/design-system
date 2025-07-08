@@ -1,10 +1,11 @@
 import NextLink, { type LinkProps } from 'next/link'
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, Ref } from 'react'
 
 interface CommonProps {
   disabled?: boolean
   visible?: boolean
   prefetch?: boolean
+  ref?: Ref<HTMLAnchorElement | HTMLButtonElement | null>
 }
 
 type HtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>

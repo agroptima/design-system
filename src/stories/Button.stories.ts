@@ -57,6 +57,10 @@ const meta = {
       description: 'Is the button visible?',
       control: { type: 'boolean' },
     },
+    fullWidth: {
+      description: 'Makes the Button take the full width of the container',
+      type: 'boolean',
+    },
   },
 }
 

@@ -50,6 +50,11 @@ const meta = {
         default: 'Date',
       },
     },
+    fullWidth: {
+      description:
+        'Makes the DateSinglePicker take the full width of the container',
+      type: 'boolean',
+    },
   },
 }
 

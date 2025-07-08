@@ -60,7 +60,6 @@ export const Primary: Story = {
           <CardsTableHeader>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               id="checkbox-select-all"
               indeterminate
               checked
@@ -81,7 +80,6 @@ export const Primary: Story = {
           <CardsTableCell titleWithActions={3}>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -129,7 +127,6 @@ export const Primary: Story = {
           <CardsTableCell titleWithActions={2}>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -171,7 +168,6 @@ export const Primary: Story = {
           <CardsTableCell titleWithActions={1}>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -203,7 +199,6 @@ export const Primary: Story = {
           <CardsTableCell titleWithActions={5}>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -268,7 +263,6 @@ export const Primary: Story = {
           <CardsTableCell titleWithActions={5}>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               accessibilityLabel="Select all table rows"
               id="checkbox-select-all"
               variant="primary"
@@ -350,7 +344,6 @@ export const MultipleBadges: Story = {
           <CardsTableHeader>
             <Checkbox
               hideLabel
-              label="Select all table rows"
               id="checkbox-select-all"
               indeterminate
               checked
@@ -372,7 +365,6 @@ export const MultipleBadges: Story = {
           <CardsTableCell titleWithActions={3}>
             <Checkbox
               hideLabel
-              label="Select"
               accessibilityLabel="Select"
               id="checkbox-select-all"
               variant="primary"
