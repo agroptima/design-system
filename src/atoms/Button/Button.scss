@@ -9,6 +9,7 @@
   > .icon {
     > svg {
       fill: $secondary-color;
+
       path {
         fill: $secondary-color;
       }
@@ -36,38 +37,33 @@
   border: 1px solid transparent;
 
   > .icon {
-    margin-top: 2px;
-    width: config.$icon-size-3x;
-    height: config.$icon-size-3x;
-    > svg {
-      width: 100%;
-      height: 100%;
-    }
+    margin: 6px 2px;
   }
 
   &.primary {
     @include button-style(
-      color_alias.$primary-color-600,
-      color_alias.$neutral-white,
-      color_alias.$primary-color-800
+                    color_alias.$primary-color-600,
+                    color_alias.$neutral-white,
+                    color_alias.$primary-color-800
     );
   }
 
   &.primary-outlined {
     border: 1px solid color_alias.$primary-color-600;
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$primary-color-600,
-      color_alias.$primary-color-50
+                    color_alias.$neutral-white,
+                    color_alias.$primary-color-600,
+                    color_alias.$primary-color-50
     );
   }
 
   &.primary-ghost {
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$primary-color-600,
-      transparent
+                    color_alias.$neutral-white,
+                    color_alias.$primary-color-600,
+                    transparent
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       border: 1px solid color_alias.$primary-color-600;
@@ -76,16 +72,19 @@
 
   &.error {
     @include button-style(
-      color_alias.$error-color-1000,
-      color_alias.$neutral-color-1000,
-      color_alias.$error-color-700
+                    color_alias.$error-color-1000,
+                    color_alias.$neutral-color-1000,
+                    color_alias.$error-color-700
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       color: color_alias.$neutral-white;
+
       > .icon {
         > svg {
           fill: color_alias.$neutral-white;
+
           path {
             fill: color_alias.$neutral-white;
           }
@@ -97,18 +96,19 @@
   &.error-outlined {
     border: 1px solid color_alias.$error-color-600;
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$error-color-600,
-      color_alias.$error-color-50
+                    color_alias.$neutral-white,
+                    color_alias.$error-color-600,
+                    color_alias.$error-color-50
     );
   }
 
   &.error-ghost {
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$error-color-600,
-      transparent
+                    color_alias.$neutral-white,
+                    color_alias.$error-color-600,
+                    transparent
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       border: 1px solid color_alias.$error-color-600;
@@ -117,16 +117,19 @@
 
   &.success {
     @include button-style(
-      color_alias.$success-color-1000,
-      color_alias.$neutral-color-900,
-      color_alias.$success-color-700
+                    color_alias.$success-color-1000,
+                    color_alias.$neutral-color-900,
+                    color_alias.$success-color-700
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       color: color_alias.$neutral-white;
+
       > .icon {
         > svg {
           fill: color_alias.$neutral-white;
+
           path {
             fill: color_alias.$neutral-white;
           }
@@ -139,18 +142,19 @@
     border: 1px solid color_alias.$success-color-1000;
 
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$neutral-color-900,
-      color_alias.$success-color-50
+                    color_alias.$neutral-white,
+                    color_alias.$neutral-color-900,
+                    color_alias.$success-color-50
     );
   }
 
   &.success-ghost {
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$success-color-1000,
-      transparent
+                    color_alias.$neutral-white,
+                    color_alias.$success-color-1000,
+                    transparent
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       border: 1px solid color_alias.$success-color-1000;
@@ -159,16 +163,19 @@
 
   &.warning {
     @include button-style(
-      color_alias.$warning-color-1000,
-      color_alias.$neutral-color-900,
-      color_alias.$warning-color-700
+                    color_alias.$warning-color-1000,
+                    color_alias.$neutral-color-900,
+                    color_alias.$warning-color-700
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       color: color_alias.$neutral-white;
+
       > .icon {
         > svg {
           fill: color_alias.$neutral-white;
+
           path {
             fill: color_alias.$neutral-white;
           }
@@ -180,18 +187,19 @@
   &.warning-outlined {
     border: 1px solid color_alias.$warning-color-1000;
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$neutral-color-900,
-      color_alias.$warning-color-50
+                    color_alias.$neutral-white,
+                    color_alias.$neutral-color-900,
+                    color_alias.$warning-color-50
     );
   }
 
   &.warning-ghost {
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$warning-color-1000,
-      transparent
+                    color_alias.$neutral-white,
+                    color_alias.$warning-color-1000,
+                    transparent
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       border: 1px solid color_alias.$warning-color-1000;
@@ -200,27 +208,28 @@
 
   &.info {
     @include button-style(
-      color_alias.$info-color-600,
-      color_alias.$neutral-white,
-      color_alias.$info-color-900
+                    color_alias.$info-color-600,
+                    color_alias.$neutral-white,
+                    color_alias.$info-color-900
     );
   }
 
   &.info-outlined {
     border: 1px solid color_alias.$info-color-600;
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$info-color-600,
-      color_alias.$info-color-50
+                    color_alias.$neutral-white,
+                    color_alias.$info-color-600,
+                    color_alias.$info-color-50
     );
   }
 
   &.info-ghost {
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$info-color-600,
-      transparent
+                    color_alias.$neutral-white,
+                    color_alias.$info-color-600,
+                    transparent
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       border: 1px solid color_alias.$info-color-600;
@@ -229,27 +238,28 @@
 
   &.neutral {
     @include button-style(
-      color_alias.$neutral-color-100,
-      color_alias.$neutral-color-1000,
-      color_alias.$neutral-color-300
+                    color_alias.$neutral-color-100,
+                    color_alias.$neutral-color-1000,
+                    color_alias.$neutral-color-300
     );
   }
 
   &.neutral-outlined {
     border: 1px solid color_alias.$neutral-color-100;
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$neutral-color-1000,
-      color_alias.$neutral-color-50
+                    color_alias.$neutral-white,
+                    color_alias.$neutral-color-1000,
+                    color_alias.$neutral-color-50
     );
   }
 
   &.neutral-ghost {
     @include button-style(
-      color_alias.$neutral-white,
-      color_alias.$neutral-color-1000,
-      transparent
+                    color_alias.$neutral-white,
+                    color_alias.$neutral-color-1000,
+                    transparent
     );
+
     &:not(:disabled):hover,
     &:not(:disabled):active {
       border: 1px solid color_alias.$neutral-color-100;
@@ -258,9 +268,11 @@
 
   &:disabled {
     color: color_alias.$neutral-color-400;
+
     > .icon {
       > svg {
         fill: color_alias.$neutral-color-400;
+
         path {
           fill: color_alias.$neutral-color-400;
         }

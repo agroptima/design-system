@@ -1,26 +1,24 @@
 import './Popover.scss'
-import type { LinkProps as NextLinkProps } from 'next/link'
-import Link from 'next/link'
-import React, { type AnchorHTMLAttributes } from 'react'
+import React from 'react'
 import { classNames } from '../../utils/classNames'
+import { BaseButton, type BaseButtonProps } from '../Button'
 
 export type Variant = 'primary'
 
-type LinkProps = NextLinkProps & AnchorHTMLAttributes<HTMLAnchorElement>
-export interface PopoverMenuOptionProps extends LinkProps {
+export interface CustomProps {
   variant?: Variant
   title: string
   disabled?: boolean
-  href: string
   active?: boolean
 }
+
+export type PopoverMenuOptionProps = CustomProps & BaseButtonProps
 
 export function PopoverMenuOption({
   variant = 'primary',
   className,
   title,
   disabled,
-  href,
   active,
   prefetch = false,
   ...props
@@ -29,17 +27,14 @@ export function PopoverMenuOption({
     disabled,
     active,
   })
-
   return (
-    <Link
+    <BaseButton
       role="menuitem"
       className={cssClasses}
-      href={disabled ? '#' : href}
       aria-disabled={disabled}
-      prefetch={prefetch}
       {...props}
     >
-      <span className="title">{title}</span>
-    </Link>
+      {title}
+    </BaseButton>
   )
 }
