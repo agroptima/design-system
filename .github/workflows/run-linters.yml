@@ -8,7 +8,7 @@ on:
       - synchronize
 
 jobs:
-  build:
+  run-linters:
     runs-on: ubuntu-latest
 
     steps:
