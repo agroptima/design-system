@@ -41,6 +41,7 @@ import Minus from './minus.svg'
 import NewView from './new-view.svg'
 import Orders from './orders.svg'
 import PDF from './pdf.svg'
+import Picture from './picture.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
 import Reports from './reports.svg'
@@ -100,6 +101,7 @@ export {
   NewView,
   Orders,
   PDF,
+  Picture,
   Product,
   Reason,
   Reports,
