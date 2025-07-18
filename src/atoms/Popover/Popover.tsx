@@ -5,34 +5,50 @@ import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
 
+type Actions = {
+  isOpen: boolean
+  close: () => void
+  open: () => void
+  toggle: () => void
+}
+
+type Horizontal = 'left' | 'right' | 'center'
+
+type Position = Horizontal | `top-${Horizontal}`
+
 export interface PopoverProps {
-  renderButton: (props: {
-    isOpen: boolean
-    close: () => void
-    open: () => void
-    toggle: () => void
-  }) => React.ReactNode
-  position?: 'left' | 'right' | 'center'
+  renderButton: (props: Actions) => React.ReactNode
+  position?: Position
+  className?: string
   children: React.ReactNode
 }
 
-function Popover({ renderButton, position = 'left', children }: PopoverProps) {
+function Popover({
+  renderButton,
+  position = 'left',
+  className,
+  children,
+}: PopoverProps) {
   const { isOpen, close, open, toggle } = useOpen()
 
   const popoverRef = useRef(null)
   useOutsideClick(popoverRef, close)
 
   return (
-    <div className="popover-container" ref={popoverRef}>
+    <div
+      className={classNames('popover-container', className)}
+      ref={popoverRef}
+    >
       {renderButton({ isOpen, close, open, toggle })}
-      {isOpen && (
-        <div
-          className={classNames('popover-menu-container', position)}
-          onClick={close}
-        >
-          {children}
-        </div>
-      )}
+      <div
+        className={classNames('popover-menu-container', position, {
+          hidden: !isOpen,
+        })}
+        onClick={close}
+        aria-hidden={!isOpen}
+      >
+        {children}
+      </div>
     </div>
   )
 }

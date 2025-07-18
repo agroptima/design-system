@@ -52,6 +52,10 @@ describe('PopoverMenu', () => {
   })
 
   it('hides when click outside of the menu', async () => {
+    document.head.insertAdjacentHTML(
+      'beforeend',
+      `<style>.hidden { display: none !important; }</style>`,
+    )
     const user = userEvent.setup()
     const { getByText, queryByText } = render(
       <>
@@ -77,6 +81,6 @@ describe('PopoverMenu', () => {
     expect(getByText(/Profile/i)).toBeInTheDocument()
     await user.click(getByText(/Outside/i))
 
-    expect(queryByText(/Profile/i)).not.toBeInTheDocument()
+    expect(queryByText(/Profile/i)).not.toBeVisible()
   })
 })

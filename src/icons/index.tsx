@@ -38,6 +38,7 @@ import Invoice from './invoice.svg'
 import Loading from './loading.svg'
 import Logout from './logout.svg'
 import Minus from './minus.svg'
+import More from './more.svg'
 import NewView from './new-view.svg'
 import Orders from './orders.svg'
 import PDF from './pdf.svg'
@@ -98,6 +99,7 @@ export {
   Loading,
   Logout,
   Minus,
+  More,
   NewView,
   Orders,
   PDF,
