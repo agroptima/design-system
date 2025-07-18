@@ -1,0 +1,27 @@
+@use '../../settings/config';
+@use '../../settings/depth';
+
+$elements-space: config.$space-2x;
+
+.select-group {
+    display: flex;
+    flex-direction: column;
+
+    .select-options-container {
+        position: relative;
+
+        .select-options {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-height: 256px;
+            overflow-y: auto;
+            overflow-anchor: none;
+            z-index: depth.$z-dropdown-options;
+            margin: $elements-space 0 0;
+            padding: config.$space-1x 0;
+            text-align: left;
+            width: 100%;
+        }
+    }
+}
