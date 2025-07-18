@@ -2,6 +2,7 @@ import type { StoryObj } from '@storybook/react'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
+import type { PopoverProps } from '../atoms/Popover/Popover'
 
 const figmaPrimaryDesign = {
   design: {
@@ -20,8 +21,11 @@ const meta = {
     },
     position: {
       description: 'Position of the popover',
-      options: ['right', 'left', 'center'],
       control: { type: 'select' },
+    },
+    top: {
+      description: 'Show menu on top of the popover',
+      control: { type: 'boolean' },
     },
   },
   parameters: {
@@ -42,15 +46,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-interface Position {
-  position?: 'left' | 'right' | 'center'
-}
-
 export const Menu: Story = {
-  render: ({ position }: Position) => (
+  render: (props: PopoverProps) => (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Popover
-        position={position}
+        {...props}
         renderButton={({ toggle }) => (
           <Button
             variant="primary-outlined"
@@ -82,3 +82,36 @@ export const Menu: Story = {
     </div>
   ),
 } as unknown as Story
+
+export const MenuWithButtons: Story = {
+  args: {
+    renderButton: ({ toggle }) => (
+      <Button
+        variant="primary-outlined"
+        label="Open popover"
+        onClick={toggle}
+      />
+    ),
+    children: (
+      <PopoverMenu>
+        <PopoverMenuOption
+          active
+          onClick={() => alert('Profile')}
+          variant="primary"
+          title="Profile"
+        />
+        <PopoverMenuOption
+          onClick={() => alert('Change password')}
+          variant="primary"
+          title="Change password"
+        />
+        <PopoverMenuOption
+          disabled
+          onClick={() => alert('Logout')}
+          variant="primary"
+          title="Logout"
+        />
+      </PopoverMenu>
+    ),
+  },
+}
