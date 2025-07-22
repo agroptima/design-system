@@ -1,9 +1,8 @@
 import './InfiniteSelect.scss'
-import { useRef, useState } from 'react'
+import { type RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
-import { Button } from '../Button'
 import { HelpText } from '../HelpText'
 import { Label } from '../Label'
 import { SelectItem } from '../Select/SelectItem'
@@ -46,7 +45,8 @@ export function InfiniteSelect<T extends { uid: string }>({
   query,
 }: InfiniteSelectProps<T>) {
   const { isOpen, close, toggle } = useOpen()
-  const selectRef = useRef(null)
+  const selectRef = useRef<HTMLDivElement | null>(null)
+  const loaderRef = useRef<HTMLDivElement | null>(null)
   useOutsideClick(selectRef, close)
   const [selectedItem, setSelectedItem] = useState<T | null>(
     defaultValue || null,
@@ -54,6 +54,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   const [items, setItems] = useState<T[]>([])
   const [page, setPage] = useState<number>(1)
   const [morePages, setMorePages] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(false)
   const buttonRef = useRef<HTMLButtonElement | null>(null)
   const identifier = id || name
   const displayValue = selectedItem ? displayItem(selectedItem) : placeholder
@@ -67,13 +68,15 @@ export function InfiniteSelect<T extends { uid: string }>({
     close()
   }
   const handleClick = async () => {
-    if (items.length === 0 && page === 1) {
+    if (items.length === 0) {
       await loadItems()
     }
     toggle()
   }
 
-  const loadItems = async () => {
+  const loadItems = useCallback(async () => {
+    if (loading || !morePages) return
+    setLoading(true)
     try {
       const { items: newItems, totalPages } = await query({
         page: page.toString(),
@@ -88,7 +91,32 @@ export function InfiniteSelect<T extends { uid: string }>({
       // TODO: Handle error correctly
       console.error('Error loading items:', error)
     }
-  }
+    setLoading(false)
+  }, [page, query, loading, morePages])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !loading && loaderRef.current) {
+          loadItems()
+          console.log('Loading more items...')
+        }
+      },
+      {
+        root: selectRef?.current || null,
+        rootMargin: '0px',
+        threshold: 1.0,
+      },
+    )
+
+    const loader = loaderRef.current
+    if (loader) observer.observe(loader)
+
+    return () => {
+      if (loader) observer.unobserve(loader)
+      observer.disconnect()
+    }
+  }, [loadItems, loaderRef, loading])
 
   const cssClasses = classNames('select-group', variant, className, {
     disabled,
@@ -129,7 +157,7 @@ export function InfiniteSelect<T extends { uid: string }>({
             <LoadingItems
               label="Loading..."
               visible={morePages}
-              loadItems={loadItems}
+              loaderRef={loaderRef}
             />
           </ul>
         </div>
@@ -147,16 +175,16 @@ export function InfiniteSelect<T extends { uid: string }>({
 function LoadingItems({
   label,
   visible,
-  loadItems,
+  loaderRef,
 }: {
   label: string
   visible: boolean
-  loadItems: () => void
+  loaderRef: RefObject<HTMLDivElement | null>
 }) {
   if (!visible) return null
   return (
     <li>
-      <Button label={label} type="button" onClick={loadItems} />
+      <div ref={loaderRef}>{label}</div>
     </li>
   )
 }

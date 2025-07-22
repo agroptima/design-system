@@ -24,33 +24,33 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      description: 'Label for the infinite select',
-    },
     id: {
       description: 'Set id property',
-    },
-    helpText: {
-      description: 'Optional help text',
     },
     name: {
       description: 'Set name property',
     },
+    label: {
+      description: 'Label for the infinite select',
+    },
     placeholder: {
       description: 'Set select placeholder text',
     },
-    disabled: {
-      description: 'Is the select in disabled state?',
+    helpText: {
+      description: 'Optional help text',
     },
     required: {
       description: 'Is required?',
       type: 'boolean',
     },
-    invalid: {
+    disabled: {
       description: 'Is the select in disabled state?',
     },
-    options: {
-      description: 'Array of values to be displayed on the select list',
+    variant: {
+      description: 'Component variant used',
+    },
+    className: {
+      description: 'Additional class names to apply to the component',
     },
     defaultValue: {
       description: 'Value to be displayed as selected',
