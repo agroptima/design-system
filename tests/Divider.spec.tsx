@@ -4,7 +4,7 @@ import { IconButton } from '../src/atoms/Button'
 import { Divider } from '../src/atoms/Divider'
 
 describe('Divider', () => {
-  it('renders', () => {
+  it('renders with title', () => {
     const { getByRole, getByText, container } = render(
       <Divider title="A title divider" icon="Line" />,
     )
@@ -43,5 +43,11 @@ describe('Divider', () => {
     expect(container.querySelector('.long.line')).toBeInTheDocument()
     expect(getByText('A title divider with button')).toBeInTheDocument()
     expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('renders without title nor icon', () => {
+    const { getByRole, container } = render(<Divider />)
+    expect(getByRole('separator')).toHaveClass('divider primary')
+    expect(container.querySelector('.long.line')).toBeInTheDocument()
   })
 })
