@@ -4,6 +4,8 @@ import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
 import { HelpText } from '../HelpText'
+import { Icon } from '../Icon'
+import { Input } from '../Input'
 import { Label } from '../Label'
 import { SelectItem } from '../Select/SelectItem'
 import { SelectTrigger } from '../Select/SelectTrigger'
@@ -20,6 +22,7 @@ export interface InfiniteSelectProps<T> {
   name?: string
   label: string
   placeholder: string
+  searchLabel?: string
   helpText?: string
   required?: boolean
   disabled?: boolean
@@ -35,6 +38,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   name,
   label,
   placeholder,
+  searchLabel = 'Search',
   helpText,
   required = false,
   disabled = false,
@@ -74,25 +78,30 @@ export function InfiniteSelect<T extends { uid: string }>({
     toggle()
   }
 
-  const loadItems = useCallback(async () => {
-    if (loading || !morePages) return
-    setLoading(true)
-    try {
-      const { items: newItems, totalPages } = await query({
-        page: page.toString(),
-      })
-      setItems((prev) => [...prev, ...newItems])
-      if (page < totalPages) {
-        setPage((prev) => prev + 1)
-      } else {
-        setMorePages(false)
+  const loadItems = useCallback(
+    async (search: string = '') => {
+      console.log('------------', search)
+      if (loading || !morePages) return
+      setLoading(true)
+      try {
+        const { items: newItems, totalPages } = await query({
+          page: page.toString(),
+          search: search,
+        })
+        setItems((prev) => [...prev, ...newItems])
+        if (page < totalPages) {
+          setPage((prev) => prev + 1)
+        } else {
+          setMorePages(false)
+        }
+      } catch (error) {
+        // TODO: Handle error correctly
+        console.error('Error loading items:', error)
       }
-    } catch (error) {
-      // TODO: Handle error correctly
-      console.error('Error loading items:', error)
-    }
-    setLoading(false)
-  }, [page, query, loading, morePages])
+      setLoading(false)
+    },
+    [page, query, loading, morePages],
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -117,6 +126,12 @@ export function InfiniteSelect<T extends { uid: string }>({
       observer.disconnect()
     }
   }, [loadItems, loaderRef, loading])
+
+  const handleSearch = (value: string) => {
+    setPage(1)
+    setItems([])
+    loadItems(value)
+  }
 
   const cssClasses = classNames('select-group', variant, className, {
     disabled,
@@ -143,23 +158,34 @@ export function InfiniteSelect<T extends { uid: string }>({
       </SelectTrigger>
       {isOpen && (
         <div className="select-options-container">
-          <ul role="listbox" className="select-options">
-            {items.map((item) => (
-              <SelectItem
-                multiple={false}
-                key={item.uid}
-                label={displayItem(item)}
-                isSelected={selectedItem?.uid === item.uid}
-                onSelectOption={() => handleSelectOption(item)}
-                onClose={close}
-              />
-            ))}
-            <LoadingItems
-              label="Loading..."
-              visible={morePages}
-              loaderRef={loaderRef}
+          <div className="select-options">
+            <Input
+              autoFocus
+              label={searchLabel}
+              hideLabel
+              onChange={(e) => handleSearch(e.target.value)}
+              placeholder={searchLabel}
+              icon="Search"
+              className="search"
             />
-          </ul>
+            <ul role="listbox">
+              {items.map((item) => (
+                <SelectItem
+                  multiple={false}
+                  key={item.uid}
+                  label={displayItem(item)}
+                  isSelected={selectedItem?.uid === item.uid}
+                  onSelectOption={() => handleSelectOption(item)}
+                  onClose={close}
+                />
+              ))}
+              <LoadingItems
+                label="Loading items"
+                visible={morePages}
+                loaderRef={loaderRef}
+              />
+            </ul>
+          </div>
         </div>
       )}
       <HelpText helpText={helpText} />
@@ -184,7 +210,9 @@ function LoadingItems({
   if (!visible) return null
   return (
     <li>
-      <div ref={loaderRef}>{label}</div>
+      <div ref={loaderRef} aria-label={label} className="loading">
+        <Icon name="Loading" />
+      </div>
     </li>
   )
 }

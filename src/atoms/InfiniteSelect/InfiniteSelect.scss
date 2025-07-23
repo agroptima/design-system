@@ -24,4 +24,9 @@ $elements-space: config.$space-2x;
             width: 100%;
         }
     }
+    .loading {
+        display: flex;
+        justify-content: center;
+        padding: config.$space-2x config.$space-3x;
+    }
 }

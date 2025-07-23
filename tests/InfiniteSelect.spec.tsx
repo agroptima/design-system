@@ -188,7 +188,9 @@ describe('InfiniteSelect', () => {
 
     await user.click(screen.getByLabelText(/infinite options/i))
 
-    expect(observeMock).toHaveBeenCalledWith(screen.queryByText('Loading...'))
+    expect(observeMock).toHaveBeenCalledWith(
+      screen.queryByLabelText('Loading items'),
+    )
   })
 
   it('calls query when loader is observed from viewport', async () => {
@@ -375,5 +377,28 @@ describe('InfiniteSelect', () => {
     )
 
     await waitFor(() => expect(query).toHaveBeenCalledTimes(1))
+  })
+  it('send query search term in selector', async () => {
+    const user = userEvent.setup()
+    const query = jest
+      .fn()
+      .mockResolvedValue({ items: [item, anotherItem], totalPages: 1 })
+
+    render(
+      <InfiniteSelect
+        label="Infinite Options"
+        name="infinite-select-example"
+        placeholder="Select an option..."
+        displayItem={(item: Item) => item.name}
+        query={query}
+      />,
+    )
+
+    await user.click(screen.getByLabelText(/infinite options/i))
+    await user.type(screen.getByLabelText('Search'), 'First')
+
+    await waitFor(() => {
+      expect(query).toHaveBeenCalledWith({ page: 1, search: 'First' })
+    })
   })
 })
