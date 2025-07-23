@@ -46,7 +46,7 @@ export function Checkbox({
         type="checkbox"
         className="checkbox"
         disabled={disabled}
-        aria-label={accessibilityLabel}
+        aria-label={accessibilityLabel || `${name} checkbox`}
         {...props}
       />
       <Label
@@ -54,6 +54,7 @@ export function Checkbox({
         required={props.required}
         disabled={disabled}
         className={classNames({ 'visually-hidden': hideLabel })}
+        aria-labelledby={identifier}
       >
         {children}
       </Label>
