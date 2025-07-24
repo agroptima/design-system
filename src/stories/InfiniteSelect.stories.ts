@@ -36,6 +36,9 @@ const meta = {
     placeholder: {
       description: 'Set select placeholder text',
     },
+    searchLabel: {
+      description: 'Label for the search input',
+    },
     helpText: {
       description: 'Optional help text',
     },
@@ -87,12 +90,13 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     label: 'Videogames',
     placeholder: 'Select your favourite gaming system...',
+    searchLabel: 'Search videogames',
     disabled: false,
     required: true,
     displayItem: (item: { uid: string; name?: string }) => {
       return item.name || ''
     },
-    query: async ({ page }) => {
+    query: async ({ page, search }) => {
       const items = [
         { uid: '1', name: 'Nintendo Switch' },
         { uid: '2', name: 'PlayStation 5' },
@@ -113,13 +117,14 @@ export const PrimaryWithSelectedOptions: Story = {
     helpText: 'This text can help you',
     label: 'Videogames',
     placeholder: 'Select your favourite gaming system...',
+    searchLabel: 'Search videogames',
     disabled: false,
     required: true,
     defaultValue: { uid: '1', name: 'Nintendo Switch' },
     displayItem: (item: { uid: string; name?: string }) => {
       return item.name || ''
     },
-    query: async ({ page }) => {
+    query: async ({ page, search }) => {
       const items = [
         { uid: '1', name: 'Nintendo Switch' },
         { uid: '2', name: 'PlayStation 5' },

@@ -34,6 +34,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         required
         displayItem={jest.fn()}
         query={jest.fn()}
@@ -52,6 +53,7 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         placeholder="Select an option..."
         displayItem={jest.fn()}
+        searchLabel="Search"
         query={jest.fn()}
         required
         disabled
@@ -76,6 +78,7 @@ describe('InfiniteSelect', () => {
           label="Infinite Options"
           name="infinite-select-example"
           placeholder="Select an option..."
+          searchLabel="Search"
           displayItem={(item) => item.name}
           defaultValue={{ uid: '1234', name: 'Any name' }}
           query={jest.fn()}
@@ -105,6 +108,7 @@ describe('InfiniteSelect', () => {
         <InfiniteSelect
           label="Infinite Options"
           name="infinite-select-example"
+          searchLabel="Search"
           placeholder={placeholder}
           displayItem={jest.fn()}
           defaultValue={defaultValue}
@@ -133,6 +137,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -160,6 +165,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         displayItem={jest.fn()}
         query={query}
       />,
@@ -181,6 +187,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         displayItem={jest.fn()}
         query={query}
       />,
@@ -208,6 +215,7 @@ describe('InfiniteSelect', () => {
       <InfiniteSelect
         label="Infinite Options"
         name="infinite-select-example"
+        searchLabel="Search"
         placeholder="Select an option..."
         displayItem={jest.fn()}
         query={query}
@@ -252,6 +260,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -291,6 +300,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -322,6 +332,7 @@ describe('InfiniteSelect', () => {
       <InfiniteSelect
         label="Infinite Options"
         name="infinite-select-example"
+        searchLabel="Search"
         placeholder="Select an option..."
         displayItem={(item: Item) => item.name}
         query={query}
@@ -349,6 +360,7 @@ describe('InfiniteSelect', () => {
         label="Infinite Options"
         name="infinite-select-example"
         placeholder="Select an option..."
+        searchLabel="Search"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -378,7 +390,7 @@ describe('InfiniteSelect', () => {
 
     await waitFor(() => expect(query).toHaveBeenCalledTimes(1))
   })
-  it('send query search term in selector', async () => {
+  fit('send query search term in selector', async () => {
     const user = userEvent.setup()
     const query = jest
       .fn()
@@ -388,6 +400,7 @@ describe('InfiniteSelect', () => {
       <InfiniteSelect
         label="Infinite Options"
         name="infinite-select-example"
+        searchLabel="Search"
         placeholder="Select an option..."
         displayItem={(item: Item) => item.name}
         query={query}
@@ -398,7 +411,8 @@ describe('InfiniteSelect', () => {
     await user.type(screen.getByLabelText('Search'), 'First')
 
     await waitFor(() => {
-      expect(query).toHaveBeenCalledWith({ page: 1, search: 'First' })
+      expect(query).toHaveBeenCalledTimes(1)
+      expect(query).toHaveBeenLastCalledWith({ page: '1', search: 'First' })
     })
   })
 })

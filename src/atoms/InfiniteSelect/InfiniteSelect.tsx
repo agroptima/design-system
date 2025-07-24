@@ -1,5 +1,6 @@
 import './InfiniteSelect.scss'
 import { type RefObject, useCallback, useEffect, useRef, useState } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { classNames } from '../../utils/classNames'
@@ -9,6 +10,9 @@ import { Input } from '../Input'
 import { Label } from '../Label'
 import { SelectItem } from '../Select/SelectItem'
 import { SelectTrigger } from '../Select/SelectTrigger'
+
+const MIN_LENGTH_SEARCH = 2
+const SEARCH_DEBOUNCE_TIME = 500
 
 export type Payload = {
   ordering?: string
@@ -22,13 +26,15 @@ export interface InfiniteSelectProps<T> {
   name?: string
   label: string
   placeholder: string
-  searchLabel?: string
+  searchLabel: string
   helpText?: string
   required?: boolean
   disabled?: boolean
   variant?: string
   className?: string
   defaultValue?: T
+  searchDebounceTime?: number
+  minLengthSearch?: number
   displayItem: (item: T) => string
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
 }
@@ -38,13 +44,15 @@ export function InfiniteSelect<T extends { uid: string }>({
   name,
   label,
   placeholder,
-  searchLabel = 'Search',
+  searchLabel,
   helpText,
   required = false,
   disabled = false,
   variant = 'primary',
   className,
   defaultValue,
+  searchDebounceTime = SEARCH_DEBOUNCE_TIME,
+  minLengthSearch = MIN_LENGTH_SEARCH,
   displayItem,
   query,
 }: InfiniteSelectProps<T>) {
@@ -71,29 +79,25 @@ export function InfiniteSelect<T extends { uid: string }>({
     setSelectedItem(item)
     close()
   }
-  const handleClick = async () => {
-    if (items.length === 0) {
-      await loadItems()
-    }
+  const handleClick = () => {
     toggle()
+    if (isOpen && !loading && items.length === 0) {
+      loadItems()
+    }
   }
 
   const loadItems = useCallback(
-    async (search: string = '') => {
-      console.log('------------', search)
+    async (searchTerm: string = '') => {
       if (loading || !morePages) return
       setLoading(true)
       try {
-        const { items: newItems, totalPages } = await query({
+        const { items, totalPages } = await query({
           page: page.toString(),
-          search: search,
+          search: searchTerm,
         })
-        setItems((prev) => [...prev, ...newItems])
-        if (page < totalPages) {
-          setPage((prev) => prev + 1)
-        } else {
-          setMorePages(false)
-        }
+        setItems((prev) => [...prev, ...items])
+        setPage((prev) => prev + 1)
+        setMorePages(page < totalPages)
       } catch (error) {
         // TODO: Handle error correctly
         console.error('Error loading items:', error)
@@ -108,7 +112,6 @@ export function InfiniteSelect<T extends { uid: string }>({
       ([entry]) => {
         if (entry.isIntersecting && !loading && loaderRef.current) {
           loadItems()
-          console.log('Loading more items...')
         }
       },
       {
@@ -127,10 +130,16 @@ export function InfiniteSelect<T extends { uid: string }>({
     }
   }, [loadItems, loaderRef, loading])
 
-  const handleSearch = (value: string) => {
+  const sendSearchTerm = useDebouncedCallback((term: string) => {
+    if (term.length > 0 && term.length < minLengthSearch) return
     setPage(1)
     setItems([])
-    loadItems(value)
+    setMorePages(true)
+    loadItems(term)
+  }, searchDebounceTime)
+
+  const handleSearch = (searchTerm: string) => {
+    sendSearchTerm(searchTerm)
   }
 
   const cssClasses = classNames('select-group', variant, className, {
