@@ -89,3 +89,7 @@ export const NoIcon: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const NoTitle: Story = {
+  parameters: figmaPrimaryDesign,
+}
