@@ -7,7 +7,7 @@ import { Icon } from './Icon'
 type DividerIconTypes = IconType | 'Line'
 
 export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
-  title: string
+  title?: string
   variant?: string
   icon?: DividerIconTypes
   iconButton?: IconType
@@ -28,12 +28,14 @@ export function Divider({
 
   return (
     <div role="separator" className={cssClasses}>
-      <div className="divider-title">
-        <DividerIcon icon={icon} />
-        <span onClick={onClick} className={classNames({ link: hasAction })}>
-          {title}
-        </span>
-      </div>
+      {title && (
+        <div className="divider-title">
+          <DividerIcon icon={icon} />
+          <span onClick={onClick} className={classNames({ link: hasAction })}>
+            {title}
+          </span>
+        </div>
+      )}
       <div className="long line"></div>
       {children}
     </div>
