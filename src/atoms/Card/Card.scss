@@ -63,7 +63,7 @@ a.card {
 
   &:not(:has(.footer > .button)),
   &.clickable {
-    &:hover {
+    &:not(.disabled):hover {
       background: color_alias.$primary-color-50;
     }
   }
