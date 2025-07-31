@@ -1,4 +1,4 @@
-import './Select/Select.scss'
+import './Select.scss'
 import React, { useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
