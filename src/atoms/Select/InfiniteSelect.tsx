@@ -138,7 +138,12 @@ export function InfiniteSelect<T extends { uid: string }>({
   }
 
   return (
-    <BaseSelect placeholder={placeholder} label={label} {...props}>
+    <BaseSelect
+      placeholder={placeholder}
+      label={label}
+      {...props}
+      selectedId={selectedItem?.uid || ''}
+    >
       <SelectTrigger
         id={identifier}
         label={label}

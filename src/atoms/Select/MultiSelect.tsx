@@ -71,7 +71,12 @@ export function Multiselect({
 
   const identifier = id || name
   return (
-    <BaseSelect placeholder={placeholder} label={label} {...props}>
+    <BaseSelect
+      placeholder={placeholder}
+      label={label}
+      {...props}
+      selectedId={selectedOptions.toString()}
+    >
       <SelectTrigger
         id={identifier}
         label={label}

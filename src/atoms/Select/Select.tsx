@@ -67,7 +67,12 @@ export function Select({
 
   const identifier = id || name
   return (
-    <BaseSelect placeholder={placeholder} label={label} {...props}>
+    <BaseSelect
+      placeholder={placeholder}
+      label={label}
+      {...props}
+      selectedId={selectedOption.id}
+    >
       <SelectTrigger
         id={identifier}
         buttonRef={selectTriggerRef}
