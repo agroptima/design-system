@@ -1,4 +1,4 @@
-import './Select.scss'
+import './Select/Select.scss'
 import React, { useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
@@ -6,63 +6,67 @@ import { BaseSelect, type BaseSelectProps } from './BaseSelect'
 import { SelectItems } from './SelectItems'
 import { SelectTrigger } from './SelectTrigger'
 
+export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-export interface SelectProps extends BaseSelectProps {
+export interface MultiselectProps extends BaseSelectProps {
   placeholder: string
   options: Option[]
   label: string
   accessibilityLabel?: string
-  defaultValue?: string
-  onChange?: (value: string) => void
-  errors?: string[]
-  disabled?: boolean
+  defaultValue?: string[]
+  selectedLabel?: string
+  onChange?: (value: string[]) => void
   isSearchable?: boolean
   searchLabel?: string
 }
 
-const EMPTY_OPTION = { id: '', label: '' }
-
-export function Select({
+export function Multiselect({
   className,
   placeholder,
-  name,
+  helpText,
+  disabled,
+  errors,
   id,
+  name,
   options,
   label,
   accessibilityLabel,
-  errors,
+  selectedLabel = 'items selected',
   onChange = () => {},
-  defaultValue,
+  defaultValue = [],
   isSearchable = false,
-  disabled = false,
   searchLabel = 'Search',
   ...props
-}: SelectProps): React.JSX.Element {
+}: MultiselectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
-  const defaultOption =
-    options.find((option) => option.id === defaultValue) || EMPTY_OPTION
-  const [selectedOption, setSelectedOption] = useState<Option>(defaultOption)
-  const isEmpty = selectedOption.id === EMPTY_OPTION.id
-  const isInvalid = Boolean(errors?.length)
   const selectRef = useRef(null)
   const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
+  useOutsideClick(selectRef, close)
+  const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
+  const isInvalid = Boolean(errors?.length)
+  const hasSelectedOptions = selectedOptions.length > 0
+
   const handleClose = () => {
     if (!isOpen) return
     close()
     selectTriggerRef?.current?.focus()
   }
-  useOutsideClick(selectRef, handleClose)
 
-  function handleSelectOption(option: Option) {
-    setSelectedOption(option)
-    onChange(option.id)
+  function handleSelectOption({ id }: Option) {
+    const isOptionSelected = selectedOptions.includes(id)
+    const options = isOptionSelected
+      ? selectedOptions.filter((optionId) => optionId !== id)
+      : [...selectedOptions, id]
+
+    setSelectedOptions(options)
+    onChange(options)
   }
 
   function handleClear(event: React.MouseEvent) {
     event.stopPropagation()
-    setSelectedOption(EMPTY_OPTION)
-    onChange('')
+    setSelectedOptions([])
+    onChange([])
   }
 
   const identifier = id || name
@@ -70,7 +74,6 @@ export function Select({
     <BaseSelect placeholder={placeholder} label={label} {...props}>
       <SelectTrigger
         id={identifier}
-        buttonRef={selectTriggerRef}
         label={label}
         accessibilityLabel={accessibilityLabel}
         invalid={isInvalid}
@@ -78,17 +81,20 @@ export function Select({
         isOpen={isOpen}
         onClick={toggle}
         onClear={handleClear}
-        isEmpty={isEmpty}
+        isEmpty={!hasSelectedOptions}
+        buttonRef={selectTriggerRef}
       >
-        {selectedOption.label || placeholder}
+        {hasSelectedOptions
+          ? `${selectedOptions.length} ${selectedLabel}`
+          : placeholder}
       </SelectTrigger>
       {isOpen && (
         <SelectItems
+          multiple
           id={`${identifier}-options`}
           options={options}
-          selectedOptions={[selectedOption.id]}
+          selectedOptions={selectedOptions}
           selectOption={handleSelectOption}
-          onClick={handleClose}
           isSearchable={isSearchable}
           searchLabel={searchLabel}
           onClose={handleClose}

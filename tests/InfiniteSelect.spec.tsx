@@ -2,6 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import type { FormEvent } from 'react'
 import { InfiniteSelect } from '../src/atoms/InfiniteSelect/InfiniteSelect'
+import { createLoadItemsMock, itemsMock } from './mocks/loadItems'
 
 type Item = { uid: string; name: string }
 const item: Item = { uid: '1', name: 'First item' }
@@ -414,5 +415,60 @@ describe('InfiniteSelect', () => {
       expect(query).toHaveBeenCalledTimes(1)
       expect(query).toHaveBeenLastCalledWith({ page: '1', search: 'First' })
     })
+  })
+  fit('loads the paginated items by scrolling', async () => {
+    const user = userEvent.setup()
+    const query = createLoadItemsMock<Item>()
+
+    render(
+      <InfiniteSelect
+        label="Infinite Options"
+        name="infinite-select-example"
+        searchLabel="Search"
+        placeholder="Select an option..."
+        displayItem={(item: Item) => item.name}
+        query={query}
+      />,
+    )
+
+    await user.click(screen.getByLabelText(/Infinite options/i))
+
+    await waitFor(() => screen.debug())
+    await waitFor(() => {
+      expect(screen.getByRole('option', { name: 'Item 1' })).toBeInTheDocument()
+      expect(screen.getByRole('option', { name: 'Item 2' })).toBeInTheDocument()
+    })
+    expect(query).toHaveBeenCalledTimes(1)
+
+    intersectionCallback(
+      [
+        {
+          isIntersecting: true,
+          target: screen.queryByText('Loading...'),
+        } as unknown as IntersectionObserverEntry,
+      ],
+      {} as IntersectionObserver,
+    )
+
+    expect(screen.getByText('Item 3')).toBeInTheDocument()
+    expect(screen.getByText('Item 4')).toBeInTheDocument()
+
+    expect(query).toHaveBeenCalledTimes(2)
+
+    intersectionCallback(
+      [
+        {
+          isIntersecting: true,
+          target: screen.queryByText('Loading...'),
+        } as unknown as IntersectionObserverEntry,
+      ],
+      {} as IntersectionObserver,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByText('Item 5')).toBeInTheDocument()
+      expect(screen.getByText('Item 6')).toBeInTheDocument()
+    })
+    expect(query).toHaveBeenCalledTimes(3)
   })
 })
