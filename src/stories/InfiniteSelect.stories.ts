@@ -1,5 +1,5 @@
 import type { StoryObj } from '@storybook/react'
-import { InfiniteSelect } from '../atoms/InfiniteSelect/InfiniteSelect'
+import { InfiniteSelect } from '../atoms/Select/InfiniteSelect'
 
 const meta = {
   title: 'Design System/Atoms/InfiniteSelect',

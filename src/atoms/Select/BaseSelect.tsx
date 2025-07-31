@@ -1,7 +1,5 @@
 import './Select.scss'
-import React, { useRef } from 'react'
-import { useOpen } from '../../hooks/useOpen'
-import { useOutsideClick } from '../../hooks/useOutsideClick'
+import React, { type RefObject, useRef } from 'react'
 import { classNames } from '../../utils/classNames'
 import { HelpText } from '../HelpText/HelpText'
 import { Label } from '../Label'
@@ -14,24 +12,24 @@ type InputPropsWithoutOnChange = Omit<
 >
 
 export interface BaseSelectProps extends InputPropsWithoutOnChange {
-  selectedId: string
   name?: string
   id?: string
   helpText?: string
   errors?: string[]
-  placeholder: string
+  placeholder?: string
   label: string
-  children: React.ReactNode
+  children?: React.ReactNode
   variant?: Variant
   className?: string
   disabled?: boolean
   required?: boolean
   hideLabel?: boolean
   fullWidth?: boolean
+  isEmpty?: boolean
+  selectRef?: RefObject<HTMLDivElement | null>
 }
 
 export function BaseSelect({
-  selectedId = '',
   name,
   id,
   helpText,
@@ -45,23 +43,16 @@ export function BaseSelect({
   required,
   hideLabel = false,
   fullWidth = false,
+  isEmpty,
+  selectRef,
   ...props
 }: BaseSelectProps): React.JSX.Element {
-  const { isOpen, close } = useOpen()
   const isInvalid = Boolean(errors?.length)
-  const selectRef = useRef(null)
-  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
-  const handleClose = () => {
-    if (!isOpen) return
-    close()
-    selectTriggerRef?.current?.focus()
-  }
-  useOutsideClick(selectRef, handleClose)
   const identifier = id || name
 
   const cssClasses = classNames('select-group', variant, className, {
     disabled,
-    filled: selectedId !== '',
+    filled: !isEmpty,
     invalid: isInvalid,
     'full-width': fullWidth,
   })
@@ -75,7 +66,6 @@ export function BaseSelect({
       )}
       {children}
       <HelpText helpText={helpText} errors={errors} />
-      <input type="hidden" name={name} value={selectedId} {...props} />
     </div>
   )
 }

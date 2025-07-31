@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSearch } from '../../hooks/useSearch'
 import { Input } from '../Input'
-import { Search } from './Search'
+import type { Option } from './Select'
 import { SelectItem } from './SelectItem'
-import type { Option } from './SelectOriginal'
 
 interface OptionListProps {
   id: string

@@ -9,8 +9,9 @@ import { SelectTrigger } from './SelectTrigger'
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-export interface MultiselectProps extends BaseSelectProps {
-  placeholder: string
+export interface MultiselectProps
+  extends Omit<BaseSelectProps, 'isEmpty' | 'children'> {
+  placeholder?: string
   options: Option[]
   label: string
   accessibilityLabel?: string
@@ -19,6 +20,7 @@ export interface MultiselectProps extends BaseSelectProps {
   onChange?: (value: string[]) => void
   isSearchable?: boolean
   searchLabel?: string
+  errors?: string[]
 }
 
 export function Multiselect({
@@ -40,18 +42,18 @@ export function Multiselect({
   ...props
 }: MultiselectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
-  const selectRef = useRef(null)
-  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
-  useOutsideClick(selectRef, close)
+  const selectRef = useRef<HTMLDivElement>(null)
   const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
   const isInvalid = Boolean(errors?.length)
   const hasSelectedOptions = selectedOptions.length > 0
 
+  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
   const handleClose = () => {
     if (!isOpen) return
     close()
     selectTriggerRef?.current?.focus()
   }
+  useOutsideClick(selectRef, handleClose)
 
   function handleSelectOption({ id }: Option) {
     const isOptionSelected = selectedOptions.includes(id)
@@ -74,8 +76,10 @@ export function Multiselect({
     <BaseSelect
       placeholder={placeholder}
       label={label}
+      isEmpty={!hasSelectedOptions}
+      errors={errors}
+      selectRef={selectRef}
       {...props}
-      selectedId={selectedOptions.toString()}
     >
       <SelectTrigger
         id={identifier}
@@ -93,6 +97,12 @@ export function Multiselect({
           ? `${selectedOptions.length} ${selectedLabel}`
           : placeholder}
       </SelectTrigger>
+      <input
+        type="hidden"
+        name={name}
+        value={selectedOptions.toString()}
+        {...props}
+      />
       {isOpen && (
         <SelectItems
           multiple

@@ -20,7 +20,7 @@ export type Payload = {
 }
 
 export interface InfiniteSelectProps<T>
-  extends Omit<BaseSelectProps, 'defaultValue'> {
+  extends Omit<BaseSelectProps, 'defaultValue' | 'isEmpty' | 'children'> {
   id?: string
   name?: string
   label: string
@@ -33,6 +33,7 @@ export interface InfiniteSelectProps<T>
   minLengthSearch?: number
   displayItem: (item: T) => string
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
+  errors?: string[]
 }
 
 export function InfiniteSelect<T extends { uid: string }>({
@@ -49,6 +50,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   minLengthSearch = MIN_LENGTH_SEARCH,
   displayItem,
   query,
+  errors,
   ...props
 }: InfiniteSelectProps<T>) {
   const { isOpen, close, toggle } = useOpen()
@@ -65,6 +67,15 @@ export function InfiniteSelect<T extends { uid: string }>({
   const buttonRef = useRef<HTMLButtonElement | null>(null)
   const identifier = id || name
   const displayValue = selectedItem ? displayItem(selectedItem) : placeholder
+  const isInvalid = Boolean(errors?.length)
+
+  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
+  const handleClose = () => {
+    if (!isOpen) return
+    close()
+    selectTriggerRef?.current?.focus()
+  }
+  useOutsideClick(selectRef, handleClose)
 
   const handleClear = () => {
     setSelectedItem(null)
@@ -141,15 +152,17 @@ export function InfiniteSelect<T extends { uid: string }>({
     <BaseSelect
       placeholder={placeholder}
       label={label}
+      isEmpty={!selectedItem?.uid}
+      errors={errors}
+      selectRef={selectRef}
       {...props}
-      selectedId={selectedItem?.uid || ''}
     >
       <SelectTrigger
         id={identifier}
         label={label}
         isOpen={isOpen}
-        isEmpty={false}
-        invalid={false}
+        isEmpty={!selectedItem?.uid}
+        invalid={isInvalid}
         accessibilityLabel={accessibilityLabel}
         onClick={handleClick}
         onClear={handleClear}
@@ -158,6 +171,7 @@ export function InfiniteSelect<T extends { uid: string }>({
       >
         {displayValue}
       </SelectTrigger>
+      <input type="hidden" name={name} value={selectedItem?.uid} {...props} />
       {isOpen && (
         <div className="select-options-container">
           <div className="select-options">

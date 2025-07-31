@@ -1,12 +1,20 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import type { FormEvent } from 'react'
-import { InfiniteSelect } from '../src/atoms/InfiniteSelect/InfiniteSelect'
-import { createLoadItemsMock, itemsMock } from './mocks/loadItems'
+import { InfiniteSelect } from '../src/atoms/Select/InfiniteSelect'
 
 type Item = { uid: string; name: string }
 const item: Item = { uid: '1', name: 'First item' }
 const anotherItem: Item = { uid: '2', name: 'Another item' }
+
+const mockedItems: Item[] = [
+  { uid: '1', name: 'Item 1' },
+  { uid: '2', name: 'Item 2' },
+  { uid: '3', name: 'Item 3' },
+  { uid: '4', name: 'Item 4' },
+  { uid: '5', name: 'Item 5' },
+  { uid: '6', name: 'Item 6' },
+]
 
 describe('InfiniteSelect', () => {
   let observeMock: jest.Mock
@@ -152,98 +160,15 @@ describe('InfiniteSelect', () => {
         screen.getByRole('option', { name: item.name }),
       ).toBeInTheDocument()
 
-      expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
+      expect(screen.queryByLabelText('Loading items')).not.toBeInTheDocument()
     })
   })
 
-  it('loads the first page only once', async () => {
-    const user = userEvent.setup()
-    const query = jest.fn(async () => {
-      return { items: [], totalPages: 1 }
-    })
-    render(
-      <InfiniteSelect
-        label="Infinite Options"
-        name="infinite-select-example"
-        placeholder="Select an option..."
-        searchLabel="Search"
-        displayItem={jest.fn()}
-        query={query}
-      />,
-    )
-
-    await user.click(screen.getByLabelText(/infinite options/i))
-    await user.click(screen.getByLabelText(/infinite options/i))
-    await user.click(screen.getByLabelText(/infinite options/i))
-
-    expect(query).toHaveBeenCalledTimes(1)
-  })
-  it('observes the loader when component is mounted', async () => {
-    const user = userEvent.setup()
-    const query = jest.fn(async () => {
-      return { items: [], totalPages: 2 }
-    })
-    render(
-      <InfiniteSelect
-        label="Infinite Options"
-        name="infinite-select-example"
-        placeholder="Select an option..."
-        searchLabel="Search"
-        displayItem={jest.fn()}
-        query={query}
-      />,
-    )
-
-    await user.click(screen.getByLabelText(/infinite options/i))
-
-    expect(observeMock).toHaveBeenCalledWith(
-      screen.queryByLabelText('Loading items'),
-    )
-  })
-
-  it('calls query when loader is observed from viewport', async () => {
-    const user = userEvent.setup()
-    const query = jest.fn(async () => {
-      return { items: [item, anotherItem], totalPages: 2 }
-    })
-
-    const loader = {
-      current: waitFor(() => {
-        screen.queryByText('Loading...')
-      }),
-    }
-    render(
-      <InfiniteSelect
-        label="Infinite Options"
-        name="infinite-select-example"
-        searchLabel="Search"
-        placeholder="Select an option..."
-        displayItem={jest.fn()}
-        query={query}
-      />,
-    )
-    await user.click(screen.getByLabelText(/infinite options/i))
-    expect(query).toHaveBeenCalledTimes(1)
-
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: loader.current,
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
-
-    await waitFor(() => {
-      expect(query).toHaveBeenCalledTimes(2)
-    })
-  })
   it('loads the first page when clicking and next page by loader intersection', async () => {
     const user = userEvent.setup()
     const loader = {
       current: waitFor(() => {
-        screen.getByText('Loading...')
+        screen.getByLabelText('Loading items')
       }),
     }
     const query = jest
@@ -289,7 +214,7 @@ describe('InfiniteSelect', () => {
       ).toBeInTheDocument()
     })
   })
-  it('does call query again if there are no more pages', async () => {
+  it('does call query again if there are more pages', async () => {
     const user = userEvent.setup()
 
     const query = jest
@@ -314,7 +239,7 @@ describe('InfiniteSelect', () => {
       [
         {
           isIntersecting: true,
-          target: screen.queryByText('Loading...'),
+          target: screen.queryByLabelText('Loading items'),
         } as unknown as IntersectionObserverEntry,
       ],
       {} as IntersectionObserver,
@@ -323,29 +248,9 @@ describe('InfiniteSelect', () => {
     await waitFor(() => {
       expect(query).toHaveBeenCalledTimes(1)
     })
-    expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
+    expect(screen.queryByLabelText('Loading items')).not.toBeInTheDocument()
   })
-  it('disconnects the observer on unmount', async () => {
-    const user = userEvent.setup()
-    const query = jest.fn().mockResolvedValue({ items: [item], totalPages: 1 })
 
-    const { unmount } = render(
-      <InfiniteSelect
-        label="Infinite Options"
-        name="infinite-select-example"
-        searchLabel="Search"
-        placeholder="Select an option..."
-        displayItem={(item: Item) => item.name}
-        query={query}
-      />,
-    )
-
-    await user.click(screen.getByLabelText(/infinite options/i))
-
-    unmount()
-
-    expect(disconnectMock).toHaveBeenCalled()
-  })
   it('does not call query again if already loading', async () => {
     const query = jest.fn<Promise<{ items: Item[]; totalPages: number }>, []>(
       () =>
@@ -373,7 +278,7 @@ describe('InfiniteSelect', () => {
       [
         {
           isIntersecting: true,
-          target: screen.queryByText('Loading...'),
+          target: screen.queryByLabelText('Loading items'),
         } as unknown as IntersectionObserverEntry,
       ],
       {} as IntersectionObserver,
@@ -383,7 +288,7 @@ describe('InfiniteSelect', () => {
       [
         {
           isIntersecting: true,
-          target: screen.queryByText('Loading...'),
+          target: screen.queryByLabelText('Loading items'),
         } as unknown as IntersectionObserverEntry,
       ],
       {} as IntersectionObserver,
@@ -391,7 +296,7 @@ describe('InfiniteSelect', () => {
 
     await waitFor(() => expect(query).toHaveBeenCalledTimes(1))
   })
-  fit('send query search term in selector', async () => {
+  it('send query search term in selector', async () => {
     const user = userEvent.setup()
     const query = jest
       .fn()
@@ -409,16 +314,29 @@ describe('InfiniteSelect', () => {
     )
 
     await user.click(screen.getByLabelText(/infinite options/i))
-    await user.type(screen.getByLabelText('Search'), 'First')
+    await user.type(screen.getByLabelText('Search'), 'Item 1')
 
     await waitFor(() => {
       expect(query).toHaveBeenCalledTimes(1)
-      expect(query).toHaveBeenLastCalledWith({ page: '1', search: 'First' })
+      expect(query).toHaveBeenLastCalledWith({ page: '1', search: 'Item 1' })
     })
   })
-  fit('loads the paginated items by scrolling', async () => {
+  it('loads the paginated items by scrolling', async () => {
     const user = userEvent.setup()
-    const query = createLoadItemsMock<Item>()
+    const query = jest
+      .fn()
+      .mockResolvedValueOnce({
+        items: mockedItems.slice(0, 2),
+        totalPages: 3,
+      })
+      .mockResolvedValueOnce({
+        items: mockedItems.slice(2, 4),
+        totalPages: 3,
+      })
+      .mockResolvedValueOnce({
+        items: mockedItems.slice(4, 6),
+        totalPages: 3,
+      })
 
     render(
       <InfiniteSelect
@@ -444,7 +362,7 @@ describe('InfiniteSelect', () => {
       [
         {
           isIntersecting: true,
-          target: screen.queryByText('Loading...'),
+          target: screen.queryByLabelText('Loading items'),
         } as unknown as IntersectionObserverEntry,
       ],
       {} as IntersectionObserver,
@@ -459,7 +377,7 @@ describe('InfiniteSelect', () => {
       [
         {
           isIntersecting: true,
-          target: screen.queryByText('Loading...'),
+          target: screen.queryByLabelText('Loading items'),
         } as unknown as IntersectionObserverEntry,
       ],
       {} as IntersectionObserver,

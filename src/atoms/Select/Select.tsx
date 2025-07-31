@@ -8,8 +8,9 @@ import { SelectTrigger } from './SelectTrigger'
 
 export type Option = { id: string; label: string }
 
-export interface SelectProps extends BaseSelectProps {
-  placeholder: string
+export interface SelectProps
+  extends Omit<BaseSelectProps, 'isEmpty' | 'children'> {
+  placeholder?: string
   options: Option[]
   label: string
   accessibilityLabel?: string
@@ -70,8 +71,10 @@ export function Select({
     <BaseSelect
       placeholder={placeholder}
       label={label}
+      isEmpty={isEmpty}
+      errors={errors}
+      selectRef={selectRef}
       {...props}
-      selectedId={selectedOption.id}
     >
       <SelectTrigger
         id={identifier}
@@ -87,6 +90,8 @@ export function Select({
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
+      <input type="hidden" name={name} value={selectedOption.id} {...props} />
+
       {isOpen && (
         <SelectItems
           id={`${identifier}-options`}
