@@ -153,7 +153,7 @@ export const PrimaryWithSelectedOptions: Story = {
     searchLabel: 'Search videogames',
     disabled: false,
     required: true,
-    defaultValue: { uid: '1', name: 'Nintendo Switch' },
+    defaultValue: { uid: '1', name: 'Nintendo Switch' } as Item,
     displayItem: (item: { uid: string; name?: string }) => {
       return item.name || ''
     },

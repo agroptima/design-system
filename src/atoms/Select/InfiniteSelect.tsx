@@ -168,7 +168,12 @@ export function InfiniteSelect<T extends { uid: string }>({
       >
         {displayValue}
       </SelectTrigger>
-      <input type="hidden" name={name} value={selectedItem?.uid} {...props} />
+      <input
+        type="hidden"
+        name={name}
+        value={selectedItem?.uid || ''}
+        {...props}
+      />
 
       <div
         className={classNames('select-options-container', { hidden: !isOpen })}
