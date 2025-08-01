@@ -1,5 +1,47 @@
 import type { StoryObj } from '@storybook/react'
-import { InfiniteSelect } from '../atoms/Select/InfiniteSelect'
+import {
+  InfiniteSelect,
+  type InfiniteSelectProps,
+} from '../atoms/Select/InfiniteSelect'
+
+type Item = { uid: string; name: string }
+
+const fakeQuery: InfiniteSelectProps<Item>['query'] = async ({
+  page = '1',
+  search,
+}) => {
+  const pages: Record<string, Item[]> = {
+    '1': [
+      { uid: '1', name: 'Nintendo Switch' },
+      { uid: '2', name: 'PlayStation 5' },
+      { uid: '3', name: 'Xbox Series S/X' },
+      { uid: '4', name: 'PC' },
+      { uid: '5', name: 'Mobile' },
+      { uid: '6', name: 'VR Headset' },
+      { uid: '7', name: 'Retro Console' },
+      { uid: '8', name: 'Handheld Console' },
+      { uid: '9', name: 'Arcade Machine' },
+      { uid: '10', name: 'Streaming Device' },
+    ],
+    '2': [
+      { uid: '11', name: 'Gaming Laptop' },
+      { uid: '12', name: 'Smart TV' },
+      { uid: '13', name: 'Tablet' },
+      { uid: '14', name: 'Smartphone' },
+      { uid: '15', name: 'Cloud Gaming Service' },
+      { uid: '16', name: 'Emulator' },
+      { uid: '17', name: 'Gaming Monitor' },
+      { uid: '18', name: 'Gaming Chair' },
+      { uid: '19', name: 'Gaming Headset' },
+      { uid: '20', name: 'Gaming Keyboard' },
+    ],
+  }
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ items: pages[page] || [], totalPages: 2 })
+    }, 1000)
+  })
+}
 
 const meta = {
   title: 'Design System/Atoms/InfiniteSelect',
@@ -96,16 +138,7 @@ export const Primary: Story = {
     displayItem: (item: { uid: string; name?: string }) => {
       return item.name || ''
     },
-    query: async ({ page, search }) => {
-      const items = [
-        { uid: '1', name: 'Nintendo Switch' },
-        { uid: '2', name: 'PlayStation 5' },
-        { uid: '3', name: 'Xbox Series S/X' },
-      ]
-      const totalPages = 1
-      console.log('Retrieve items:', items)
-      return { items, totalPages }
-    },
+    query: fakeQuery,
   },
   parameters: figmaPrimaryDesign,
 }
@@ -124,16 +157,7 @@ export const PrimaryWithSelectedOptions: Story = {
     displayItem: (item: { uid: string; name?: string }) => {
       return item.name || ''
     },
-    query: async ({ page, search }) => {
-      const items = [
-        { uid: '1', name: 'Nintendo Switch' },
-        { uid: '2', name: 'PlayStation 5' },
-        { uid: '3', name: 'Xbox Series S/X' },
-      ]
-      const totalPages = 1
-      console.log('Retrieve items:', items)
-      return { items, totalPages }
-    },
+    query: fakeQuery,
   },
   parameters: figmaPrimaryDesign,
 }

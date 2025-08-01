@@ -12,8 +12,7 @@ type InputPropsWithoutOnChange = Omit<
 >
 
 export interface BaseSelectProps extends InputPropsWithoutOnChange {
-  name?: string
-  id?: string
+  identifier?: string
   helpText?: string
   errors?: string[]
   placeholder?: string
@@ -30,8 +29,7 @@ export interface BaseSelectProps extends InputPropsWithoutOnChange {
 }
 
 export function BaseSelect({
-  name,
-  id,
+  identifier,
   helpText,
   errors,
   placeholder,
@@ -48,7 +46,6 @@ export function BaseSelect({
   ...props
 }: BaseSelectProps): React.JSX.Element {
   const isInvalid = Boolean(errors?.length)
-  const identifier = id || name
 
   const cssClasses = classNames('select-group', variant, className, {
     disabled,

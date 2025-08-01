@@ -3,6 +3,7 @@ import { type RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
+import { classNames } from '../../utils/classNames'
 import { Icon } from '../Icon'
 import { Input } from '../Input'
 import { SelectItem } from '../Select/SelectItem'
@@ -30,6 +31,7 @@ export interface InfiniteSelectProps<T>
   defaultValue?: T
   searchDebounceTime?: number
   disabled?: boolean
+  helpText?: string
   minLengthSearch?: number
   displayItem: (item: T) => string
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
@@ -46,6 +48,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   className,
   defaultValue,
   disabled = false,
+  helpText,
   searchDebounceTime = SEARCH_DEBOUNCE_TIME,
   minLengthSearch = MIN_LENGTH_SEARCH,
   displayItem,
@@ -85,12 +88,6 @@ export function InfiniteSelect<T extends { uid: string }>({
     setSelectedItem(item)
     close()
   }
-  const handleClick = () => {
-    toggle()
-    if (isOpen && !loading && items.length === 0) {
-      loadItems()
-    }
-  }
 
   const loadItems = useCallback(
     async (searchTerm: string = '') => {
@@ -116,14 +113,12 @@ export function InfiniteSelect<T extends { uid: string }>({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !loading && loaderRef.current) {
+        if (entry.isIntersecting && loaderRef.current) {
           loadItems()
         }
       },
       {
-        root: selectRef?.current || null,
         rootMargin: '0px',
-        threshold: 1.0,
       },
     )
 
@@ -155,6 +150,8 @@ export function InfiniteSelect<T extends { uid: string }>({
       isEmpty={!selectedItem?.uid}
       errors={errors}
       selectRef={selectRef}
+      identifier={identifier}
+      helpText={helpText}
       {...props}
     >
       <SelectTrigger
@@ -164,7 +161,7 @@ export function InfiniteSelect<T extends { uid: string }>({
         isEmpty={!selectedItem?.uid}
         invalid={isInvalid}
         accessibilityLabel={accessibilityLabel}
-        onClick={handleClick}
+        onClick={toggle}
         onClear={handleClear}
         buttonRef={buttonRef}
         disabled={disabled}
@@ -172,38 +169,39 @@ export function InfiniteSelect<T extends { uid: string }>({
         {displayValue}
       </SelectTrigger>
       <input type="hidden" name={name} value={selectedItem?.uid} {...props} />
-      {isOpen && (
-        <div className="select-options-container">
-          <div className="select-options">
-            <Input
-              autoFocus
-              label={searchLabel}
-              hideLabel
-              onChange={(e) => handleSearch(e.target.value)}
-              placeholder={searchLabel}
-              icon="Search"
-              className="search"
-            />
-            <ul role="listbox">
-              {items.map((item) => (
-                <SelectItem
-                  multiple={false}
-                  key={item.uid}
-                  label={displayItem(item)}
-                  isSelected={selectedItem?.uid === item.uid}
-                  onSelectOption={() => handleSelectOption(item)}
-                  onClose={close}
-                />
-              ))}
-              <LoadingItems
-                label="Loading items"
-                visible={morePages}
-                loaderRef={loaderRef}
+
+      <div
+        className={classNames('select-options-container', { hidden: !isOpen })}
+      >
+        <div className="select-options">
+          <Input
+            autoFocus
+            label={searchLabel}
+            hideLabel
+            onChange={(e) => handleSearch(e.target.value)}
+            placeholder={searchLabel}
+            icon="Search"
+            className="search"
+          />
+          <ul role="listbox">
+            {items.map((item) => (
+              <SelectItem
+                multiple={false}
+                key={item.uid}
+                label={displayItem(item)}
+                isSelected={selectedItem?.uid === item.uid}
+                onSelectOption={() => handleSelectOption(item)}
+                onClose={close}
               />
-            </ul>
-          </div>
+            ))}
+            <LoadingItems
+              label="Loading items"
+              visible={morePages}
+              loaderRef={loaderRef}
+            />
+          </ul>
         </div>
-      )}
+      </div>
     </BaseSelect>
   )
 }

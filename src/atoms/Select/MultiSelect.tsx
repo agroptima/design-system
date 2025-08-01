@@ -79,6 +79,8 @@ export function Multiselect({
       isEmpty={!hasSelectedOptions}
       errors={errors}
       selectRef={selectRef}
+      identifier={identifier}
+      helpText={helpText}
       {...props}
     >
       <SelectTrigger

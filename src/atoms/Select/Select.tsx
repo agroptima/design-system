@@ -18,6 +18,7 @@ export interface SelectProps
   onChange?: (value: string) => void
   errors?: string[]
   disabled?: boolean
+  helpText?: string
   isSearchable?: boolean
   searchLabel?: string
 }
@@ -34,6 +35,7 @@ export function Select({
   accessibilityLabel,
   errors,
   onChange = () => {},
+  helpText,
   defaultValue,
   isSearchable = false,
   disabled = false,
@@ -74,6 +76,8 @@ export function Select({
       isEmpty={isEmpty}
       errors={errors}
       selectRef={selectRef}
+      identifier={identifier}
+      helpText={helpText}
       {...props}
     >
       <SelectTrigger

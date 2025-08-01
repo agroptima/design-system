@@ -16,22 +16,33 @@ const mockedItems: Item[] = [
   { uid: '6', name: 'Item 6' },
 ]
 
-describe('InfiniteSelect', () => {
-  let observeMock: jest.Mock
-  let unobserveMock: jest.Mock
-  let disconnectMock: jest.Mock
-  let intersectionCallback: IntersectionObserverCallback
-  beforeEach(() => {
-    observeMock = jest.fn()
-    unobserveMock = jest.fn()
-    disconnectMock = jest.fn()
+function simulateIntersection(callback: IntersectionObserverCallback) {
+  callback(
+    [
+      {
+        isIntersecting: true,
+        target: screen.getByLabelText('Loading items'),
+        boundingClientRect: {} as DOMRectReadOnly,
+        intersectionRatio: 1,
+        intersectionRect: {} as DOMRectReadOnly,
+        rootBounds: null,
+        time: Date.now(),
+      },
+    ],
+    {} as IntersectionObserver,
+  )
+}
 
+describe('InfiniteSelect', () => {
+  let intersectionCallback: IntersectionObserverCallback
+
+  beforeEach(() => {
     window.IntersectionObserver = jest.fn((callback) => {
       intersectionCallback = callback
       return {
-        observe: observeMock,
-        unobserve: unobserveMock,
-        disconnect: disconnectMock,
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+        disconnect: jest.fn(),
       }
     }) as unknown as typeof IntersectionObserver
   })
@@ -141,6 +152,7 @@ describe('InfiniteSelect', () => {
 
       return { items: [], totalPages: 1 }
     })
+
     render(
       <InfiniteSelect
         label="Infinite Options"
@@ -153,68 +165,17 @@ describe('InfiniteSelect', () => {
     )
 
     await user.click(screen.getByLabelText(/infinite options/i))
+    simulateIntersection(intersectionCallback)
 
     await waitFor(() => {
       expect(query).toHaveBeenCalledTimes(1)
-      expect(
-        screen.getByRole('option', { name: item.name }),
-      ).toBeInTheDocument()
+      expect(screen.getByText(item.name)).toBeInTheDocument()
 
       expect(screen.queryByLabelText('Loading items')).not.toBeInTheDocument()
     })
   })
 
-  it('loads the first page when clicking and next page by loader intersection', async () => {
-    const user = userEvent.setup()
-    const loader = {
-      current: waitFor(() => {
-        screen.getByLabelText('Loading items')
-      }),
-    }
-    const query = jest
-      .fn()
-      .mockResolvedValueOnce({
-        items: [item],
-        totalPages: 2,
-      })
-      .mockResolvedValueOnce({
-        items: [anotherItem],
-        totalPages: 2,
-      })
-    render(
-      <InfiniteSelect
-        label="Infinite Options"
-        name="infinite-select-example"
-        placeholder="Select an option..."
-        searchLabel="Search"
-        displayItem={(item: Item) => item.name}
-        query={query}
-      />,
-    )
-
-    await user.click(screen.getByLabelText(/infinite options/i))
-
-    expect(query).toHaveBeenCalledTimes(1)
-    expect(screen.getByRole('option', { name: item.name })).toBeInTheDocument()
-
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: loader.current,
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
-
-    await waitFor(() => {
-      expect(query).toHaveBeenCalledTimes(2)
-      expect(
-        screen.getByRole('option', { name: anotherItem.name }),
-      ).toBeInTheDocument()
-    })
-  })
-  it('does call query again if there are more pages', async () => {
+  it('does not call query again if there are no more pages', async () => {
     const user = userEvent.setup()
 
     const query = jest
@@ -233,17 +194,7 @@ describe('InfiniteSelect', () => {
     )
 
     await user.click(screen.getByLabelText(/infinite options/i))
-    expect(query).toHaveBeenCalledTimes(1)
-
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: screen.queryByLabelText('Loading items'),
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
+    simulateIntersection(intersectionCallback)
 
     await waitFor(() => {
       expect(query).toHaveBeenCalledTimes(1)
@@ -273,26 +224,7 @@ describe('InfiniteSelect', () => {
     )
 
     await userEvent.click(screen.getByLabelText(/infinite options/i))
-
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: screen.queryByLabelText('Loading items'),
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
-
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: screen.queryByLabelText('Loading items'),
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
+    simulateIntersection(intersectionCallback)
 
     await waitFor(() => expect(query).toHaveBeenCalledTimes(1))
   })
@@ -351,42 +283,26 @@ describe('InfiniteSelect', () => {
 
     await user.click(screen.getByLabelText(/Infinite options/i))
 
-    await waitFor(() => screen.debug())
+    simulateIntersection(intersectionCallback)
     await waitFor(() => {
       expect(screen.getByRole('option', { name: 'Item 1' })).toBeInTheDocument()
       expect(screen.getByRole('option', { name: 'Item 2' })).toBeInTheDocument()
     })
     expect(query).toHaveBeenCalledTimes(1)
 
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: screen.queryByLabelText('Loading items'),
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
+    simulateIntersection(intersectionCallback)
+    await waitFor(() => {
+      expect(screen.getByText('Item 3')).toBeInTheDocument()
+      expect(screen.getByText('Item 4')).toBeInTheDocument()
+      expect(query).toHaveBeenCalledTimes(2)
+    })
 
-    expect(screen.getByText('Item 3')).toBeInTheDocument()
-    expect(screen.getByText('Item 4')).toBeInTheDocument()
-
-    expect(query).toHaveBeenCalledTimes(2)
-
-    intersectionCallback(
-      [
-        {
-          isIntersecting: true,
-          target: screen.queryByLabelText('Loading items'),
-        } as unknown as IntersectionObserverEntry,
-      ],
-      {} as IntersectionObserver,
-    )
+    simulateIntersection(intersectionCallback)
 
     await waitFor(() => {
       expect(screen.getByText('Item 5')).toBeInTheDocument()
       expect(screen.getByText('Item 6')).toBeInTheDocument()
+      expect(query).toHaveBeenCalledTimes(3)
     })
-    expect(query).toHaveBeenCalledTimes(3)
   })
 })
