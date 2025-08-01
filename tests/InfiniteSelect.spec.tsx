@@ -143,7 +143,7 @@ describe('InfiniteSelect', () => {
     expect(screen.getByText(placeholder)).toBeInTheDocument()
   })
 
-  it('loads the first page when clicking', async () => {
+  it('loads the first page when select is open', async () => {
     const user = userEvent.setup()
     const query = jest.fn(async ({ page }) => {
       if (page === '1') {
