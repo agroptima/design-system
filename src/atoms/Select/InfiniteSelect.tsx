@@ -90,17 +90,18 @@ export function InfiniteSelect<T extends { uid: string }>({
   }
 
   const loadItems = useCallback(
-    async (searchTerm: string = '') => {
+    async (searchTerm: string = '', resetPage?: number) => {
       if (loading || !morePages) return
       setLoading(true)
       try {
+        const currentPage = resetPage ? resetPage : page
         const { items, totalPages } = await query({
-          page: page.toString(),
+          page: currentPage.toString(),
           search: searchTerm,
         })
         setItems((prev) => [...prev, ...items])
-        setPage((prev) => prev + 1)
-        setMorePages(page < totalPages)
+        setPage(currentPage + 1)
+        setMorePages(currentPage < totalPages)
       } catch (error) {
         // TODO: Handle error correctly
         console.error('Error loading items:', error)
@@ -136,7 +137,7 @@ export function InfiniteSelect<T extends { uid: string }>({
     setPage(1)
     setItems([])
     setMorePages(true)
-    loadItems(term)
+    loadItems(term, 1)
   }, searchDebounceTime)
 
   const handleSearch = (searchTerm: string) => {
