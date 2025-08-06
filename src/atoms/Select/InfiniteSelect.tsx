@@ -153,6 +153,7 @@ export function InfiniteSelect<T extends { uid: string }>({
       selectRef={selectRef}
       identifier={identifier}
       helpText={helpText}
+      className={className}
       {...props}
     >
       <SelectTrigger

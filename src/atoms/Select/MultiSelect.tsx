@@ -81,6 +81,7 @@ export function Multiselect({
       selectRef={selectRef}
       identifier={identifier}
       helpText={helpText}
+      className={className}
       {...props}
     >
       <SelectTrigger

@@ -78,6 +78,7 @@ export function Select({
       selectRef={selectRef}
       identifier={identifier}
       helpText={helpText}
+      className={className}
       {...props}
     >
       <SelectTrigger
