@@ -4,8 +4,6 @@ import type { FormEvent } from 'react'
 import { InfiniteSelect } from '../src/atoms/Select/InfiniteSelect'
 
 type Item = { uid: string; name: string }
-const item: Item = { uid: '1', name: 'First item' }
-const anotherItem: Item = { uid: '2', name: 'Another item' }
 
 const mockedItems: Item[] = [
   { uid: '1', name: 'Item 1' },
@@ -145,6 +143,7 @@ describe('InfiniteSelect', () => {
 
   it('loads the first page when select is open', async () => {
     const user = userEvent.setup()
+    const item = mockedItems[0]
     const query = jest.fn(async ({ page }) => {
       if (page === '1') {
         return { items: [item], totalPages: 1 }
@@ -177,7 +176,7 @@ describe('InfiniteSelect', () => {
 
   it('does not call query again if there are no more pages', async () => {
     const user = userEvent.setup()
-
+    const item = mockedItems[0]
     const query = jest
       .fn()
       .mockResolvedValueOnce({ items: [item], totalPages: 1 })
@@ -203,6 +202,7 @@ describe('InfiniteSelect', () => {
   })
 
   it('does not call query again if already loading', async () => {
+    const item = mockedItems[0]
     const query = jest.fn<Promise<{ items: Item[]; totalPages: number }>, []>(
       () =>
         new Promise((resolve) => {
@@ -229,6 +229,8 @@ describe('InfiniteSelect', () => {
     await waitFor(() => expect(query).toHaveBeenCalledTimes(1))
   })
   it('send query search term in selector', async () => {
+    const item = mockedItems[0]
+    const anotherItem = mockedItems[1]
     const user = userEvent.setup()
     const query = jest
       .fn()
