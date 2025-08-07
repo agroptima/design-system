@@ -60,6 +60,7 @@ const meta = {
           ' <li>Use help text to show context</li>' +
           ' <li>Switch help text with error text</li>' +
           ' <li>Write error text that shows a solution</li>' +
+          ' <li>Include a search input</li>' +
           '</ul>',
       },
     },
