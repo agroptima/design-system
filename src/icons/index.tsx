@@ -46,6 +46,7 @@ import Picture from './picture.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
 import Reports from './reports.svg'
+import ResendEmail from './resend-email.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
 import Salesman from './salesman.svg'
 import Search from './search.svg'
@@ -107,6 +108,7 @@ export {
   Product,
   Reason,
   Reports,
+  ResendEmail,
   ReturnDeliveryNote,
   Salesman,
   Search,
