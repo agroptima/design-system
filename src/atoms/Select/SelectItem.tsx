@@ -1,29 +1,28 @@
 import React from 'react'
 import { Icon } from '../Icon'
-import type { Option } from './Select'
 
 interface OptionProps {
-  option: Option
   multiple?: boolean
   isSelected: boolean
-  onSelectOption: (option: Option) => void
+  onSelectOption: () => void
   onClose: () => void
+  label: string
 }
 
 const ENTER_KEY = 'Enter'
 const SPACE_KEY = ' '
 
 export function SelectItem({
-  option,
   isSelected,
   onSelectOption,
   multiple,
   onClose,
+  label,
 }: OptionProps) {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>) => {
     if (e.key === ENTER_KEY || e.key === SPACE_KEY) {
       e.preventDefault()
-      onSelectOption(option)
+      onSelectOption()
       if (!multiple) {
         onClose()
       }
@@ -35,12 +34,11 @@ export function SelectItem({
       tabIndex={0}
       role="option"
       aria-selected={isSelected}
-      data-option={option}
-      onClick={() => onSelectOption(option)}
+      onClick={onSelectOption}
       onKeyDown={handleKeyDown}
     >
       {multiple && <CheckboxIcon selected={isSelected} />}
-      {option.label}
+      {label}
     </li>
   )
 }

@@ -1,5 +1,5 @@
 import type { StoryObj } from '@storybook/react'
-import { Multiselect } from '../atoms/Multiselect'
+import { Multiselect } from '../atoms/Select/MultiSelect'
 
 const meta = {
   title: 'Design System/Atoms/Multiselect',

@@ -1,36 +1,26 @@
-import './Select/Select.scss'
+import './Select.scss'
 import React, { useRef, useState } from 'react'
-import { useOpen } from '../hooks/useOpen'
-import { useOutsideClick } from '../hooks/useOutsideClick'
-import { classNames } from '../utils/classNames'
-import { HelpText } from './HelpText'
-import { Label } from './Label'
-import { SelectItems } from './Select/SelectItems'
-import { SelectTrigger } from './Select/SelectTrigger'
+import { useOpen } from '../../hooks/useOpen'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
+import { BaseSelect, type BaseSelectProps } from './BaseSelect'
+import { SelectItems } from './SelectItems'
+import { SelectTrigger } from './SelectTrigger'
 
 export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-type InputPropsWithoutOnChange = Omit<
-  React.ComponentPropsWithoutRef<'input'>,
-  'onChange'
->
-
-export interface MultiselectProps extends InputPropsWithoutOnChange {
+export interface MultiselectProps
+  extends Omit<BaseSelectProps, 'isEmpty' | 'children'> {
   placeholder?: string
-  helpText?: string
-  variant?: Variant
   options: Option[]
-  errors?: string[]
   label: string
   accessibilityLabel?: string
-  selectedLabel?: string
-  hideLabel?: boolean
   defaultValue?: string[]
+  selectedLabel?: string
   onChange?: (value: string[]) => void
   isSearchable?: boolean
   searchLabel?: string
-  fullWidth?: boolean
+  errors?: string[]
 }
 
 export function Multiselect({
@@ -44,29 +34,26 @@ export function Multiselect({
   options,
   label,
   accessibilityLabel,
-  onChange = () => {},
-  variant = 'primary',
   selectedLabel = 'items selected',
-  hideLabel = false,
+  onChange = () => {},
   defaultValue = [],
   isSearchable = false,
   searchLabel = 'Search',
-  fullWidth = false,
   ...props
 }: MultiselectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
-  const selectRef = useRef(null)
-  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
-  useOutsideClick(selectRef, close)
+  const selectRef = useRef<HTMLDivElement>(null)
   const [selectedOptions, setSelectedOptions] = useState<string[]>(defaultValue)
   const isInvalid = Boolean(errors?.length)
   const hasSelectedOptions = selectedOptions.length > 0
 
+  const selectTriggerRef = useRef<HTMLButtonElement | null>(null)
   const handleClose = () => {
     if (!isOpen) return
     close()
     selectTriggerRef?.current?.focus()
   }
+  useOutsideClick(selectRef, handleClose)
 
   function handleSelectOption({ id }: Option) {
     const isOptionSelected = selectedOptions.includes(id)
@@ -86,20 +73,17 @@ export function Multiselect({
 
   const identifier = id || name
   return (
-    <div
-      className={classNames('select-group', variant, className, {
-        disabled,
-        filled: hasSelectedOptions,
-        invalid: isInvalid,
-        'full-width': fullWidth,
-      })}
-      ref={selectRef}
+    <BaseSelect
+      placeholder={placeholder}
+      label={label}
+      isEmpty={!hasSelectedOptions}
+      errors={errors}
+      selectRef={selectRef}
+      identifier={identifier}
+      helpText={helpText}
+      className={className}
+      {...props}
     >
-      {!hideLabel && (
-        <Label required={props.required} htmlFor={identifier}>
-          {label}
-        </Label>
-      )}
       <SelectTrigger
         id={identifier}
         label={label}
@@ -116,6 +100,12 @@ export function Multiselect({
           ? `${selectedOptions.length} ${selectedLabel}`
           : placeholder}
       </SelectTrigger>
+      <input
+        type="hidden"
+        name={name}
+        value={selectedOptions.toString()}
+        {...props}
+      />
       {isOpen && (
         <SelectItems
           multiple
@@ -128,13 +118,6 @@ export function Multiselect({
           onClose={handleClose}
         />
       )}
-      <HelpText helpText={helpText} errors={errors} />
-      <input
-        type="hidden"
-        name={name}
-        value={selectedOptions.toString()}
-        {...props}
-      />
-    </div>
+    </BaseSelect>
   )
 }

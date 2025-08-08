@@ -61,10 +61,10 @@ export function SelectItems({
             <SelectItem
               multiple={multiple}
               key={option.id}
-              option={option}
               isSelected={selectedOptions.includes(option.id)}
-              onSelectOption={selectOption}
+              onSelectOption={() => selectOption(option)}
               onClose={onClose}
+              label={option.label}
             />
           ))}
         </ul>

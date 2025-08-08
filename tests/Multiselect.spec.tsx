@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
-import { Multiselect } from '../src/atoms/Multiselect'
-import { type Option, Select } from '../src/atoms/Select'
+import { Multiselect, type Option, Select } from '../src/atoms/Select'
 
 const zelda = {
   id: '1',

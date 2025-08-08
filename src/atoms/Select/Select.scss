@@ -71,6 +71,12 @@ $elements-space: config.$space-2x;
       }
     }
 
+    .loading {
+      display: flex;
+      justify-content: center;
+      padding: config.$space-2x config.$space-3x;
+    }
+
     .select-options {
       border-radius: config.$corner-radius-xxs;
       background: color_alias.$neutral-white;
