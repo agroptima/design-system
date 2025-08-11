@@ -2,34 +2,25 @@ import './Select.scss'
 import React, { useRef, useState } from 'react'
 import { useOpen } from '../../hooks/useOpen'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
-import { classNames } from '../../utils/classNames'
-import { HelpText } from '../HelpText'
-import { Label } from '../Label'
+import { BaseSelect, type BaseSelectProps } from './BaseSelect'
 import { SelectItems } from './SelectItems'
 import { SelectTrigger } from './SelectTrigger'
 
-export type Variant = 'primary'
 export type Option = { id: string; label: string }
 
-type InputPropsWithoutOnChange = Omit<
-  React.ComponentPropsWithoutRef<'input'>,
-  'onChange'
->
-
-export interface SelectProps extends InputPropsWithoutOnChange {
+export interface SelectProps
+  extends Omit<BaseSelectProps, 'isEmpty' | 'children'> {
   placeholder?: string
-  helpText?: string
-  variant?: Variant
   options: Option[]
-  errors?: string[]
   label: string
   accessibilityLabel?: string
-  hideLabel?: boolean
   defaultValue?: string
   onChange?: (value: string) => void
+  errors?: string[]
+  disabled?: boolean
+  helpText?: string
   isSearchable?: boolean
   searchLabel?: string
-  fullWidth?: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -37,21 +28,18 @@ const EMPTY_OPTION = { id: '', label: '' }
 export function Select({
   className,
   placeholder,
-  helpText,
-  variant = 'primary',
-  disabled,
-  errors,
   name,
   id,
   options,
   label,
   accessibilityLabel,
-  hideLabel = false,
+  errors,
   onChange = () => {},
+  helpText,
   defaultValue,
   isSearchable = false,
+  disabled = false,
   searchLabel = 'Search',
-  fullWidth = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
@@ -82,21 +70,17 @@ export function Select({
 
   const identifier = id || name
   return (
-    <div
-      className={classNames('select-group', variant, className, {
-        disabled,
-        filled: selectedOption.id,
-        invalid: isInvalid,
-        'full-width': fullWidth,
-      })}
-      ref={selectRef}
+    <BaseSelect
+      placeholder={placeholder}
+      label={label}
+      isEmpty={isEmpty}
+      errors={errors}
+      selectRef={selectRef}
+      identifier={identifier}
+      helpText={helpText}
+      className={className}
+      {...props}
     >
-      {!hideLabel && (
-        <Label required={props.required} htmlFor={identifier}>
-          {label}
-        </Label>
-      )}
-
       <SelectTrigger
         id={identifier}
         buttonRef={selectTriggerRef}
@@ -111,6 +95,8 @@ export function Select({
       >
         {selectedOption.label || placeholder}
       </SelectTrigger>
+      <input type="hidden" name={name} value={selectedOption.id} {...props} />
+
       {isOpen && (
         <SelectItems
           id={`${identifier}-options`}
@@ -123,8 +109,6 @@ export function Select({
           onClose={handleClose}
         />
       )}
-      <HelpText helpText={helpText} errors={errors} />
-      <input type="hidden" name={name} value={selectedOption.id} {...props} />
-    </div>
+    </BaseSelect>
   )
 }
