@@ -61,7 +61,7 @@ export const Filters: Story = {
           onClick: () => alert('click'),
         },
       ]}
-      onClose={() => {}}
+      onClose={() => alert('close')}
     >
       <Collapsible noHorizontalPadding open title="Genres">
         <CheckableTagGroup>
