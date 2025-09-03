@@ -1,4 +1,6 @@
 import './Drawer.scss'
+import { useRef } from 'react'
+import { useOutsideClick } from '../hooks/useOutsideClick'
 import { classNames } from '../utils/classNames'
 import type { ButtonProps } from './Button'
 import { Button, IconButton } from './Button'
@@ -26,6 +28,9 @@ export function Drawer({
 }: DrawerProps): React.JSX.Element {
   const cssClasses = classNames('drawer', variant, className)
 
+  const drawerRef = useRef(null)
+  useOutsideClick(drawerRef, onClose)
+
   return (
     <div className="drawer-container">
       <div className="backdrop"></div>
@@ -34,6 +39,7 @@ export function Drawer({
         aria-labelledby={`${id}-title`}
         aria-describedby={`${id}-body`}
         className={cssClasses}
+        ref={drawerRef}
         {...props}
       >
         <div className="close-container">
