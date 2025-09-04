@@ -21,6 +21,7 @@ export interface MultiselectProps
   isSearchable?: boolean
   searchLabel?: string
   errors?: string[]
+  fullWidth?: boolean
 }
 
 export function Multiselect({
@@ -39,6 +40,7 @@ export function Multiselect({
   defaultValue = [],
   isSearchable = false,
   searchLabel = 'Search',
+  fullWidth = false,
   ...props
 }: MultiselectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
