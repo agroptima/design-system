@@ -16,8 +16,14 @@ export type BaseButtonProps =
   | (HtmlButtonProps & CommonProps)
   | (AnchorProps & CommonProps)
 
-const hasHref = (props: HtmlButtonProps | AnchorProps): props is AnchorProps =>
-  'href' in props
+const hasHref = (
+  props: HtmlButtonProps | AnchorProps,
+): props is AnchorProps => {
+  return (
+    typeof (props as AnchorProps).href === 'string' &&
+    !!(props as AnchorProps).href
+  )
+}
 
 export function BaseButton({
   children,

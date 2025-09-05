@@ -36,6 +36,7 @@ export interface InfiniteSelectProps<T>
   displayItem: (item: T) => string
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
   errors?: string[]
+  fullWidth?: boolean
 }
 
 export function InfiniteSelect<T extends { uid: string }>({
@@ -54,6 +55,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   displayItem,
   query,
   errors,
+  fullWidth = false,
   ...props
 }: InfiniteSelectProps<T>) {
   const { isOpen, close, toggle } = useOpen()

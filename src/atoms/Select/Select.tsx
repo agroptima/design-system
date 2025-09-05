@@ -21,6 +21,7 @@ export interface SelectProps
   helpText?: string
   isSearchable?: boolean
   searchLabel?: string
+  fullWidth?: boolean
 }
 
 const EMPTY_OPTION = { id: '', label: '' }
@@ -40,6 +41,7 @@ export function Select({
   isSearchable = false,
   disabled = false,
   searchLabel = 'Search',
+  fullWidth = false,
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
