@@ -3,7 +3,6 @@
 @use '../../settings/config';
 @use '../../settings/depth';
 
-
 %top {
   bottom: 42px;
   margin-top: auto;
@@ -72,9 +71,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
-  0px 6px 16px 0px rgba(0, 0, 0, 0.08),
-  0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+    0px 9px 28px 8px rgba(0, 0, 0, 0.05);
 
   .popover-menu-option {
     @include typography.body-regular-primary;
@@ -86,12 +86,28 @@
     cursor: default;
     border: none;
 
+    > .icon {
+      margin-top: config.$space-2x;
+      margin-bottom: config.$space-2x;
+      margin-right: 6px;
+    }
+
     &:hover {
       text-decoration: none;
     }
 
     &.primary {
       background: color_alias.$neutral-white;
+
+      > .icon {
+        > svg {
+          fill: color_alias.$primary-color-600;
+
+          path {
+            fill: color_alias.$primary-color-600;
+          }
+        }
+      }
 
       &.active {
         background-color: transparent;
@@ -104,6 +120,16 @@
       &.disabled {
         background: color_alias.$neutral-color-50;
         @include typography.body-regular-disabled;
+
+        > .icon {
+          > svg {
+            fill: color_alias.$neutral-color-400;
+
+            path {
+              fill: color_alias.$neutral-color-400;
+            }
+          }
+        }
       }
     }
   }
