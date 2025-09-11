@@ -1,0 +1,11 @@
+@use '../settings/color_alias';
+@use '../settings/typography/content' as typography;
+@use '../settings/config';
+@use '../settings/depth';
+
+.actions-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
