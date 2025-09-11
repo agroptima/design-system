@@ -20,8 +20,8 @@ const meta = {
           '<h2>Usage guidelines</h2>' +
           '<p>The <code>ButtonGroup</code> component is used to visually group two or more buttons on a single horizontal line. This helps indicate related actions and maintain consistent UI alignment.</p>' +
           '<ul>' +
-          '  <li>Use to group related actions that should be presented together</li>' +
-          '  <li>Use for things like filter options, segmented controls, or inline actions</li>' +
+          '  <li>Use it to group related actions that should be presented together</li>' +
+          '  <li>Use it for things like filter options, segmented controls, or inline actions</li>' +
           '  <li>Ensure all buttons in the group are accessible and clearly labeled</li>' +
           '  <li>Pass buttons through the <code>children</code> prop as an array or fragment</li>' +
           '  <li>Do not include unrelated controls like inputs or toggles in the same group</li>' +
@@ -33,7 +33,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     children: {
-      description: 'prop is used to pass buttons components.',
+      description: 'prop is used to pass buttons components',
     },
   },
 }
@@ -79,7 +79,7 @@ export const ThreeButtons: Story = {
   },
 }
 
-export const withPopover: Story = {
+export const WithPopover: Story = {
   args: {
     children: (
       <>
