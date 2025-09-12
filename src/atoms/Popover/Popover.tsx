@@ -12,7 +12,7 @@ type Actions = {
   toggle: () => void
 }
 
-type Horizontal = 'left' | 'right' | 'center'
+export type Horizontal = 'left' | 'right' | 'center'
 
 type Position = Horizontal | `top-${Horizontal}`
 

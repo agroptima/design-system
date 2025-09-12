@@ -3,15 +3,21 @@ import './ActionsMenu.scss'
 import React from 'react'
 import { classNames } from '../utils/classNames'
 import { IconButton } from './Button'
-import { Popover, PopoverMenu } from './Popover'
+import { type Horizontal, Popover, PopoverMenu } from './Popover'
 
-export interface ActionsMenuProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export interface ActionsMenuProps extends React.HTMLAttributes<HTMLDivElement> {
+  position?: Horizontal
+}
 
-function ActionsMenu({ className, children }: ActionsMenuProps) {
+function ActionsMenu({
+  position = 'left',
+  className,
+  children,
+}: ActionsMenuProps) {
   return (
     <div className={classNames('actions-menu', className)}>
       <Popover
+        position={position}
         renderButton={({ toggle }) => (
           <IconButton
             accessibilityLabel="More options"
