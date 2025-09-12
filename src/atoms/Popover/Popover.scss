@@ -110,7 +110,7 @@
       }
 
       &.active {
-        background-color: transparent;
+        background-color: color_alias.$neutral-white;
       }
 
       &:not(.disabled):hover {
