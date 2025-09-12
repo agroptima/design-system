@@ -1,5 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 import React from 'react'
+import { ActionsMenu } from '../atoms/ActionsMenu'
 import { Badge } from '../atoms/Badge'
 import { IconButton } from '../atoms/Button'
 import {
@@ -120,6 +121,28 @@ export const Primary: Story = {
               accessibilityLabel="Delete game"
               href="link.com"
             />
+            <ActionsMenu position="right">
+              <PopoverMenuOption
+                active
+                onClick={() => alert('Save')}
+                variant="primary"
+                title="Save"
+                leftIcon="Export"
+              />
+              <PopoverMenuOption
+                onClick={() => alert('Restart level')}
+                variant="primary"
+                title="Restart level"
+                leftIcon="Export"
+              />
+              <PopoverMenuOption
+                disabled
+                onClick={() => alert('Back to main menu')}
+                variant="primary"
+                title="Back to main menu"
+                leftIcon="Export"
+              />
+            </ActionsMenu>
           </CardsTableCell>
         </CardsTableRow>
 
