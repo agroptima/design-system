@@ -17,13 +17,12 @@ const meta = {
       description: {
         component:
           '<h2>Usage guidelines</h2>' +
-          '<p>The <code>ButtonGroup</code> component is used to visually group two or more buttons on a single horizontal line. This helps indicate related actions and maintain consistent UI alignment.</p>' +
+          '<p>The <code>ActionsMenu</code> component is used to group and gather actions. This helps maintaining an organised UI.</p>' +
           '<ul>' +
-          '  <li>Use to group related actions that should be presented together</li>' +
-          '  <li>Use for things like filter options, segmented controls, or inline actions</li>' +
-          '  <li>Ensure all buttons in the group are accessible and clearly labeled</li>' +
-          '  <li>Pass buttons through the <code>children</code> prop as an array or fragment</li>' +
-          '  <li>Do not include unrelated controls like inputs or toggles in the same group</li>' +
+          '  <li>Use it to group not so used actions</li>' +
+          '  <li>On lists, the 3 more used actions should be presented as shortcuts and the rest of them grouped in an ActionsMenu</li>' +
+          '  <li>Ensure all contained actions are clearly labeled and have the proper icon</li>' +
+          '  <li>Pass actions as <code>PopoverMenuOption</code> components through the <code>children</code> prop</li>' +
           '</ul>',
       },
     },
@@ -31,8 +30,12 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    position: {
+      description: 'Position of the Popover component',
+      control: { type: 'select' },
+    },
     children: {
-      description: 'prop is used to pass buttons components.',
+      description: 'PopoverMenuOption components are passed as children',
     },
   },
 }
