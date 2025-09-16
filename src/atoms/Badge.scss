@@ -76,6 +76,18 @@
     border: 1px solid color_alias.$neutral-color-600;
   }
 
+  &.primary {
+    background: color_alias.$primary-color-1000;
+    border: 1px solid color_alias.$primary-color-1000;
+    color: color_alias.$neutral-white;
+  }
+
+  &.primary-outlined {
+    background: color_alias.$primary-color-50;
+    border: 1px solid color_alias.$primary-color-1000;
+    color: color_alias.$neutral-color-1000;
+  }
+
   > .icon {
     width: config.$icon-size-3x;
     height: config.$icon-size-3x;
