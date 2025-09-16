@@ -46,7 +46,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Menu: Story = {
+export const MenuWithLinkOptions: Story = {
   render: (props: PopoverProps) => (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Popover
@@ -83,7 +83,7 @@ export const Menu: Story = {
   ),
 } as unknown as Story
 
-export const MenuWithButtons: Story = {
+export const MenuWithButtonOptions: Story = {
   args: {
     renderButton: ({ toggle }) => (
       <Button
@@ -115,3 +115,43 @@ export const MenuWithButtons: Story = {
     ),
   },
 }
+
+export const MenuWithIcons: Story = {
+  render: (props: PopoverProps) => (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Popover
+        {...props}
+        renderButton={({ toggle }) => (
+          <Button
+            variant="primary-outlined"
+            label="Open popover"
+            onClick={toggle}
+          />
+        )}
+      >
+        <PopoverMenu>
+          <PopoverMenuOption
+            active
+            href="#"
+            variant="primary"
+            title="Profile"
+            leftIcon="Export"
+          />
+          <PopoverMenuOption
+            href="#"
+            variant="primary"
+            title="Change password"
+            leftIcon="Export"
+          />
+          <PopoverMenuOption
+            disabled
+            href="#"
+            variant="primary"
+            title="Logout"
+            leftIcon="Export"
+          />
+        </PopoverMenu>
+      </Popover>
+    </div>
+  ),
+} as unknown as Story

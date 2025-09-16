@@ -54,3 +54,30 @@ export const Menu: Story = {
     </PopoverMenu>
   ),
 } as unknown as Story
+
+export const MenuWithIcons: Story = {
+  render: () => (
+    <PopoverMenu>
+      <PopoverMenuOption
+        active
+        href="#"
+        variant="primary"
+        title="Profile"
+        leftIcon="Export"
+      />
+      <PopoverMenuOption
+        href="#"
+        variant="primary"
+        title="Change password"
+        leftIcon="Export"
+      />
+      <PopoverMenuOption
+        disabled
+        href="#"
+        variant="primary"
+        title="Logout"
+        leftIcon="Export"
+      />
+    </PopoverMenu>
+  ),
+} as unknown as Story
