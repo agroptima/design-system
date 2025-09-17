@@ -49,6 +49,7 @@ import Reports from './reports.svg'
 import ResendEmail from './resend-email.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
 import Salesman from './salesman.svg'
+import Scrap from './scrap.svg'
 import Search from './search.svg'
 import Series from './series.svg'
 import Settings from './settings.svg'
@@ -111,6 +112,7 @@ export {
   ResendEmail,
   ReturnDeliveryNote,
   Salesman,
+  Scrap,
   Search,
   Series,
   Settings,
