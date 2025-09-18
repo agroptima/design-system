@@ -37,6 +37,7 @@ export interface InfiniteSelectProps<T>
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
   errors?: string[]
   fullWidth?: boolean
+  onChange?: (value: T) => void
 }
 
 export function InfiniteSelect<T extends { uid: string }>({
@@ -56,6 +57,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   query,
   errors,
   fullWidth = false,
+  onChange = () => {},
   ...props
 }: InfiniteSelectProps<T>) {
   const { isOpen, close, toggle } = useOpen()
@@ -89,6 +91,7 @@ export function InfiniteSelect<T extends { uid: string }>({
     // TODO: MultiSelect case
     setSelectedItem(item)
     close()
+    onChange(item)
   }
 
   const loadItems = useCallback(
