@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { wait } from '@testing-library/user-event/dist/cjs/utils/index.js'
 import type { FormEvent } from 'react'
 import { InfiniteSelect } from '../src/atoms/Select/InfiniteSelect'
 
@@ -80,14 +81,18 @@ describe('InfiniteSelect', () => {
 
     expect(screen.getByLabelText('Infinite Options')).toBeDisabled()
   })
-  it('deselects when click on deselect button', async () => {
+  it('sets the correct value on submit', async () => {
     let submitValue = ''
     const user = userEvent.setup()
+    const onChange = jest.fn()
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
       const form = new FormData(event.currentTarget)
       submitValue = form.get('infinite-select-example') as string
     }
+    const query = jest
+      .fn()
+      .mockResolvedValue({ items: mockedItems, totalPages: 1 })
 
     render(
       <form onSubmit={handleSubmit}>
@@ -98,17 +103,21 @@ describe('InfiniteSelect', () => {
           placeholder="Select an option..."
           searchLabel="Search"
           displayItem={(item) => item.name}
-          defaultValue={{ uid: '1234', name: 'Any name' }}
-          query={jest.fn()}
+          onChange={onChange}
+          query={query}
         />
         <button type="submit">Submit</button>
       </form>,
     )
 
+    await user.click(screen.getByLabelText(/Infinite options/i))
+    simulateIntersection(intersectionCallback)
+    await waitFor(() => screen.getByRole('option', { name: 'Item 1' }))
+    await user.click(screen.getByRole('option', { name: 'Item 1' }))
     await user.click(screen.getByRole('button', { name: /submit/i }))
 
-    expect(submitValue).toBe('1234')
-    expect(screen.getByText('Any name')).toBeInTheDocument()
+    expect(submitValue).toBe('1')
+    expect(onChange).toHaveBeenCalledWith({ uid: '1', name: 'Item 1' })
   })
   it('delete selected option when click on clear button', async () => {
     let submitValue = ''
