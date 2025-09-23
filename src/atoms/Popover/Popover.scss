@@ -142,8 +142,13 @@
 
     .popover-menu-container {
       position: fixed;
-      bottom: 0;
+      bottom: 0 !important;
+      left: 0 !important;
       width: 100%;
+      right: inherit !important;
+      transform: inherit !important;
+      margin-top: inherit !important;
+      margin-bottom: inherit !important;
 
       .backdrop {
         display: inherit;
