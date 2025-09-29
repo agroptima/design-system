@@ -47,6 +47,7 @@ function Popover({
         onClick={close}
         aria-hidden={!isOpen}
       >
+        <div className="backdrop"></div>
         {children}
       </div>
     </div>

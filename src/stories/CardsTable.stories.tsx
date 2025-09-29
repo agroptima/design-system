@@ -112,11 +112,6 @@ export const Primary: Story = {
               href="link.com"
             />
             <IconButton
-              icon="Export"
-              accessibilityLabel="Export game"
-              href="link.com"
-            />
-            <IconButton
               icon="Delete"
               accessibilityLabel="Delete game"
               href="link.com"
