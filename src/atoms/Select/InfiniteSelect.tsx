@@ -28,7 +28,7 @@ export interface InfiniteSelectProps<T>
   placeholder: string
   accessibilityLabel?: string
   searchLabel: string
-  defaultValue?: T
+  defaultValue?: T | undefined | null
   searchDebounceTime?: number
   disabled?: boolean
   helpText?: string
@@ -37,6 +37,7 @@ export interface InfiniteSelectProps<T>
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
   errors?: string[]
   fullWidth?: boolean
+  onChange?: (value: T) => void
 }
 
 export function InfiniteSelect<T extends { uid: string }>({
@@ -56,20 +57,23 @@ export function InfiniteSelect<T extends { uid: string }>({
   query,
   errors,
   fullWidth = false,
+  onChange = () => {},
   ...props
 }: InfiniteSelectProps<T>) {
   const { isOpen, close, toggle } = useOpen()
   const selectRef = useRef<HTMLDivElement | null>(null)
   const loaderRef = useRef<HTMLDivElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
+  const loadingRef = useRef<boolean>(false)
+  const [morePages, setMorePages] = useState<boolean>(true)
+  const morePagesRef = useRef<boolean>(morePages)
+
   useOutsideClick(selectRef, close)
   const [selectedItem, setSelectedItem] = useState<T | null>(
     defaultValue || null,
   )
   const [items, setItems] = useState<T[]>([])
   const [page, setPage] = useState<number>(1)
-  const [morePages, setMorePages] = useState<boolean>(true)
-  const [loading, setLoading] = useState<boolean>(false)
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
   const identifier = id || name
   const displayValue = selectedItem ? displayItem(selectedItem) : placeholder
   const isInvalid = Boolean(errors?.length)
@@ -89,12 +93,13 @@ export function InfiniteSelect<T extends { uid: string }>({
     // TODO: MultiSelect case
     setSelectedItem(item)
     close()
+    onChange(item)
   }
 
   const loadItems = useCallback(
     async (searchTerm: string = '', resetPage?: number) => {
-      if (loading || !morePages) return
-      setLoading(true)
+      if (loadingRef.current || !morePagesRef.current) return
+      loadingRef.current = true
       try {
         const currentPage = resetPage ? resetPage : page
         const { items, totalPages } = await query({
@@ -103,14 +108,16 @@ export function InfiniteSelect<T extends { uid: string }>({
         })
         setItems((prev) => [...prev, ...items])
         setPage(currentPage + 1)
-        setMorePages(currentPage < totalPages)
+        const hasMorePages = currentPage < totalPages
+        morePagesRef.current = hasMorePages
+        setMorePages(hasMorePages)
       } catch (error) {
         // TODO: Handle error correctly
         console.error('Error loading items:', error)
       }
-      setLoading(false)
+      loadingRef.current = false
     },
-    [page, query, loading, morePages],
+    [page, query],
   )
 
   useEffect(() => {
@@ -132,7 +139,7 @@ export function InfiniteSelect<T extends { uid: string }>({
       if (loader) observer.unobserve(loader)
       observer.disconnect()
     }
-  }, [loadItems, loaderRef, loading])
+  }, [loadItems, loaderRef])
 
   const sendSearchTerm = useDebouncedCallback((term: string) => {
     if (term.length > 0 && term.length < minLengthSearch) return
