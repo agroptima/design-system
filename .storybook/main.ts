@@ -13,10 +13,9 @@ const config: StorybookConfig = {
 
   addons: [
     getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-interactions'),
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
+    getAbsolutePath("@storybook/addon-docs")
   ],
 
   framework: {

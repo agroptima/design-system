@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Button } from '../atoms/Button'
 import { Input } from '../atoms/Input'
 import { InputWithButton } from '../atoms/InputWithButton'

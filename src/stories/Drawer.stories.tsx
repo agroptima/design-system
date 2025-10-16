@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible/Collapsible'

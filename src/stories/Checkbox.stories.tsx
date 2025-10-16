@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import NextLink from 'next/link'
 import { Checkbox } from '../atoms/Checkbox'
 

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { RadioGroup } from '../atoms/RadioGroup'
 
 const figmaPrimaryDesign = {
