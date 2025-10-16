@@ -1,6 +1,6 @@
 import '../src/index.scss'
-import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import type { Preview } from '@storybook/nextjs'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 
 const preview: Preview = {
   parameters: {

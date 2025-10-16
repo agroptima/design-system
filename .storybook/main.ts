@@ -15,7 +15,7 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-links'),
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
-    getAbsolutePath("@storybook/addon-docs")
+    getAbsolutePath('@storybook/addon-docs'),
   ],
 
   framework: {
