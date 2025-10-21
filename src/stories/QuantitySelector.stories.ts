@@ -53,6 +53,9 @@ const meta = {
         'Makes the QuantitySelector take the full width of the container',
       type: 'boolean',
     },
+    hideLabel: {
+      description: 'Show or hide label?',
+    },
   },
 }
 

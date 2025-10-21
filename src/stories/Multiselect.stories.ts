@@ -70,6 +70,9 @@ const meta = {
       description: 'Makes the Multiselect take the full width of the container',
       type: 'boolean',
     },
+    hideLabel: {
+      description: 'Show or hide label?',
+    },
   },
 }
 
