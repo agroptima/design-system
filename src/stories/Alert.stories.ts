@@ -20,7 +20,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Feedback components'],
   argTypes: {
     id: {
       description: 'Id for aria purposes',

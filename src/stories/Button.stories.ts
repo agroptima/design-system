@@ -19,7 +19,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   args: {
     label: 'Button',
   },

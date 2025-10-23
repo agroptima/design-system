@@ -13,7 +13,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     accessibilityLabel: {
       description: 'Accessible name & description of the element',

@@ -25,7 +25,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     onChange: {
       description: 'Function onChange',

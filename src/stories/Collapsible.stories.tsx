@@ -17,7 +17,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Collapsible',
   component: Collapsible,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components', 'Layout components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

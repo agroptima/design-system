@@ -30,7 +30,7 @@ const meta = {
     },
     figmaDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     children: {
       description: 'prop is used to pass buttons components',

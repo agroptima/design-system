@@ -28,7 +28,7 @@ const meta = {
     },
     figmaDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     position: {
       description: 'Position of the Popover component',

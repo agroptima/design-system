@@ -65,7 +65,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     id: {
       description: 'Set id property',

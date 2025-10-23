@@ -24,7 +24,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components', 'Action components'],
   argTypes: {
     children: {
       description: 'prop is used to pass a input and button components.',

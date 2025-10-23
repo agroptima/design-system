@@ -21,7 +21,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     id: {
       description: 'Id for aria purposes',

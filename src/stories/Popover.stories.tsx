@@ -14,7 +14,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Popover',
   component: Popover,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components', 'Navigation components'],
   argTypes: {
     renderButton: {
       description: 'Render prop for the button that triggers the popover',

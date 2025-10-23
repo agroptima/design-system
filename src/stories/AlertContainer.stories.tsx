@@ -12,7 +12,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/AlertContainer',
   component: AlertContainer,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Feedback components'],
   argTypes: {},
   parameters: figmaPrimaryDesign,
 }

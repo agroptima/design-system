@@ -24,7 +24,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

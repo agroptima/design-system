@@ -26,7 +26,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     icon: {
       description: 'Component icon used',

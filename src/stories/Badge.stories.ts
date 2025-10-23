@@ -13,7 +13,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

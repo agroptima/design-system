@@ -18,7 +18,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     accessibilityLabel: {
       description: 'Accessible name & description of the element',

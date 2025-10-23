@@ -17,7 +17,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Pagination',
   component: Pagination,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     size: {
       description: 'Pagination size (small, medium)',

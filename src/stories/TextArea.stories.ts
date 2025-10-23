@@ -20,7 +20,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     label: {
       description: 'Label for the textarea',

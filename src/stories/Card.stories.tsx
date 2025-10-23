@@ -27,7 +27,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components'],
   argTypes: {
     visible: {
       description: 'Is component visible?',

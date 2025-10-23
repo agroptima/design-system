@@ -15,7 +15,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Drawer',
   component: Drawer,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Layout components', 'Data display components'],
   argTypes: {
     id: {
       description: 'Id for aria purposes',

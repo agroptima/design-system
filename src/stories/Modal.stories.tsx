@@ -45,7 +45,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Feedback components'],
   args: {
     children: 'Modal',
     isOpen: false,

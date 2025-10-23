@@ -25,7 +25,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/CardsTable',
   component: CardsTable,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components'],
   parameters: {
     docs: {
       description: {

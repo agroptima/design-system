@@ -21,7 +21,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     fullWidth: {
       description: 'Should the form take full width?',

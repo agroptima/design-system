@@ -17,7 +17,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Layout components'],
   argTypes: {
     title: {
       description: 'A title for divider',
