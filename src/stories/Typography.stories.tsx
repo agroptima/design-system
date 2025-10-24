@@ -13,7 +13,7 @@ const meta = {
   title: 'Design System/Styles',
   component: TypographyExamples,
   parameters: figmaPrimaryDesign,
-  tags: ['Documentation', '!Components'],
+  tags: ['Styles', 'Documentation', '!Components'],
 }
 
 export default meta
