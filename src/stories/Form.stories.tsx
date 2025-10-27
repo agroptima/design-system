@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import type { JSX } from 'react'
 import { Button } from '../atoms/Button'
 import { Actions, Form } from '../atoms/Form'
@@ -21,7 +21,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     fullWidth: {
       description: 'Should the form take full width?',

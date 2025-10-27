@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { RadioGroup } from '../atoms/RadioGroup'
 
 const figmaPrimaryDesign = {
@@ -25,7 +25,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     onChange: {
       description: 'Function onChange',

@@ -1,6 +1,6 @@
 import '../src/index.scss'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/nextjs'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 
 const preview: Preview = {
   parameters: {
@@ -23,11 +23,11 @@ const preview: Preview = {
       },
     },
     viewport: {
-      viewports: INITIAL_VIEWPORTS,
+      options: INITIAL_VIEWPORTS,
     },
   },
 
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Components'],
 }
 
 export default preview

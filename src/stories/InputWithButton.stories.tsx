@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Button } from '../atoms/Button'
 import { Input } from '../atoms/Input'
 import { InputWithButton } from '../atoms/InputWithButton'
@@ -24,7 +24,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components', 'Action components'],
   argTypes: {
     children: {
       description: 'prop is used to pass a input and button components.',

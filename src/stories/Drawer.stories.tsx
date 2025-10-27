@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible/Collapsible'
@@ -15,7 +15,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Drawer',
   component: Drawer,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Layout components', 'Data display components'],
   argTypes: {
     id: {
       description: 'Id for aria purposes',

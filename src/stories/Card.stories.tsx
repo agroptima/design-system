@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { IconButton } from '../atoms/Button'
 import { Button } from '../atoms/Button'
 import { Card, CardContent, CardFooter, CardHeader } from '../atoms/Card'
@@ -27,7 +27,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components'],
   argTypes: {
     visible: {
       description: 'Is component visible?',

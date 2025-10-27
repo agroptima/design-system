@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Select } from '../atoms/Select'
 
 const meta = {
@@ -21,7 +21,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     label: {
       description: 'Label for the select',
@@ -71,6 +71,9 @@ const meta = {
     fullWidth: {
       description: 'Makes the Select take the full width of the container',
       type: 'boolean',
+    },
+    hideLabel: {
+      description: 'Show or hide label?',
     },
   },
 }

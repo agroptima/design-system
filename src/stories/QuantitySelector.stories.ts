@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { QuantitySelector } from '../atoms/QuantitySelector'
 
 const meta = {
@@ -14,7 +14,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     label: {
       description: 'Label for the component',
@@ -52,6 +52,9 @@ const meta = {
       description:
         'Makes the QuantitySelector take the full width of the container',
       type: 'boolean',
+    },
+    hideLabel: {
+      description: 'Show or hide label?',
     },
   },
 }

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import NextLink from 'next/link'
 import { Checkbox } from '../atoms/Checkbox'
 
@@ -18,7 +18,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     accessibilityLabel: {
       description: 'Accessible name & description of the element',
@@ -38,6 +38,9 @@ const meta = {
     required: {
       description: 'Is required?',
       type: 'boolean',
+    },
+    hideLabel: {
+      description: 'Show or hide label?',
     },
   },
 }

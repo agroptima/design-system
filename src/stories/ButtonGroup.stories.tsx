@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Button } from '../atoms/Button'
 import { ButtonGroup } from '../atoms/ButtonGroup'
 import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
@@ -30,7 +30,7 @@ const meta = {
     },
     figmaDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     children: {
       description: 'prop is used to pass buttons components',

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { IconButton } from '../atoms/Button'
 
 const meta = {
@@ -19,7 +19,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     accessibilityLabel: {
       description: 'Accessible name & description of the element',

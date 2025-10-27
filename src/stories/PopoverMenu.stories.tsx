@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
 
@@ -12,7 +12,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/PopoverMenu',
   component: PopoverMenuOption,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components', 'Navigation components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

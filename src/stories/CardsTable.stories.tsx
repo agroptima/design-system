@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { ActionsMenu } from '../atoms/ActionsMenu'
 import { Badge } from '../atoms/Badge'
@@ -25,7 +25,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/CardsTable',
   component: CardsTable,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components'],
   parameters: {
     docs: {
       description: {

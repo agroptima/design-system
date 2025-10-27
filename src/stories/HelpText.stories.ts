@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { HelpText } from '../atoms/HelpText'
 
 const meta = {
@@ -13,7 +13,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components', 'Feedback components'],
   argTypes: {
     helpText: {
       description: 'Label for the input',

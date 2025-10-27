@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Button } from '../atoms/Button'
 import { EmptyState } from '../atoms/EmptyState'
 
@@ -12,7 +12,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/EmptyState',
   component: EmptyState,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components'],
   argTypes: {
     icon: {
       description: 'A default icon is set for the empty state.',

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { TabLink, TabMenu } from '../atoms/TabMenu'
 
 const figmaPrimaryDesign = {
@@ -24,7 +24,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

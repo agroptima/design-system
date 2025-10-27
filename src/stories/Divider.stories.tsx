@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { IconButton } from '../atoms/Button'
 import { Divider } from '../atoms/Divider'
 
@@ -17,7 +17,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Layout components'],
   argTypes: {
     title: {
       description: 'A title for divider',

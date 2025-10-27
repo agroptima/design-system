@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Alert } from '../atoms/Alert'
 
 const meta = {
@@ -20,7 +20,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Feedback components'],
   argTypes: {
     id: {
       description: 'Id for aria purposes',

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { Multiselect } from '../atoms/Select/MultiSelect'
 
 const meta = {
@@ -19,7 +19,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data entry components'],
   argTypes: {
     label: {
       description: 'Label for the select',
@@ -69,6 +69,9 @@ const meta = {
     fullWidth: {
       description: 'Makes the Multiselect take the full width of the container',
       type: 'boolean',
+    },
+    hideLabel: {
+      description: 'Show or hide label?',
     },
   },
 }

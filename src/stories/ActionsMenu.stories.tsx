@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { ActionsMenu } from '../atoms/ActionsMenu'
 import { PopoverMenuOption } from '../atoms/Popover'
 
@@ -28,7 +28,7 @@ const meta = {
     },
     figmaDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     position: {
       description: 'Position of the Popover component',

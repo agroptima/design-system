@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Menu, MenuDropdown, MenuLink } from '../atoms/Menu'
 
@@ -26,7 +26,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     icon: {
       description: 'Component icon used',

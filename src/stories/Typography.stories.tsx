@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Typography as TypographyExamples } from '../examples/Typography'
 
@@ -13,6 +13,7 @@ const meta = {
   title: 'Design System/Styles',
   component: TypographyExamples,
   parameters: figmaPrimaryDesign,
+  tags: ['Styles', 'Documentation', '!Components'],
 }
 
 export default meta

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Alert, AlertContainer } from '../atoms/Alert'
 
@@ -12,7 +12,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/AlertContainer',
   component: AlertContainer,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Feedback components'],
   argTypes: {},
   parameters: figmaPrimaryDesign,
 }

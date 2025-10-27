@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 
 const figmaPrimaryDesign = {
@@ -11,7 +11,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/CheckableTag',
   component: CheckableTag,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

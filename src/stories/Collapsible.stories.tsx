@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Collapsible } from '../atoms/Collapsible'
@@ -17,7 +17,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Collapsible',
   component: Collapsible,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Data display components', 'Layout components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

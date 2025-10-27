@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
@@ -14,7 +14,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Popover',
   component: Popover,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Action components', 'Navigation components'],
   argTypes: {
     renderButton: {
       description: 'Render prop for the button that triggers the popover',

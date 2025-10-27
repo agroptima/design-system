@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Button } from '../atoms/Button'
 import { Collapsible } from '../atoms/Collapsible'
@@ -45,7 +45,7 @@ const meta = {
     },
     figmaPrimaryDesign,
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Feedback components'],
   args: {
     children: 'Modal',
     isOpen: false,

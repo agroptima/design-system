@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import {
   Ellipsis,
@@ -17,7 +17,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/Pagination',
   component: Pagination,
-  tags: ['autodocs'],
+  tags: ['autodocs', 'Navigation components'],
   argTypes: {
     size: {
       description: 'Pagination size (small, medium)',
