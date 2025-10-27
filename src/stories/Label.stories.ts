@@ -15,7 +15,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs', 'Data display components', 'Layout components'],
+  tags: ['autodocs', 'Data display components'],
   argTypes: {
     children: {
       description: 'Text or element to be shown on the component.',

@@ -11,7 +11,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/CheckableTag',
   component: CheckableTag,
-  tags: ['autodocs', 'Action components', 'Data entry components'],
+  tags: ['autodocs', 'Action components'],
   argTypes: {
     variant: {
       description: 'Component variant used',

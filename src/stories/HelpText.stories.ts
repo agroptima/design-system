@@ -13,7 +13,7 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs', 'Feedback components'],
+  tags: ['autodocs', 'Data display components', 'Feedback components'],
   argTypes: {
     helpText: {
       description: 'Label for the input',

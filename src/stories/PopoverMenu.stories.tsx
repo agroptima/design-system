@@ -12,7 +12,7 @@ const figmaPrimaryDesign = {
 const meta = {
   title: 'Design System/Atoms/PopoverMenu',
   component: PopoverMenuOption,
-  tags: ['autodocs', 'Navigation components'],
+  tags: ['autodocs', 'Action components', 'Navigation components'],
   argTypes: {
     variant: {
       description: 'Component variant used',
