@@ -84,6 +84,7 @@ export function DateSinglePicker({
             placeholder={translations[lng].singlePlaceholder}
             helpText={helpText}
             errors={errors}
+            required={required}
             readOnly
           />
         </div>

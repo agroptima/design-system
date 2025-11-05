@@ -94,6 +94,7 @@ export function DateRangePicker({
             icon="Calendar"
             name={name}
             placeholder={translations[lng].rangePlaceholder}
+            required={required}
             readOnly
           />
         </div>
