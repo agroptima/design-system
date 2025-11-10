@@ -1,9 +1,68 @@
 @use '../settings/typography/content' as typography;
 @use '../settings/breakpoints';
+@use '../settings/colors';
 
 html {
   scroll-behavior: smooth;
   max-width: 100%;
+}
+
+.side-by-side {
+  display: flex;
+  gap: 2rem;
+  >.isagri, >.bacosoft {
+    flex: 1;
+  }
+}
+
+.isagri {
+  --primary-color-1000: #{colors.$isagriefact-primary-1000};
+  --primary-color-900: #{colors.$isagriefact-primary-900};
+  --primary-color-800: #{colors.$isagriefact-primary-800};
+  --primary-color-700: #{colors.$isagriefact-primary-700};
+  --primary-color-600: #{colors.$isagriefact-primary-600};
+  --primary-color-500: #{colors.$isagriefact-primary-500};
+  --primary-color-400: #{colors.$isagriefact-primary-400};
+  --primary-color-300: #{colors.$isagriefact-primary-300};
+  --primary-color-200: #{colors.$isagriefact-primary-200};
+  --primary-color-100: #{colors.$isagriefact-primary-100};
+  --primary-color-50: #{colors.$isagriefact-primary-50};
+  --neutral-color-1000: #{colors.$isagriefact-grey-1000};
+  --neutral-color-900: #{colors.$isagriefact-grey-900};
+  --neutral-color-800: #{colors.$isagriefact-grey-800};
+  --neutral-color-700: #{colors.$isagriefact-grey-700};
+  --neutral-color-600: #{colors.$isagriefact-grey-600};
+  --neutral-color-500: #{colors.$isagriefact-grey-500};
+  --neutral-color-400: #{colors.$isagriefact-grey-400};
+  --neutral-color-300: #{colors.$isagriefact-grey-300};
+  --neutral-color-200: #{colors.$isagriefact-grey-200};
+  --neutral-color-100: #{colors.$isagriefact-grey-100};
+  --neutral-color-50: #{colors.$isagriefact-grey-50};
+}
+
+.bacosoft {
+  --primary-color-1000: #{colors.$magenta-1000};
+  --primary-color-900: #{colors.$magenta-900};
+  --primary-color-800: #{colors.$magenta-800};
+  --primary-color-700: #{colors.$magenta-700};
+  --primary-color-600: #{colors.$magenta-600};
+  --primary-color-500: #{colors.$magenta-500};
+  --primary-color-400: #{colors.$magenta-400};
+  --primary-color-300: #{colors.$magenta-300};
+  --primary-color-200: #{colors.$magenta-200};
+  --primary-color-100: #{colors.$magenta-100};
+  --primary-color-50: #{colors.$magenta-50};
+  --neutral-color-1000: #{colors.$grey-1000};
+  --neutral-color-900: #{colors.$grey-900};
+  --neutral-color-800: #{colors.$grey-800};
+  --neutral-color-700: #{colors.$grey-700};
+  --neutral-color-600: #{colors.$grey-600};
+  --neutral-color-500: #{colors.$grey-500};
+  --neutral-color-400: #{colors.$grey-400};
+  --neutral-color-300: #{colors.$grey-300};
+  --neutral-color-200: #{colors.$grey-200};
+  --neutral-color-100: #{colors.$grey-100};
+  --neutral-color-50: #{colors.$grey-50};
 }
 
 body {
