@@ -31,6 +31,7 @@ import ElectronicInvoice from './electronic-invoice.svg'
 import EmptyState from './empty-customize.svg'
 import Error from './error.svg'
 import Export from './export.svg'
+import ExportToExcel from './export-to-excel.svg'
 import Filter from './filter.svg'
 import Import from './import.svg'
 import Info from './info.svg'
@@ -94,6 +95,7 @@ export {
   EmptyState,
   Error,
   Export,
+  ExportToExcel,
   Filter,
   Import,
   Info,
