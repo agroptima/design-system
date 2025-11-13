@@ -22,7 +22,8 @@
         no-repeat;
     }
     .checkbox:checked {
-      background: url('../icons/checkbox-primary-active.svg') left top no-repeat;
+      background: var(--primary-color-600)
+        url('../icons/checkbox-primary-active.svg') left top no-repeat;
     }
     .checkbox:disabled {
       background: url('../icons/checkbox-disabled-inactive.svg') left top
