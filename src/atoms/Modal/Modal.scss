@@ -1,6 +1,6 @@
 @use '../../settings/mixins';
 @use '../../settings/typography/content' as typography;
-@use '../../settings/color_alias';
+
 @use '../../settings/breakpoints';
 @use '../../settings/depth';
 @use '../../settings/config';
@@ -12,10 +12,10 @@
 $modal-margin: 3rem;
 $modal-width: 34.5rem;
 $modal-detail-width: 50rem;
-$modal-background-color: color_alias.$neutral-white;
-$modal-border-color: color_alias.$neutral-color-200;
+$modal-background-color: var(--neutral-white);
+$modal-border-color: var(--neutral-color-200);
 $backdrop-opacity: 0.4;
-$backdrop-background-color: color_alias.$neutral-color-900;
+$backdrop-background-color: var(--neutral-color-900);
 
 .modal {
   position: fixed;

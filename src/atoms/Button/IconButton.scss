@@ -1,4 +1,3 @@
-@use '../../settings/color_alias';
 @use '../../settings/config';
 
 .icon-button {
@@ -13,9 +12,9 @@
   &.primary {
     > .icon {
       > svg {
-        fill: color_alias.$primary-color-600;
+        fill: var(--primary-color-600);
         path {
-          fill: color_alias.$primary-color-600;
+          fill: var(--primary-color-600);
         }
       }
     }
@@ -23,9 +22,9 @@
     &:hover {
       > .icon {
         > svg {
-          fill: color_alias.$primary-color-800;
+          fill: var(--primary-color-800);
           path {
-            fill: color_alias.$primary-color-800;
+            fill: var(--primary-color-800);
           }
         }
       }
@@ -35,9 +34,9 @@
   &.secondary {
     > .icon {
       > svg {
-        fill: color_alias.$neutral-white;
+        fill: var(--neutral-white);
         path {
-          fill: color_alias.$neutral-white;
+          fill: var(--neutral-white);
         }
       }
     }
@@ -45,9 +44,9 @@
     &:hover {
       > .icon {
         > svg {
-          fill: color_alias.$neutral-color-1000;
+          fill: var(--neutral-color-1000);
           path {
-            fill: color_alias.$neutral-color-1000;
+            fill: var(--neutral-color-1000);
           }
         }
       }
@@ -57,9 +56,9 @@
   &.tertiary {
     > .icon {
       > svg {
-        fill: color_alias.$neutral-color-400;
+        fill: var(--neutral-color-400);
         path {
-          fill: color_alias.$neutral-color-400;
+          fill: var(--neutral-color-400);
         }
       }
     }
@@ -67,9 +66,9 @@
     &:hover {
       > .icon {
         > svg {
-          fill: color_alias.$neutral-color-400;
+          fill: var(--neutral-color-400);
           path {
-            fill: color_alias.$neutral-color-400;
+            fill: var(--neutral-color-400);
           }
         }
       }
@@ -80,9 +79,9 @@
     &:disabled {
       > .icon {
         > svg {
-          fill: color_alias.$neutral-color-400;
+          fill: var(--neutral-color-400);
           path {
-            fill: color_alias.$neutral-color-400;
+            fill: var(--neutral-color-400);
           }
         }
       }
@@ -93,10 +92,10 @@
     &:disabled {
       > .icon {
         > svg {
-          fill: color_alias.$neutral-white;
+          fill: var(--neutral-white);
           fill-opacity: 0.6;
           path {
-            fill: color_alias.$neutral-white;
+            fill: var(--neutral-white);
           }
         }
       }

@@ -2,4 +2,6 @@
 @use './generic/fonts';
 @use './generic/helpers';
 @use './generic/base';
+@use './settings/colors';
+@use './settings/color_alias';
 @use './generic/themes';
