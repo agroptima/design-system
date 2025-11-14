@@ -30,10 +30,10 @@ const preview: Preview = {
   decorators: [
     withThemeByClassName<ReactRenderer>({
       themes: {
-        'isagri-erp': 'isagri-erp',
-        'bacosoft-erp': 'bacosoft-erp',
+        pistachio: 'pistachio',
+        strawberry: 'strawberry',
       },
-      defaultTheme: 'isagri-erp',
+      defaultTheme: 'pistachio',
     }),
     (Story, context) => (
       <div className={context.globals.theme}>
