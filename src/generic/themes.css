@@ -1,27 +1,4 @@
-:root {
-  --primary-color-1000: var(--isagri-primary-color-1000);
-  --primary-color-900: var(--isagri-primary-color-900);
-  --primary-color-800: var(--isagri-primary-color-800);
-  --primary-color-700: var(--isagri-primary-color-700);
-  --primary-color-600: var(--isagri-primary-color-600);
-  --primary-color-500: var(--isagri-primary-color-500);
-  --primary-color-400: var(--isagri-primary-color-400);
-  --primary-color-300: var(--isagri-primary-color-300);
-  --primary-color-200: var(--isagri-primary-color-200);
-  --primary-color-100: var(--isagri-primary-color-100);
-  --primary-color-50: var(--isagri-primary-color-50);
-  --neutral-color-1000: var(--isagri-neutral-color-1000);
-  --neutral-color-900: var(--isagri-neutral-color-900);
-  --neutral-color-800: var(--isagri-neutral-color-800);
-  --neutral-color-700: var(--isagri-neutral-color-700);
-  --neutral-color-600: var(--isagri-neutral-color-600);
-  --neutral-color-500: var(--isagri-neutral-color-500);
-  --neutral-color-400: var(--isagri-neutral-color-400);
-  --neutral-color-300: var(--isagri-neutral-color-300);
-  --neutral-color-200: var(--isagri-neutral-color-200);
-  --neutral-color-100: var(--isagri-neutral-color-100);
-  --neutral-color-50: var(--isagri-neutral-color-50);
-  
+:root {  
   .bacosoft-erp {
     --primary-color-1000: var(--bacosoft-primary-color-1000);
     --primary-color-900: var(--bacosoft-primary-color-900);

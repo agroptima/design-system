@@ -29,6 +29,7 @@
     "@storybook/addon-designs": "^10.0.2",
     "@storybook/addon-docs": "^9.1.12",
     "@storybook/addon-links": "^9.1.12",
+    "@storybook/addon-themes": "^9.1.12",
     "@storybook/nextjs": "^9.1.12",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.9.1",

@@ -1,5 +1,6 @@
 import '../src/index.scss'
-import type { Preview } from '@storybook/nextjs'
+import { withThemeByClassName } from '@storybook/addon-themes'
+import type { Preview, ReactRenderer } from '@storybook/nextjs'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 
 const preview: Preview = {
@@ -26,7 +27,20 @@ const preview: Preview = {
       options: INITIAL_VIEWPORTS,
     },
   },
-
+  decorators: [
+    withThemeByClassName<ReactRenderer>({
+      themes: {
+        'isagri-erp': 'isagri-erp',
+        'bacosoft-erp': 'bacosoft-erp',
+      },
+      defaultTheme: 'isagri-erp',
+    }),
+    (Story, context) => (
+      <div className={context.globals.theme}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs', 'Components'],
 }
 
