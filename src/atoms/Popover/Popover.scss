@@ -72,6 +72,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  border-radius: config.$corner-radius-xxs;
+  overflow: hidden;
   box-shadow:
     0 3px 6px -4px rgba(0, 0, 0, 0.12),
     0px 6px 16px 0px rgba(0, 0, 0, 0.08),
@@ -82,7 +84,6 @@
     display: flex;
     width: 100%;
     padding: config.$space-2x config.$space-3x config.$space-2x config.$space-3x;
-    border-radius: config.$corner-radius-xxs;
     text-decoration: none;
     cursor: default;
     border: none;
