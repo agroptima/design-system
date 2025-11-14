@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
-import styles from "../docs/colors.module.scss";
+import styles from "../docs/colors.module.css";
 
 <Meta title="Design System/Styles/Colors" tags={['Styles', 'Documentation', '!Components']} />
 
@@ -9,44 +9,77 @@ import styles from "../docs/colors.module.scss";
 
 <ColorPalette>
   <ColorItem
-    title="$primary-color-"
-    subtitle="All primary colors"
-    colors={{ "1000": styles.primaryColor1000,
-              "900": styles.primaryColor900,
-              "800": styles.primaryColor800,
-              "700": styles.primaryColor700,
-              "600": styles.primaryColor600,
-              "500": styles.primaryColor500,
-              "400": styles.primaryColor400,
-              "300": styles.primaryColor300,
-              "200": styles.primaryColor200,
-              "100": styles.primaryColor100,
-              "50": styles.primaryColor50, }}
+    title="primary-color-"
+    subtitle="B primary colors"
+    colors={{ "1000": styles.BPrimaryColor1000,
+              "900": styles.BPrimaryColor900,
+              "800": styles.BPrimaryColor800,
+              "700": styles.BPrimaryColor700,
+              "600": styles.BPrimaryColor600,
+              "500": styles.BPrimaryColor500,
+              "400": styles.BPrimaryColor400,
+              "300": styles.BPrimaryColor300,
+              "200": styles.BPrimaryColor200,
+              "100": styles.BPrimaryColor100,
+              "50": styles.BPrimaryColor50, }}
   />
 
   <ColorItem
-    title="$neutral-color-"
-    subtitle="All neutral colors"
-    colors={{ "1000": styles.neutralColor1000,
-              "900": styles.neutralColor900,
-              "800": styles.neutralColor800,
-              "700": styles.neutralColor700,
-              "600": styles.neutralColor600,
-              "500": styles.neutralColor500,
-              "400": styles.neutralColor400,
-              "300": styles.neutralColor300,
-              "200": styles.neutralColor200,
-              "100": styles.neutralColor100,
-              "50": styles.neutralColor50, }}
+    title="neutral color"
+    subtitle="B neutral colors"
+    colors={{ "1000": styles.BNeutralColor1000,
+              "900": styles.BNeutralColor900,
+              "800": styles.BNeutralColor800,
+              "700": styles.BNeutralColor700,
+              "600": styles.BNeutralColor600,
+              "500": styles.BNeutralColor500,
+              "400": styles.BNeutralColor400,
+              "300": styles.BNeutralColor300,
+              "200": styles.BNeutralColor200,
+              "100": styles.BNeutralColor100,
+              "50": styles.BNeutralColor50, }}
   />
+
   <ColorItem
-    title="$neutral-"
+    title="primary-color-"
+    subtitle="I primary colors"
+    colors={{ "1000": styles.IPrimaryColor1000,
+              "900": styles.IPrimaryColor900,
+              "800": styles.IPrimaryColor800,
+              "700": styles.IPrimaryColor700,
+              "600": styles.IPrimaryColor600,
+              "500": styles.IPrimaryColor500,
+              "400": styles.IPrimaryColor400,
+              "300": styles.IPrimaryColor300,
+              "200": styles.IPrimaryColor200,
+              "100": styles.IPrimaryColor100,
+              "50": styles.IPrimaryColor50, }}
+  />
+
+  <ColorItem
+    title="neutral color"
+    subtitle="I neutral colors"
+    colors={{ "1000": styles.INeutralColor1000,
+              "900": styles.INeutralColor900,
+              "800": styles.INeutralColor800,
+              "700": styles.INeutralColor700,
+              "600": styles.INeutralColor600,
+              "500": styles.INeutralColor500,
+              "400": styles.INeutralColor400,
+              "300": styles.INeutralColor300,
+              "200": styles.INeutralColor200,
+              "100": styles.INeutralColor100,
+              "50": styles.INeutralColor50, }}
+  />
+
+  <ColorItem
+    title="neutral-"
     subtitle="All neutral colors"
     colors={{ "black": styles.neutralBlack,
               "white": styles.neutralWhite, }}
   />
   <ColorItem
-    title="$error-color-"
+    title="error-color-"
     subtitle="All error colors"
     colors={{ "1000": styles.errorColor1000,
               "900": styles.errorColor900,
@@ -61,7 +94,7 @@ import styles from "../docs/colors.module.scss";
               "50": styles.errorColor50, }}
   />
   <ColorItem
-    title="$success-color-"
+    title="success-color-"
     subtitle="All success colors"
     colors={{ "1000": styles.successColor1000,
               "900": styles.successColor900,
@@ -76,7 +109,7 @@ import styles from "../docs/colors.module.scss";
               "50": styles.successColor50, }}
   />
   <ColorItem
-    title="$warning-color-"
+    title="warning-color-"
     subtitle="All warning colors"
     colors={{ "1000": styles.warningColor1000,
               "900": styles.warningColor900,
@@ -91,7 +124,7 @@ import styles from "../docs/colors.module.scss";
               "50": styles.warningColor50, }}
   />
   <ColorItem
-    title="$info-color-"
+    title="info-color-"
     subtitle="All info colors"
     colors={{ "1000": styles.infoColor1000,
               "900": styles.infoColor900,
