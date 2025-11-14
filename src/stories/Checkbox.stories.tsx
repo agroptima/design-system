@@ -95,6 +95,7 @@ export const Disabled: Story = {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: true,
+    defaultChecked: true,
     children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
   },
