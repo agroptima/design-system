@@ -1,0 +1,33 @@
+@use '../../settings/breakpoints';
+@use '../../settings/config';
+
+
+$height: 3.75rem;
+$height-mobile: 3.125rem;
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    gap: config.$space-2x;
+    align-items: center;
+    padding: config.$space-2x
+        calc(var(--modal-scroll-width, 0px) + config.$space-2x) config.$space-2x
+        config.$space-2x;
+    width: 100%;
+    height: $height;
+    background: var(--primary-color-1000);
+    z-index: 1;
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--header-color);
+    }
+    .button, .button.primary {
+        color: var(--header-color);
+    }
+    path {
+        fill: var(--header-color);
+    }
+    @media only screen and (max-width: breakpoints.$large) {
+        height: $height-mobile;
+    }
+}

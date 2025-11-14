@@ -1,16 +1,6 @@
 :root {  
   .strawberry {
-    --primary-color-1000: var(--strawberry-primary-color-1000);
-    --primary-color-900: var(--strawberry-primary-color-900);
-    --primary-color-800: var(--strawberry-primary-color-800);
-    --primary-color-700: var(--strawberry-primary-color-700);
-    --primary-color-600: var(--strawberry-primary-color-600);
-    --primary-color-500: var(--strawberry-primary-color-500);
-    --primary-color-400: var(--strawberry-primary-color-400);
-    --primary-color-300: var(--strawberry-primary-color-300);
-    --primary-color-200: var(--strawberry-primary-color-200);
-    --primary-color-100: var(--strawberry-primary-color-100);
-    --primary-color-50: var(--strawberry-primary-color-50);
+    --header-color: var(--neutral-white);
     --neutral-color-1000: var(--strawberry-neutral-color-1000);
     --neutral-color-900: var(--strawberry-neutral-color-900);
     --neutral-color-800: var(--strawberry-neutral-color-800);
@@ -22,30 +12,42 @@
     --neutral-color-200: var(--strawberry-neutral-color-200);
     --neutral-color-100: var(--strawberry-neutral-color-100);
     --neutral-color-50: var(--strawberry-neutral-color-50);
+    --primary-color-1000: var(--strawberry-primary-color-1000);
+    --primary-color-900: var(--strawberry-primary-color-900);
+    --primary-color-800: var(--strawberry-primary-color-800);
+    --primary-color-700: var(--strawberry-primary-color-700);
+    --primary-color-600: var(--strawberry-primary-color-600);
+    --primary-color-500: var(--strawberry-primary-color-500);
+    --primary-color-400: var(--strawberry-primary-color-400);
+    --primary-color-300: var(--strawberry-primary-color-300);
+    --primary-color-200: var(--strawberry-primary-color-200);
+    --primary-color-100: var(--strawberry-primary-color-100);
+    --primary-color-50: var(--strawberry-primary-color-50);
   }
 
   .pistachio {  
-  --primary-color-1000: var(--pistachio-primary-color-1000);
-  --primary-color-900: var(--pistachio-primary-color-900);
-  --primary-color-800: var(--pistachio-primary-color-800);
-  --primary-color-700: var(--pistachio-primary-color-700);
-  --primary-color-600: var(--pistachio-primary-color-600);
-  --primary-color-500: var(--pistachio-primary-color-500);
-  --primary-color-400: var(--pistachio-primary-color-400);
-  --primary-color-300: var(--pistachio-primary-color-300);
-  --primary-color-200: var(--pistachio-primary-color-200);
-  --primary-color-100: var(--pistachio-primary-color-100);
-  --primary-color-50: var(--pistachio-primary-color-50);
-  --neutral-color-1000: var(--pistachio-neutral-color-1000);
-  --neutral-color-900: var(--pistachio-neutral-color-900);
-  --neutral-color-800: var(--pistachio-neutral-color-800);
-  --neutral-color-700: var(--pistachio-neutral-color-700);
-  --neutral-color-600: var(--pistachio-neutral-color-600);
-  --neutral-color-500: var(--pistachio-neutral-color-500);
-  --neutral-color-400: var(--pistachio-neutral-color-400);
-  --neutral-color-300: var(--pistachio-neutral-color-300);
-  --neutral-color-200: var(--pistachio-neutral-color-200);
-  --neutral-color-100: var(--pistachio-neutral-color-100);
-  --neutral-color-50: var(--pistachio-neutral-color-50);
+    --header-color: var(--neutral-color-1000);
+    --neutral-color-1000: var(--pistachio-neutral-color-1000);
+    --neutral-color-900: var(--pistachio-neutral-color-900);
+    --neutral-color-800: var(--pistachio-neutral-color-800);
+    --neutral-color-700: var(--pistachio-neutral-color-700);
+    --neutral-color-600: var(--pistachio-neutral-color-600);
+    --neutral-color-500: var(--pistachio-neutral-color-500);
+    --neutral-color-400: var(--pistachio-neutral-color-400);
+    --neutral-color-300: var(--pistachio-neutral-color-300);
+    --neutral-color-200: var(--pistachio-neutral-color-200);
+    --neutral-color-100: var(--pistachio-neutral-color-100);
+    --neutral-color-50: var(--pistachio-neutral-color-50);
+    --primary-color-1000: var(--pistachio-primary-color-1000);
+    --primary-color-900: var(--pistachio-primary-color-900);
+    --primary-color-800: var(--pistachio-primary-color-800);
+    --primary-color-700: var(--pistachio-primary-color-700);
+    --primary-color-600: var(--pistachio-primary-color-600);
+    --primary-color-500: var(--pistachio-primary-color-500);
+    --primary-color-400: var(--pistachio-primary-color-400);
+    --primary-color-300: var(--pistachio-primary-color-300);
+    --primary-color-200: var(--pistachio-primary-color-200);
+    --primary-color-100: var(--pistachio-primary-color-100);
+    --primary-color-50: var(--pistachio-primary-color-50);
   }
 }
