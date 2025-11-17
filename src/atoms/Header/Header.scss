@@ -1,33 +1,35 @@
 @use '../../settings/breakpoints';
 @use '../../settings/config';
+@use '../../settings/mixins';
+@use '../../settings/depth';
 
-
-$height: 3.75rem;
-$height-mobile: 3.125rem;
 
 .header {
+    @include mixins.svg-color(var(--header-color));
     position: fixed;
     display: flex;
     justify-content: space-between;
     gap: config.$space-2x;
     align-items: center;
     padding: config.$space-2x
-        calc(var(--modal-scroll-width, 0px) + config.$space-2x) config.$space-2x
-        config.$space-2x;
+    calc(var(--modal-scroll-width, 0px) + config.$space-2x) config.$space-2x
+    config.$space-2x;
     width: 100%;
-    height: $height;
+    height: config.$header-height;
     background: var(--primary-color-1000);
-    z-index: 1;
+    z-index: depth.$z-header;
+    
     h1, h2, h3, h4, h5, h6 {
         color: var(--header-color);
     }
-    .button, .button.primary {
+    .button, .button.transparent {
+         @include mixins.icon-color(var(--header-color));
         color: var(--header-color);
     }
-    path {
-        fill: var(--header-color);
+    .icon-button.primary > .icon {
+        @include mixins.svg-color(var(--header-color));
     }
     @media only screen and (max-width: breakpoints.$large) {
-        height: $height-mobile;
+        height: config.$header-height-mobile;
     }
 }

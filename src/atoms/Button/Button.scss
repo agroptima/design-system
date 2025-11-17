@@ -69,6 +69,17 @@
     }
   }
 
+  &.transparent {
+    @include button-style(
+      transparent,
+      var(--neutral-color-1000),
+      transparent
+    );
+    &.disabled {
+      color: var(--neutral-color-400)
+    }
+  }
+
   &.error {
     @include button-style(
       var(--error-color-1000),
