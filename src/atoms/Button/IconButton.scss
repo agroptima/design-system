@@ -1,4 +1,5 @@
 @use '../../settings/config';
+@use '../../settings/mixins';
 
 .icon-button {
   border: none;
@@ -10,95 +11,38 @@
   justify-content: center;
 
   &.primary {
-    > .icon {
-      > svg {
-        fill: var(--primary-color-600);
-        path {
-          fill: var(--primary-color-600);
-        }
-      }
+    & > .icon {
+      @include mixins.svg-color(var(--primary-color-600));
     }
-
-    &:hover {
-      > .icon {
-        > svg {
-          fill: var(--primary-color-800);
-          path {
-            fill: var(--primary-color-800);
-          }
-        }
-      }
+    &:hover > .icon {
+      @include mixins.svg-color(var(--primary-color-800));
+    }
+    &:disabled > .icon {
+      @include mixins.svg-color(var(--neutral-color-400));
     }
   }
 
   &.secondary {
-    > .icon {
-      > svg {
-        fill: var(--neutral-white);
-        path {
-          fill: var(--neutral-white);
-        }
-      }
+    & > .icon {
+      @include mixins.svg-color(var(--accent-color));
     }
-
-    &:hover {
-      > .icon {
-        > svg {
-          fill: var(--neutral-color-1000);
-          path {
-            fill: var(--neutral-color-1000);
-          }
-        }
-      }
+    &:hover > .icon {
+      @include mixins.svg-color(var(--primary-color-800));
+    }
+    &:disabled > .icon {
+      @include mixins.svg-color(var(--neutral-color-400));
     }
   }
 
   &.tertiary {
-    > .icon {
-      > svg {
-        fill: var(--neutral-color-400);
-        path {
-          fill: var(--neutral-color-400);
-        }
-      }
+    & > .icon {
+      @include mixins.svg-color(var(--neutral-color-400));
     }
-
-    &:hover {
-      > .icon {
-        > svg {
-          fill: var(--neutral-color-400);
-          path {
-            fill: var(--neutral-color-400);
-          }
-        }
-      }
+    &:hover > .icon {
+      @include mixins.svg-color(var(--neutral-color-400));
     }
-  }
-
-  &.primary {
-    &:disabled {
-      > .icon {
-        > svg {
-          fill: var(--neutral-color-400);
-          path {
-            fill: var(--neutral-color-400);
-          }
-        }
-      }
-    }
-  }
-
-  &.secondary {
-    &:disabled {
-      > .icon {
-        > svg {
-          fill: var(--neutral-white);
-          fill-opacity: 0.6;
-          path {
-            fill: var(--neutral-white);
-          }
-        }
-      }
+    &:disabled > .icon {
+      opacity: 0.6;
     }
   }
 }

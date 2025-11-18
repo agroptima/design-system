@@ -1,6 +1,7 @@
-:root {  
+:root {
   .strawberry {
-    --header-color: var(--neutral-white);
+    --accent-color: var(--neutral-white);
+    --notification-color: var(--success-color-1000);
     --neutral-color-1000: var(--strawberry-neutral-color-1000);
     --neutral-color-900: var(--strawberry-neutral-color-900);
     --neutral-color-800: var(--strawberry-neutral-color-800);
@@ -25,8 +26,9 @@
     --primary-color-50: var(--strawberry-primary-color-50);
   }
 
-  .pistachio {  
-    --header-color: var(--neutral-color-1000);
+  .pistachio {
+    --accent-color: var(--pistachio-neutral-color-1000);
+    --notification-color: var(--warning-color-1000);
     --neutral-color-1000: var(--pistachio-neutral-color-1000);
     --neutral-color-900: var(--pistachio-neutral-color-900);
     --neutral-color-800: var(--pistachio-neutral-color-800);

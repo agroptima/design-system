@@ -1,8 +1,7 @@
 import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
 import { Button, IconButton } from '../atoms/Button'
-import { Header, type HeaderProps } from '../atoms/Header/Header'
-import { Icon } from '../atoms/Icon'
+import { Header, type HeaderProps } from '../atoms/Header'
 import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
 
 const meta = {
@@ -39,7 +38,11 @@ export const Primary: Story = {
     <Header {...props}>
       <h1>Header Title</h1>
       <div>
-        <IconButton icon="UserMenu" accessibilityLabel="User menu button" />
+        <IconButton
+          icon="UserMenu"
+          variant="secondary"
+          accessibilityLabel="User menu button"
+        />
         <Popover
           renderButton={({ toggle }) => (
             <Button
