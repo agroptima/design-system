@@ -4,17 +4,17 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Getting started guide for programmers
 
-## Indigo Project
+## How to install the project & use components
 
 ### Install agroptima-design-system dependency in beta mode
 
-This is suitable in order to check the Design System latest changes on Indigo Project without the need of publishing
+This is suitable in order to check the Design System latest changes on your project without the need of publishing
 a new version on npm.
 
 - Download the desired Design System feature branch.
 - On the package.json, if the current version is `0.18.0` change it by `0.18.0-beta.1`.
 - On the Design System project terminal, run `npm run publish:beta`.
-- On the Indigo project terminal, run `npm i agroptima-design-system@beta`.
+- On your project terminal, run `npm i agroptima-design-system@beta`.
 - If you need to apply new changes to the Design System branch, increase the beta version like this `0.18.0-beta.2` and run the previous steps.
 
 The beta mode allows us to work comfortably between the 2 projects and applying new changes or feedback to the Design System components
@@ -45,9 +45,42 @@ Use the desired component:
 />
 ```
 
-## Sioux Project
+## Themes
 
-We have been focused on creating prioritized components, learning how Storybook works and behaves, making the Design System independent
-from the Indigo project and checking the consumption of components from a single project.
+### How to use themes
 
-Once we reach the needed checkpoint, we'll continue the integration of the Design System with Sioux project.
+Themes can be used since 1.0.0 version. The project contains the following themes:
+* 🍓 `strawberry`
+* 🥜 `pistachio`
+
+In order to use them, you need to add the desired theme class to the main layout container of your project:
+```
+<div className="strawberry">
+    <header>My flavoured project</header>
+    <main className="main_class">
+        <aside className="aside_class">...</aside>
+        <div className="content_class">My content</div>
+    </main>
+</div>
+```
+
+Moreover, on the Design System component stories, by clicking on the `Themes` button from the upper toolbar, themes can be checked independently on each component.
+### How to add a new theme
+
+Follow the next steps to add a new theme on the Design System.
+
+**Update the theme colors files**
+
+* The Design team will export the `colors.css` and `color_alias.css` with the new values in CSS variables format.
+* On the `color_alias.css` file, take into account the variables are named as expected.
+* Finally, on the `themes.css` file, for the new theme, add a class to overwrite the needed colors, such as `primary` and `neutral`.
+
+**Update the Storybook Themes addon configuration**
+
+* On the `preview.tsx` file, on the `themes` object from `withThemeByClassName` add the new theme so Storybook recognises and adds it to the Stories theme switch.
+
+**Update the Colors documentation**
+
+* The Colors documentation showcases the swatches used on all variants and themes. Remember to update `Colors.mdx` and `colors.module.css` in order to reflect the new theme swatches.
+
+

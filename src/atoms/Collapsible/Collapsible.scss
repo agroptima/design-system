@@ -1,4 +1,3 @@
-@use '../../settings/color_alias';
 @use '../../settings/typography/content' as typography;
 @use '../../settings/config';
 @use '../../settings/depth';
@@ -42,38 +41,39 @@ details summary::-webkit-details-marker {
     }
   }
 
-  &.primary, &.secondary {
+  &.primary,
+  &.secondary {
     &[open] {
       .collapsible-header {
         background: transparent;
-        border-bottom: 3px solid color_alias.$primary-color-600;
+        border-bottom: 3px solid var(--primary-color-600);
       }
     }
 
     &.disabled {
       .collapsible-header {
-        background: color_alias.$neutral-color-50;
-        border-bottom: 1px solid color_alias.$neutral-color-200;
-        color: color_alias.$neutral-color-200;
-        @include mixins.svg-color(color_alias.$neutral-color-200);
+        background: var(--neutral-color-50);
+        border-bottom: 1px solid var(--neutral-color-200);
+        color: var(--neutral-color-200);
+        @include mixins.svg-color(var(--neutral-color-200));
       }
     }
 
     .collapsible-header {
-      color: color_alias.$neutral-color-1000;
+      color: var(--neutral-color-1000);
       background: transparent;
-      border-bottom: 1px solid color_alias.$neutral-color-200;
-      @include mixins.svg-color(color_alias.$primary-color-600);
+      border-bottom: 1px solid var(--neutral-color-200);
+      @include mixins.svg-color(var(--primary-color-600));
 
       &:hover {
-        background: color_alias.$primary-color-50;
+        background: var(--primary-color-50);
       }
     }
   }
 
   &.secondary .collapsible-content {
     padding: config.$space-3x config.$space-4x config.$space-6x;
-    border: 1px solid color_alias.$neutral-color-200;
+    border: 1px solid var(--neutral-color-200);
     border-top: none;
     border-bottom-left-radius: config.$corner-radius-m;
     border-bottom-right-radius: config.$corner-radius-m;

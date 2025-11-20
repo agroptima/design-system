@@ -50,7 +50,7 @@ export function Drawer({
           />
         </div>
         <div className="scroll-area">
-          <div className="header">
+          <div className="drawer-header">
             <h4 id={`${id}-title`} className="title">
               {title}
             </h4>

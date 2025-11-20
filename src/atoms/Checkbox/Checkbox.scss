@@ -1,0 +1,96 @@
+@use '../../settings/typography/form' as typography;
+@use '../../settings/config';
+
+.checkbox-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: config.$space-1x;
+
+  .checkbox-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .checkbox-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+
+    &:focus-visible ~ .checkbox-icon {
+      outline: 2px solid var(--primary-color-1000);
+      outline-offset: 2px;
+    }
+  }
+
+  .checkbox-icon {
+    width: config.$icon-size-4x;
+    height: config.$icon-size-4x;
+    flex-shrink: 0;
+    pointer-events: none;
+    display: none;
+  }
+
+  /* Disabled common state */
+  .checkbox-input:checked:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Default: show unchecked state */
+  .checkbox-input:not(:checked):not(:disabled) ~ .checkbox-icon--unchecked {
+    display: block;
+  }
+
+  /* Hover on unchecked state */
+  .checkbox-input:not(:checked):not(:disabled):hover
+    ~ .checkbox-icon--unchecked {
+    display: none;
+  }
+
+  .checkbox-input:not(:checked):not(:disabled):hover
+    ~ .checkbox-icon--unchecked-hover {
+    display: block;
+  }
+
+  /* Checked state */
+  .checkbox-input:checked:not(:disabled) ~ .checkbox-icon--checked {
+    display: block;
+  }
+
+  /* Disabled unchecked state */
+  .checkbox-input:not(:checked):disabled ~ .checkbox-icon--disabled {
+    display: block;
+  }
+
+  /* Disabled checked state */
+  .checkbox-input:checked:disabled ~ .checkbox-icon--disabled-checked {
+    display: block;
+  }
+
+  /* Indeterminate state */
+  &.indeterminate {
+    .checkbox-input:checked:not(:disabled) ~ .checkbox-icon--indeterminate {
+      display: block;
+    }
+
+    /* When indeterminate, hide the checked icon */
+    .checkbox-input:checked:not(:disabled) ~ .checkbox-icon--checked {
+      display: none;
+    }
+
+    /* When indeterminate, hide the checked icon */
+    .checkbox-input:checked:disabled ~ .checkbox-icon--disabled-indeterminate {
+      display: block;
+    }
+
+    /* Disabled checked state */
+    .checkbox-input:checked:disabled ~ .checkbox-icon--disabled-checked {
+      display: none;
+    }
+  }
+}

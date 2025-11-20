@@ -1,4 +1,3 @@
-@use '../../settings/color_alias';
 @use '../../settings/typography/content' as typography;
 @use '../../settings/config';
 @use '../../settings/depth';
@@ -33,21 +32,21 @@
 
       &.primary {
         @include typography.body-regular-primary;
-        border-bottom: 1px solid color_alias.$neutral-color-200;
+        border-bottom: 1px solid var(--neutral-color-200);
 
         &:hover {
-          color: color_alias.$primary-color-600;
-          border-bottom: 2px solid color_alias.$primary-color-600;
+          color: var(--primary-color-600);
+          border-bottom: 2px solid var(--primary-color-600);
         }
 
         &.active {
-          color: color_alias.$primary-color-600;
-          border-bottom: 3px solid color_alias.$primary-color-600;
+          color: var(--primary-color-600);
+          border-bottom: 3px solid var(--primary-color-600);
         }
 
         &.disabled {
-          color: color_alias.$neutral-color-400;
-          border-bottom: 1px solid color_alias.$neutral-color-200;
+          color: var(--neutral-color-400);
+          border-bottom: 1px solid var(--neutral-color-200);
         }
       }
     }
@@ -62,6 +61,6 @@
     top: 28px;
     width: 100%;
     height: 1px;
-    background-color: color_alias.$neutral-color-200;
+    background-color: var(--neutral-color-200);
   }
 }

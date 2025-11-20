@@ -1,9 +1,8 @@
-@use '../color_alias';
 @use './content';
 
 @mixin cards-table-list-header {
   @include content.body-medium;
-  color: color_alias.$neutral-white;
+  color: var(--neutral-white);
 }
 
 @mixin cards-table-list-highlight-text {

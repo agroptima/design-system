@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     '@storybook/addon-designs',
     getAbsolutePath('@storybook/addon-docs'),
     'storybook-addon-tag-badges',
+    getAbsolutePath('@storybook/addon-themes'),
   ],
 
   framework: {

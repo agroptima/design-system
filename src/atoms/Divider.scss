@@ -1,12 +1,11 @@
-@use '../settings/color_alias';
 @use '../settings/typography/content' as typography;
 @use '../settings/config';
 @use '../settings/mixins';
 
-$border-line: 1px solid color_alias.$neutral-color-200;
+$border-line: 1px solid var(--neutral-color-200);
 
 .divider {
-  @include mixins.icon-color(color_alias.$primary-color-600);
+  @include mixins.icon-color(var(--primary-color-600));
   @include typography.body_bold;
   display: flex;
   align-items: center;
@@ -16,7 +15,6 @@ $border-line: 1px solid color_alias.$neutral-color-200;
     display: flex;
     align-items: center;
   }
-
 
   .short {
     width: config.$space-6x;
@@ -36,7 +34,7 @@ $border-line: 1px solid color_alias.$neutral-color-200;
   }
 
   .link {
-    color: color_alias.$primary-color-600;
+    color: var(--primary-color-600);
     text-decoration-line: underline;
     cursor: default;
   }

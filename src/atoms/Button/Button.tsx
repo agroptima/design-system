@@ -38,6 +38,7 @@ export type ButtonVariant =
   | 'warning'
   | 'warning-ghost'
   | 'warning-outlined'
+  | 'transparent'
 
 export function Button({
   label,

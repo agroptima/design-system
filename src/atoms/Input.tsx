@@ -78,6 +78,9 @@ export function Input({
 
       <div className="input-container">
         {icon && <Icon className="left-icon" name={icon} />}
+        {type === 'file' && (
+          <Icon className="file-icon" name="Upload" size="3" />
+        )}
         <input
           id={identifier}
           disabled={disabled}

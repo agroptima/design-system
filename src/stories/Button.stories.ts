@@ -158,6 +158,14 @@ export const PrimaryGhost: Story = {
   parameters: figmaPrimaryDesign,
 }
 
+export const Transparent: Story = {
+  args: {
+    variant: 'transparent',
+    disabled: false,
+  },
+  parameters: figmaInfoDesign,
+}
+
 export const Neutral: Story = {
   args: {
     variant: 'neutral',
