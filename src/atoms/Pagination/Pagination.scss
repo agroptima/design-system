@@ -40,14 +40,14 @@
       }
 
       &:not(:disabled):hover {
-        border: 1px solid var(--primary-color-1000);
+        border: 1px solid var(--primary-color-600);
         background: var(--primary-color-50);
-        color: var(--primary-color-1000);
+        color: var(--primary-color-600);
       }
 
       &:not(:disabled).selected {
-        border: 1px solid var(--primary-color-1000);
-        color: var(--primary-color-1000);
+        border: 1px solid var(--primary-color-600);
+        color: var(--primary-color-600);
       }
 
       &:disabled,
@@ -81,8 +81,8 @@
 
         &:not(:disabled).selected,
         &:not(:disabled):hover {
-          border: 1px solid var(--primary-color-1000);
-          color: var(--primary-color-1000);
+          border: 1px solid var(--primary-color-600);
+          color: var(--primary-color-600);
         }
       }
     }
