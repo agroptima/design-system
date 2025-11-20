@@ -37,28 +37,12 @@ export const Primary: Story = {
   render: (props: HeaderProps) => (
     <Header {...props}>
       <h1>Header Title</h1>
-      <div>
-        <IconButton
-          icon="UserMenu"
-          variant="secondary"
-          accessibilityLabel="User menu button"
-        />
-        <Popover
-          renderButton={({ toggle }) => (
-            <Button
-              variant="transparent"
-              label="EN"
-              onClick={toggle}
-              rightIcon="AngleDown"
-            />
-          )}
-        >
-          <PopoverMenu>
-            <PopoverMenuOption title="ES" />
-            <PopoverMenuOption title="EN" />
-          </PopoverMenu>
-        </Popover>
-      </div>
+
+      <IconButton
+        icon="UserMenu"
+        variant="secondary"
+        accessibilityLabel="User menu button"
+      />
     </Header>
   ),
 }
