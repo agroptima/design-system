@@ -13,7 +13,7 @@ export function CheckboxDisabledIndeterminateIcon(
         d="M18 1H2a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1ZM2 0a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Z"
         fill="var(--neutral-color-500)"
       />
-      <path d="M18 10.8H2V8.4h16v2.4Z" fill="#fff" />
+      <path d="M18 10.8H2V8.4h16v2.4Z" fill="var(--neutral-white)" />
     </svg>
   )
 }

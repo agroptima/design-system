@@ -3,7 +3,7 @@ export function CheckboxUncheckedIcon(props: React.SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M0 2a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Z"
-        fill="#fff"
+        fill="var(--neutral-white)"
       />
       <path
         fillRule="evenodd"
