@@ -1,4 +1,3 @@
-@use '../settings/color_alias';
 @use '../settings/typography/content' as typography;
 @use '../settings/config';
 @use '../settings/depth';
@@ -20,11 +19,11 @@
 
   .title {
     @include typography.body-bold;
-    color: color_alias.$neutral-color-1000;
+    color: var(--neutral-color-1000);
   }
 
   .information {
     @include typography.body-regular-primary;
-    color: color_alias.$neutral-color-1000;
+    color: var(--neutral-color-1000);
   }
 }

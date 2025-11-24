@@ -1,12 +1,11 @@
 @use '../../settings/typography/form' as typography;
-@use '../../settings/color_alias';
 
 .form-label {
   @include typography.form-label;
 
   &.is-required::after {
     content: '*';
-    color: color_alias.$primary-color-600;
+    color: var(--primary-color-600);
   }
   &.is-disabled {
     @include typography.form-label-disabled;

@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
-import styles from "../docs/colors.module.scss";
+import styles from "../docs/colors.module.css";
 
 <Meta title="Design System/Styles/Colors" tags={['Styles', 'Documentation', '!Components']} />
 
@@ -9,44 +9,77 @@ import styles from "../docs/colors.module.scss";
 
 <ColorPalette>
   <ColorItem
-    title="$primary-color-"
-    subtitle="All primary colors"
-    colors={{ "1000": styles.primaryColor1000,
-              "900": styles.primaryColor900,
-              "800": styles.primaryColor800,
-              "700": styles.primaryColor700,
-              "600": styles.primaryColor600,
-              "500": styles.primaryColor500,
-              "400": styles.primaryColor400,
-              "300": styles.primaryColor300,
-              "200": styles.primaryColor200,
-              "100": styles.primaryColor100,
-              "50": styles.primaryColor50, }}
+    title="primary-color-"
+    subtitle="Strawberry primary colors"
+    colors={{ "1000": styles.strawberryPrimaryColor1000,
+              "900": styles.strawberryPrimaryColor900,
+              "800": styles.strawberryPrimaryColor800,
+              "700": styles.strawberryPrimaryColor700,
+              "600": styles.strawberryPrimaryColor600,
+              "500": styles.strawberryPrimaryColor500,
+              "400": styles.strawberryPrimaryColor400,
+              "300": styles.strawberryPrimaryColor300,
+              "200": styles.strawberryPrimaryColor200,
+              "100": styles.strawberryPrimaryColor100,
+              "50": styles.strawberryPrimaryColor50, }}
   />
 
   <ColorItem
-    title="$neutral-color-"
-    subtitle="All neutral colors"
-    colors={{ "1000": styles.neutralColor1000,
-              "900": styles.neutralColor900,
-              "800": styles.neutralColor800,
-              "700": styles.neutralColor700,
-              "600": styles.neutralColor600,
-              "500": styles.neutralColor500,
-              "400": styles.neutralColor400,
-              "300": styles.neutralColor300,
-              "200": styles.neutralColor200,
-              "100": styles.neutralColor100,
-              "50": styles.neutralColor50, }}
+    title="neutral-color-"
+    subtitle="Strawberry neutral colors"
+    colors={{ "1000": styles.strawberryNeutralColor1000,
+              "900": styles.strawberryNeutralColor900,
+              "800": styles.strawberryNeutralColor800,
+              "700": styles.strawberryNeutralColor700,
+              "600": styles.strawberryNeutralColor600,
+              "500": styles.strawberryNeutralColor500,
+              "400": styles.strawberryNeutralColor400,
+              "300": styles.strawberryNeutralColor300,
+              "200": styles.strawberryNeutralColor200,
+              "100": styles.strawberryNeutralColor100,
+              "50": styles.strawberryNeutralColor50, }}
   />
+
   <ColorItem
-    title="$neutral-"
+    title="primary-color-"
+    subtitle="Pistachio primary colors"
+    colors={{ "1000": styles.pistachioPrimaryColor1000,
+              "900": styles.pistachioPrimaryColor900,
+              "800": styles.pistachioPrimaryColor800,
+              "700": styles.pistachioPrimaryColor700,
+              "600": styles.pistachioPrimaryColor600,
+              "500": styles.pistachioPrimaryColor500,
+              "400": styles.pistachioPrimaryColor400,
+              "300": styles.pistachioPrimaryColor300,
+              "200": styles.pistachioPrimaryColor200,
+              "100": styles.pistachioPrimaryColor100,
+              "50": styles.pistachioPrimaryColor50, }}
+  />
+
+  <ColorItem
+    title="neutral-color-"
+    subtitle="Pistachio neutral colors"
+    colors={{ "1000": styles.pistachioNeutralColor1000,
+              "900": styles.pistachioNeutralColor900,
+              "800": styles.pistachioNeutralColor800,
+              "700": styles.pistachioNeutralColor700,
+              "600": styles.pistachioNeutralColor600,
+              "500": styles.pistachioNeutralColor500,
+              "400": styles.pistachioNeutralColor400,
+              "300": styles.pistachioNeutralColor300,
+              "200": styles.pistachioNeutralColor200,
+              "100": styles.pistachioNeutralColor100,
+              "50": styles.pistachioNeutralColor50, }}
+  />
+
+  <ColorItem
+    title="neutral-"
     subtitle="All neutral colors"
     colors={{ "black": styles.neutralBlack,
               "white": styles.neutralWhite, }}
   />
   <ColorItem
-    title="$error-color-"
+    title="error-color-"
     subtitle="All error colors"
     colors={{ "1000": styles.errorColor1000,
               "900": styles.errorColor900,
@@ -61,7 +94,7 @@ import styles from "../docs/colors.module.scss";
               "50": styles.errorColor50, }}
   />
   <ColorItem
-    title="$success-color-"
+    title="success-color-"
     subtitle="All success colors"
     colors={{ "1000": styles.successColor1000,
               "900": styles.successColor900,
@@ -76,7 +109,7 @@ import styles from "../docs/colors.module.scss";
               "50": styles.successColor50, }}
   />
   <ColorItem
-    title="$warning-color-"
+    title="warning-color-"
     subtitle="All warning colors"
     colors={{ "1000": styles.warningColor1000,
               "900": styles.warningColor900,
@@ -91,7 +124,7 @@ import styles from "../docs/colors.module.scss";
               "50": styles.warningColor50, }}
   />
   <ColorItem
-    title="$info-color-"
+    title="info-color-"
     subtitle="All info colors"
     colors={{ "1000": styles.infoColor1000,
               "900": styles.infoColor900,

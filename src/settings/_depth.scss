@@ -12,3 +12,5 @@ $z-alert-container: $z-dropdown-options + $above;
 $z-modal: $z-alert-container + $above;
 $z-aside-desktop: $base + $above;
 $z-aside-mobile: $z-modal + $above;
+
+$z-header: $base + $above;

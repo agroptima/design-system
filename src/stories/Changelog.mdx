@@ -4,6 +4,23 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Changelog
 
+## 1.0.0
+
+⚠️ **BREAKING CHANGES**: If the project which consumes the Design System is reading any of the color variables in SASS, please, use a version below 1.0.0 or update them to CSS variables.
+
+### Add themes management:
+* Update colors.css, color_alias.css and create themes.css
+* Change SASS theme related variables to CSS variables
+* Refactor File Input component icon to fit themes
+* Refactor Checkbox background images to fit themes
+* Add Header component
+* Update EmptyState icon
+* Add Strawberry and Pistachio themes
+* Add storybook themes addon & theme container to all stories on preview.tsx
+* Update documentation Colors page
+* Update Programmers start guide
+* Add new variant to Badge component: notification
+
 ## 0.40.6
 
 * Fix border radius on Popover component

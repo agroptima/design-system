@@ -16,7 +16,7 @@ describe('Checkbox', () => {
       </Checkbox>,
     )
     expect(getAllByRole('generic')[1]).toHaveClass(`checkbox-group ${variant}`)
-    expect(getByRole('checkbox')).toHaveClass('checkbox')
+    expect(getByRole('checkbox')).toHaveClass('checkbox-input')
     expect(getByText(/Do you like videogames/i)).toBeInTheDocument()
   })
 
@@ -36,7 +36,7 @@ describe('Checkbox', () => {
       expect(getAllByRole('generic')[1]).toHaveClass(
         `checkbox-group ${variant} indeterminate`,
       )
-      expect(getByRole('checkbox')).toHaveClass('checkbox')
+      expect(getByRole('checkbox')).toHaveClass('checkbox-input')
       expect(getByText(/Do you like videogames/i)).toBeInTheDocument()
     },
   )

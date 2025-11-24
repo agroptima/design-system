@@ -16,6 +16,7 @@ export type Variant =
   | 'neutral-outlined'
   | 'primary'
   | 'primary-outlined'
+  | 'notification'
 
 export interface BadgeProps extends React.ComponentPropsWithoutRef<'span'> {
   variant?: Variant

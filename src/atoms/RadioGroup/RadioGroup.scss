@@ -1,4 +1,3 @@
-@use '../../settings/color_alias';
 @use '../../settings/typography/form' as typography;
 @use '../../settings/config';
 
@@ -31,7 +30,7 @@
           width: 16px;
           height: 16px;
           background: #fff;
-          border: 1px solid color_alias.$neutral-color-600;
+          border: 1px solid var(--neutral-color-600);
           border-radius: 50%;
         }
 
@@ -45,39 +44,39 @@
             z-index: 1;
             width: 8px;
             height: 8px;
-            background: color_alias.$primary-color-600;
+            background: var(--primary-color-600);
             border-radius: 50%;
           }
 
           &:after {
-            border: 1px solid color_alias.$primary-color-600;
+            border: 1px solid var(--primary-color-600);
           }
         }
 
         &:hover {
           &:after {
-            border: 1px solid color_alias.$primary-color-600;
+            border: 1px solid var(--primary-color-600);
           }
         }
 
         &:disabled {
           &:after {
-            border: 1px solid color_alias.$neutral-color-400;
+            border: 1px solid var(--neutral-color-400);
           }
 
           &:checked {
             &:before {
-              background: color_alias.$neutral-color-400;
+              background: var(--neutral-color-400);
             }
 
             &:after {
-              border: 1px solid color_alias.$neutral-color-400;
+              border: 1px solid var(--neutral-color-400);
             }
           }
 
           &:hover {
             &:after {
-              border: 1px solid color_alias.$neutral-color-400;
+              border: 1px solid var(--neutral-color-400);
             }
           }
         }
