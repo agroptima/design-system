@@ -233,13 +233,18 @@ function ALotOfContent() {
   )
 }
 
-const OpenAndCloseModalComponent = () => {
+const OpenAndCloseDetailModal = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const openModal = () => setIsOpen(true)
   const closeModal = () => setIsOpen(false)
   return (
     <>
-      <ModalDialog isOpen={isOpen} details onClose={closeModal}>
+      <ModalDialog
+        variant="details"
+        isOpen={isOpen}
+        details
+        onClose={closeModal}
+      >
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
           <ModalCloseButton onClick={closeModal} />
@@ -261,9 +266,9 @@ const OpenAndCloseModalComponent = () => {
   )
 }
 
-export const OpenAndCloseModal: Story = {
+export const DetailModal: Story = {
   render: () => {
-    return <OpenAndCloseModalComponent />
+    return <OpenAndCloseDetailModal />
   },
 } as unknown as Story
 
