@@ -2,6 +2,7 @@
 import './Modal.scss'
 import React, { useEffect, useRef } from 'react'
 import { classNames } from '../../utils/classNames'
+import type { Variant } from './Modal'
 
 export interface ModalDialogProps
   extends React.HTMLAttributes<HTMLDialogElement> {
@@ -9,6 +10,7 @@ export interface ModalDialogProps
   onClose?: () => void
   details?: boolean
   scrollable?: boolean
+  variant: Variant
 }
 
 export function ModalDialog({
@@ -18,6 +20,7 @@ export function ModalDialog({
   children,
   details = false,
   scrollable = false,
+  variant,
   ...props
 }: ModalDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
@@ -65,7 +68,9 @@ export function ModalDialog({
       role="dialog"
       aria-modal="true"
       ref={dialogRef}
-      className={classNames('modal', className, { 'modal-details': details })}
+      className={classNames('modal', className, variant, {
+        'modal-details': details,
+      })}
       onClick={handleClick}
       {...props}
     >

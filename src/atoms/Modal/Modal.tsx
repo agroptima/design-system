@@ -59,6 +59,7 @@ export function Modal({
       isOpen={isOpen}
       onClose={onClose}
       details={isDetails}
+      variant={variant}
       {...props}
     >
       <ModalHeader>
