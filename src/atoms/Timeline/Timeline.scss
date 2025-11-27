@@ -1,0 +1,84 @@
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/mixins';
+@use '../../settings/depth';
+
+.timeline-container {
+  .timeline-rail {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: config.$space-halfx;
+      top: 0;
+      bottom: 0;
+      left: 45px;
+      z-index: depth.$z-timeline-rail;
+    }
+  }
+
+  .milestones-list {
+    list-style: none;
+    .milestone-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: config.$space-3x;
+
+      .left-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: config.$space-2x;
+
+        .icon {
+          width: config.$icon-size-3x;
+          height: config.$icon-size-3x;
+          z-index: depth.$z-timeline-circle;
+        }
+      }
+
+      .milestone-title {
+        @include typography.body-regular-primary;
+      }
+      .milestone-description {
+        @include typography.footnote-primary;
+      }
+
+      &.selected {
+        .milestone-title {
+          @include typography.body-bold;
+        }
+      }
+    }
+  }
+
+  &.primary {
+    .timeline-rail {
+      &::after {
+        background-color: var(--neutral-color-200);
+      }
+    }
+    .milestone-item {
+      .milestone-description {
+        color: var(--neutral-color-600);
+      }
+
+      .milestone-title-link {
+        .milestone-title {
+          color: var(--primary-color-600);
+        }
+      }
+
+      &.selected {
+        .milestone-description {
+          color: var(--neutral-color-1000);
+        }
+
+        @include mixins.icon-color(var(--primary-color-600));
+      }
+    }
+  }
+}
