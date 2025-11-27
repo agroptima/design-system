@@ -56,6 +56,8 @@ import Settings from './settings.svg'
 import Show from './show.svg'
 import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
+import TimelineCircleDefault from './timeline-circle-default.svg'
+import TimelineCircleSelected from './timeline-circle-selected.svg'
 import Upload from './upload.svg'
 import UserMenu from './user-menu.svg'
 import Warning from './warning.svg'
@@ -119,6 +121,8 @@ export {
   Show,
   ShowOff,
   Sorter,
+  TimelineCircleDefault,
+  TimelineCircleSelected,
   Upload,
   UserMenu,
   Warning,
