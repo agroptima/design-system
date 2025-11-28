@@ -12,7 +12,7 @@ export interface DrawerProps extends React.ComponentPropsWithoutRef<'div'> {
   id: string
   variant?: Variant
   title: string
-  buttons: ButtonProps[]
+  buttons?: ButtonProps[]
   onClose: () => void
 }
 
@@ -21,7 +21,7 @@ export function Drawer({
   className,
   variant = 'primary',
   title,
-  buttons,
+  buttons = [],
   children,
   onClose,
   ...props
@@ -59,13 +59,15 @@ export function Drawer({
             {children}
           </div>
         </div>
-        <div className="footer">
-          <Actions>
-            {buttons.map(({ ...button }) => (
-              <Button key={button.label} {...button} />
-            ))}
-          </Actions>
-        </div>
+        {buttons.length > 0 && (
+          <div className="footer">
+            <Actions>
+              {buttons.map(({ ...button }) => (
+                <Button key={button.label} {...button} />
+              ))}
+            </Actions>
+          </div>
+        )}
       </div>
     </div>
   )

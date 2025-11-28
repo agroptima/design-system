@@ -46,18 +46,7 @@ type Story = StoryObj<typeof meta>
 
 export const TimelineDrawer: Story = {
   render: () => (
-    <Drawer
-      id="timeline-drawer"
-      title="1986"
-      buttons={[
-        {
-          label: 'Close',
-          variant: 'primary-outlined',
-          onClick: () => alert('click'),
-        },
-      ]}
-      onClose={() => alert('close')}
-    >
+    <Drawer id="timeline-drawer" title="1986" onClose={() => alert('close')}>
       <div style={{ marginTop: '20px' }}>
         <LoadMoreMilestonesButton
           onClick={() => alert('more milestones')}
@@ -111,18 +100,7 @@ Super Nintendo come out."
 
 export const TimelineWithLinksDrawer: Story = {
   render: () => (
-    <Drawer
-      id="timeline-drawer"
-      title="1986"
-      buttons={[
-        {
-          label: 'Close',
-          variant: 'primary-outlined',
-          onClick: () => alert('click'),
-        },
-      ]}
-      onClose={() => alert('close')}
-    >
+    <Drawer id="timeline-drawer" title="1986" onClose={() => alert('close')}>
       <div style={{ marginTop: '20px' }}>
         <LoadMoreMilestonesButton
           onClick={() => alert('more milestones')}
