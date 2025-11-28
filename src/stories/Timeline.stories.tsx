@@ -4,6 +4,7 @@ import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Collapsible } from '../atoms/Collapsible/Collapsible'
 import { DateRangePicker } from '../atoms/DatePicker/DateRangePicker'
 import { Milestone, Timeline } from '../atoms/Timeline'
+import { LoadMoreMilestonesButton } from '../atoms/Timeline/LoadMoreMilestonesButton'
 
 const figmaPrimaryDesign = {
   design: {
@@ -85,44 +86,58 @@ Super Nintendo come out."
 
 export const TimelineWithLinksDrawer: Story = {
   render: () => (
-    <Timeline>
-      <Milestone
-        title="1985"
-        description="Nintendo
+    <>
+      <LoadMoreMilestonesButton
+        onClick={() => alert('more milestones')}
+        variant="primary"
+        title="View previous"
+        leftIcon="AngleUp"
+      />
+      <Timeline>
+        <Milestone
+          title="1985"
+          description="Nintendo
 NES launches with breakout hits like Super
 Mario Bros.
 Sega launches its Master System."
-        href="link.com"
-      />
-      <Milestone
-        isSelected
-        title="1986"
-        description="Legend of Zelda comes out, spawning a long series of popular games."
-        href="link.com"
-      />
-      <Milestone
-        title="1988"
-        description="Sega's 16-bit
+          href="link.com"
+        />
+        <Milestone
+          isSelected
+          title="1986"
+          description="Legend of Zelda comes out, spawning a long series of popular games."
+          href="link.com"
+        />
+        <Milestone
+          title="1988"
+          description="Sega's 16-bit
 Mega Drive is introduced, becoming the company's most successful system."
-        href="link.com"
-      />
-      <Milestone
-        title="1989"
-        description="Nintendo's handheld
+          href="link.com"
+        />
+        <Milestone
+          title="1989"
+          description="Nintendo's handheld
 Game Boy hits the market."
-        href="link.com"
-      />
-      <Milestone
-        title="1991"
-        description="Sega's hit Sonic the Hedgehog and the 16-bit
+          href="link.com"
+        />
+        <Milestone
+          title="1991"
+          description="Sega's hit Sonic the Hedgehog and the 16-bit
 Super Nintendo come out."
-        href="link.com"
+          href="link.com"
+        />
+        <Milestone
+          title="1994"
+          description="32-bit consoles like the Sega Saturn, Sony PlayStation, and NEC PC-FX launch."
+          href="link.com"
+        />
+      </Timeline>
+      <LoadMoreMilestonesButton
+        onClick={() => alert('more milestones')}
+        variant="primary"
+        title="View next"
+        leftIcon="AngleDown"
       />
-      <Milestone
-        title="1994"
-        description="32-bit consoles like the Sega Saturn, Sony PlayStation, and NEC PC-FX launch."
-        href="link.com"
-      />
-    </Timeline>
+    </>
   ),
 } as unknown as Story
