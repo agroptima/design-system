@@ -35,6 +35,7 @@ export function PopoverMenuOption({
       role="menuitem"
       className={cssClasses}
       aria-disabled={disabled}
+      disabled={disabled}
       {...props}
     >
       {leftIcon && <Icon name={leftIcon} size="3" />}
