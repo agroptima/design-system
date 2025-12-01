@@ -16,17 +16,8 @@ const meta = {
   component: Timeline,
   tags: ['autodocs', 'Data display components'],
   argTypes: {
-    id: {
-      description: 'Id for aria purposes',
-    },
     variant: {
       description: 'Component variant used',
-    },
-    title: {
-      description: 'Component title text',
-    },
-    buttons: {
-      description: 'Array of buttons to be shown on the footer',
     },
   },
   parameters: {
@@ -34,7 +25,12 @@ const meta = {
       description: {
         component:
           '<h2>Usage guidelines</h2>' +
-          '<p>A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since the user can interact with the Drawer without leaving the current page, tasks can be achieved more efficiently within the same context.</p>',
+          '<p>The vertical display Timeline component shows progress through a workflow or chronological events in a linear order.</p>' +
+          '<ul>' +
+          ' <li>Use it when a series of information needs to be ordered by time (ascending or descending).</li>' +
+          ' <li>Use it when you need a timeline to make a visual connection.</li>' +
+          ' <li>The milestone title can either be a button or a link.</li>' +
+          '</ul>',
       },
     },
     figmaPrimaryDesign,
