@@ -34,7 +34,12 @@ export function LoadMoreMilestonesButton({
     },
   )
   return (
-    <BaseButton className={cssClasses} aria-disabled={disabled} {...props}>
+    <BaseButton
+      className={cssClasses}
+      aria-disabled={disabled}
+      disabled={disabled}
+      {...props}
+    >
       {leftIcon && <Icon name={leftIcon} size="6" />}
       <span className="title">{title}</span>
     </BaseButton>
