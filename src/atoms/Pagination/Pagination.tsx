@@ -4,8 +4,7 @@ import { classNames } from '../../utils/classNames'
 
 type Size = 'small' | 'medium'
 
-export interface PaginationProps
-  extends React.ComponentPropsWithoutRef<'section'> {
+export interface PaginationProps extends React.ComponentPropsWithoutRef<'section'> {
   size?: Size
 }
 

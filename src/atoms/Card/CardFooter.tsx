@@ -2,8 +2,7 @@ import './Card.scss'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 
-export interface CardFooterProps
-  extends React.ComponentPropsWithoutRef<'div'> {}
+export interface CardFooterProps extends React.ComponentPropsWithoutRef<'div'> {}
 
 export function CardFooter({
   className,

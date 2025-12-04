@@ -58,6 +58,7 @@ import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
 import Upload from './upload.svg'
 import UserMenu from './user-menu.svg'
+import ValidateInvoice from './validate-invoice.svg'
 import Warning from './warning.svg'
 
 export {
@@ -121,5 +122,6 @@ export {
   Sorter,
   Upload,
   UserMenu,
+  ValidateInvoice,
   Warning,
 }
