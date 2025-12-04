@@ -4,8 +4,7 @@ import { classNames } from '../../utils/classNames'
 import { Label } from '../Label'
 import type { Variant } from './RadioGroup'
 
-export interface RadioItemProps
-  extends React.ComponentPropsWithoutRef<'input'> {
+export interface RadioItemProps extends React.ComponentPropsWithoutRef<'input'> {
   label?: string
   variant?: Variant
 }
