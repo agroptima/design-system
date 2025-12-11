@@ -26,10 +26,10 @@
       @include typography.body-regular-primary;
 
       a {
-        color: var(--strawberry-primary-color-600);
+        color: var(--alert-link-color);
 
         &:hover:not(:disabled) {
-          color: var(--strawberry-primary-color-800);
+          color: var(--alert-link-hover-color);
         }
       }
     }

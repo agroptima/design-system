@@ -1,4 +1,7 @@
 :root {
+  --alert-link-color: var(--strawberry-primary-color-600);
+  --alert-link-hover-color: var(--strawberry-primary-color-800);
+
   .strawberry {
     --accent-color: var(--neutral-white);
     --notification-color: var(--success-color-1000);
