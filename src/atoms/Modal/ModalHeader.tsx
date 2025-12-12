@@ -1,8 +1,7 @@
 import './Modal.scss'
 import { classNames } from '../../utils/classNames'
 
-export interface ModalHeaderProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function ModalHeader({
   className,
