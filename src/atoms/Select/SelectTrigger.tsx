@@ -1,4 +1,5 @@
 import React from 'react'
+import { classNames } from '../../utils/classNames'
 import { IconButton } from '../Button'
 import { Icon } from '../Icon'
 
@@ -34,7 +35,7 @@ export function SelectTrigger({
     onClear(event)
   }
   return (
-    <div className="select-container">
+    <div className={classNames('select-container', { disabled })}>
       <button
         id={id}
         ref={buttonRef}

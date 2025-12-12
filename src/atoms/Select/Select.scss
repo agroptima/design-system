@@ -39,7 +39,7 @@ $elements-space: config.$space-2x;
   }
 
   &.primary {
-    &.disabled .select-container {
+    .select-container.disabled {
       border: 1px solid var(--neutral-color-400);
       background: var(--neutral-color-50);
       @include mixins.icon-color(var(--neutral-color-400));
