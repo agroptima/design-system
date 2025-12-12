@@ -60,7 +60,7 @@ export const Option: Story = {
   render: () => (
     <CardMenuOption
       id="first-menu-option"
-      href="http://olakas.com"
+      href="http://fakelink.com"
       icon="Info"
       variant="primary"
       title="It's dangerous to go alone!"

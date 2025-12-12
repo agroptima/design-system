@@ -21,10 +21,18 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: config.$space-2x;
-  }
 
-  .text {
-    @include typography.body-regular-primary;
+    .text {
+      @include typography.body-regular-primary;
+
+      a {
+        color: var(--alert-link-color);
+
+        &:hover:not(:disabled) {
+          color: var(--alert-link-hover-color);
+        }
+      }
+    }
   }
 
   .icon {
