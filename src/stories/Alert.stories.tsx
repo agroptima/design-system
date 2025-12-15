@@ -69,6 +69,16 @@ export const Success: Story = {
   parameters: figmaPrimaryDesign,
 }
 
+export const SuccessWithLink: Story = {
+  render: () => (
+    <Alert
+      id="success-alert"
+      variant="success"
+      text={<a href="http://fakelink.com">Go to another castle</a>}
+    />
+  ),
+} as unknown as Story
+
 export const SuccessWithFadeOut: Story = {
   args: {
     id: 'success-alert',
