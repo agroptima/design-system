@@ -142,3 +142,16 @@ export const Menu: Story = {
     </CardMenu>
   ),
 } as unknown as Story
+
+export const asButton: Story = {
+  render: () => (
+    <CardMenuOption
+      id="first-menu-option"
+      icon="Info"
+      variant="primary"
+      title="It's dangerous to go alone!"
+      description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
+      onClick={() => alert('Clicked!')}
+    />
+  ),
+} as unknown as Story
