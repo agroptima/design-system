@@ -27,16 +27,18 @@ export function Divider({
   const cssClasses = classNames('divider', variant, className)
 
   return (
-    <div role="separator" className={cssClasses}>
-      {title && (
-        <div className="divider-title">
-          <DividerIcon icon={icon} />
-          <span onClick={onClick} className={classNames({ link: hasAction })}>
-            {title}
-          </span>
-        </div>
-      )}
-      <div className="long line"></div>
+    <div className="divider-container">
+      <div role="separator" className={cssClasses}>
+        {title && (
+          <div className="divider-title">
+            <DividerIcon icon={icon} />
+            <span onClick={onClick} className={classNames({ link: hasAction })}>
+              {title}
+            </span>
+          </div>
+        )}
+        <div className="long line"></div>
+      </div>
       {children}
     </div>
   )
