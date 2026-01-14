@@ -12,6 +12,7 @@
   padding: config.$space-3x;
   gap: config.$space-3x;
   border-radius: config.$corner-radius-xxs;
+  border: none;
   text-decoration: none;
   cursor: default;
   &:hover {
