@@ -56,6 +56,7 @@ import Settings from './settings.svg'
 import Show from './show.svg'
 import ShowOff from './show-off.svg'
 import Sorter from './sorter.svg'
+import TaxRule from './tax-rule.svg'
 import Upload from './upload.svg'
 import UserMenu from './user-menu.svg'
 import ValidateInvoice from './validate-invoice.svg'
@@ -120,6 +121,7 @@ export {
   Show,
   ShowOff,
   Sorter,
+  TaxRule,
   Upload,
   UserMenu,
   ValidateInvoice,
