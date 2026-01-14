@@ -1,37 +1,31 @@
 import './CardMenu.scss'
-import type { LinkProps as NextLinkProps } from 'next/link'
-import Link from 'next/link'
 import { classNames } from '../../utils/classNames'
+import { BaseButton, type BaseButtonProps } from '../Button'
 import type { IconType } from '../Icon'
 import { Icon } from '../Icon'
 
 export type Variant = 'primary'
 
-type LinkProps = NextLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
-export interface CardMenuOptionProps extends LinkProps {
-  id?: string
+interface CustomProps {
   variant?: Variant
   icon: IconType
   title: string
   description?: string
-  disabled?: boolean
-  href: string
   active?: boolean
   error?: boolean
 }
 
+export type CardMenuOptionProps = CustomProps & BaseButtonProps
+
 export function CardMenuOption({
-  id,
   variant = 'primary',
   className,
   icon,
   title,
   description,
-  disabled,
-  href,
+  disabled = false,
   active,
   error,
-  prefetch = false,
   ...props
 }: CardMenuOptionProps): React.JSX.Element {
   const cssClasses = classNames('card-menu-option', variant, className, {
@@ -41,12 +35,11 @@ export function CardMenuOption({
   })
 
   return (
-    <Link
+    <BaseButton
       role="menuitem"
       className={cssClasses}
-      href={disabled ? '#' : href}
-      aria-disabled={disabled}
-      prefetch={prefetch}
+      disabled={disabled}
+      type="button"
       {...props}
     >
       <div className="left">
@@ -59,6 +52,6 @@ export function CardMenuOption({
       <div className="right">
         <Icon name="AngleRight" className={variant} />
       </div>
-    </Link>
+    </BaseButton>
   )
 }
