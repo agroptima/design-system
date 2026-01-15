@@ -56,7 +56,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Option: Story = {
+export const LinkOption: Story = {
   render: () => (
     <CardMenu>
       <CardMenuOption
@@ -71,7 +71,7 @@ export const Option: Story = {
   ),
 } as unknown as Story
 
-export const DisabledOption: Story = {
+export const LinkDisabledOption: Story = {
   render: () => (
     <CardMenu>
       <CardMenuOption
@@ -87,7 +87,7 @@ export const DisabledOption: Story = {
   ),
 } as unknown as Story
 
-export const ActiveOption: Story = {
+export const LinkActiveOption: Story = {
   render: () => (
     <CardMenu>
       <CardMenuOption
@@ -103,7 +103,7 @@ export const ActiveOption: Story = {
   ),
 } as unknown as Story
 
-export const ErrorOption: Story = {
+export const LinkErrorOption: Story = {
   render: () => (
     <CardMenu>
       <CardMenuOption
@@ -119,7 +119,7 @@ export const ErrorOption: Story = {
   ),
 } as unknown as Story
 
-export const Menu: Story = {
+export const LinkMenu: Story = {
   render: () => (
     <CardMenu>
       <CardMenuOption
@@ -151,15 +151,17 @@ export const Menu: Story = {
   ),
 } as unknown as Story
 
-export const asButton: Story = {
+export const ButtonOption: Story = {
   render: () => (
-    <CardMenuOption
-      id="first-menu-option"
-      icon="Info"
-      variant="primary"
-      title="It's dangerous to go alone!"
-      description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
-      onClick={() => alert('Clicked!')}
-    />
+    <CardMenu>
+      <CardMenuOption
+        id="first-menu-option"
+        icon="Info"
+        variant="primary"
+        title="It's dangerous to go alone!"
+        description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
+        onClick={() => alert('Clicked!')}
+      />
+    </CardMenu>
   ),
 } as unknown as Story
