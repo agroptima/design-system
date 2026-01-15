@@ -58,56 +58,64 @@ type Story = StoryObj<typeof meta>
 
 export const Option: Story = {
   render: () => (
-    <CardMenuOption
-      id="first-menu-option"
-      href="http://fakelink.com"
-      icon="Info"
-      variant="primary"
-      title="It's dangerous to go alone!"
-      description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
-    />
+    <CardMenu>
+      <CardMenuOption
+        id="first-menu-option"
+        href="http://fakelink.com"
+        icon="Info"
+        variant="primary"
+        title="It's dangerous to go alone!"
+        description="Take this 🗡️ and this 🛡️ and this 💣 and this 🏹 and this 🔪 and this 🐴 and this 🔫 and this 🔪"
+      />
+    </CardMenu>
   ),
 } as unknown as Story
 
 export const DisabledOption: Story = {
   render: () => (
-    <CardMenuOption
-      id="first-menu-option"
-      href="#"
-      icon="Info"
-      variant="primary"
-      title="It's dangerous to go alone!"
-      description="Take this 🗡️"
-      disabled
-    />
+    <CardMenu>
+      <CardMenuOption
+        id="first-menu-option"
+        href="#"
+        icon="Info"
+        variant="primary"
+        title="It's dangerous to go alone!"
+        description="Take this 🗡️"
+        disabled
+      />
+    </CardMenu>
   ),
 } as unknown as Story
 
 export const ActiveOption: Story = {
   render: () => (
-    <CardMenuOption
-      id="first-menu-option"
-      href="#"
-      icon="Info"
-      variant="primary"
-      title="It's dangerous to go alone!"
-      description="Take this 🗡️"
-      active
-    />
+    <CardMenu>
+      <CardMenuOption
+        id="first-menu-option"
+        href="#"
+        icon="Info"
+        variant="primary"
+        title="It's dangerous to go alone!"
+        description="Take this 🗡️"
+        active
+      />
+    </CardMenu>
   ),
 } as unknown as Story
 
 export const ErrorOption: Story = {
   render: () => (
-    <CardMenuOption
-      id="first-menu-option"
-      href="#"
-      icon="Info"
-      variant="primary"
-      title="It's dangerous to go alone!"
-      description="Take this 🗡️"
-      error
-    />
+    <CardMenu>
+      <CardMenuOption
+        id="first-menu-option"
+        href="#"
+        icon="Info"
+        variant="primary"
+        title="It's dangerous to go alone!"
+        description="Take this 🗡️"
+        error
+      />
+    </CardMenu>
   ),
 } as unknown as Story
 
