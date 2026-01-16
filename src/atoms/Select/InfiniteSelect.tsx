@@ -201,7 +201,7 @@ export function InfiniteSelect<T extends { uid: string }>({
             icon="Search"
             className="search"
           />
-          <ul role="listbox">
+          <ul role="listbox" aria-label="infinite-select-list">
             {items.map((item) => (
               <SelectItem
                 multiple={false}
@@ -233,8 +233,9 @@ function LoadingItems({
   loaderRef: RefObject<HTMLDivElement | null>
 }) {
   if (!visible) return null
+
   return (
-    <li>
+    <li role="option" aria-selected="false">
       <div ref={loaderRef} aria-label={label} className="loading">
         <Icon name="Loading" />
       </div>

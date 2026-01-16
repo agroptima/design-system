@@ -4,42 +4,48 @@
 
 $border-line: 1px solid var(--neutral-color-200);
 
-.divider {
+.divider-container {
   @include mixins.icon-color(var(--primary-color-600));
   @include typography.body_bold;
   display: flex;
-  align-items: center;
   gap: config.$space-3x;
 
-  &-title {
+  .divider {
+    width: 100%;
     display: flex;
     align-items: center;
-  }
+    gap: config.$space-3x;
 
-  .short {
-    width: config.$space-6x;
-    margin-right: config.$space-3x;
-  }
+    &-title {
+      display: flex;
+      align-items: center;
+    }
 
-  .line {
-    border: $border-line;
-  }
+    .short {
+      width: config.$space-6x;
+      margin-right: config.$space-3x;
+    }
 
-  .long {
-    flex: 1;
-  }
+    .line {
+      border: $border-line;
+    }
 
-  .icon {
-    margin-right: config.$space-2x;
-  }
+    .long {
+      flex: 1;
+    }
 
-  .link {
-    color: var(--primary-color-600);
-    text-decoration-line: underline;
-    cursor: default;
-  }
+    .icon {
+      margin-right: config.$space-2x;
+    }
 
-  .iconButton {
-    margin-left: config.$space-3x;
+    .link {
+      color: var(--primary-color-600);
+      text-decoration-line: underline;
+      cursor: default;
+    }
+
+    .iconButton {
+      margin-left: config.$space-3x;
+    }
   }
 }
