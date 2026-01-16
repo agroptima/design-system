@@ -59,6 +59,7 @@ import Sorter from './sorter.svg'
 import TimelineCircleDefault from './timeline-circle-default.svg'
 import TimelineCircleSelected from './timeline-circle-selected.svg'
 import Traceability from './traceability.svg'
+import TaxRule from './tax-rule.svg'
 import Upload from './upload.svg'
 import UserMenu from './user-menu.svg'
 import ValidateInvoice from './validate-invoice.svg'
@@ -126,6 +127,7 @@ export {
   TimelineCircleDefault,
   TimelineCircleSelected,
   Traceability,
+  TaxRule,
   Upload,
   UserMenu,
   ValidateInvoice,
