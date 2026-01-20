@@ -20,6 +20,7 @@ export interface PopoverProps {
   renderButton: (props: Actions) => React.ReactNode
   position?: Position
   className?: string
+  closeOnClick?: boolean
   children: React.ReactNode
 }
 
@@ -27,6 +28,7 @@ function Popover({
   renderButton,
   position = 'left',
   className,
+  closeOnClick = true,
   children,
 }: PopoverProps) {
   const { isOpen, close, open, toggle } = useOpen()
@@ -44,7 +46,7 @@ function Popover({
         className={classNames('popover-menu-container', position, {
           hidden: !isOpen,
         })}
-        onClick={close}
+        onClick={closeOnClick ? close : () => {}}
         aria-hidden={!isOpen}
       >
         <div className="backdrop"></div>
