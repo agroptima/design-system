@@ -1,8 +1,7 @@
 import type { StoryObj } from '@storybook/nextjs'
 import React from 'react'
-import { Button, IconButton } from '../atoms/Button'
+import { IconButton } from '../atoms/Button'
 import { Header, type HeaderProps } from '../atoms/Header'
-import { Popover, PopoverMenu, PopoverMenuOption } from '../atoms/Popover'
 
 const meta = {
   title: 'Design System/Atoms/Header',
