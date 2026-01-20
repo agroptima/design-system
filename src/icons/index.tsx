@@ -40,6 +40,7 @@ import Logout from './logout.svg'
 import Minus from './minus.svg'
 import More from './more.svg'
 import NewView from './new-view.svg'
+import Notification from './notification.svg'
 import Orders from './orders.svg'
 import PDF from './pdf.svg'
 import Picture from './picture.svg'
@@ -108,6 +109,7 @@ export {
   Minus,
   More,
   NewView,
+  Notification,
   Orders,
   PDF,
   Picture,
