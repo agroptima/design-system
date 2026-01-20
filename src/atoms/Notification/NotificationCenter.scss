@@ -1,0 +1,51 @@
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/breakpoints';
+
+.notification-center-container {
+  .notification-center {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    box-shadow:
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+      0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    .notification-header {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: config.$space-2x;
+
+      .notification-header-title {
+        @include typography.body-bold;
+        display: flex;
+        padding: config.$space-2x config.$space-3x;
+        gap: var(--space-1x);
+        border-radius: config.$corner-radius-m config.$corner-radius-m 0 0;
+        background: var(--neutral-color-900);
+        color: var(--neutral-white);
+      }
+
+      .notification-header-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: config.$space-2x config.$space-3x;
+        gap: config.$space-2x;
+        background: var(--neutral-white);
+
+        > .button:last-child {
+          @include typography.footnote-primary;
+          color: var(--primary-color-600);
+          border: 0;
+          background-color: transparent;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

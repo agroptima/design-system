@@ -14,7 +14,7 @@ type Actions = {
 
 export type Horizontal = 'left' | 'right' | 'center'
 
-type Position = Horizontal | `top-${Horizontal}`
+export type Position = Horizontal | `top-${Horizontal}`
 
 export interface PopoverProps {
   renderButton: (props: Actions) => React.ReactNode
