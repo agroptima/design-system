@@ -7,7 +7,7 @@ import { Icon } from '../Icon'
 export interface NotificationLineProps {
   title: string
   date: string
-  description?: string
+  description: string
   isRead?: boolean
   expandLabel?: string
   collapseLabel?: string

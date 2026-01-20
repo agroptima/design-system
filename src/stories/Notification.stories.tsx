@@ -7,6 +7,7 @@ import {
   NotificationCenter,
   NotificationHeader,
   NotificationLine,
+  NotificationList,
 } from '../atoms/Notification'
 import type { NotificationCenterProps } from '../atoms/Notification/NotificationCenter'
 
@@ -75,22 +76,35 @@ export const Primary: Story = {
               label="Mark all as read"
             />
           </NotificationHeader>
-          <NotificationLine
-            title="New trophy: Parting on Good Terms"
-            description="Good terms? No. I'm here to burn bridges."
-            date="Jan 04"
-          />
-          <NotificationLine
-            title="New trophy: Shell of the Past"
-            description="What exactly have we learned?"
-            date="Dec 30"
-          />
-          <NotificationLine
-            title="New trophy: On the Way to School"
-            description="The little sparrow escapes with its friends, wings flapping nervously..."
-            date="Dec 28"
-            isRead={true}
-          />
+          <NotificationList>
+            <NotificationLine
+              title="Trophy: Parting on Good Terms"
+              description="Good terms? No. I'm here to burn bridges."
+              date="Jan 04"
+            />
+            <NotificationLine
+              title="New operating system update"
+              description="Enjoy the new UI and performance improvements."
+              date="Jan 02"
+            />
+            <NotificationLine
+              title="Trophy: Shell of the Past"
+              description="What exactly have we learned?"
+              date="Dec 30"
+            />
+            <NotificationLine
+              title="New SHf game patch update"
+              description="Fixes a bug when saving the game in certain conditions."
+              date="Dec 29"
+              isRead={true}
+            />
+            <NotificationLine
+              title="Trophy: On the Way to School"
+              description="The little sparrow escapes with its friends, wings flapping nervously..."
+              date="Dec 28"
+              isRead={true}
+            />
+          </NotificationList>
         </NotificationCenter>
         <IconButton
           icon="UserMenu"

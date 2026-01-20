@@ -48,66 +48,72 @@
         }
       }
     }
-    .notification-line {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      padding: config.$space-2x config.$space-3x config.$space-2x
-        config.$space-3x;
-      background-color: var(--neutral-white);
+    .notification-list {
+      max-height: 370px;
+      overflow-y: auto;
 
-      &:hover {
-        background-color: var(--primary-color-50);
-      }
-
-      .notification-line-head {
-        display: flex;
-        gap: config.$space-2x;
-        justify-content: space-between;
-        align-items: center;
-
-        .notification-line-title {
-          @include typography.body-bold;
-
-          .icon {
-            width: config.$icon-size-2x;
-            height: config.$icon-size-2x;
-            margin-right: config.$space-1x;
-
-            @include mixins.svg-color(var(--primary-color-600));
-          }
-        }
-        .notification-line-date {
-          @include typography.footnote-primary;
-        }
-      }
-
-      .notification-line-description {
+      .notification-line {
         display: flex;
         flex-direction: column;
-        gap: config.$space-2x;
-        cursor: default;
+        width: 100%;
+        padding: config.$space-2x config.$space-3x config.$space-2x
+          config.$space-3x;
+        background-color: var(--neutral-white);
 
-        &[open] summary::after {
-          content: attr(data-open);
+        &:hover {
+          background-color: var(--primary-color-50);
         }
 
-        &:not([open]) summary::after {
-          content: attr(data-close);
+        .notification-line-head {
+          display: flex;
+          gap: config.$space-2x;
+          justify-content: space-between;
+          align-items: center;
+
+          .notification-line-title {
+            @include typography.body-bold;
+            white-space: normal;
+
+            .icon {
+              width: config.$icon-size-2x;
+              height: config.$icon-size-2x;
+              margin-right: config.$space-1x;
+
+              @include mixins.svg-color(var(--primary-color-600));
+            }
+          }
+          .notification-line-date {
+            @include typography.footnote-primary;
+          }
         }
 
-        > summary {
-          list-style: none;
-          color: var(--primary-color-600);
-          text-decoration-line: underline;
-        }
+        .notification-line-description {
+          display: flex;
+          flex-direction: column;
+          gap: config.$space-2x;
+          cursor: default;
 
-        > summary::-webkit-details-marker {
-          display: none;
-        }
+          &[open] summary::after {
+            content: attr(data-open);
+          }
 
-        > p {
-          white-space: normal;
+          &:not([open]) summary::after {
+            content: attr(data-close);
+          }
+
+          > summary {
+            list-style: none;
+            color: var(--primary-color-600);
+            text-decoration-line: underline;
+          }
+
+          > summary::-webkit-details-marker {
+            display: none;
+          }
+
+          > p {
+            white-space: normal;
+          }
         }
       }
     }
