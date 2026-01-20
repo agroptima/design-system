@@ -33,6 +33,7 @@ function NotificationCenter({
           onClick={toggle}
         />
       )}
+      closeOnClick={false}
     >
       <div className="notification-center">{children}</div>
     </Popover>

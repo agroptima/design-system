@@ -3,7 +3,11 @@ import React from 'react'
 import { Button, IconButton } from '../atoms/Button'
 import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Header } from '../atoms/Header'
-import { NotificationCenter, NotificationHeader } from '../atoms/Notification'
+import {
+  NotificationCenter,
+  NotificationHeader,
+  NotificationLine,
+} from '../atoms/Notification'
 import type { NotificationCenterProps } from '../atoms/Notification/NotificationCenter'
 
 const meta = {
@@ -71,6 +75,22 @@ export const Primary: Story = {
               label="Mark all as read"
             />
           </NotificationHeader>
+          <NotificationLine
+            title="New trophy: Parting on Good Terms"
+            description="Good terms? No. I'm here to burn bridges."
+            date="Jan 04"
+          />
+          <NotificationLine
+            title="New trophy: Shell of the Past"
+            description="What exactly have we learned?"
+            date="Dec 30"
+          />
+          <NotificationLine
+            title="New trophy: On the Way to School"
+            description="The little sparrow escapes with its friends, wings flapping nervously..."
+            date="Dec 28"
+            isRead={true}
+          />
         </NotificationCenter>
         <IconButton
           icon="UserMenu"
