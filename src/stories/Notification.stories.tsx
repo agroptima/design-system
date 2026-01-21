@@ -80,31 +80,34 @@ export const Primary: Story = {
           <NotificationList>
             <NotificationLine
               title="Trophy: Parting on Good Terms"
-              description="Good terms? No. I'm here to burn bridges."
               date="Jan 04"
-            />
-            <NotificationLine
-              title="New operating system update"
-              description="Enjoy the new UI and performance improvements."
-              date="Jan 02"
-            />
-            <NotificationLine
-              title="Trophy: Shell of the Past"
-              description="What exactly have we learned?"
-              date="Dec 30"
-            />
+              onClick={() => alert('Notification clicked')}
+            >
+              Good terms? No. I&apos;m here to burn bridges.
+            </NotificationLine>
+            <NotificationLine title="New operating system update" date="Jan 02">
+              Enjoy the new UI and performance improvements. <br /> Contact{' '}
+              <a href="support@fakemail.com">support@fakemail.com</a> for help.
+            </NotificationLine>
+            <NotificationLine title="Trophy: Shell of the Past" date="Dec 30">
+              What exactly have we learned?
+            </NotificationLine>
             <NotificationLine
               title="New SHf game patch update"
-              description="Fixes a bug when saving the game in certain conditions."
               date="Dec 29"
               isRead={true}
-            />
+            >
+              Fixes a bug when saving the game in certain conditions.
+            </NotificationLine>
             <NotificationLine
               title="Trophy: On the Way to School"
-              description="The little sparrow escapes with its friends, wings flapping nervously..."
               date="Dec 28"
               isRead={true}
-            />
+              onClick={() => alert('Notification clicked')}
+            >
+              The little sparrow escapes with its friends, wings flapping
+              nervously...
+            </NotificationLine>
           </NotificationList>
         </NotificationCenter>
         <IconButton

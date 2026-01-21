@@ -71,6 +71,7 @@
         gap: config.$space-2x;
         justify-content: space-between;
         align-items: center;
+        cursor: default;
 
         .notification-line-title {
           white-space: normal;

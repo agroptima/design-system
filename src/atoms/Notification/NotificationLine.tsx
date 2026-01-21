@@ -4,28 +4,30 @@ import React from 'react'
 import { classNames } from '../../utils/classNames'
 import { Icon } from '../Icon'
 
-export interface NotificationLineProps {
+export interface NotificationLineProps extends React.ComponentPropsWithoutRef<'div'> {
   title: string
   date: string
-  description: string
   isRead?: boolean
   expandLabel?: string
   collapseLabel?: string
   className?: string
+  onClick?: () => void
+  children: React.ReactNode
 }
 
 function NotificationLine({
   title,
   date,
-  description,
   isRead = false,
   expandLabel = 'View more',
   collapseLabel = 'View less',
   className,
+  onClick = () => {},
+  children,
 }: NotificationLineProps) {
   return (
     <div className={classNames('notification-line', className)}>
-      <div className="notification-line-head">
+      <div className="notification-line-head" onClick={onClick}>
         <span className="notification-line-title">
           {!isRead && <Icon variant="primary" name="TimelineCircleSelected" />}
           {title}
@@ -34,7 +36,7 @@ function NotificationLine({
       </div>
       <details className="notification-line-description">
         <summary data-open={collapseLabel} data-close={expandLabel}></summary>
-        <p>{description}</p>
+        <p>{children}</p>
       </details>
     </div>
   )
