@@ -144,7 +144,7 @@
 
       .notification-center {
         width: 100%;
-        height: 96vh;
+        height: 93vh;
 
         .notification-header {
           .notification-header-title {
@@ -153,6 +153,8 @@
         }
 
         .notification-list {
+          height: 100%;
+          background-color: var(--neutral-white);
           max-height: 100vh;
         }
       }
