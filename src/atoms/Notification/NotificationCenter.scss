@@ -48,72 +48,80 @@
         }
       }
     }
+
     .notification-list {
       max-height: 370px;
       overflow-y: auto;
+    }
 
-      .notification-line {
+    .notification-line {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: config.$space-2x config.$space-3x config.$space-2x
+        config.$space-3x;
+      background-color: var(--neutral-white);
+
+      &:hover {
+        background-color: var(--primary-color-50);
+      }
+
+      .notification-line-head {
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: config.$space-2x config.$space-3x config.$space-2x
-          config.$space-3x;
-        background-color: var(--neutral-white);
+        gap: config.$space-2x;
+        justify-content: space-between;
+        align-items: center;
 
-        &:hover {
-          background-color: var(--primary-color-50);
-        }
-
-        .notification-line-head {
+        .notification-line-title {
+          white-space: normal;
           display: flex;
-          gap: config.$space-2x;
-          justify-content: space-between;
-          align-items: center;
+          align-items: baseline;
+          @include typography.body-bold;
 
-          .notification-line-title {
-            @include typography.body-bold;
-            white-space: normal;
+          &:has(.icon.success) {
+            align-items: center;
+          }
 
-            .icon {
+          .icon {
+            margin-right: config.$space-1x;
+
+            &.primary {
               width: config.$icon-size-2x;
               height: config.$icon-size-2x;
-              margin-right: config.$space-1x;
-
-              @include mixins.svg-color(var(--primary-color-600));
             }
           }
-          .notification-line-date {
-            @include typography.footnote-primary;
-          }
+        }
+        .notification-line-date {
+          @include typography.footnote-primary;
+        }
+      }
+
+      .notification-line-description {
+        display: flex;
+        flex-direction: column;
+        gap: config.$space-2x;
+        cursor: default;
+
+        &[open] summary::after {
+          content: attr(data-open);
         }
 
-        .notification-line-description {
-          display: flex;
-          flex-direction: column;
-          gap: config.$space-2x;
-          cursor: default;
+        &:not([open]) summary::after {
+          content: attr(data-close);
+        }
 
-          &[open] summary::after {
-            content: attr(data-open);
-          }
+        > summary {
+          list-style: none;
+          color: var(--primary-color-600);
+          text-decoration-line: underline;
+        }
 
-          &:not([open]) summary::after {
-            content: attr(data-close);
-          }
+        > summary::-webkit-details-marker {
+          display: none;
+        }
 
-          > summary {
-            list-style: none;
-            color: var(--primary-color-600);
-            text-decoration-line: underline;
-          }
-
-          > summary::-webkit-details-marker {
-            display: none;
-          }
-
-          > p {
-            white-space: normal;
-          }
+        > p {
+          white-space: normal;
         }
       }
     }

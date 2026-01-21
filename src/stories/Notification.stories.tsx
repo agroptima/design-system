@@ -5,6 +5,7 @@ import { CheckableTag, CheckableTagGroup } from '../atoms/CheckableTag'
 import { Header } from '../atoms/Header'
 import {
   NotificationCenter,
+  NotificationEmptyState,
   NotificationHeader,
   NotificationLine,
   NotificationList,
@@ -105,6 +106,54 @@ export const Primary: Story = {
               isRead={true}
             />
           </NotificationList>
+        </NotificationCenter>
+        <IconButton
+          icon="UserMenu"
+          accessibilityLabel="User menu button"
+          variant="secondary"
+        />
+      </div>
+    </Header>
+  ),
+} as unknown as Story
+
+export const EmptyState: Story = {
+  render: (props: NotificationCenterProps) => (
+    <Header {...props}>
+      <h1>Header Title</h1>
+
+      <div style={{ display: 'flex', gap: '10px', marginRight: '30px' }}>
+        <NotificationCenter {...props}>
+          <NotificationHeader title="Notifications">
+            <CheckableTagGroup>
+              <CheckableTag
+                variant="primary"
+                label="All"
+                aria-label="All notifications"
+                onSelect={() => alert('click')}
+                isChecked={true}
+              />
+              <CheckableTag
+                variant="primary"
+                label="Errors"
+                aria-label="Notification errors"
+                onSelect={() => alert('click')}
+                isChecked={false}
+              />
+              <CheckableTag
+                variant="primary"
+                label="Updates"
+                aria-label="Notification updates"
+                onSelect={() => alert('click')}
+                isChecked={false}
+              />
+            </CheckableTagGroup>
+            <Button
+              onClick={() => alert('mark all as read')}
+              label="Mark all as read"
+            />
+          </NotificationHeader>
+          <NotificationEmptyState title="No new notifications" date="Jan 21" />
         </NotificationCenter>
         <IconButton
           icon="UserMenu"
