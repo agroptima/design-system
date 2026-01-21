@@ -18,7 +18,6 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: config.$space-2x;
 
       .notification-header-title {
         @include typography.body-bold;
@@ -123,6 +122,38 @@
 
         > p {
           white-space: normal;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: breakpoints.$medium) {
+  .popover-container {
+    position: relative;
+
+    .popover-menu-container {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+
+      .backdrop {
+        display: none;
+        visibility: hidden;
+      }
+
+      .notification-center {
+        width: 100%;
+        height: 96vh;
+
+        .notification-header {
+          .notification-header-title {
+            border-radius: 0;
+          }
+        }
+
+        .notification-list {
+          max-height: 100vh;
         }
       }
     }
