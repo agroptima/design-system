@@ -5,7 +5,7 @@ import { classNames } from '../utils/classNames'
 export type IconType = keyof typeof icons
 
 export type IconSize = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8'
-export type Variant = 'info' | 'success' | 'warning' | 'error'
+export type Variant = 'info' | 'success' | 'warning' | 'error' | 'primary'
 
 export interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
   name: IconType

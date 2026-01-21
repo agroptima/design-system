@@ -48,6 +48,9 @@
   &.error {
     @include mixins.svg-color(var(--error-color-1000));
   }
+  &.primary {
+    @include mixins.svg-color(var(--primary-color-600));
+  }
 
   @keyframes rotate {
     from {

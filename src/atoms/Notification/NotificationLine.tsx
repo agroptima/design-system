@@ -27,7 +27,7 @@ function NotificationLine({
     <div className={classNames('notification-line', className)}>
       <div className="notification-line-head">
         <span className="notification-line-title">
-          {!isRead && <Icon name="TimelineCircleSelected" />}
+          {!isRead && <Icon variant="primary" name="TimelineCircleSelected" />}
           {title}
         </span>
         <span className="notification-line-date">{date}</span>
