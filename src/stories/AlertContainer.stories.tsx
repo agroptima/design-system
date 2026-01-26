@@ -24,7 +24,7 @@ export const Primary: Story = {
   render: () => (
     <AlertContainer>
       <Alert variant="success" id="success" text="This is a success alert" />
-      <Alert variant="error" id="error" text="This is a error alert" />
+      <Alert variant="error" id="error" text="This is an error alert" />
     </AlertContainer>
   ),
 }
