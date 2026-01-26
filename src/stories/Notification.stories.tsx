@@ -20,12 +20,12 @@ const meta = {
       description: {
         component:
           '<h2>Usage guidelines</h2>' +
-          '<p>The <code>Header</code> component is used to provide consistent branding and global navigation across the application.</p>' +
+          '<p>The <code>NotificationCenter</code> component is used to show an open/close action, list of notifications and related filters actions to the user.</p>' +
           '<ul>' +
-          '  <li>Use it at the top of every page to display the logo, user menu, and language selector</li>' +
-          '  <li>Keep the header content minimal and focused on global actions only</li>' +
-          '  <li>Position utility items (language selector, user menu) on the right side for better accessibility</li>' +
-          '  <li>Maintain consistent height and styling across all pages</li>' +
+          '  <li>Use it at the header to display the open/close IconButton</li>' +
+          '  <li>By default, the <code>NotificationCenter</code> will be aligned to the right of the open/close IconButton</li>' +
+          '  <li>Use short, informative, and actionable text. Avoid vague, repetitive, or excessive notifications</li>' +
+          '  <li>Distinguish between read and unread messages</li>' +
           '</ul>',
       },
     },
@@ -33,7 +33,7 @@ const meta = {
   tags: ['autodocs', 'Feedback components', 'Layout components'],
   argTypes: {
     children: {
-      description: 'Header elements are passed as children',
+      description: 'Header, List and Line components are passed as children',
     },
   },
 }
@@ -41,7 +41,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const NotificationCenterWithNotifications: Story = {
   render: (props: NotificationCenterProps) => (
     <Header {...props}>
       <h1>Header Title</h1>
@@ -120,7 +120,7 @@ export const Primary: Story = {
   ),
 } as unknown as Story
 
-export const EmptyState: Story = {
+export const NotificationCenterEmptyState: Story = {
   render: (props: NotificationCenterProps) => (
     <Header {...props}>
       <h1>Header Title</h1>
