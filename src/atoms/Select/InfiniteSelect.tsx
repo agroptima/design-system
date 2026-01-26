@@ -20,10 +20,8 @@ export type Payload = {
   page_size?: string
 }
 
-export interface InfiniteSelectProps<T> extends Omit<
-  BaseSelectProps,
-  'defaultValue' | 'isEmpty' | 'children'
-> {
+export interface InfiniteSelectProps<T>
+  extends Omit<BaseSelectProps, 'defaultValue' | 'isEmpty' | 'children'> {
   id?: string
   name?: string
   label: string
@@ -39,7 +37,7 @@ export interface InfiniteSelectProps<T> extends Omit<
   query: (payload: Payload) => Promise<{ items: T[]; totalPages: number }>
   errors?: string[]
   fullWidth?: boolean
-  onChange?: (value: T) => void
+  onChange?: (value: T | null) => void
 }
 
 export function InfiniteSelect<T extends { uid: string }>({
@@ -90,6 +88,7 @@ export function InfiniteSelect<T extends { uid: string }>({
 
   const handleClear = () => {
     setSelectedItem(null)
+    onChange(null)
   }
   const handleSelectOption = (item: T) => {
     // TODO: MultiSelect case
