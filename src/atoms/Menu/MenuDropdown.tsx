@@ -5,7 +5,8 @@ import { Icon } from '../Icon'
 
 export type Variant = 'primary'
 
-export interface MenuDropdownProps extends React.ComponentPropsWithoutRef<'li'> {
+export interface MenuDropdownProps
+  extends React.ComponentPropsWithoutRef<'li'> {
   title: string
   variant?: Variant
   icon?: IconType

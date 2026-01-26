@@ -8,7 +8,8 @@ export enum Alignment {
   Center = 'center',
 }
 
-export interface CardsTableCellProps extends React.ComponentPropsWithoutRef<'td'> {
+export interface CardsTableCellProps
+  extends React.ComponentPropsWithoutRef<'td'> {
   noWrap?: boolean
   align?: Alignment
   actions?: boolean

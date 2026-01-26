@@ -6,7 +6,8 @@ import { Label } from './Label'
 
 export type TextAreaVariant = 'primary'
 
-export interface TextAreaProps extends React.ComponentPropsWithoutRef<'textarea'> {
+export interface TextAreaProps
+  extends React.ComponentPropsWithoutRef<'textarea'> {
   label: string
   accessibilityLabel?: string
   hideLabel?: boolean

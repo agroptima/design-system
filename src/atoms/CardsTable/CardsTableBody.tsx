@@ -2,7 +2,8 @@ import './CardsTable.scss'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 
-export interface CardsTableBodyProps extends React.ComponentPropsWithoutRef<'tbody'> {}
+export interface CardsTableBodyProps
+  extends React.ComponentPropsWithoutRef<'tbody'> {}
 
 export function CardsTableBody({
   children,

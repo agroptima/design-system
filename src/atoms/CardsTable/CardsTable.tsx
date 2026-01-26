@@ -3,7 +3,8 @@ import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 
-export interface CardsTableProps extends React.ComponentPropsWithoutRef<'table'> {
+export interface CardsTableProps
+  extends React.ComponentPropsWithoutRef<'table'> {
   variant?: Variant
   withTitle?: boolean
   isSticky?: boolean

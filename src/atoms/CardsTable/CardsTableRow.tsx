@@ -2,7 +2,8 @@ import './CardsTable.scss'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 
-export interface CardsTableRowProps extends React.ComponentPropsWithoutRef<'tr'> {
+export interface CardsTableRowProps
+  extends React.ComponentPropsWithoutRef<'tr'> {
   isDisabled?: boolean
   isActive?: boolean
 }

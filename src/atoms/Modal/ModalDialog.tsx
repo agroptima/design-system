@@ -4,7 +4,8 @@ import React, { useEffect, useRef } from 'react'
 import { classNames } from '../../utils/classNames'
 import type { Variant } from './Modal'
 
-export interface ModalDialogProps extends React.HTMLAttributes<HTMLDialogElement> {
+export interface ModalDialogProps
+  extends React.HTMLAttributes<HTMLDialogElement> {
   isOpen?: boolean
   onClose?: () => void
   details?: boolean

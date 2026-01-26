@@ -1,7 +1,8 @@
 import './FormContainer.scss'
 import { classNames } from '../../utils/classNames'
 
-export interface FormContainerProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface FormContainerProps
+  extends React.ComponentPropsWithoutRef<'div'> {
   fluid?: boolean
 }
 

@@ -1,7 +1,8 @@
 import './CheckableTag.scss'
 import { classNames } from '../../utils/classNames'
 
-export interface CheckableTagGroupProps extends React.ComponentPropsWithoutRef<'div'> {}
+export interface CheckableTagGroupProps
+  extends React.ComponentPropsWithoutRef<'div'> {}
 
 export function CheckableTagGroup({
   className,
