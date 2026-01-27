@@ -7,6 +7,16 @@
 $header-height: 50px;
 
 .notification-center-container {
+  .notification-button-container {
+    position: relative;
+
+    .new-notifications-dot {
+      position: absolute;
+      right: 0;
+      top: -2px;
+    }
+  }
+
   .notification-center {
     display: flex;
     flex-direction: column;

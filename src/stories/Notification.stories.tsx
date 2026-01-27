@@ -47,7 +47,7 @@ export const NotificationCenterWithNotifications: Story = {
       <h1>Header Title</h1>
 
       <div style={{ display: 'flex', gap: '10px', marginRight: '30px' }}>
-        <NotificationCenter>
+        <NotificationCenter hasNewNotifications={true}>
           <NotificationHeader title="Notifications">
             <CheckableTagGroup>
               <CheckableTag
