@@ -157,6 +157,12 @@
           background-color: var(--neutral-white);
           max-height: 100vh;
         }
+
+        .notification-line {
+          &.notification-empty-state {
+            height: 100%;
+          }
+        }
       }
     }
   }

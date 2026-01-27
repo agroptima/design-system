@@ -16,7 +16,13 @@ function NotificationEmptyState({
   className,
 }: NotificationEmptyStateProps) {
   return (
-    <div className={classNames('notification-line', className)}>
+    <div
+      className={classNames(
+        'notification-line',
+        'notification-empty-state',
+        className,
+      )}
+    >
       <div className="notification-line-head">
         <span className="notification-line-title">
           <Icon variant="success" name="Check" />
