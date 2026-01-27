@@ -2,8 +2,7 @@ import './CardsTable.scss'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 
-export interface CardsTableHeadProps
-  extends React.ComponentPropsWithoutRef<'thead'> {}
+export interface CardsTableHeadProps extends React.ComponentPropsWithoutRef<'thead'> {}
 
 export function CardsTableHead({
   children,

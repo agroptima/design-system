@@ -8,8 +8,10 @@ import { SelectTrigger } from './SelectTrigger'
 
 export type Option = { id: string; label: string }
 
-export interface SelectProps
-  extends Omit<BaseSelectProps, 'isEmpty' | 'children'> {
+export interface SelectProps extends Omit<
+  BaseSelectProps,
+  'isEmpty' | 'children'
+> {
   placeholder?: string
   options: Option[]
   label: string

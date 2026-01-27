@@ -20,8 +20,10 @@ export type Payload = {
   page_size?: string
 }
 
-export interface InfiniteSelectProps<T>
-  extends Omit<BaseSelectProps, 'defaultValue' | 'isEmpty' | 'children'> {
+export interface InfiniteSelectProps<T> extends Omit<
+  BaseSelectProps,
+  'defaultValue' | 'isEmpty' | 'children'
+> {
   id?: string
   name?: string
   label: string

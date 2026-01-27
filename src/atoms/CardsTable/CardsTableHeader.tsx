@@ -1,8 +1,7 @@
 import { classNames } from '../../utils/classNames'
 import { Alignment } from './CardsTableCell'
 
-export interface CardsTableHeaderProps
-  extends React.ComponentPropsWithoutRef<'th'> {
+export interface CardsTableHeaderProps extends React.ComponentPropsWithoutRef<'th'> {
   align?: Alignment
   actions?: boolean
 }
