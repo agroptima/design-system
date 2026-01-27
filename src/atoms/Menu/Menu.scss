@@ -75,6 +75,22 @@
     }
   }
 
+  .menu-dropdown .menu .menu-dropdown .menu{
+      .menu-item {
+        padding-left: config.$space-12x;
+        background: var(--neutral-color-100);
+        color: var(--neutral-color-1000);
+
+        &:hover {
+          background: var(--primary-color-100);
+        }
+      }
+      .active {
+        background: var(--primary-color-100);
+        box-shadow: inset -3px 0px 0px 0px var(--primary-color-600);
+      }
+    }
+
   .menu-item::-webkit-details-marker {
     display: none;
   }
