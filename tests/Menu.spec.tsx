@@ -54,7 +54,7 @@ describe('Menu', () => {
     expect(getByRole('img', { name: 'AngleDown' })).toBeInTheDocument()
     expect(getByRole('img', { name: 'Delete' })).toBeInTheDocument()
   })
-  it.only('renders third-level menu', () => {
+  it('renders third-level menu', () => {
     const { getAllByRole, getByText } = render(
       <Menu>
         <MenuDropdown title="Final Fantasy">
@@ -71,7 +71,7 @@ describe('Menu', () => {
         />
       </Menu>,
     )
-    
+
     expect(getAllByRole('menu').length).toBe(3)
     expect(getByText('Final Fantasy')).toBeInTheDocument()
     expect(getByText(/VIII/i)).toBeInTheDocument()
@@ -79,6 +79,5 @@ describe('Menu', () => {
     expect(getByText(/Characters/i)).toBeInTheDocument()
     expect(getByText(/Story/i)).toBeInTheDocument()
     expect(getByText(/Zelda/i)).toBeInTheDocument()
-    // TODO IPB27012026 How I can expect that the indentation and colours are correct in the rendered menu?
   })
 })
