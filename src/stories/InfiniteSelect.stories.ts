@@ -140,6 +140,9 @@ export const Primary: Story = {
       return item.name || ''
     },
     query: fakeQuery,
+    onChange: (value) => {
+      console.log('selected', value)
+    },
   },
   parameters: figmaPrimaryDesign,
 }
