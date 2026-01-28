@@ -55,12 +55,12 @@ describe('Menu', () => {
     expect(getByRole('img', { name: 'Delete' })).toBeInTheDocument()
   })
   it.only('renders third-level menu', () => {
-    const { getAllByRole } = render(
+    const { getAllByRole, getByText } = render(
       <Menu>
-        <MenuDropdown title='Final Fantasy'>
+        <MenuDropdown title="Final Fantasy">
           <MenuDropdown title="Final Fantasy VIII">
             <MenuLink title="Walkthrough" href="#" />
-            <MenuLink isActive title="Characters" href="#" />
+            <MenuLink title="Characters" href="#" />
             <MenuLink title="Story" href="#" />
           </MenuDropdown>
         </MenuDropdown>
@@ -73,6 +73,12 @@ describe('Menu', () => {
     )
     
     expect(getAllByRole('menu').length).toBe(3)
+    expect(getByText('Final Fantasy')).toBeInTheDocument()
+    expect(getByText(/VIII/i)).toBeInTheDocument()
+    expect(getByText(/Walkthrough/i)).toBeInTheDocument()
+    expect(getByText(/Characters/i)).toBeInTheDocument()
+    expect(getByText(/Story/i)).toBeInTheDocument()
+    expect(getByText(/Zelda/i)).toBeInTheDocument()
     // TODO IPB27012026 How I can expect that the indentation and colours are correct in the rendered menu?
   })
 })
