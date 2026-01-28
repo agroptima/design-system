@@ -60,7 +60,7 @@
 
   .menu-dropdown .menu {
     .menu-item {
-      padding-left: config.$space-8x;
+      padding-left: config.$space-3x;
       background: var(--neutral-color-100);
       color: var(--neutral-color-1000);
 
@@ -70,21 +70,21 @@
     }
 
     .arrow > svg {                                                                                                                                       
-      fill: var(--error-color-1000);                                                                                                                   
+      fill: var(--primary-color-100);                                                                                                                   
       path {                                                                                                                                             
-        fill: var(--error-color-1000);                                                                                                                 
+        fill: var(--primary-color-100);                                                                                                                 
       }                             
     }
 
     .active {
       background: var(--primary-color-100);
-      box-shadow: inset -3px 0px 0px 0px var(--primary-color-600);
+      box-shadow: inset -3px 0px 0px 0px var(--primary-color-100);
     }
   }
 
   .menu-dropdown .menu .menu-dropdown .menu{
       .menu-item {
-        padding-left: config.$space-10x;
+        padding-left: config.$space-8x;
         background: var(--neutral-color-50);
         color: var(--neutral-color-1000);
 
@@ -95,7 +95,7 @@
 
       .active {
         background: var(--primary-color-100);
-        box-shadow: inset -3px 0px 0px 0px var(--primary-color-600);
+        box-shadow: inset -3px 0px 0px 0px var(--primary-color-100);
       }
     }
 
