@@ -1,0 +1,181 @@
+@use '../../settings/typography/content' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/breakpoints';
+@use '../../settings/mixins';
+
+$header-height: 50px;
+
+.notification-center-container {
+  .notification-button-container {
+    position: relative;
+
+    .new-notifications-dot {
+      position: absolute;
+      right: 0;
+      top: -2px;
+    }
+  }
+
+  .notification-center {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    box-shadow:
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+      0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    .notification-header {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .notification-header-title {
+        @include typography.body-bold;
+        display: flex;
+        padding: config.$space-2x config.$space-3x;
+        gap: var(--space-1x);
+        border-radius: config.$corner-radius-m config.$corner-radius-m 0 0;
+        background: var(--neutral-color-900);
+        color: var(--neutral-white);
+      }
+
+      .notification-header-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: config.$space-2x config.$space-3x;
+        gap: config.$space-2x;
+        background: var(--neutral-white);
+
+        > .button:last-child {
+          @include typography.footnote-primary;
+          color: var(--primary-color-600);
+          border: 0;
+          background-color: transparent;
+          padding: 0;
+        }
+      }
+    }
+
+    .notification-list {
+      max-height: 370px;
+      overflow-y: auto;
+    }
+
+    .notification-line {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: config.$space-2x config.$space-3x config.$space-2x
+        config.$space-3x;
+      background-color: var(--neutral-white);
+
+      &:hover {
+        background-color: var(--primary-color-50);
+      }
+
+      .notification-line-head {
+        display: flex;
+        gap: config.$space-2x;
+        justify-content: space-between;
+        align-items: center;
+        cursor: default;
+
+        .notification-line-title {
+          white-space: normal;
+          display: flex;
+          align-items: baseline;
+          @include typography.body-bold;
+
+          &:has(.icon.success) {
+            align-items: center;
+          }
+
+          .icon {
+            margin-right: config.$space-1x;
+
+            &.primary {
+              width: config.$icon-size-2x;
+              height: config.$icon-size-2x;
+            }
+          }
+        }
+        .notification-line-date {
+          @include typography.footnote-primary;
+        }
+      }
+
+      .notification-line-description {
+        display: flex;
+        flex-direction: column;
+        gap: config.$space-2x;
+        cursor: default;
+
+        &[open] summary::after {
+          content: attr(data-open);
+        }
+
+        &:not([open]) summary::after {
+          content: attr(data-close);
+        }
+
+        > summary {
+          list-style: none;
+          color: var(--primary-color-600);
+          text-decoration-line: underline;
+        }
+
+        > summary::-webkit-details-marker {
+          display: none;
+        }
+
+        > p {
+          white-space: normal;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: breakpoints.$medium) {
+  .popover-container {
+    position: relative;
+
+    .popover-menu-container {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+
+      .backdrop {
+        display: none;
+        visibility: hidden;
+      }
+
+      .notification-center {
+        width: 100%;
+        height: calc(100vh - $header-height);
+
+        .notification-header {
+          .notification-header-title {
+            border-radius: 0;
+          }
+        }
+
+        .notification-list {
+          height: 100%;
+          background-color: var(--neutral-white);
+          max-height: 100vh;
+        }
+
+        .notification-line {
+          &.notification-empty-state {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
