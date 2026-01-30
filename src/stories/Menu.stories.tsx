@@ -75,6 +75,30 @@ export const MenuWithLinks: Story = {
         <MenuLink title="Dark souls" href="some-link" />
         <MenuLink title="Elder ring" href="some-link" />
       </MenuDropdown>
+      <MenuDropdown
+        title="Three level menu"
+        icon="AddCircle"
+        name="menu"
+        isOpen
+      >
+        <MenuDropdown title="Second Level" name="submenu">
+          <MenuLink title="Third Level 1" href="some-link" />
+          <MenuLink title="Third Level 2" href="some-link" />
+        </MenuDropdown>
+      </MenuDropdown>
+    </Menu>
+  ),
+}
+export const MenuThirdLevel: Story = {
+  render: () => (
+    <Menu>
+      <MenuDropdown title="Final Fantasy" icon="AddCircle" name="menu" isOpen>
+        <MenuDropdown title="Bestiary" name="submenu">
+          <MenuLink title="Chocobo" href="some-link" />
+          <MenuLink title="Moguri" href="some-link" isActive />
+        </MenuDropdown>
+      </MenuDropdown>
+      <MenuLink title="Metroid" icon="Delete" href="#" />
     </Menu>
   ),
 }
