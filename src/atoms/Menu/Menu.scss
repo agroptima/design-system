@@ -19,7 +19,7 @@
     align-items: center;
     cursor: default;
 
-    .icon.icon {
+    .icon {
       width: config.$icon-size-3x;
       height: config.$icon-size-3x;
       > svg {
@@ -102,14 +102,5 @@
 
   .menu-item::-webkit-details-marker {
     display: none;
-  }
-
-  @media only screen and (max-width: breakpoints.$medium) {
-    .menu-item {
-      .arrow {
-        width: config.$icon-size-5x;
-        height: config.$icon-size-5x;
-      }
-    }
   }
 }
