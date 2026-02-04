@@ -68,7 +68,7 @@ export function QuantitySelector({
           id={id}
           ref={inputRef}
           label={label}
-          accessibilityLabel={accessibilityLabel}
+          accessibilityLabel={accessibilityLabel || label}
           disabled={disabled}
           type="number"
           {...props}

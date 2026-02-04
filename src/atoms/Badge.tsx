@@ -42,10 +42,16 @@ export function Badge({
       className={cssClasses}
       role="status"
       aria-label={accessibilityLabel || text}
-      title={icon && accessibilityLabel}
       {...props}
     >
-      {text || (icon && <Icon name={icon} title={accessibilityLabel} />)}
+      {text ? (
+        <>
+          {icon && <Icon name={icon} decorative />}
+          {text}
+        </>
+      ) : (
+        icon && <Icon name={icon} accessibilityLabel={accessibilityLabel} />
+      )}
     </span>
   )
 }

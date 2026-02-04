@@ -238,7 +238,7 @@ function LoadingItems({
   return (
     <li role="option" aria-selected="false">
       <div ref={loaderRef} aria-label={label} className="loading">
-        <Icon name="Loading" />
+        <Icon name="Loading" decorative />
       </div>
     </li>
   )

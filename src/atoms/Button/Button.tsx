@@ -65,9 +65,9 @@ export function Button({
       className={cssClasses}
       {...props}
     >
-      {leftIconName && <Icon name={leftIconName} size="3" />}
-      {icon ? <Icon name={icon} size="3" /> : label}
-      {rightIcon && <Icon name={rightIcon} size="3" />}
+      {leftIconName && <Icon name={leftIconName} size="3" decorative />}
+      {icon ? <Icon name={icon} size="3" decorative /> : label}
+      {rightIcon && <Icon name={rightIcon} size="3" decorative />}
     </BaseButton>
   )
 }
