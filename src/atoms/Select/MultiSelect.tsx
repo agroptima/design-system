@@ -13,36 +13,36 @@ export interface MultiselectProps extends Omit<
   BaseSelectProps,
   'isEmpty' | 'children'
 > {
-  placeholder?: string
   options: Option[]
   label: string
-  accessibilityLabel?: string
+  selectedLabel: string
+  searchLabel: string
+  placeholder?: string
+  clearAccessibilityLabel: string
   defaultValue?: string[]
-  selectedLabel?: string
   onChange?: (value: string[]) => void
-  isSearchable?: boolean
-  searchLabel?: string
   errors?: string[]
+  isSearchable?: boolean
   fullWidth?: boolean
   hideLabel?: boolean
 }
 
 export function Multiselect({
   className,
-  placeholder,
   helpText,
   disabled,
-  errors,
   id,
   name,
   options,
   label,
-  accessibilityLabel,
-  selectedLabel = 'items selected',
-  onChange = () => {},
+  selectedLabel,
+  searchLabel,
+  placeholder,
+  clearAccessibilityLabel,
   defaultValue = [],
+  onChange = () => {},
+  errors,
   isSearchable = false,
-  searchLabel = 'Search',
   fullWidth = false,
   hideLabel = false,
   ...props
@@ -95,7 +95,8 @@ export function Multiselect({
       <SelectTrigger
         id={identifier}
         label={label}
-        accessibilityLabel={accessibilityLabel}
+        clearAccessibilityLabel={clearAccessibilityLabel}
+        hideLabel={hideLabel}
         invalid={isInvalid}
         disabled={disabled}
         isOpen={isOpen}

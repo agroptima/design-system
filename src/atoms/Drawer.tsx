@@ -14,6 +14,7 @@ export interface DrawerProps extends React.ComponentPropsWithoutRef<'div'> {
   title: string
   buttons?: ButtonProps[]
   onClose: () => void
+  closeAccessibilityLabel: string
 }
 
 export function Drawer({
@@ -24,6 +25,7 @@ export function Drawer({
   buttons = [],
   children,
   onClose,
+  closeAccessibilityLabel,
   ...props
 }: DrawerProps): React.JSX.Element {
   const cssClasses = classNames('drawer', variant, className)
@@ -45,7 +47,7 @@ export function Drawer({
         <div className="close-container">
           <IconButton
             icon="Close"
-            accessibilityLabel="Close"
+            accessibilityLabel={closeAccessibilityLabel}
             onClick={onClose}
           />
         </div>

@@ -8,9 +8,15 @@ import { Label } from './Label'
 
 export type Variant = 'primary'
 
+export interface QuantitySelectorLabels {
+  increment: string
+  decrement: string
+  input?: string
+}
+
 export interface QuantitySelectorProps extends Omit<InputProps, 'type'> {
   label: string
-  accessibilityLabel?: string
+  accessibilityLabels: QuantitySelectorLabels
   hideLabel?: boolean
   id?: string
   variant?: Variant
@@ -20,7 +26,7 @@ export interface QuantitySelectorProps extends Omit<InputProps, 'type'> {
 export function QuantitySelector({
   id,
   label,
-  accessibilityLabel,
+  accessibilityLabels,
   className,
   disabled,
   hideLabel = false,
@@ -56,7 +62,7 @@ export function QuantitySelector({
       <div className="quantity-selector">
         <Button
           label=""
-          accessibilityLabel="-"
+          accessibilityLabel={accessibilityLabels.decrement}
           type="button"
           leftIcon="Minus"
           className="decrement-button"
@@ -68,7 +74,7 @@ export function QuantitySelector({
           id={id}
           ref={inputRef}
           label={label}
-          accessibilityLabel={accessibilityLabel || label}
+          accessibilityLabel={accessibilityLabels.input || label}
           disabled={disabled}
           type="number"
           {...props}
@@ -76,7 +82,7 @@ export function QuantitySelector({
         />
         <Button
           label=""
-          accessibilityLabel="+"
+          accessibilityLabel={accessibilityLabels.increment}
           leftIcon="Add"
           type="button"
           className="increment-button"

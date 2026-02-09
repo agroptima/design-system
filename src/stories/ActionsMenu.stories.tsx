@@ -34,6 +34,10 @@ const meta = {
       description: 'Position of the Popover component',
       control: { type: 'select' },
     },
+    accessibilityLabel: {
+      description:
+        'Accessibility label for the button that opens the menu. It is required for accessibility reasons.',
+    },
     children: {
       description: 'PopoverMenuOption components are passed as children',
     },
@@ -45,7 +49,7 @@ type Story = StoryObj<typeof meta>
 
 export const WithLinks: Story = {
   render: () => (
-    <ActionsMenu>
+    <ActionsMenu accessibilityLabel="More options">
       <PopoverMenuOption
         active
         href="#"
@@ -68,11 +72,11 @@ export const WithLinks: Story = {
       />
     </ActionsMenu>
   ),
-}
+} as unknown as Story
 
 export const WithButtons: Story = {
   render: () => (
-    <ActionsMenu>
+    <ActionsMenu accessibilityLabel="More options">
       <PopoverMenuOption
         active
         onClick={() => alert('Save')}
@@ -95,4 +99,4 @@ export const WithButtons: Story = {
       />
     </ActionsMenu>
   ),
-}
+} as unknown as Story

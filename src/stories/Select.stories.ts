@@ -42,6 +42,9 @@ const meta = {
     helpText: {
       description: 'Optional help text',
     },
+    clearAccessibilityLabel: {
+      description: 'Accessibility label for the clear button',
+    },
     name: {
       description: 'Set name property',
     },
@@ -95,7 +98,8 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
-    accessibilityLabel: 'Select your favourite gaming system options',
+    clearAccessibilityLabel: 'Clear selected option',
+    searchLabel: 'Search',
     hideLabel: false,
     isSearchable: false,
     placeholder: 'Select your favourite gaming system...',
@@ -134,6 +138,8 @@ export const PrimaryWithSelectedOptions: Story = {
     name: 'example',
     label: 'Videogames',
     hideLabel: false,
+    clearAccessibilityLabel: 'Clear selected option',
+    searchLabel: 'Search',
     placeholder: 'Select your favourite gaming system...',
     isSearchable: false,
     options: [
@@ -154,7 +160,8 @@ export const PrimaryWithErrors: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
-    accessibilityLabel: 'Select your favourite gaming system options',
+    clearAccessibilityLabel: 'Clear selected option',
+    searchLabel: 'Search',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
     isSearchable: false,
@@ -177,7 +184,8 @@ export const PrimaryWithSearch: Story = {
     helpText: 'This text can help you',
     name: 'example',
     label: 'Videogames',
-    accessibilityLabel: 'Select your favourite gaming system options',
+    clearAccessibilityLabel: 'Clear selected option',
+    searchLabel: 'Search',
     hideLabel: false,
     placeholder: 'Select your favourite gaming system...',
     options: [
@@ -203,7 +211,6 @@ export const PrimaryWithSearch: Story = {
     id: 'select-videogames',
     onChange: (optionId) => console.log('onChange optionId:', optionId),
     isSearchable: true,
-    searchLabel: 'Search',
   },
   parameters: figmaPrimaryDesign,
 }

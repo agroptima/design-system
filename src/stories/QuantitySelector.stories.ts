@@ -19,9 +19,12 @@ const meta = {
     label: {
       description: 'Label for the component',
     },
-    accessibilityLabel: {
+    accessibilityLabels: {
       description:
         'Describes the component purpose. If empty, label content will be used',
+      control: {
+        type: 'object',
+      },
     },
     variant: {
       description: 'Component variant used',
@@ -72,7 +75,11 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     label: 'Quantity',
-    accessibilityLabel: 'Quantity of items to wishlist',
+    accessibilityLabels: {
+      increment: 'Increment quantity',
+      decrement: 'Decrement quantity',
+      input: 'Quantity of items to wishlist',
+    },
     id: 'quantity',
     hideLabel: true,
     name: 'quantity',
@@ -88,7 +95,11 @@ export const Primary: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Quantity',
-    accessibilityLabel: 'Quantity of items to wishlist',
+    accessibilityLabels: {
+      increment: 'Increment quantity',
+      decrement: 'Decrement quantity',
+      input: 'Quantity of items to wishlist',
+    },
     id: 'quantity',
     name: 'quantity',
     defaultValue: 1,

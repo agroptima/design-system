@@ -73,6 +73,9 @@ const meta = {
     hideLabel: {
       description: 'Show or hide label?',
     },
+    clearAccessibilityLabel: {
+      description: 'Accessibility label for the clear button',
+    },
   },
 }
 
@@ -94,8 +97,9 @@ export const Primary: Story = {
     helpText: 'This text can help you',
     name: 'videogames',
     label: 'Videogames',
-    accessibilityLabel: 'Select your favourite videogames options',
+    clearAccessibilityLabel: 'Clear selected options',
     selectedLabel: 'videogames selected',
+    searchLabel: 'Search videogames',
     placeholder: 'Select your favourite videogames...',
     isSearchable: false,
     options: [
@@ -118,6 +122,8 @@ export const PrimaryWithSelectedOptions: Story = {
     helpText: 'This text can help you',
     name: 'videogames',
     label: 'Videogames',
+    clearAccessibilityLabel: 'Clear selected options',
+    searchLabel: 'Search videogames',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
     isSearchable: false,
@@ -142,7 +148,8 @@ export const PrimaryWithErrors: Story = {
     helpText: 'This text can help you',
     name: 'videogames',
     label: 'Videogames',
-    accessibilityLabel: 'Select your favourite videogames options',
+    searchLabel: 'Search videogames',
+    clearAccessibilityLabel: 'Clear selected options',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
     isSearchable: false,
@@ -166,7 +173,7 @@ export const PrimaryWithSearch: Story = {
     helpText: 'This text can help you',
     name: 'videogames',
     label: 'Videogames',
-    accessibilityLabel: 'Select your favourite videogames options',
+    clearAccessibilityLabel: 'Clear selected options',
     selectedLabel: 'videogames selected',
     placeholder: 'Select your favourite videogames...',
     options: [
@@ -178,7 +185,7 @@ export const PrimaryWithSearch: Story = {
       { id: '6', label: 'Red Dead Redemption' },
     ],
     isSearchable: true,
-    searchLabel: 'Search',
+    searchLabel: 'Search videogames',
   },
   parameters: figmaPrimaryDesign,
 }

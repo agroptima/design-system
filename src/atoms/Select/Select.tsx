@@ -8,6 +8,10 @@ import { SelectTrigger } from './SelectTrigger'
 
 export type Option = { id: string; label: string }
 
+export type SelectAccessibilityLabels = {
+  clear: string
+}
+
 export interface SelectProps extends Omit<
   BaseSelectProps,
   'isEmpty' | 'children'
@@ -15,14 +19,14 @@ export interface SelectProps extends Omit<
   placeholder?: string
   options: Option[]
   label: string
-  accessibilityLabel?: string
+  clearAccessibilityLabel: string
   defaultValue?: string
   onChange?: (value: string) => void
   errors?: string[]
   disabled?: boolean
   helpText?: string
   isSearchable?: boolean
-  searchLabel?: string
+  searchLabel: string
   fullWidth?: boolean
   hideLabel?: boolean
 }
@@ -36,16 +40,16 @@ export function Select({
   id,
   options,
   label,
-  accessibilityLabel,
+  clearAccessibilityLabel,
   errors,
   onChange = () => {},
   helpText,
   defaultValue,
   isSearchable = false,
   disabled = false,
-  searchLabel = 'Search',
   fullWidth = false,
   hideLabel = false,
+  searchLabel,
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()
@@ -93,7 +97,8 @@ export function Select({
         id={identifier}
         buttonRef={selectTriggerRef}
         label={label}
-        accessibilityLabel={accessibilityLabel}
+        clearAccessibilityLabel={clearAccessibilityLabel}
+        hideLabel={hideLabel}
         invalid={isInvalid}
         disabled={disabled}
         isOpen={isOpen}
