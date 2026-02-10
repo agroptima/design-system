@@ -4,8 +4,6 @@
 @use '../../settings/breakpoints';
 @use '../../settings/mixins';
 
-$header-height: 50px;
-
 .notification-center-container {
   .notification-button-container {
     position: relative;
@@ -156,7 +154,7 @@ $header-height: 50px;
 
       .notification-center {
         width: 100%;
-        height: calc(100vh - $header-height);
+        height: calc(100vh - config.$header-height-mobile);
 
         .notification-header {
           .notification-header-title {

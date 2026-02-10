@@ -5,6 +5,7 @@ import { classNames } from '../../utils/classNames'
 import { Badge } from '../Badge'
 import { IconButton } from '../Button'
 import type { Variant } from '../Button/IconButton'
+import type { IconSize } from '../Icon'
 import { Popover, type Position } from '../Popover'
 
 export interface NotificationCenterProps {
@@ -13,11 +14,13 @@ export interface NotificationCenterProps {
   variant?: Variant
   accessibilityLabel?: string
   hasNewNotifications?: boolean
+  size?: IconSize
   children: React.ReactNode
 }
 
 function NotificationCenter({
   position = 'right',
+  size = '6',
   className,
   variant = 'secondary',
   hasNewNotifications = false,
@@ -41,6 +44,7 @@ function NotificationCenter({
             icon="Notification"
             variant={variant}
             accessibilityLabel={accessibilityLabel}
+            size={size}
             onClick={toggle}
           />
         </div>
