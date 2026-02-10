@@ -21,7 +21,7 @@ describe('Floating Button', () => {
         />,
       )
       expect(getByRole('link')).toHaveClass(`floating-button ${variant} circle`)
-      expect(getByRole('img').title).toBe('Add')
+      expect(getByRole('link')).toHaveAttribute('aria-label', 'Add game')
       expect(getByRole('link')).toBeInTheDocument()
     },
   )
@@ -42,7 +42,7 @@ describe('Floating Button', () => {
       expect(getByRole('button')).toHaveClass(
         `floating-button ${variant} rounded-square`,
       )
-      expect(getByRole('img').title).toBe('Add')
+      expect(getByRole('button')).toHaveAttribute('aria-label', 'Add game')
       expect(getByRole('button')).toBeInTheDocument()
     },
   )

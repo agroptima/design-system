@@ -53,6 +53,8 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         placeholder="Select an option..."
         searchLabel="Search"
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         required
         displayItem={jest.fn()}
         query={jest.fn()}
@@ -72,6 +74,8 @@ describe('InfiniteSelect', () => {
         placeholder="Select an option..."
         displayItem={jest.fn()}
         searchLabel="Search"
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         query={jest.fn()}
         required
         disabled
@@ -101,6 +105,8 @@ describe('InfiniteSelect', () => {
           name="infinite-select-example"
           placeholder="Select an option..."
           searchLabel="Search"
+          clearAccessibilityLabel="clear"
+          loadingAccessibilityLabel="Loading items"
           displayItem={(item) => item.name}
           onChange={onChange}
           query={query}
@@ -135,6 +141,8 @@ describe('InfiniteSelect', () => {
           label="Infinite Options"
           name="infinite-select-example"
           searchLabel="Search"
+          clearAccessibilityLabel="clear"
+          loadingAccessibilityLabel="Loading items"
           placeholder={placeholder}
           displayItem={jest.fn()}
           defaultValue={defaultValue}
@@ -166,6 +174,8 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         placeholder="Select an option..."
         searchLabel="Search"
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -195,6 +205,8 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         placeholder="Select an option..."
         searchLabel="Search"
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -226,6 +238,8 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         placeholder="Select an option..."
         searchLabel="Search"
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -250,6 +264,8 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         searchLabel="Search"
         placeholder="Select an option..."
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         displayItem={(item: Item) => item.name}
         query={query}
       />,
@@ -286,6 +302,8 @@ describe('InfiniteSelect', () => {
         name="infinite-select-example"
         searchLabel="Search"
         placeholder="Select an option..."
+        clearAccessibilityLabel="clear"
+        loadingAccessibilityLabel="Loading items"
         displayItem={(item: Item) => item.name}
         query={query}
       />,

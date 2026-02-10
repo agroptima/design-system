@@ -116,7 +116,7 @@ export const Primary: Story = {
               accessibilityLabel="Delete game"
               href="link.com"
             />
-            <ActionsMenu position="right">
+            <ActionsMenu position="right" accessibilityLabel="More actions">
               <PopoverMenuOption
                 active
                 onClick={() => alert('Save')}

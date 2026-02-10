@@ -26,7 +26,7 @@ export interface SelectProps extends Omit<
   disabled?: boolean
   helpText?: string
   isSearchable?: boolean
-  searchLabel: string
+  searchLabel?: string
   fullWidth?: boolean
   hideLabel?: boolean
 }
@@ -49,7 +49,7 @@ export function Select({
   disabled = false,
   fullWidth = false,
   hideLabel = false,
-  searchLabel,
+  searchLabel = 'Search',
   ...props
 }: SelectProps): React.JSX.Element {
   const { isOpen, close, toggle } = useOpen()

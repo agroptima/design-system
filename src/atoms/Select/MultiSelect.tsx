@@ -16,7 +16,7 @@ export interface MultiselectProps extends Omit<
   options: Option[]
   label: string
   selectedLabel: string
-  searchLabel: string
+  searchLabel?: string
   placeholder?: string
   clearAccessibilityLabel: string
   defaultValue?: string[]
@@ -36,7 +36,7 @@ export function Multiselect({
   options,
   label,
   selectedLabel,
-  searchLabel,
+  searchLabel = 'Search',
   placeholder,
   clearAccessibilityLabel,
   defaultValue = [],

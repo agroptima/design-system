@@ -8,7 +8,7 @@ describe('ActionsMenu', () => {
   it('is shown when IconButton is clicked', async () => {
     const user = userEvent.setup()
     const { getByText, getAllByRole, getByLabelText } = render(
-      <ActionsMenu>
+      <ActionsMenu accessibilityLabel="More options">
         <PopoverMenuOption
           active
           href="#"
@@ -57,7 +57,7 @@ describe('ActionsMenu', () => {
     const { getByText, queryByText, getByLabelText } = render(
       <>
         <div>Outside</div>
-        <ActionsMenu>
+        <ActionsMenu accessibilityLabel="More options">
           <PopoverMenuOption
             active
             href="#"

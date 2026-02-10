@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
 import { Alert } from '../src/atoms/Alert'
 import type { Variant } from '../src/atoms/Alert/Alert'
@@ -9,7 +9,7 @@ describe('Alert', () => {
     'renders the %s variant with text, expected styles and button',
     (variant) => {
       const text = `${variant} text`
-      const { getByRole, getByText } = render(
+      const { getByRole, getByText, container } = render(
         <Alert
           id={`${variant}-modal`}
           text={text}
@@ -22,7 +22,7 @@ describe('Alert', () => {
         />,
       )
       expect(getByRole('alert')).toHaveClass(`alert ${variant}`)
-      expect(screen.getAllByRole('img')[0]).toHaveClass(`icon ${variant}`)
+      expect(container.querySelector(`.icon.${variant}`)).toBeInTheDocument()
       expect(getByText(text)).toBeInTheDocument()
       expect(getByRole('button')).toBeInTheDocument()
     },
@@ -32,7 +32,7 @@ describe('Alert', () => {
     'renders the %s variant with text and expected styles',
     (variant) => {
       const text = `${variant} text`
-      const { getByRole, getByText, queryByRole } = render(
+      const { getByRole, getByText, queryByRole, container } = render(
         <Alert
           id={`${variant}-modal`}
           text={text}
@@ -40,7 +40,7 @@ describe('Alert', () => {
         />,
       )
       expect(getByRole('alert')).toHaveClass(`alert ${variant}`)
-      expect(screen.getAllByRole('img')[0]).toHaveClass(`icon ${variant}`)
+      expect(container.querySelector(`.icon.${variant}`)).toBeInTheDocument()
       expect(getByText(text)).toBeInTheDocument()
       expect(queryByRole('button')).not.toBeInTheDocument()
     },

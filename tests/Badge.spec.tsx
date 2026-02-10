@@ -44,7 +44,7 @@ describe('Badge', () => {
         variant={variant as Variant}
       />,
     )
-    expect(screen.getAllByTitle(accessibilityLabel)[1]).toBeInTheDocument()
+    expect(screen.getAllByLabelText(accessibilityLabel)[1]).toBeInTheDocument()
     expect(getByRole('status')).toHaveClass(`badge ${variant}`)
   })
 })

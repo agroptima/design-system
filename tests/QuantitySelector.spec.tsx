@@ -6,7 +6,11 @@ describe('QuantitySelector', () => {
     const { getByRole, getByText, getAllByRole } = render(
       <QuantitySelector
         label="Quantity"
-        accessibilityLabel="Quantity of items to wishlist"
+        accessibilityLabels={{
+          decrement: 'Decrement quantity',
+          increment: 'Increment quantity',
+          input: 'Quantity of items to wishlist',
+        }}
         id="quantity"
         name="quantity"
         value={1}

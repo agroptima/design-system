@@ -35,7 +35,7 @@ export interface InfiniteSelectProps<T> extends Omit<
   placeholder: string
   clearAccessibilityLabel: string
   loadingAccessibilityLabel: string
-  searchLabel: string
+  searchLabel?: string
   defaultValue?: T | undefined | null
   searchDebounceTime?: number
   disabled?: boolean
@@ -56,7 +56,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   placeholder,
   clearAccessibilityLabel,
   loadingAccessibilityLabel,
-  searchLabel,
+  searchLabel = 'Search',
   className,
   defaultValue,
   disabled = false,

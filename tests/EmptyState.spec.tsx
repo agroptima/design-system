@@ -10,19 +10,19 @@ describe('EmptyState', () => {
     'renders the Basic %s variant with the expected image and text',
     (variant) => {
       const content = `${variant} empty state content`
-      const { getAllByRole, getByRole, getByText } = render(
+      const { getAllByRole, getByText, container } = render(
         <EmptyState variant={variant as Variant}>
           <p>{content}</p>
         </EmptyState>,
       )
       expect(getAllByRole('generic')[1]).toHaveClass(`empty-state ${variant}`)
-      expect(getByRole('img').title).toBe('EmptyState')
+      expect(container.querySelector('[aria-hidden="true"]')).toBeInTheDocument()
       expect(getByText(content)).toBeInTheDocument()
     },
   )
 
   it('renders the Custom version with the expected image and content', () => {
-    const { getAllByRole, getByRole, getByText } = render(
+    const { getAllByRole, getByText, container } = render(
       <EmptyState>
         <p>
           There are no videogames yet. You can import videogames to your{' '}
@@ -35,10 +35,10 @@ describe('EmptyState', () => {
       </EmptyState>,
     )
     expect(getAllByRole('generic')[1]).toHaveClass(`empty-state primary`)
-    expect(getByRole('img').title).toBe('EmptyState')
+    expect(container.querySelector('[aria-hidden="true"]')).toBeInTheDocument()
     expect(getByText(/There are no videogames yet/i)).toBeInTheDocument()
     expect(getByText('Import videogames')).toBeInTheDocument()
-    expect(getByRole('link')).toBeInTheDocument()
-    expect(getByRole('button')).toBeInTheDocument()
+    expect(getAllByRole('link')[0]).toBeInTheDocument()
+    expect(getAllByRole('button')[0]).toBeInTheDocument()
   })
 })

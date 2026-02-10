@@ -27,17 +27,18 @@ describe('Input', () => {
 
   it('renders the Password type', async () => {
     const user = userEvent.setup()
-    const { getByPlaceholderText, getAllByRole, getByRole, getByText } = render(
-      <Input
-        helpText="This text can help you"
-        id="password_input"
-        label="Password"
-        name="login_password"
-        placeholder="Write your password..."
-        type="password"
-        variant="primary"
-      />,
-    )
+    const { getByPlaceholderText, getAllByRole, getByText, getByLabelText } =
+      render(
+        <Input
+          helpText="This text can help you"
+          id="password_input"
+          label="Password"
+          name="login_password"
+          placeholder="Write your password..."
+          type="password"
+          variant="primary"
+        />,
+      )
 
     expect(getByPlaceholderText(/Write your password.../)).toHaveAttribute(
       'type',
@@ -45,12 +46,12 @@ describe('Input', () => {
     )
     expect(getAllByRole('generic')[1]).toHaveClass('input-group primary')
     expect(getByText('Password')).toBeInTheDocument()
-    expect(getByRole('img').title).toBe('Show')
+    expect(getByLabelText('Show password')).toBeInTheDocument()
     expect(getByText(/This text can help you/i)).toBeInTheDocument()
 
     await user.click(screen.getByRole('button'))
 
-    expect(getByRole('img').title).toBe('ShowOff')
+    expect(getByLabelText('Hide password')).toBeInTheDocument()
   })
 
   it('renders input with errors', () => {

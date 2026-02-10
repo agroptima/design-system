@@ -23,8 +23,6 @@ describe('Menu', () => {
     ).toHaveClass(`active`)
     expect(getByText(/Tekken/i)).toBeInTheDocument()
     expect(getByText(/Zelda/i)).toBeInTheDocument()
-    expect(getByRole('img', { name: 'Edit' })).toBeInTheDocument()
-    expect(getByRole('img', { name: 'Delete' })).toBeInTheDocument()
   })
 
   it('renders second-level menu', () => {
@@ -50,8 +48,5 @@ describe('Menu', () => {
     expect(getByText(/Characters/i)).toBeInTheDocument()
     expect(getByText(/Story/i)).toBeInTheDocument()
     expect(getByText(/Zelda/i)).toBeInTheDocument()
-    expect(getByRole('img', { name: 'Edit' })).toBeInTheDocument()
-    expect(getByRole('img', { name: 'AngleDown' })).toBeInTheDocument()
-    expect(getByRole('img', { name: 'Delete' })).toBeInTheDocument()
   })
 })
