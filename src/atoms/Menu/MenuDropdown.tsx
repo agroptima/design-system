@@ -27,9 +27,9 @@ export function MenuDropdown({
     <li tabIndex={0} role="menuitem" className="menu-dropdown" {...props}>
       <details open={isOpen} name={name}>
         <summary className={classNames('menu-item', variant, className)}>
-          {icon && <Icon name={icon} decorative />}
+          {icon && <Icon name={icon} size="3" decorative />}
           <span className="title">{title}</span>
-          <Icon className="arrow" name="AngleDown" decorative />
+          <Icon className="arrow" name="AngleDown" size="3" decorative />
         </summary>
         <ul className="menu" role="menu">
           {children}

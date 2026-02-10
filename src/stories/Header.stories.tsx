@@ -34,14 +34,16 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   render: (props: HeaderProps) => (
-    <Header {...props}>
-      <h1>Header Title</h1>
+    <div style={{ position: 'absolute', top: 0, left: 0 }}>
+      <Header {...props}>
+        <h1>Header Title</h1>
 
-      <IconButton
-        icon="UserMenu"
-        variant="secondary"
-        accessibilityLabel="User menu button"
-      />
-    </Header>
+        <IconButton
+          icon="UserMenu"
+          variant="secondary"
+          accessibilityLabel="User menu button"
+        />
+      </Header>
+    </div>
   ),
 }

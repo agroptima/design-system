@@ -43,127 +43,138 @@ type Story = StoryObj<typeof meta>
 
 export const NotificationCenterWithNotifications: Story = {
   render: (props: NotificationCenterProps) => (
-    <Header {...props}>
-      <h1>Header Title</h1>
+    <div style={{ position: 'absolute', top: 0, left: 0 }}>
+      <Header {...props}>
+        <h1>Header Title</h1>
 
-      <div style={{ display: 'flex', gap: '10px', marginRight: '30px' }}>
-        <NotificationCenter hasNewNotifications={true}>
-          <NotificationHeader title="Notifications">
-            <CheckableTagGroup>
-              <CheckableTag
-                variant="primary"
-                label="All"
-                aria-label="All notifications"
-                onSelect={() => alert('click')}
-                isChecked={true}
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <NotificationCenter hasNewNotifications={true}>
+            <NotificationHeader title="Notifications">
+              <CheckableTagGroup>
+                <CheckableTag
+                  variant="primary"
+                  label="All"
+                  aria-label="All notifications"
+                  onSelect={() => alert('click')}
+                  isChecked={true}
+                />
+                <CheckableTag
+                  variant="primary"
+                  label="Errors"
+                  aria-label="Notification errors"
+                  onSelect={() => alert('click')}
+                  isChecked={false}
+                />
+                <CheckableTag
+                  variant="primary"
+                  label="Updates"
+                  aria-label="Notification updates"
+                  onSelect={() => alert('click')}
+                  isChecked={false}
+                />
+              </CheckableTagGroup>
+              <Button
+                onClick={() => alert('mark all as read')}
+                label="Mark all as read"
               />
-              <CheckableTag
-                variant="primary"
-                label="Errors"
-                aria-label="Notification errors"
-                onSelect={() => alert('click')}
-                isChecked={false}
-              />
-              <CheckableTag
-                variant="primary"
-                label="Updates"
-                aria-label="Notification updates"
-                onSelect={() => alert('click')}
-                isChecked={false}
-              />
-            </CheckableTagGroup>
-            <Button
-              onClick={() => alert('mark all as read')}
-              label="Mark all as read"
-            />
-          </NotificationHeader>
-          <NotificationList>
-            <NotificationLine
-              title="Trophy: Parting on Good Terms"
-              date="Jan 04"
-              onClick={() => alert('Notification clicked')}
-            >
-              Good terms? No. I&apos;m here to burn bridges.
-            </NotificationLine>
-            <NotificationLine title="New operating system update" date="Jan 02">
-              Enjoy the new UI and performance improvements. <br /> Contact{' '}
-              <a href="support@fakemail.com">support@fakemail.com</a> for help.
-            </NotificationLine>
-            <NotificationLine title="Trophy: Shell of the Past" date="Dec 30">
-              What exactly have we learned?
-            </NotificationLine>
-            <NotificationLine
-              title="New SHf game patch update"
-              date="Dec 29"
-              isRead={true}
-            >
-              Fixes a bug when saving the game in certain conditions.
-            </NotificationLine>
-            <NotificationLine
-              title="Trophy: On the Way to School"
-              date="Dec 28"
-              isRead={true}
-              onClick={() => alert('Notification clicked')}
-            >
-              The little sparrow escapes with its friends, wings flapping
-              nervously...
-            </NotificationLine>
-          </NotificationList>
-        </NotificationCenter>
-        <IconButton
-          icon="UserMenu"
-          accessibilityLabel="User menu button"
-          variant="secondary"
-        />
-      </div>
-    </Header>
+            </NotificationHeader>
+            <NotificationList>
+              <NotificationLine
+                title="Trophy: Parting on Good Terms"
+                date="Jan 04"
+                onClick={() => alert('Notification clicked')}
+              >
+                Good terms? No. I&apos;m here to burn bridges.
+              </NotificationLine>
+              <NotificationLine
+                title="New operating system update"
+                date="Jan 02"
+              >
+                Enjoy the new UI and performance improvements. <br /> Contact{' '}
+                <a href="support@fakemail.com">support@fakemail.com</a> for
+                help.
+              </NotificationLine>
+              <NotificationLine title="Trophy: Shell of the Past" date="Dec 30">
+                What exactly have we learned?
+              </NotificationLine>
+              <NotificationLine
+                title="New SHf game patch update"
+                date="Dec 29"
+                isRead={true}
+              >
+                Fixes a bug when saving the game in certain conditions.
+              </NotificationLine>
+              <NotificationLine
+                title="Trophy: On the Way to School"
+                date="Dec 28"
+                isRead={true}
+                onClick={() => alert('Notification clicked')}
+              >
+                The little sparrow escapes with its friends, wings flapping
+                nervously...
+              </NotificationLine>
+            </NotificationList>
+          </NotificationCenter>
+          <IconButton
+            icon="UserMenu"
+            accessibilityLabel="User menu button"
+            variant="secondary"
+          />
+        </div>
+      </Header>
+    </div>
   ),
 } as unknown as Story
 
 export const NotificationCenterEmptyState: Story = {
   render: (props: NotificationCenterProps) => (
-    <Header {...props}>
-      <h1>Header Title</h1>
+    <div style={{ position: 'absolute', top: 0, left: 0 }}>
+      <Header {...props}>
+        <h1>Header Title</h1>
 
-      <div style={{ display: 'flex', gap: '10px', marginRight: '30px' }}>
-        <NotificationCenter {...props}>
-          <NotificationHeader title="Notifications">
-            <CheckableTagGroup>
-              <CheckableTag
-                variant="primary"
-                label="All"
-                aria-label="All notifications"
-                onSelect={() => alert('click')}
-                isChecked={true}
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <NotificationCenter {...props}>
+            <NotificationHeader title="Notifications">
+              <CheckableTagGroup>
+                <CheckableTag
+                  variant="primary"
+                  label="All"
+                  aria-label="All notifications"
+                  onSelect={() => alert('click')}
+                  isChecked={true}
+                />
+                <CheckableTag
+                  variant="primary"
+                  label="Errors"
+                  aria-label="Notification errors"
+                  onSelect={() => alert('click')}
+                  isChecked={false}
+                />
+                <CheckableTag
+                  variant="primary"
+                  label="Updates"
+                  aria-label="Notification updates"
+                  onSelect={() => alert('click')}
+                  isChecked={false}
+                />
+              </CheckableTagGroup>
+              <Button
+                onClick={() => alert('mark all as read')}
+                label="Mark all as read"
               />
-              <CheckableTag
-                variant="primary"
-                label="Errors"
-                aria-label="Notification errors"
-                onSelect={() => alert('click')}
-                isChecked={false}
-              />
-              <CheckableTag
-                variant="primary"
-                label="Updates"
-                aria-label="Notification updates"
-                onSelect={() => alert('click')}
-                isChecked={false}
-              />
-            </CheckableTagGroup>
-            <Button
-              onClick={() => alert('mark all as read')}
-              label="Mark all as read"
+            </NotificationHeader>
+            <NotificationEmptyState
+              title="No new notifications"
+              date="Jan 21"
             />
-          </NotificationHeader>
-          <NotificationEmptyState title="No new notifications" date="Jan 21" />
-        </NotificationCenter>
-        <IconButton
-          icon="UserMenu"
-          accessibilityLabel="User menu button"
-          variant="secondary"
-        />
-      </div>
-    </Header>
+          </NotificationCenter>
+          <IconButton
+            icon="UserMenu"
+            accessibilityLabel="User menu button"
+            variant="secondary"
+          />
+        </div>
+      </Header>
+    </div>
   ),
 } as unknown as Story

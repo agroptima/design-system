@@ -49,4 +49,30 @@ describe('Menu', () => {
     expect(getByText(/Story/i)).toBeInTheDocument()
     expect(getByText(/Zelda/i)).toBeInTheDocument()
   })
+  it('renders third-level menu', () => {
+    const { getAllByRole, getByText } = render(
+      <Menu>
+        <MenuDropdown title="Final Fantasy">
+          <MenuDropdown title="Final Fantasy VIII">
+            <MenuLink title="Walkthrough" href="#" />
+            <MenuLink title="Characters" href="#" />
+            <MenuLink title="Story" href="#" />
+          </MenuDropdown>
+        </MenuDropdown>
+        <MenuLink
+          title="The Legend of Zelda: Tears of the Kingdom"
+          icon="Delete"
+          href="#"
+        />
+      </Menu>,
+    )
+
+    expect(getAllByRole('menu').length).toBe(3)
+    expect(getByText('Final Fantasy')).toBeInTheDocument()
+    expect(getByText(/VIII/i)).toBeInTheDocument()
+    expect(getByText(/Walkthrough/i)).toBeInTheDocument()
+    expect(getByText(/Characters/i)).toBeInTheDocument()
+    expect(getByText(/Story/i)).toBeInTheDocument()
+    expect(getByText(/Zelda/i)).toBeInTheDocument()
+  })
 })
