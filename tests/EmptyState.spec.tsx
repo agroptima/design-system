@@ -16,7 +16,9 @@ describe('EmptyState', () => {
         </EmptyState>,
       )
       expect(getAllByRole('generic')[1]).toHaveClass(`empty-state ${variant}`)
-      expect(container.querySelector('[aria-hidden="true"]')).toBeInTheDocument()
+      expect(
+        container.querySelector('[aria-hidden="true"]'),
+      ).toBeInTheDocument()
       expect(getByText(content)).toBeInTheDocument()
     },
   )
