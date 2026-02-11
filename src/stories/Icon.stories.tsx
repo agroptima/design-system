@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/nextjs'
+import { ActionsMenu } from '../atoms/ActionsMenu'
 import { Badge } from '../atoms/Badge'
 import { Button, IconButton } from '../atoms/Button'
 import { Icon } from '../atoms/Icon'
@@ -102,32 +103,19 @@ export const DecorativeLabelText: Story = {
 // @ts-expect-error - Stories using render instead of args
 export const InformativeStandalone: Story = {
   name: 'Informative (standalone)',
-  render: () => (
-    <IconButton
-      icon="Add"
-      accessibilityLabel="Add new item"
-      variant="primary"
-    />
-  ),
+  render: () => <ActionsMenu accessibilityLabel="More options menu" />,
   parameters: figmaPrimaryDesign,
 }
 
 // @ts-expect-error - Stories using render instead of args
 export const InformativeControlState: Story = {
-  name: 'Informative (control state)',
+  name: 'Informative (provide information to action)',
   render: () => (
-    <Badge
-      style={{
-        width: '150px',
-        height: '50px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-      variant="error-outlined"
-      icon="Error"
-      text="Document state"
-      accessibilityLabel="Document state with errors"
+    <Button
+      label="Products"
+      leftIcon="Add"
+      accessibilityLabel="Add new product"
+      variant="primary"
     />
   ),
   parameters: figmaPrimaryDesign,
