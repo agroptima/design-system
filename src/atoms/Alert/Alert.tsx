@@ -46,7 +46,7 @@ export function Alert({
       {...props}
     >
       <div className="information-container">
-        <Icon name={IconVariant[variant]} variant={variant} />
+        <Icon name={IconVariant[variant]} variant={variant} decorative />
         <span id={`${id}-text`} className="text">
           {text}
         </span>

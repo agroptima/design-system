@@ -50,6 +50,7 @@ export const Filters: Story = {
     <Drawer
       id="videogames-filters"
       title="Filters"
+      closeAccessibilityLabel="Close"
       buttons={[
         {
           label: 'Clear',

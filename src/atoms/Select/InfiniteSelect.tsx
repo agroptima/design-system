@@ -20,6 +20,11 @@ export type Payload = {
   page_size?: string
 }
 
+export type InfiniteSelectAccessibilityLabels = {
+  clear: string
+  loading: string
+}
+
 export interface InfiniteSelectProps<T> extends Omit<
   BaseSelectProps,
   'defaultValue' | 'isEmpty' | 'children'
@@ -28,8 +33,9 @@ export interface InfiniteSelectProps<T> extends Omit<
   name?: string
   label: string
   placeholder: string
-  accessibilityLabel?: string
-  searchLabel: string
+  clearAccessibilityLabel: string
+  loadingAccessibilityLabel: string
+  searchLabel?: string
   defaultValue?: T | undefined | null
   searchDebounceTime?: number
   disabled?: boolean
@@ -40,6 +46,7 @@ export interface InfiniteSelectProps<T> extends Omit<
   errors?: string[]
   fullWidth?: boolean
   onChange?: (value: T | null) => void
+  hideLabel?: boolean
 }
 
 export function InfiniteSelect<T extends { uid: string }>({
@@ -47,8 +54,9 @@ export function InfiniteSelect<T extends { uid: string }>({
   name,
   label,
   placeholder,
-  searchLabel,
-  accessibilityLabel,
+  clearAccessibilityLabel,
+  loadingAccessibilityLabel,
+  searchLabel = 'Search',
   className,
   defaultValue,
   disabled = false,
@@ -60,6 +68,7 @@ export function InfiniteSelect<T extends { uid: string }>({
   errors,
   fullWidth = false,
   onChange = () => {},
+  hideLabel = false,
   ...props
 }: InfiniteSelectProps<T>) {
   const { isOpen, close, toggle } = useOpen()
@@ -174,7 +183,8 @@ export function InfiniteSelect<T extends { uid: string }>({
         isOpen={isOpen}
         isEmpty={!selectedItem?.uid}
         invalid={isInvalid}
-        accessibilityLabel={accessibilityLabel}
+        clearAccessibilityLabel={clearAccessibilityLabel}
+        hideLabel={hideLabel}
         onClick={toggle}
         onClear={handleClear}
         buttonRef={buttonRef}
@@ -214,7 +224,7 @@ export function InfiniteSelect<T extends { uid: string }>({
               />
             ))}
             <LoadingItems
-              label="Loading items"
+              label={loadingAccessibilityLabel || 'Loading items'}
               visible={morePages}
               loaderRef={loaderRef}
             />
@@ -238,7 +248,7 @@ function LoadingItems({
   return (
     <li role="option" aria-selected="false">
       <div ref={loaderRef} aria-label={label} className="loading">
-        <Icon name="Loading" />
+        <Icon name="Loading" decorative />
       </div>
     </li>
   )

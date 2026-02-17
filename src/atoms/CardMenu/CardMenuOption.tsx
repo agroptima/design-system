@@ -39,18 +39,19 @@ export function CardMenuOption({
       role="menuitem"
       className={cssClasses}
       disabled={disabled}
+      aria-disabled={disabled}
       type="button"
       {...props}
     >
       <div className="left">
         <div className="title-container">
-          <Icon name={icon} className={variant} size="4" />
+          <Icon name={icon} className={variant} size="4" decorative />
           <span className="title">{title}</span>
         </div>
         {description && <p className="content">{description}</p>}
       </div>
       <div className="right">
-        <Icon name="AngleRight" className={variant} />
+        <Icon name="AngleRight" className={variant} decorative />
       </div>
     </BaseButton>
   )

@@ -25,7 +25,7 @@ describe('Multiselect', () => {
     const user = userEvent.setup()
     const { getAllByRole, getByText } = render(
       <Multiselect
-        accessibilityLabel="Select your favourite videogames options"
+        clearAccessibilityLabel="Clear selected options"
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
@@ -56,6 +56,7 @@ describe('Multiselect', () => {
         label="Videogames"
         name="videogames"
         options={OPTIONS}
+        clearAccessibilityLabel="Clear selected options"
         placeholder="Select your favourite videogames..."
         defaultValue={['2', '1']}
         selectedLabel="videogames selected"
@@ -76,7 +77,7 @@ describe('Multiselect', () => {
   it('renders with errors', () => {
     const { getByText } = render(
       <Multiselect
-        accessibilityLabel="Select your favourite videogames options"
+        clearAccessibilityLabel="Clear selected options"
         errors={['error1', 'error2']}
         helpText="This text can help you"
         label="Videogames"
@@ -98,6 +99,7 @@ describe('Multiselect', () => {
     const placeholder = 'Select your favourite videogames...'
     const { getByText } = render(
       <Multiselect
+        clearAccessibilityLabel="Clear selected options"
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
@@ -122,8 +124,10 @@ describe('Multiselect', () => {
     const placeholder = 'Select your favourite gaming system...'
     const { queryByText, getByText } = render(
       <Multiselect
+        clearAccessibilityLabel="Clear selected options"
         helpText="This text can help you"
         id="select-videogames"
+        selectedLabel="items selected"
         label="Videogames"
         name="example"
         isSearchable={true}
@@ -151,7 +155,9 @@ describe('Multiselect', () => {
     render(
       <form onSubmit={handleSubmit}>
         <Multiselect
+          clearAccessibilityLabel="Clear selected options"
           label="Videogames"
+          selectedLabel="items selected"
           name="select-videogames"
           placeholder="Select your favourite gaming system..."
           defaultValue={[zelda.id]}
@@ -171,6 +177,8 @@ describe('Multiselect', () => {
     render(
       <Multiselect
         disabled
+        clearAccessibilityLabel="Clear selected options"
+        selectedLabel="items selected"
         label="Videogames"
         name="select-videogames"
         defaultValue={[zelda.id]}

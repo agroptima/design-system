@@ -7,12 +7,14 @@ import { type Horizontal, Popover, PopoverMenu } from './Popover'
 
 export interface ActionsMenuProps extends React.HTMLAttributes<HTMLDivElement> {
   position?: Horizontal
+  accessibilityLabel: string
 }
 
 function ActionsMenu({
   position = 'left',
   className,
   children,
+  accessibilityLabel,
 }: ActionsMenuProps) {
   return (
     <div className={classNames('actions-menu', className)}>
@@ -20,7 +22,7 @@ function ActionsMenu({
         position={position}
         renderButton={({ toggle }) => (
           <IconButton
-            accessibilityLabel="More options"
+            accessibilityLabel={accessibilityLabel}
             icon="More"
             onClick={toggle}
           />

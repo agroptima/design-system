@@ -109,7 +109,11 @@ export const ProductCard: Story = {
         </CardContent>
         <CardFooter>
           <QuantitySelector
-            accessibilityLabel="Quantity of items to wishlist"
+            accessibilityLabels={{
+              decrement: 'Decrement quantity',
+              increment: 'Increment quantity',
+              input: 'Quantity of items to wishlist',
+            }}
             defaultValue={1}
             hideLabel
             id="quantity"

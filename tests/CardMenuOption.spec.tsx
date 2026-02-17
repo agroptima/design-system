@@ -4,7 +4,7 @@ import { CardMenuOption } from '../src/atoms/CardMenu/CardMenuOption'
 
 describe('CardMenuOption', () => {
   it('renders', () => {
-    const { getByRole, getByText, getAllByRole } = render(
+    const { getByRole, getByText, container } = render(
       <CardMenuOption
         id="option-one"
         href="#"
@@ -17,7 +17,7 @@ describe('CardMenuOption', () => {
     expect(getByRole('menuitem')).toHaveClass(`card-menu-option primary`)
     expect(getByText(/dangerous to go alone/i)).toBeInTheDocument()
     expect(getByText(/this sword/i)).toBeInTheDocument()
-    expect(getAllByRole('img')[0].title).toBe('Info')
+    expect(container.querySelector('[aria-hidden="true"]')).toBeInTheDocument()
   })
   it('renders a button if dont have href', () => {
     const { getByRole } = render(

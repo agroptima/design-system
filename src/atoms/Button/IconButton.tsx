@@ -36,7 +36,7 @@ export function IconButton({
       className={classNames(className, 'icon-button', variant)}
       {...props}
     >
-      <Icon title={accessibilityLabel} name={iconName} size={size} />
+      <Icon name={iconName} size={size} decorative />
     </BaseButton>
   )
 }
