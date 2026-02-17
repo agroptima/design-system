@@ -49,6 +49,7 @@ export function Switch({
         className={classNames('switch', variant, size)}
         disabled={disabled}
         aria-label={accessibilityLabel || label}
+        title={accessibilityLabel || label}
         role="switch"
         {...props}
       />

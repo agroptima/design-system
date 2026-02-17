@@ -91,6 +91,7 @@ export function Input({
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}
+          title={accessibilityLabel || label}
           className={classNames({
             'primary-outlined': type === 'file',
           })}

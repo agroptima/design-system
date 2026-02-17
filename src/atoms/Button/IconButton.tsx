@@ -33,6 +33,7 @@ export function IconButton({
     <BaseButton
       disabled={loading || disabled}
       aria-label={accessibilityLabel}
+      title={accessibilityLabel}
       className={classNames(className, 'icon-button', variant)}
       {...props}
     >
