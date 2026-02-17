@@ -38,6 +38,7 @@ export function PaginationNumber({
       label={label}
       disabled={disabled}
       href={disabled ? '#' : href}
+      accessibilityLabel={accessibilityLabel}
       className={cssClasses}
       aria-current={selected}
       prefetch={prefetch}

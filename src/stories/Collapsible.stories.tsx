@@ -80,7 +80,7 @@ export const Primary: Story = {
           variant="primary"
         />
         <Select
-          accessibilityLabel="Select your favourite gaming system options"
+          clearAccessibilityLabel="Clear selected option"
           helpText="This text can help you"
           id="select-videogames"
           label="Videogames"
@@ -161,7 +161,7 @@ export const PrimaryOpened = {
             variant="primary"
           />
           <Select
-            accessibilityLabel="Select your favourite gaming system options"
+            clearAccessibilityLabel="Clear selected option"
             helpText="This text can help you"
             id="select-videogames"
             label="Videogames"
@@ -219,7 +219,7 @@ export const PrimaryDisabled: Story = {
           variant="primary"
         />
         <Select
-          accessibilityLabel="Select your favourite gaming system options"
+          clearAccessibilityLabel="Clear selected option"
           helpText="This text can help you"
           id="select-videogames"
           label="Videogames"

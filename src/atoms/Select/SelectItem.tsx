@@ -44,6 +44,6 @@ export function SelectItem({
 }
 
 function CheckboxIcon({ selected }: { selected: boolean }) {
-  if (selected) return <Icon name="CheckboxActive" />
-  return <Icon name="CheckboxInactive" />
+  if (selected) return <Icon name="CheckboxActive" decorative />
+  return <Icon name="CheckboxInactive" decorative />
 }

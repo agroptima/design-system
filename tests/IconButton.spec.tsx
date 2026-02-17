@@ -20,7 +20,7 @@ describe('Icon Button', () => {
         />,
       )
       expect(getByRole('link')).toHaveClass(`icon-button ${variant}`)
-      expect(getByRole('img').title).toBe('Edit game')
+      expect(getByRole('link')).toHaveAttribute('aria-label', 'Edit game')
       expect(getByRole('link')).toBeInTheDocument()
     },
   )
@@ -38,7 +38,7 @@ describe('Icon Button', () => {
         />,
       )
       expect(getByRole('button')).toHaveClass(`icon-button ${variant}`)
-      expect(getByRole('img').title).toBe('Edit game')
+      expect(getByRole('button')).toHaveAttribute('aria-label', 'Edit game')
       expect(getByRole('button')).toBeInTheDocument()
     },
   )

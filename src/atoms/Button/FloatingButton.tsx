@@ -40,7 +40,7 @@ export function FloatingButton({
       className={cssClasses}
       {...props}
     >
-      <Icon name={iconName} />
+      <Icon name={iconName} decorative />
     </BaseButton>
   )
 }

@@ -63,7 +63,7 @@ describe('Button', () => {
   )
 
   it('renders the icon when leftIcon prop is passed', async () => {
-    const { getByRole } = render(
+    const { getByRole, container } = render(
       <Button
         id="button-with-icon"
         label="Button with icon"
@@ -73,7 +73,8 @@ describe('Button', () => {
       />,
     )
 
-    expect(getByRole('img').title).toBe('AngleLeft')
+    expect(getByRole('link')).toHaveAttribute('aria-label', 'Button with icon')
+    expect(container.querySelector('[aria-hidden="true"]')).toBeInTheDocument()
   })
 
   it('triggers event on onClick', async () => {

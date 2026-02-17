@@ -10,10 +10,11 @@ export type Variant = 'info' | 'success' | 'warning' | 'error' | 'primary'
 export interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
   name: IconType
   className?: string
-  title?: string
   visible?: boolean
   size?: IconSize
   variant?: Variant
+  decorative?: boolean
+  accessibilityLabel?: string
 }
 
 export const Icon: React.FC<IconProps> = ({
@@ -22,6 +23,8 @@ export const Icon: React.FC<IconProps> = ({
   variant,
   size = '5',
   visible = true,
+  decorative = false,
+  accessibilityLabel,
   ...props
 }) => {
   if (!visible) return null
@@ -29,8 +32,21 @@ export const Icon: React.FC<IconProps> = ({
   const cssClasses = classNames('icon', `size-${size}`, variant, className, {
     rotate: name === 'Loading',
   })
+
+  if (decorative) {
+    return (
+      <span aria-hidden="true" className={cssClasses}>
+        {icons[name](props) as ReactNode}
+      </span>
+    )
+  }
+
   return (
-    <span role="img" title={props.title || name} className={cssClasses}>
+    <span
+      role="img"
+      aria-label={accessibilityLabel || name}
+      className={cssClasses}
+    >
       {icons[name](props) as ReactNode}
     </span>
   )

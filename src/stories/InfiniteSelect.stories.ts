@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/nextjs'
+import { clear } from 'console'
 import {
   InfiniteSelect,
   type InfiniteSelectProps,
@@ -104,6 +105,15 @@ const meta = {
     displayItem: {
       description: 'Function to display the item in the select',
     },
+    hideLabel: {
+      description: 'Show or hide label?',
+    },
+    clearAccessibilityLabel: {
+      description: 'Accessibility label for the clear button',
+    },
+    loadingAccessibilityLabel: {
+      description: 'Accessibility label for the loading state',
+    },
     query: {
       description: 'Function to query the items',
       table: {
@@ -134,6 +144,8 @@ export const Primary: Story = {
     label: 'Videogames',
     placeholder: 'Select your favourite gaming system...',
     searchLabel: 'Search videogames',
+    clearAccessibilityLabel: 'Clear selected option',
+    loadingAccessibilityLabel: 'Loading options',
     disabled: false,
     required: true,
     displayItem: (item: { uid: string; name?: string }) => {
@@ -155,6 +167,8 @@ export const PrimaryWithSelectedOptions: Story = {
     label: 'Videogames',
     placeholder: 'Select your favourite gaming system...',
     searchLabel: 'Search videogames',
+    clearAccessibilityLabel: 'Clear selected option',
+    loadingAccessibilityLabel: 'Loading options',
     disabled: false,
     required: true,
     defaultValue: { uid: '1', name: 'Nintendo Switch' } as Item,

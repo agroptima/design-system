@@ -38,7 +38,7 @@ export function PopoverMenuOption({
       disabled={disabled}
       {...props}
     >
-      {leftIcon && <Icon name={leftIcon} size="3" />}
+      {leftIcon && <Icon name={leftIcon} size="3" decorative />}
       {title}
     </BaseButton>
   )

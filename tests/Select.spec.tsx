@@ -26,7 +26,7 @@ describe('Select', () => {
 
     const { getAllByRole, getByText } = render(
       <Select
-        accessibilityLabel="Select your favourite gaming system options"
+        clearAccessibilityLabel="Clear selected option"
         helpText="This text can help you"
         label="Videogames"
         name="example"
@@ -52,6 +52,7 @@ describe('Select', () => {
     render(
       <Select
         defaultValue={playstation5.id}
+        clearAccessibilityLabel="Clear selected option"
         helpText="This text can help you"
         label="Videogames"
         name="videogames"
@@ -70,7 +71,7 @@ describe('Select', () => {
   it('renders with errors', () => {
     const { getByText } = render(
       <Select
-        accessibilityLabel="Select your favourite gaming system options"
+        clearAccessibilityLabel="Clear selected option"
         errors={['error1', 'error2']}
         helpText="This text can help you"
         label="Videogames"
@@ -92,7 +93,9 @@ describe('Select', () => {
       <Select
         defaultValue="2"
         helpText="This text can help you"
+        clearAccessibilityLabel="Clear selected option"
         label="Videogames"
+        searchLabel="Search"
         name="select-videogames"
         options={OPTIONS}
         placeholder={placeholder}
@@ -110,6 +113,7 @@ describe('Select', () => {
     const user = userEvent.setup()
     const { queryByText, getByText } = render(
       <Select
+        clearAccessibilityLabel="Clear selected option"
         label="Videogames"
         name="select-videogames"
         isSearchable
@@ -132,6 +136,7 @@ describe('Select', () => {
     render(
       <form onSubmit={handleSubmit}>
         <Select
+          clearAccessibilityLabel="Clear selected option"
           label="Videogames"
           name="select-videogames"
           isSearchable
@@ -151,6 +156,7 @@ describe('Select', () => {
     const user = userEvent.setup()
     render(
       <Select
+        clearAccessibilityLabel="Clear selected option"
         label="Videogames"
         name="select-videogames"
         isSearchable
@@ -171,6 +177,7 @@ describe('Select', () => {
     render(
       <Select
         label="Videogames"
+        clearAccessibilityLabel="Clear selected option"
         name="select-videogames"
         isSearchable
         options={OPTIONS}

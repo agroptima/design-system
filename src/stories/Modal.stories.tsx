@@ -211,6 +211,7 @@ function ALotOfContent() {
         label="Select"
         helpText="This is a help text"
         placeholder="Select an option"
+        clearAccessibilityLabel="Clear selected option"
         options={[
           { id: '1', label: 'Option 1' },
           { id: '2', label: 'Option 2' },
@@ -311,6 +312,7 @@ const OpenAndCloseFormModal = () => {
               label="Select"
               name="select"
               helpText="This is a help text"
+              clearAccessibilityLabel="Clear selected option"
               placeholder="Select an option"
               options={[
                 { id: '1', label: 'Option 1' },

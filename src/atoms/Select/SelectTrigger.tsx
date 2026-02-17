@@ -6,11 +6,12 @@ import { Icon } from '../Icon'
 export interface SelectTriggerProps {
   id?: string
   label: string
-  accessibilityLabel?: string
+  clearAccessibilityLabel: string
   invalid: boolean
   disabled?: boolean
   isOpen: boolean
   isEmpty: boolean
+  hideLabel?: boolean
   onClick: () => void
   onClear: (event: React.MouseEvent) => void
   children: React.ReactNode
@@ -20,10 +21,11 @@ export interface SelectTriggerProps {
 export function SelectTrigger({
   id,
   label,
-  accessibilityLabel,
   invalid,
   disabled,
   isOpen,
+  hideLabel = false,
+  clearAccessibilityLabel,
   onClick,
   onClear,
   isEmpty,
@@ -44,10 +46,9 @@ export function SelectTrigger({
         className="select"
         tabIndex={0}
         onClick={onClick}
-        aria-label={accessibilityLabel || label}
+        aria-label={hideLabel ? label : undefined}
         aria-controls={`${id}-options`}
         aria-expanded={isOpen}
-        aria-live="assertive"
         aria-invalid={invalid}
         disabled={disabled}
       >
@@ -56,6 +57,7 @@ export function SelectTrigger({
           size="3"
           name={isOpen ? 'AngleUp' : 'AngleDown'}
           visible={isEmpty}
+          decorative
         />
       </button>
       <IconButton
@@ -64,7 +66,7 @@ export function SelectTrigger({
         size="3"
         icon="Close"
         className="clear-button"
-        accessibilityLabel="clear"
+        accessibilityLabel={clearAccessibilityLabel}
         onClick={handleClear}
         visible={!isEmpty}
       />

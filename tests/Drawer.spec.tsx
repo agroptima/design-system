@@ -9,6 +9,7 @@ describe('Drawer', () => {
     const { getByLabelText, getByText, getAllByRole } = render(
       <Drawer
         id="videogames-filters"
+        closeAccessibilityLabel="Close"
         title="Filters"
         onClose={jest.fn()}
         buttons={[

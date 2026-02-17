@@ -32,7 +32,7 @@ export function MenuLink({
   return (
     <li tabIndex={0} role="menuitem">
       <Link {...props} prefetch={prefetch} className={cssClasses}>
-        {icon && <Icon name={icon} size="3" />}
+        {icon && <Icon name={icon} size="3" decorative />}
         <span className="title">{title}</span>
       </Link>
     </li>

@@ -40,7 +40,7 @@ export function LoadMoreMilestonesButton({
       disabled={disabled}
       {...props}
     >
-      {leftIcon && <Icon name={leftIcon} size="6" />}
+      {leftIcon && <Icon name={leftIcon} size="6" decorative />}
       <span className="title">{title}</span>
     </BaseButton>
   )
