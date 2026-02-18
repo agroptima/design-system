@@ -45,6 +45,7 @@ export const Icon: React.FC<IconProps> = ({
     <span
       role="img"
       aria-label={accessibilityLabel || name}
+      title={accessibilityLabel || name}
       className={cssClasses}
     >
       {icons[name](props) as ReactNode}

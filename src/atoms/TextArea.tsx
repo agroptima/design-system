@@ -50,6 +50,7 @@ export function TextArea({
           disabled={disabled}
           name={name}
           aria-label={accessibilityLabel || label}
+          title={accessibilityLabel || label}
           {...props}
         />
       </div>
