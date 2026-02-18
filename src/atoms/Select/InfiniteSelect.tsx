@@ -111,7 +111,9 @@ export function InfiniteSelect<T extends { uid: string }>({
   const loadItems = useCallback(
     async (searchTerm: string = '', resetPage?: number) => {
       if (loadingRef.current || !morePagesRef.current) return
+
       loadingRef.current = true
+
       try {
         const currentPage = resetPage ? resetPage : page
         const { items, totalPages } = await query({
@@ -155,9 +157,11 @@ export function InfiniteSelect<T extends { uid: string }>({
 
   const sendSearchTerm = useDebouncedCallback((term: string) => {
     if (term.length > 0 && term.length < minLengthSearch) return
+
     setPage(1)
     setItems([])
     setMorePages(true)
+    morePagesRef.current = true
     loadItems(term, 1)
   }, searchDebounceTime)
 
