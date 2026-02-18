@@ -37,6 +37,7 @@ export function FloatingButton({
     <BaseButton
       disabled={loading || disabled}
       aria-label={accessibilityLabel}
+      title={accessibilityLabel}
       className={cssClasses}
       {...props}
     >

@@ -55,6 +55,7 @@ export function Checkbox({
           className="checkbox-input"
           disabled={disabled}
           aria-label={accessibilityLabel || `${name} checkbox`}
+          title={accessibilityLabel || `${name} checkbox`}
           {...props}
         />
         <CheckboxUncheckedIcon

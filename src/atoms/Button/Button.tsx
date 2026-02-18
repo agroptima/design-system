@@ -62,6 +62,7 @@ export function Button({
     <BaseButton
       disabled={loading || disabled}
       aria-label={accessibilityLabel || label}
+      title={accessibilityLabel || label}
       className={cssClasses}
       {...props}
     >
