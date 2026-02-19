@@ -79,6 +79,20 @@ export const BasicPagination: Story = {
         variant="primary"
       />
 
+      <PaginationNumber
+        label="50"
+        href="https://google.com"
+        accessibilityLabel="Go to page 50"
+        variant="primary"
+      />
+
+      <PaginationNumber
+        label="100"
+        href="https://google.com"
+        accessibilityLabel="Go to page 100"
+        variant="primary"
+      />
+
       <PaginationArrow
         icon="AngleRight"
         href="https://google.com"
@@ -133,6 +147,20 @@ export const MiniPagination: Story = {
         label="5"
         href="https://google.com"
         accessibilityLabel="Go to page 5"
+        variant="primary"
+      />
+
+      <PaginationNumber
+        label="50"
+        href="https://google.com"
+        accessibilityLabel="Go to page 50"
+        variant="primary"
+      />
+
+      <PaginationNumber
+        label="100"
+        href="https://google.com"
+        accessibilityLabel="Go to page 100"
         variant="primary"
       />
 
@@ -204,6 +232,24 @@ export const AdvancedPagination: Story = {
         label="50"
         href="https://google.com"
         accessibilityLabel="Go to page 50"
+        variant="primary"
+      />
+
+      <Ellipsis />
+
+      <PaginationNumber
+        label="100"
+        href="https://google.com"
+        accessibilityLabel="Go to page 100"
+        variant="primary"
+      />
+
+      <Ellipsis />
+
+      <PaginationNumber
+        label="1000"
+        href="https://google.com"
+        accessibilityLabel="Go to page 1000"
         variant="primary"
       />
 
