@@ -24,9 +24,15 @@ export function PaginationArrow({
   prefetch = false,
   ...props
 }: PaginationArrowProps): React.JSX.Element {
-  const cssClasses = classNames('pagination-button', variant, className, {
-    disabled: disabled,
-  })
+  const cssClasses = classNames(
+    'pagination-arrow',
+    'pagination-button',
+    variant,
+    className,
+    {
+      disabled: disabled,
+    },
+  )
 
   return (
     <IconButton

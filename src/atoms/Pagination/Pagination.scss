@@ -23,8 +23,12 @@
     gap: config.$space-2x;
     border-radius: config.$corner-radius-xxs;
     padding: config.$space-2x;
-    width: config.$icon-size-7x;
+    width: fit-content;
     height: config.$icon-size-7x;
+
+    &.pagination-arrow {
+      width: config.$icon-size-7x;
+    }
 
     &.primary {
       border: 1px solid var(--neutral-color-600);
@@ -70,10 +74,14 @@
 
   &.small {
     .pagination-button {
-      width: config.$icon-size-5x;
+      width: fit-content;
       height: config.$icon-size-5x;
       gap: config.$space-1x;
       padding: config.$space-1x;
+
+      &.pagination-arrow {
+        width: config.$icon-size-5x;
+      }
 
       &.primary {
         border: 1px solid transparent;
