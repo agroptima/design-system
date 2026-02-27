@@ -42,18 +42,31 @@
       .notification-header-content {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
         padding: config.$space-2x config.$space-3x;
         gap: config.$space-2x;
+        flex-wrap: wrap;
         background: var(--neutral-white);
 
-        > .button:last-child {
-          @include typography.footnote-primary;
-          color: var(--primary-color-600);
-          border: 0;
-          background-color: transparent;
-          padding: 0;
+        > .checkable-tag-group {
+          flex-grow: 1;
+          min-width: 0;
+        }
+
+        > .notification-header-actions {
+          flex-basis: 100%;
+          text-align: right;
+          flex-shrink: 1;
+          min-width: 0;
+
+          > .button {
+            @include typography.footnote-primary;
+            color: var(--primary-color-600);
+            border: 0;
+            background-color: transparent;
+            padding: 0;
+            white-space: normal;
+          }
         }
       }
     }

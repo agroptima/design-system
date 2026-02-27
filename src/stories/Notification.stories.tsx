@@ -49,7 +49,15 @@ export const NotificationCenterWithNotifications: Story = {
 
         <div style={{ display: 'flex', gap: '10px' }}>
           <NotificationCenter hasNewNotifications={true}>
-            <NotificationHeader title="Notifications">
+            <NotificationHeader
+              title="Notifications"
+              actions={
+                <Button
+                  onClick={() => alert('mark all as read')}
+                  label="Mark all as read"
+                />
+              }
+            >
               <CheckableTagGroup>
                 <CheckableTag
                   variant="primary"
@@ -73,10 +81,6 @@ export const NotificationCenterWithNotifications: Story = {
                   isChecked={false}
                 />
               </CheckableTagGroup>
-              <Button
-                onClick={() => alert('mark all as read')}
-                label="Mark all as read"
-              />
             </NotificationHeader>
             <NotificationList>
               <NotificationLine
@@ -134,7 +138,15 @@ export const NotificationCenterEmptyState: Story = {
 
         <div style={{ display: 'flex', gap: '10px' }}>
           <NotificationCenter {...props}>
-            <NotificationHeader title="Notifications">
+            <NotificationHeader
+              title="Notifications"
+              actions={
+                <Button
+                  onClick={() => alert('mark all as read')}
+                  label="Mark all as read"
+                />
+              }
+            >
               <CheckableTagGroup>
                 <CheckableTag
                   variant="primary"
@@ -158,10 +170,6 @@ export const NotificationCenterEmptyState: Story = {
                   isChecked={false}
                 />
               </CheckableTagGroup>
-              <Button
-                onClick={() => alert('mark all as read')}
-                label="Mark all as read"
-              />
             </NotificationHeader>
             <NotificationEmptyState
               title="No new notifications"
