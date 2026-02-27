@@ -13,7 +13,15 @@ describe('NotificationCenter', () => {
   it('renders with expected content and buttons', () => {
     const { getByText } = render(
       <NotificationCenter>
-        <NotificationHeader title="Notifications">
+        <NotificationHeader
+          title="Notifications"
+          actions={
+            <Button
+              onClick={() => alert('mark all as read')}
+              label="Mark all as read"
+            />
+          }
+        >
           <CheckableTagGroup>
             <CheckableTag
               variant="primary"
@@ -37,10 +45,6 @@ describe('NotificationCenter', () => {
               isChecked={false}
             />
           </CheckableTagGroup>
-          <Button
-            onClick={() => alert('mark all as read')}
-            label="Mark all as read"
-          />
         </NotificationHeader>
         <NotificationList>
           <NotificationLine
