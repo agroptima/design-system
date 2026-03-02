@@ -33,6 +33,7 @@ import Error from './error.svg'
 import Export from './export.svg'
 import Filter from './filter.svg'
 import Import from './import.svg'
+import Improvements from './improvements.svg'
 import Info from './info.svg'
 import Invoice from './invoice.svg'
 import Loading from './loading.svg'
@@ -102,6 +103,7 @@ export {
   Export,
   Filter,
   Import,
+  Improvements,
   Info,
   Invoice,
   Loading,
