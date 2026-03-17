@@ -153,6 +153,18 @@
 
 @media only screen and (max-width: breakpoints.$medium) {
   .popover-container {
+    &.notification-center-container {
+      .notification-button-container {
+        .icon-button.secondary:hover > .icon {
+          @include mixins.svg-color(var(--accent-color));
+        }
+
+        .icon-button.primary:hover > .icon {
+          @include mixins.svg-color(var(--primary-color-600));
+        }
+      }
+    }
+
     position: relative;
 
     .popover-menu-container {
