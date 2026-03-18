@@ -14,9 +14,6 @@
     & > .icon {
       @include mixins.svg-color(var(--primary-color-600));
     }
-    &:hover > .icon {
-      @include mixins.svg-color(var(--primary-color-800));
-    }
     &:disabled > .icon {
       @include mixins.svg-color(var(--neutral-color-400));
     }
@@ -25,9 +22,6 @@
   &.secondary {
     & > .icon {
       @include mixins.svg-color(var(--accent-color));
-    }
-    &:hover > .icon {
-      @include mixins.svg-color(var(--primary-color-800));
     }
     &:disabled > .icon {
       @include mixins.svg-color(var(--neutral-color-400));
@@ -38,11 +32,17 @@
     & > .icon {
       @include mixins.svg-color(var(--neutral-color-400));
     }
-    &:hover > .icon {
-      @include mixins.svg-color(var(--neutral-color-400));
-    }
     &:disabled > .icon {
       opacity: 0.6;
+    }
+  }
+
+  @media (hover: hover) {
+    &.primary:hover,
+    &.secondary:hover {
+      > .icon {
+        @include mixins.svg-color(var(--primary-color-800));
+      }
     }
   }
 }
