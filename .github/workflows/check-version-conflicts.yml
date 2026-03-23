@@ -1,0 +1,122 @@
+name: Check Version Conflicts
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    # Evitar loop infinito cuando el bot hace push del version bump
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Calculate target version
+        id: calc
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { extractVersionFromDiff, findHighestVersion, nextPatch } = require('./.github/scripts/versionHelpers.js')
+
+            const currentPRNumber = context.payload.pull_request.number
+
+            // Versión en main
+            const { data: mainFile } = await github.rest.repos.getContent({
+              ...context.repo, path: 'package.json', ref: 'main'
+            })
+            const mainVersion = JSON.parse(Buffer.from(mainFile.content, 'base64').toString()).version
+
+            // Otras PRs abiertas con bump de versión
+            const { data: openPRs } = await github.rest.pulls.list({
+              ...context.repo, state: 'open', per_page: 100
+            })
+            const otherPRVersions = []
+            for (const pr of openPRs.filter(p => p.number !== currentPRNumber)) {
+              const { data: files } = await github.rest.pulls.listFiles({
+                ...context.repo, pull_number: pr.number, per_page: 100
+              })
+              const pkg = files.find(f => f.filename === 'package.json')
+              if (pkg?.patch) {
+                const version = extractVersionFromDiff(pkg.patch)
+                if (version) otherPRVersions.push({ prNumber: pr.number, version })
+              }
+            }
+
+            // Versión del PR actual
+            const { data: currentFiles } = await github.rest.pulls.listFiles({
+              ...context.repo, pull_number: currentPRNumber, per_page: 100
+            })
+            const currentPkg = currentFiles.find(f => f.filename === 'package.json')
+            const currentPRVersion = currentPkg?.patch ? extractVersionFromDiff(currentPkg.patch) : null
+
+            // Calcular versión objetivo (siguiente patch a la más alta de todas)
+            const allVersions = [mainVersion, ...otherPRVersions.map(p => p.version)]
+            const highest = findHighestVersion(allVersions)
+            const targetVersion = nextPatch(highest)
+
+            const hasConflict = Boolean(currentPRVersion && otherPRVersions.some(p => p.version === currentPRVersion))
+            const needsBump = !currentPRVersion || hasConflict
+
+            core.setOutput('target-version', targetVersion)
+            core.setOutput('needs-bump', String(needsBump))
+            core.setOutput('current-version', currentPRVersion || '')
+            core.setOutput('main-version', mainVersion)
+            core.setOutput('has-conflict', String(hasConflict))
+            // JSON sin saltos de línea, seguro para pasar como env var
+            core.setOutput('other-prs-json', JSON.stringify(otherPRVersions))
+            core.setOutput('pr-title', context.payload.pull_request.title)
+
+      - name: Apply version bump
+        if: steps.calc.outputs.needs-bump == 'true'
+        env:
+          TARGET_VERSION: ${{ steps.calc.outputs.target-version }}
+          PR_TITLE: ${{ steps.calc.outputs.pr-title }}
+        run: |
+          node .github/scripts/bumpVersion.js "$TARGET_VERSION"
+          node .github/scripts/updateChangelog.js "$TARGET_VERSION" "$PR_TITLE"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json src/stories/Changelog.mdx
+          git commit -m "chore: bump version to $TARGET_VERSION"
+          git push
+
+      - name: Post comment
+        uses: actions/github-script@v7
+        env:
+          OTHER_PRS_JSON: ${{ steps.calc.outputs.other-prs-json }}
+        with:
+          script: |
+            const { buildComment } = require('./.github/scripts/versionHelpers.js')
+            const MARKER = '<!-- version-check-bot -->'
+
+            const mainVersion = '${{ steps.calc.outputs.main-version }}'
+            const targetVersion = '${{ steps.calc.outputs.target-version }}'
+            const autoBumped = '${{ steps.calc.outputs.needs-bump }}' === 'true'
+            const hasConflict = '${{ steps.calc.outputs.has-conflict }}' === 'true'
+            const currentPRVersion = '${{ steps.calc.outputs.current-version }}' || null
+            const otherPRVersions = JSON.parse(process.env.OTHER_PRS_JSON)
+
+            const body = buildComment({ mainVersion, otherPRVersions, currentPRVersion, targetVersion, autoBumped, hasConflict })
+
+            const currentPRNumber = context.payload.pull_request.number
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo, issue_number: currentPRNumber, per_page: 100
+            })
+            const existing = comments.find(c => c.body?.includes(MARKER))
+            if (existing) {
+              await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body })
+            } else {
+              await github.rest.issues.createComment({ ...context.repo, issue_number: currentPRNumber, body })
+            }
