@@ -12,6 +12,7 @@ const config: Config = {
     '^.+\\.(svg)$': '<rootDir>/tests/svg.mock.js',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  roots: ['<rootDir>/tests', '<rootDir>/src', '<rootDir>/.github/scripts'],
   globals: {
     'ts-jest': {
       useESM: true,
