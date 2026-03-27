@@ -38,8 +38,8 @@
   }
 
   @media (hover: hover) {
-    &.primary:hover,
-    &.secondary:hover {
+    &.primary:not(:disabled):hover,
+    &.secondary:not(:disabled):hover {
       > .icon {
         @include mixins.svg-color(var(--primary-color-800));
       }
