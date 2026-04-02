@@ -46,11 +46,23 @@ export function Badge({
     >
       {text ? (
         <>
-          {icon && <Icon name={icon} decorative />}
-          {text}
+          {icon && (
+            <Icon
+              className={classNames(variant, 'medium')}
+              name={icon}
+              decorative
+            />
+          )}
+          <span className="label">{text}</span>
         </>
       ) : (
-        icon && <Icon name={icon} accessibilityLabel={accessibilityLabel} />
+        icon && (
+          <Icon
+            name={icon}
+            className="small"
+            accessibilityLabel={accessibilityLabel}
+          />
+        )
       )}
     </span>
   )
