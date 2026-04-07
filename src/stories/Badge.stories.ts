@@ -81,3 +81,12 @@ export const BadgeWithIcon: Story = {
   },
   parameters: figmaPrimaryDesign,
 }
+
+export const BadgeWithTextAndIcon: Story = {
+  args: {
+    variant: 'success-outlined',
+    icon: 'Improvements',
+    text: 'Game over',
+  },
+  parameters: figmaPrimaryDesign,
+}
