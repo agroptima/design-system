@@ -78,11 +78,36 @@ export const PrimaryWithoutLabel: Story = {
   parameters: figmaPrimaryDesign,
 }
 
+export const Disabled: Story = {
+  args: {
+    accessibilityLabel: 'Marks if the user likes videogames',
+    variant: 'primary',
+    disabled: true,
+    defaultChecked: false,
+    children: 'Do you like videogames?',
+    id: 'checkbox-videogames-preference',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const DisabledChecked: Story = {
+  args: {
+    accessibilityLabel: 'Marks if the user likes videogames',
+    variant: 'primary',
+    disabled: true,
+    defaultChecked: true,
+    children: 'Do you like videogames?',
+    id: 'checkbox-videogames-preference',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
 export const Indeterminate: Story = {
   args: {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: false,
+    defaultChecked: true,
     children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
     indeterminate: true,
@@ -90,12 +115,13 @@ export const Indeterminate: Story = {
   parameters: figmaPrimaryDesign,
 }
 
-export const Disabled: Story = {
+export const IntermediateDisabled: Story = {
   args: {
     accessibilityLabel: 'Marks if the user likes videogames',
     variant: 'primary',
     disabled: true,
     defaultChecked: true,
+    indeterminate: true,
     children: 'Do you like videogames?',
     id: 'checkbox-videogames-preference',
   },
