@@ -120,6 +120,7 @@ export {
   Picture,
   Product,
   Reason,
+  Receivables,
   Reports,
   ResendEmail,
   ReturnDeliveryNote,
