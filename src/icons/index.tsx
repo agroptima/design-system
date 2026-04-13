@@ -48,6 +48,7 @@ import PDF from './pdf.svg'
 import Picture from './picture.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
+import Receivables from './receivables.svg'
 import Reports from './reports.svg'
 import ResendEmail from './resend-email.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
@@ -119,6 +120,7 @@ export {
   Picture,
   Product,
   Reason,
+  Receivables,
   Reports,
   ResendEmail,
   ReturnDeliveryNote,

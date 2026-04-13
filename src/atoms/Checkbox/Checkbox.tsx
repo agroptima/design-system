@@ -1,14 +1,16 @@
 import './Checkbox.scss'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { classNames } from '../../utils/classNames'
 import { Label } from '../Label'
-import { CheckboxCheckedIcon } from './CheckboxCheckedIcon'
-import { CheckboxDisabledCheckedIcon } from './CheckboxDisabledCheckedIcon'
-import { CheckboxDisabledIcon } from './CheckboxDisabledIcon'
-import { CheckboxDisabledIndeterminateIcon } from './CheckboxDisabledIndeterminateIcon'
-import { CheckboxIndeterminateIcon } from './CheckboxIndeterminateIcon'
-import { CheckboxUncheckedHoverIcon } from './CheckboxUncheckedHoverIcon'
-import { CheckboxUncheckedIcon } from './CheckboxUncheckedIcon'
+import {
+  CheckboxCheckedIcon,
+  CheckboxDisabledCheckedIcon,
+  CheckboxDisabledIcon,
+  CheckboxDisabledIndeterminateIcon,
+  CheckboxIndeterminateIcon,
+  CheckboxUncheckedHoverIcon,
+  CheckboxUncheckedIcon,
+} from './CheckboxIcons'
 
 export type Variant = 'primary'
 
