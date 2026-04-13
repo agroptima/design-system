@@ -47,4 +47,20 @@ describe('Badge', () => {
     expect(screen.getAllByLabelText(accessibilityLabel)[1]).toBeInTheDocument()
     expect(getByRole('status')).toHaveClass(`badge ${variant}`)
   })
+
+  it.each(variants)('renders the %s variant with text and icon', (variant) => {
+    const icon = 'PDF'
+    const text = `${variant} badge text`
+
+    const { getByRole, getByText } = render(
+      <Badge
+        id={`${variant}-badge`}
+        icon={icon}
+        text={text}
+        variant={variant as Variant}
+      />,
+    )
+    expect(getByText(text)).toBeInTheDocument()
+    expect(getByRole('status')).toHaveClass(`badge ${variant}`)
+  })
 })
