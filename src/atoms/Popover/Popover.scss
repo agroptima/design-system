@@ -100,16 +100,6 @@
     &.primary {
       background: var(--neutral-white);
 
-      > .icon {
-        > svg {
-          fill: var(--primary-color-600);
-
-          path {
-            fill: var(--primary-color-600);
-          }
-        }
-      }
-
       &.active {
         background-color: var(--neutral-white);
       }
