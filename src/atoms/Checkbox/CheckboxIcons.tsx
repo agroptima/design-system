@@ -1,5 +1,4 @@
 import React from 'react'
-import { Check } from '../../icons'
 
 interface CheckboxIconProps extends React.SVGProps<SVGSVGElement> {
   fill: string
@@ -60,26 +59,7 @@ function CheckboxCheckedIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 function CheckboxDisabledIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="none"
-      {...props}
-    >
-      <rect
-        width="20"
-        height="20"
-        x=".5"
-        y=".5"
-        fill="#f3f3f5"
-        stroke="#c3c7cf"
-        rx="1.5"
-      />
-      {props.children}
-    </svg>
-  )
+  return <CheckboxSVG fill="#f3f3f5" stroke="#c3c7cf" {...props} />
 }
 
 function CheckboxDisabledCheckedIcon(props: React.SVGProps<SVGSVGElement>) {
