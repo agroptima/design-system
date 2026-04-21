@@ -25,5 +25,6 @@
   .information {
     @include typography.body-regular-primary;
     color: var(--neutral-color-1000);
+    white-space: pre-line;
   }
 }
