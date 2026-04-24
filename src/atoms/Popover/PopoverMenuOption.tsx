@@ -2,7 +2,7 @@ import './Popover.scss'
 import React from 'react'
 import { classNames } from '../../utils/classNames'
 import { BaseButton, type BaseButtonProps } from '../Button'
-import { Icon, type IconType } from '../Icon'
+import { Icon, type IconType, type Variant as IconVariant } from '../Icon'
 
 export type Variant = 'primary'
 
@@ -12,6 +12,7 @@ export interface CustomProps {
   disabled?: boolean
   active?: boolean
   leftIcon?: IconType
+  iconVariant?: IconVariant
 }
 
 export type PopoverMenuOptionProps = CustomProps & BaseButtonProps
@@ -24,6 +25,7 @@ export function PopoverMenuOption({
   active,
   leftIcon,
   prefetch = false,
+  iconVariant = 'primary',
   ...props
 }: PopoverMenuOptionProps): React.JSX.Element {
   const cssClasses = classNames('popover-menu-option', variant, className, {
@@ -38,7 +40,9 @@ export function PopoverMenuOption({
       disabled={disabled}
       {...props}
     >
-      {leftIcon && <Icon name={leftIcon} size="3" decorative />}
+      {leftIcon && (
+        <Icon name={leftIcon} size="3" variant={iconVariant} decorative />
+      )}
       {title}
     </BaseButton>
   )
