@@ -15,6 +15,7 @@ import CheckboxIndeterminate from './checkbox-indeterminate.svg'
 import ClassicView from './classic-view.svg'
 import Client from './client.svg'
 import Close from './close.svg'
+import CloseOrder from './close-order.svg'
 import Comment from './comment.svg'
 import CreditCard from './credit-card.svg'
 import CreditNote from './credit-note.svg'
@@ -87,6 +88,7 @@ export {
   ClassicView,
   Client,
   Close,
+  CloseOrder,
   Comment,
   CreditCard,
   CreditNote,
