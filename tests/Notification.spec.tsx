@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { getByLabelText, getByRole, render } from '@testing-library/react'
 import React from 'react'
 import { Button } from '../src/atoms/Button'
 import { CheckableTag, CheckableTagGroup } from '../src/atoms/CheckableTag'
@@ -11,7 +11,7 @@ import {
 
 describe('NotificationCenter', () => {
   it('renders with expected content and buttons', () => {
-    const { getByText } = render(
+    const { getByText, getAllByLabelText } = render(
       <NotificationCenter>
         <NotificationHeader
           title="Notifications"
@@ -49,15 +49,19 @@ describe('NotificationCenter', () => {
         <NotificationList>
           <NotificationLine
             title="Trophy: Parting on Good Terms"
+            clearAccessibilityLabel="Clear notification"
             date="Jan 04"
             onClick={() => alert('Notification clicked')}
+            onClear={() => alert('Notification cleared')}
           >
             Good terms? No. I&apos;m here to burn bridges.
           </NotificationLine>
           <NotificationLine
             title="New SHf game patch update"
+            clearAccessibilityLabel="Clear notification"
             date="Dec 29"
             isRead={true}
+            onClear={() => alert('Notification cleared')}
           >
             Fixes a bug when saving the game in certain conditions.
           </NotificationLine>
@@ -83,5 +87,6 @@ describe('NotificationCenter', () => {
     expect(
       getByText('Fixes a bug when saving the game in certain conditions.'),
     ).toBeInTheDocument()
+    expect(getAllByLabelText('Clear notification')).toHaveLength(2)
   })
 })

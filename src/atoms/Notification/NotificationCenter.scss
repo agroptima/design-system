@@ -114,6 +114,12 @@
             }
           }
         }
+        .notification-line-aside {
+          display: flex;
+          align-items: center;
+          gap: config.$space-2x;
+        }
+
         .notification-line-date {
           @include typography.footnote-primary;
         }
