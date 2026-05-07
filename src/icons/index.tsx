@@ -50,6 +50,7 @@ import Picture from './picture.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
 import Receivables from './receivables.svg'
+import ReopenOrder from './reopen-order.svg'
 import Reports from './reports.svg'
 import ResendEmail from './resend-email.svg'
 import ReturnDeliveryNote from './return-delivery-note.svg'
@@ -123,6 +124,7 @@ export {
   Product,
   Reason,
   Receivables,
+  ReopenOrder,
   Reports,
   ResendEmail,
   ReturnDeliveryNote,
