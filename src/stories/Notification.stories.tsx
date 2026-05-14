@@ -86,25 +86,36 @@ export const NotificationCenterWithNotifications: Story = {
               <NotificationLine
                 title="Trophy: Parting on Good Terms"
                 date="Jan 04"
+                clearAccessibilityLabel="Close"
                 onClick={() => alert('Notification clicked')}
+                onClear={() => alert('Notification cleared')}
               >
                 Good terms? No. I&apos;m here to burn bridges.
               </NotificationLine>
               <NotificationLine
                 title="New operating system update"
                 date="Jan 02"
+                clearAccessibilityLabel="Close"
+                onClear={() => alert('Notification cleared')}
               >
                 Enjoy the new UI and performance improvements. <br /> Contact{' '}
                 <a href="support@fakemail.com">support@fakemail.com</a> for
                 help.
               </NotificationLine>
-              <NotificationLine title="Trophy: Shell of the Past" date="Dec 30">
+              <NotificationLine
+                title="Trophy: Shell of the Past"
+                date="Dec 30"
+                clearAccessibilityLabel="Close"
+                onClear={() => alert('Notification cleared')}
+              >
                 What exactly have we learned?
               </NotificationLine>
               <NotificationLine
                 title="New SHf game patch update"
                 date="Dec 29"
                 isRead={true}
+                clearAccessibilityLabel="Close"
+                onClear={() => alert('Notification cleared')}
               >
                 Fixes a bug when saving the game in certain conditions.
               </NotificationLine>
@@ -112,6 +123,8 @@ export const NotificationCenterWithNotifications: Story = {
                 title="Trophy: On the Way to School"
                 date="Dec 28"
                 isRead={true}
+                clearAccessibilityLabel="Close"
+                onClear={() => alert('Notification cleared')}
                 onClick={() => alert('Notification clicked')}
               >
                 The little sparrow escapes with its friends, wings flapping
