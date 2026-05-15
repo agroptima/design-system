@@ -73,10 +73,15 @@
   justify-content: flex-start;
   border-radius: config.$corner-radius-xxs;
   overflow: hidden;
+  gap: 0;
   box-shadow:
     0 3px 6px -4px rgba(0, 0, 0, 0.12),
     0px 6px 16px 0px rgba(0, 0, 0, 0.08),
     0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+  &.primary {
+    background: var(--neutral-white);
+  }
 
   .popover-menu-option {
     @include typography.body-regular-primary;
@@ -86,6 +91,7 @@
     text-decoration: none;
     cursor: default;
     border: none;
+    margin: 0;
 
     > .icon {
       margin-top: config.$space-2x;
