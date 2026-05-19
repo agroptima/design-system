@@ -1,5 +1,5 @@
 @use '../../settings/mixins';
-
+@use '../../settings/depth';
 @use '../../settings/typography/cards_table' as typography;
 @use '../../settings/config';
 @use '../../settings/breakpoints';
@@ -32,7 +32,7 @@
 
     .cards-table-head {
       position: relative;
-      z-index: 1;
+      z-index: depth.$z-card-table-header;
     }
   }
 
