@@ -6,15 +6,15 @@ $above: 1; // use this for all values above the base
 $below: -1; // and this for all values below the base
 
 $z-backdrop: $base;
-$z-floating-button: $base + $above;
+$z-card-table-header: $base + $above;
+$z-header: $z-card-table-header + $above;
+$z-floating-button: $z-header + $above;
 $z-dropdown-options: $z-floating-button + $above;
 $z-popover: $z-dropdown-options;
 $z-alert-container: $z-dropdown-options + $above;
 $z-modal: $z-alert-container + $above;
 $z-aside-desktop: $base + $above;
 $z-aside-mobile: $z-modal + $above;
-
-$z-header: $base + $above;
 
 $z-timeline-rail: $base;
 $z-timeline-circle: $base + $above;
