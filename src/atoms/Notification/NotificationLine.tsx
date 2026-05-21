@@ -55,7 +55,7 @@ function NotificationLine({
       </div>
       <details className="notification-line-description">
         <summary data-open={collapseLabel} data-close={expandLabel}></summary>
-        <p>{children}</p>
+        {children}
       </details>
     </div>
   )
