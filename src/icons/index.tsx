@@ -47,6 +47,7 @@ import Notification from './notification.svg'
 import Orders from './orders.svg'
 import PDF from './pdf.svg'
 import Picture from './picture.svg'
+import PriceList from './price-list.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
 import Receivables from './receivables.svg'
@@ -121,6 +122,7 @@ export {
   Orders,
   PDF,
   Picture,
+  PriceList,
   Product,
   Reason,
   Receivables,

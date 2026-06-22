@@ -68,6 +68,14 @@ describe('Icon', () => {
     })
   })
 
+  describe('Icon registry', () => {
+    it('renders the PriceList icon', () => {
+      const { getByRole } = render(<Icon name="PriceList" />)
+
+      expect(getByRole('img')).toHaveAttribute('aria-label', 'PriceList')
+    })
+  })
+
   describe('Visibility control', () => {
     it('does not render when visible is false', () => {
       const { container } = render(<Icon name="AngleLeft" visible={false} />)
