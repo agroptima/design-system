@@ -18,7 +18,7 @@ details summary::-webkit-details-marker {
     user-select: none;
   }
 
-  .collapsible-header {
+  > .collapsible-header {
     display: flex;
     align-items: center;
     gap: config.$space-3x;
@@ -32,7 +32,8 @@ details summary::-webkit-details-marker {
     }
   }
 
-  .collapsible-content {
+  > .collapsible-content {
+    display: none;
     padding: config.$space-7x config.$space-7x config.$space-3x;
 
     &.no-horizontal-padding {
@@ -41,17 +42,20 @@ details summary::-webkit-details-marker {
     }
   }
 
-  &.primary,
-  &.secondary {
-    &[open] {
-      .collapsible-header {
-        background: transparent;
-        border-bottom: 3px solid var(--primary-color-600);
-      }
+  &.open {
+    > .collapsible-content {
+      display: block;
     }
 
+    > .collapsible-header .collapsible-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.primary,
+  &.secondary {
     &.disabled {
-      .collapsible-header {
+      > .collapsible-header {
         background: var(--neutral-color-50);
         border-bottom: 1px solid var(--neutral-color-200);
         color: var(--neutral-color-200);
@@ -59,7 +63,7 @@ details summary::-webkit-details-marker {
       }
     }
 
-    .collapsible-header {
+    > .collapsible-header {
       color: var(--neutral-color-1000);
       background: transparent;
       border-bottom: 1px solid var(--neutral-color-200);
@@ -69,19 +73,18 @@ details summary::-webkit-details-marker {
         background: var(--primary-color-50);
       }
     }
+
+    &.open > .collapsible-header {
+      background: transparent;
+      border-bottom: 3px solid var(--primary-color-600);
+    }
   }
 
-  &.secondary .collapsible-content {
+  &.secondary > .collapsible-content {
     padding: config.$space-3x config.$space-4x config.$space-6x;
     border: 1px solid var(--neutral-color-200);
     border-top: none;
     border-bottom-left-radius: config.$corner-radius-m;
     border-bottom-right-radius: config.$corner-radius-m;
-  }
-}
-
-.collapsible[open] {
-  .collapsible-arrow {
-    transform: rotate(90deg);
   }
 }

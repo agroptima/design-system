@@ -1,5 +1,5 @@
 import './Collapsible.scss'
-import type { ComponentPropsWithoutRef } from 'react'
+import { type ComponentPropsWithoutRef, useState } from 'react'
 import { classNames } from '../../utils/classNames'
 import { Icon } from '../Icon'
 
@@ -23,10 +23,15 @@ export function Collapsible({
   name,
   form = false,
   noHorizontalPadding = false,
+  open: controlledOpen,
+  onToggle,
   ...props
 }: CollapsibleProps) {
+  const [expanded, setExpanded] = useState(false)
+  const isOpen = controlledOpen !== undefined ? controlledOpen : expanded
+
   const cssClasses = classNames('collapsible', variant, className, {
-    open: props.open,
+    open: isOpen,
     disabled: disabled,
   })
   const contentCssClasses = classNames('collapsible-content', {
@@ -35,7 +40,17 @@ export function Collapsible({
   })
 
   return (
-    <details name={name} className={cssClasses} aria-label={title} {...props}>
+    <details
+      open={isOpen}
+      name={name}
+      className={cssClasses}
+      aria-label={title}
+      onToggle={(e) => {
+        if (controlledOpen === undefined) setExpanded(e.currentTarget.open)
+        onToggle?.(e)
+      }}
+      {...props}
+    >
       <summary className="collapsible-header">
         <Icon className="collapsible-arrow" name="AngleRight" size="4" />
         <span className="collapsible-title">{title}</span>
