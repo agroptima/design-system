@@ -29,6 +29,7 @@ import Download from './download.svg'
 import Duplicate from './duplicate.svg'
 import Edit from './edit.svg'
 import EditColumns from './edit-columns.svg'
+import Link from './link.svg'
 import ElectronicInvoice from './electronic-invoice.svg'
 import EmptyState from './empty-customize.svg'
 import Error from './error.svg'
@@ -113,6 +114,7 @@ export {
   Improvements,
   Info,
   Invoice,
+  Link,
   Loading,
   Logout,
   Minus,
