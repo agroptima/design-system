@@ -27,8 +27,7 @@ export function Collapsible({
   onToggle,
   ...props
 }: CollapsibleProps) {
-  const [expanded, setExpanded] = useState(false)
-  const isOpen = controlledOpen !== undefined ? controlledOpen : expanded
+  const [isOpen, setIsOpen] = useState(controlledOpen ?? false)
 
   const cssClasses = classNames('collapsible', variant, className, {
     open: isOpen,
@@ -46,7 +45,7 @@ export function Collapsible({
       className={cssClasses}
       aria-label={title}
       onToggle={(e) => {
-        if (controlledOpen === undefined) setExpanded(e.currentTarget.open)
+        setIsOpen(e.currentTarget.open)
         onToggle?.(e)
       }}
       {...props}
