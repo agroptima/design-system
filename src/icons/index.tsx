@@ -38,6 +38,7 @@ import Import from './import.svg'
 import Improvements from './improvements.svg'
 import Info from './info.svg'
 import Invoice from './invoice.svg'
+import Link from './link.svg'
 import Loading from './loading.svg'
 import Logout from './logout.svg'
 import Minus from './minus.svg'
@@ -113,6 +114,7 @@ export {
   Improvements,
   Info,
   Invoice,
+  Link,
   Loading,
   Logout,
   Minus,
