@@ -73,7 +73,7 @@ import UserMenu from './user-menu.svg'
 import ValidateInvoice from './validate-invoice.svg'
 import Warning from './warning.svg'
 
-export {
+export const icons = {
   Add,
   AddCircle,
   AngleDown,
@@ -148,4 +148,4 @@ export {
   UserMenu,
   ValidateInvoice,
   Warning,
-}
+} as const

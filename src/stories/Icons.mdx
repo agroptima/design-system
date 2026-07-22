@@ -1,5 +1,5 @@
 import { Meta, Title, IconGallery, IconItem } from '@storybook/addon-docs/blocks'
-import * as Icons from '../icons'
+import { icons } from '../icons'
 
 <Meta title="Design System/Styles/Icons" tags={['Styles', 'Documentation','!Components']} />
 
@@ -11,7 +11,7 @@ import * as Icons from '../icons'
 
 <IconGallery>
   {
-    Object.values(Icons).map((Icon) => {
+    Object.values(icons).map((Icon) => {
       return(
         <IconItem name={Icon['name'].substring(3)}>
           <Icon />

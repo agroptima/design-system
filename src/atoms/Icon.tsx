@@ -1,6 +1,6 @@
 import './Icon.scss'
 import type { ReactNode } from 'react'
-import * as icons from '../icons'
+import { icons } from '../icons'
 import { classNames } from '../utils/classNames'
 export type IconType = keyof typeof icons
 
@@ -33,10 +33,12 @@ export const Icon: React.FC<IconProps> = ({
     rotate: name === 'Loading',
   })
 
+  const IconComponent = icons[name]
+
   if (decorative) {
     return (
       <span aria-hidden="true" className={cssClasses}>
-        {icons[name](props) as ReactNode}
+        {IconComponent ? ((<IconComponent {...props} />) as ReactNode) : null}
       </span>
     )
   }
@@ -48,7 +50,7 @@ export const Icon: React.FC<IconProps> = ({
       title={accessibilityLabel || name}
       className={cssClasses}
     >
-      {icons[name](props) as ReactNode}
+      {IconComponent ? ((<IconComponent {...props} />) as ReactNode) : null}
     </span>
   )
 }
