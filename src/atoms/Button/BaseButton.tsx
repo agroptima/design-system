@@ -13,8 +13,7 @@ type HtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 type AnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps
 
 export type BaseButtonProps =
-  | (HtmlButtonProps & CommonProps)
-  | (AnchorProps & CommonProps)
+  (HtmlButtonProps & CommonProps) | (AnchorProps & CommonProps)
 
 const hasHref = (
   props: HtmlButtonProps | AnchorProps,
