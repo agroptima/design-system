@@ -13,12 +13,7 @@ import {
 } from '.'
 
 export type Variant =
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'discard'
-  | 'details'
+  'info' | 'success' | 'warning' | 'error' | 'discard' | 'details'
 
 export interface ModalProps {
   id: string
