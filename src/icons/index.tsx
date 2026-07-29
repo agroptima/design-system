@@ -22,6 +22,7 @@ import CreditNote from './credit-note.svg'
 import Delete from './delete.svg'
 import Delivery from './delivery.svg'
 import DeliveryNote from './delivery-note.svg'
+import Discount from './discount.svg'
 import Done from './done.svg'
 import DoubleArrowLeft from './double-arrow-left.svg'
 import DoubleArrowRight from './double-arrow-right.svg'
@@ -98,6 +99,7 @@ export const icons = {
   Delete,
   Delivery,
   DeliveryNote,
+  Discount,
   Done,
   DoubleArrowLeft,
   DoubleArrowRight,
