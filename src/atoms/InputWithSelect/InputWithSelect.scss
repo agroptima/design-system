@@ -1,0 +1,79 @@
+@use '../../settings/typography/form' as typography;
+@use '../../settings/config';
+@use '../../settings/depth';
+@use '../../settings/mixins';
+
+.select-suffix {
+  position: relative;
+  display: flex;
+  align-self: stretch;
+  margin: (config.$space-2x * -1) (config.$space-3x * -1) (config.$space-2x * -1)
+    0;
+}
+
+.select-suffix-trigger {
+  @include typography.select-text;
+  display: flex;
+  align-items: center;
+  gap: config.$space-1x;
+  height: 100%;
+  padding: config.$space-2x config.$space-3x;
+  border: none;
+  border-left: 1px solid var(--neutral-color-600);
+  border-top-right-radius: config.$corner-radius-m;
+  border-bottom-right-radius: config.$corner-radius-m;
+  background: var(--neutral-color-50);
+  color: var(--neutral-color-1000);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:disabled {
+    border-left: 1px solid var(--neutral-color-400);
+    color: var(--neutral-color-400);
+    cursor: default;
+  }
+}
+
+.input-with-select .input-container .input-suffix .select-suffix-trigger {
+  @include mixins.icon-color(var(--primary-color-600));
+
+  &:disabled {
+    @include mixins.icon-color(var(--neutral-color-400));
+  }
+}
+
+.select-suffix-options {
+  position: absolute;
+  top: calc(100% + #{config.$space-2x});
+  right: 0;
+  min-width: 100%;
+  margin: 0;
+  padding: config.$space-1x 0;
+  list-style: none;
+  text-align: left;
+  border-radius: config.$corner-radius-xxs;
+  background: var(--neutral-white);
+  z-index: depth.$z-dropdown-options;
+  box-shadow:
+    0 9px 28px 8px rgba(0, 0, 0, 0.05),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12);
+
+  .option {
+    @include typography.select-option-text;
+    padding: config.$space-2x config.$space-3x;
+    cursor: default;
+    list-style-type: none;
+    text-wrap: nowrap;
+
+    &:hover {
+      background-color: var(--primary-color-50);
+    }
+  }
+}
