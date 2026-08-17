@@ -17,7 +17,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   helpText?: string
   variant?: InputVariant
   id?: string
-  suffix?: string
+  suffix?: React.ReactNode
   errors?: string[]
   rightIcon?: IconType
   fullWidth?: boolean
