@@ -5,7 +5,12 @@ import { Meta } from "@storybook/addon-docs/blocks";
 # Changelog
 
 ## 1.2.34
+
 * Update Storybook to v10.5.10 and its dependencies. Update outdated and fixed vulnerable dependencies.
+
+## 1.2.33
+
+* Add `breakpoints` TypeScript export in `settings/breakpoints.ts`, so JS consumers can read the same values as `_breakpoints.scss` (`matchMedia`, layout logic) instead of hardcoding them. Both files are kept in sync by a test
 
 ## 1.2.32
 

@@ -91,7 +91,8 @@ ComponentName/
   - `_form.scss` - Form-specific typography
   - `_cards_table.scss` - Table typography
 - **_config.scss** - Spacing scale, border radius, responsive breakpoints
-- **_breakpoints.scss** - Breakpoints: 375px (mobile), 900px (tablet), 1200px (desktop)
+- **_breakpoints.scss** - Breakpoints: 375px (`$small`), 768px (`$medium`), 1200px (`$large`)
+- **breakpoints.ts** - Same values for TypeScript/`matchMedia` consumers; `tests/breakpoints.spec.ts` fails if they drift apart
 - **_depth.scss** - Z-index scale
 - **_mixins.scss** - Reusable SCSS utilities
 
