@@ -49,6 +49,7 @@ import Notification from './notification.svg'
 import Orders from './orders.svg'
 import PDF from './pdf.svg'
 import Picture from './picture.svg'
+import Power from './power.svg'
 import PriceList from './price-list.svg'
 import Product from './product.svg'
 import Reason from './reason.svg'
@@ -126,6 +127,7 @@ export const icons = {
   Orders,
   PDF,
   Picture,
+  Power,
   PriceList,
   Product,
   Reason,
