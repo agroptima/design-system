@@ -438,3 +438,101 @@ export const MultipleBadges: Story = {
     </CardsTable>
   ),
 }
+
+export const MobileWithLabelAndHighlightedValue: Story = {
+  render: (args) => (
+    <CardsTable withTitle {...args}>
+      <CardsTableHead>
+        <CardsTableRow>
+          <CardsTableHeader>
+            <Checkbox
+              hideLabel
+              id="checkbox-select-all"
+              indeterminate
+              checked
+              onChange={() => {}}
+              variant="primary"
+            />
+            <span>Game title</span>
+          </CardsTableHeader>
+          <CardsTableHeader>Company address</CardsTableHeader>
+          <CardsTableHeader>Customer service email</CardsTableHeader>
+          <CardsTableHeader>State</CardsTableHeader>
+          <CardsTableHeader>Price</CardsTableHeader>
+          <CardsTableHeader actions>Actions</CardsTableHeader>
+        </CardsTableRow>
+      </CardsTableHead>
+      <CardsTableBody>
+        <CardsTableRow>
+          <CardsTableCell titleWithActions={3}>
+            <Checkbox
+              hideLabel
+              accessibilityLabel="Select all table rows"
+              id="checkbox-select-all"
+              variant="primary"
+            />
+            <span>Zone of the Enders: The 2nd Runner</span>
+            <Badge
+              accessibilityLabel="Game is bought"
+              icon="Export"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
+          <CardsTableCell>
+            Konami Digital Entertainment Co., Ltd. 1-11-1, Ginza, Chuo-ku,
+            Tokyo, 104-0061 Japan
+          </CardsTableCell>
+          <CardsTableCell>
+            <span className="label">Email: </span>
+            <span className="highlight">konami@fakemail.com</span>
+          </CardsTableCell>
+          <CardsTableCell floatingLeftMobile>
+            <Badge
+              accessibilityLabel="Game is bought"
+              text="Bought"
+              variant="success-outlined"
+            />
+          </CardsTableCell>
+          <CardsTableCell>
+            <span className="label">State: </span>
+            <span className="highlight">Not available</span>
+          </CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+            <ActionsMenu position="right" accessibilityLabel="More actions">
+              <PopoverMenuOption
+                active
+                onClick={() => alert('Save')}
+                variant="primary"
+                title="Save"
+                leftIcon="Export"
+              />
+              <PopoverMenuOption
+                onClick={() => alert('Restart level')}
+                variant="primary"
+                title="Restart level"
+                leftIcon="Export"
+              />
+              <PopoverMenuOption
+                disabled
+                onClick={() => alert('Back to main menu')}
+                variant="primary"
+                title="Back to main menu"
+                leftIcon="Export"
+              />
+            </ActionsMenu>
+          </CardsTableCell>
+        </CardsTableRow>
+      </CardsTableBody>
+    </CardsTable>
+  ),
+}
