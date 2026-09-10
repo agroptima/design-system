@@ -40,6 +40,10 @@
   .cards-table-cell {
     vertical-align: top;
     padding: config.$space-2x config.$space-3x;
+
+    .mobile-cell-label {
+      display: none;
+    }
   }
 
   .cards-table-body .cards-table-row {
@@ -156,6 +160,14 @@
       width: 100%;
       flex: inherit;
       padding: 0px;
+
+      .mobile-cell-label {
+        display: inline;
+      }
+
+      .mobile-cell-highlight {
+        @include typography.cards-table-list-highlight-text;
+      }
     }
 
     .actions {
