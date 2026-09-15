@@ -179,6 +179,8 @@ export function InfiniteSelect<T extends { uid: string }>({
       identifier={identifier}
       helpText={helpText}
       className={className}
+      hideLabel={hideLabel}
+      fullWidth={fullWidth}
       {...props}
     >
       <SelectTrigger
