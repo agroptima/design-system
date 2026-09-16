@@ -29,6 +29,8 @@ export function ModalDialog({
   }
 
   useEffect(() => {
+    if (!isOpen) return
+
     keepScrollbarSpace()
     window.addEventListener('resize', keepScrollbarSpace)
 
@@ -36,7 +38,7 @@ export function ModalDialog({
       removeScrollbarSpace()
       window.removeEventListener('resize', keepScrollbarSpace)
     }
-  }, [])
+  }, [isOpen])
 
   useEffect(() => {
     const dialog = dialogRef.current
