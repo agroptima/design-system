@@ -32,11 +32,9 @@ export function ModalDialog({
     if (!isOpen) return
 
     keepScrollbarSpace()
-    window.addEventListener('resize', keepScrollbarSpace)
 
     return () => {
       removeScrollbarSpace()
-      window.removeEventListener('resize', keepScrollbarSpace)
     }
   }, [isOpen])
 

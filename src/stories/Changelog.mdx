@@ -7,6 +7,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 ## 1.2.38
 
 * Fix Modal scroll lock not being cleared when the component stays mounted and `isOpen` toggles to `false`
+* Fix Modal scroll lock width flickering on window resize while open, caused by recalculating the scrollbar width after `overflow: hidden` had already removed it
 
 ## 1.2.37
 
