@@ -4,6 +4,7 @@ import { Alignment } from './CardsTableCell'
 export interface CardsTableHeaderProps extends React.ComponentPropsWithoutRef<'th'> {
   align?: Alignment
   actions?: boolean
+  desktopOnly?: boolean
 }
 
 export function CardsTableHeader({
@@ -11,10 +12,17 @@ export function CardsTableHeader({
   className,
   align = Alignment.Left,
   actions = false,
+  desktopOnly = false,
   ...props
 }: CardsTableHeaderProps) {
   return (
-    <th role="columnheader" className="cards-table-header" {...props}>
+    <th
+      role="columnheader"
+      className={classNames('cards-table-header', {
+        'desktop-only': desktopOnly,
+      })}
+      {...props}
+    >
       <div
         className={classNames(
           'cards-table-inner-cell',

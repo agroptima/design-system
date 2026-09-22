@@ -144,6 +144,14 @@
   @media only screen and (max-width: breakpoints.$large) {
     .cards-table-head {
       display: none;
+
+      &:has(.desktop-only) {
+        display: table-header-group;
+
+        .cards-table-row {
+          display: table-row;
+        }
+      }
     }
 
     .cards-table-row {
