@@ -1,4 +1,5 @@
 @use '../settings/typography/content' as typography;
+@use '../settings/borders';
 @use '../settings/config';
 @use '../settings/depth';
 @use '../settings/breakpoints';
@@ -75,7 +76,7 @@
       .footer-actions {
         position: absolute;
         background-color: var(--neutral-white);
-        border-top: 1px solid var(--neutral-color-200);
+        border-top: borders.$border-line-separator;
         flex-direction: row;
         justify-content: space-between;
         gap: config.$space-2x;

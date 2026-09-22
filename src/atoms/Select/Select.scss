@@ -1,4 +1,5 @@
 @use '../../settings/typography/form' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/depth';
 @use '../../settings/mixins';
@@ -40,7 +41,7 @@ $elements-space: config.$space-2x;
 
   &.primary {
     .select-container.disabled {
-      border: 1px solid var(--neutral-color-400);
+      border: borders.$border-line-disabled;
       background: var(--neutral-color-50);
       @include mixins.icon-color(var(--neutral-color-400));
 
@@ -51,7 +52,7 @@ $elements-space: config.$space-2x;
 
     &.invalid {
       .select-container {
-        border: 1px solid var(--error-color-1000);
+        border: borders.$border-line-error;
       }
     }
 
@@ -61,12 +62,12 @@ $elements-space: config.$space-2x;
 
     .select-container {
       border-radius: config.$corner-radius-m;
-      border: 1px solid var(--neutral-color-600);
+      border: borders.$border-line-default;
       background: var(--neutral-white);
       @include mixins.icon-color(var(--primary-color-600));
 
       &:has(.select:focus) {
-        border: 1px solid var(--primary-color-600);
+        border: borders.$border-line-primary;
       }
     }
 

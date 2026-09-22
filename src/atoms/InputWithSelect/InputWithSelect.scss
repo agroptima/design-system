@@ -1,4 +1,5 @@
 @use '../../settings/typography/form' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/depth';
 @use '../../settings/mixins';
@@ -19,7 +20,7 @@
   height: 100%;
   padding: config.$space-2x config.$space-3x;
   border: none;
-  border-left: 1px solid var(--neutral-color-600);
+  border-left: borders.$border-line-default;
   border-top-right-radius: config.$corner-radius-m;
   border-bottom-right-radius: config.$corner-radius-m;
   background: var(--neutral-color-50);
@@ -34,7 +35,7 @@
   }
 
   &:disabled {
-    border-left: 1px solid var(--neutral-color-400);
+    border-left: borders.$border-line-disabled;
     color: var(--neutral-color-400);
     cursor: default;
   }

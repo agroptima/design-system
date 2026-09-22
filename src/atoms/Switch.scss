@@ -1,4 +1,5 @@
 @use '../settings/typography/form' as typography;
+@use '../settings/borders';
 @use '../settings/config';
 
 .switch-group {
@@ -38,7 +39,7 @@
     }
 
     &.primary:checked {
-      border: 1px solid var(--primary-color-600);
+      border: borders.$border-line-primary;
     }
 
     &.primary:checked::before {
@@ -47,7 +48,7 @@
 
     &.primary:disabled {
       background-color: var(--neutral-color-50);
-      border: 1px solid var(--neutral-color-400);
+      border: borders.$border-line-disabled;
     }
 
     &.primary:checked:disabled {

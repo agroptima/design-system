@@ -1,4 +1,5 @@
 @use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/depth';
 
@@ -22,7 +23,7 @@
       color: var(--neutral-color-1000);
 
       border-radius: config.$corner-radius-m;
-      border: 1px solid var(--neutral-color-200);
+      border: borders.$border-line-separator;
       background: var(--neutral-white);
 
       &:hover {
@@ -31,14 +32,14 @@
 
       &.checked {
         color: var(--neutral-white);
-        border: 1px solid var(--primary-color-600);
+        border: borders.$border-line-primary;
         background: var(--primary-color-600);
       }
 
       &.disabled {
         color: var(--neutral-color-200);
 
-        border: 1px solid var(--neutral-color-200);
+        border: borders.$border-line-separator;
         background: var(--neutral-color-50);
       }
     }

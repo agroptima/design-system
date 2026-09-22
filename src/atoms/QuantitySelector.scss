@@ -1,5 +1,6 @@
 @use '../settings/typography/form' as form-typography;
 @use '../settings/typography/content' as typography;
+@use '../settings/borders';
 @use '../settings/config';
 
 .quantity-selector-group {
@@ -42,7 +43,7 @@
         height: 42px;
 
         &:disabled {
-          border: 1px solid var(--neutral-color-400);
+          border: borders.$border-line-disabled;
           color: var(--neutral-color-400);
         }
       }
