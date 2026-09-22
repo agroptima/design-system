@@ -10,7 +10,7 @@ describe('Divider', () => {
     )
     expect(getByRole('separator')).toHaveClass('divider primary')
     expect(container.querySelector('.short.line')).toBeInTheDocument()
-    expect(container.querySelector('.long.line')).toBeInTheDocument()
+    expect(container.querySelector('.flex-grow.line')).toBeInTheDocument()
     expect(getByText('A title divider')).toBeInTheDocument()
   })
 
@@ -19,7 +19,7 @@ describe('Divider', () => {
       <Divider title="A title divider with icon" icon="DeliveryNote" />,
     )
     expect(getByRole('img')).toHaveClass(/icon/i)
-    expect(container.querySelector('.long.line')).toBeInTheDocument()
+    expect(container.querySelector('.flex-grow.line')).toBeInTheDocument()
     expect(getByText('A title divider with icon')).toBeInTheDocument()
   })
 
@@ -40,7 +40,7 @@ describe('Divider', () => {
     await user.click(getByRole('button', { name: 'Delete' }))
 
     expect(getByRole('img', { name: 'DeliveryNote' })).toBeInTheDocument()
-    expect(container.querySelector('.long.line')).toBeInTheDocument()
+    expect(container.querySelector('.flex-grow.line')).toBeInTheDocument()
     expect(getByText('A title divider with button')).toBeInTheDocument()
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
@@ -48,6 +48,6 @@ describe('Divider', () => {
   it('renders without title nor icon', () => {
     const { getByRole, container } = render(<Divider />)
     expect(getByRole('separator')).toHaveClass('divider primary')
-    expect(container.querySelector('.long.line')).toBeInTheDocument()
+    expect(container.querySelector('.flex-grow.line')).toBeInTheDocument()
   })
 })

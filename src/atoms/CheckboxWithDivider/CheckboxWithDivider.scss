@@ -1,0 +1,18 @@
+@use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
+@use '../../settings/config';
+
+.checkbox-with-divider {
+  display: flex;
+  align-items: center;
+  gap: config.$space-3x;
+  margin-bottom: config.$space-4x;
+
+  .form-label {
+    @include typography.body-bold;
+  }
+
+  .line {
+    border: borders.$divider-border-line;
+  }
+}
