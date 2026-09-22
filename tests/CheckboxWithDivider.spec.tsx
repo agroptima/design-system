@@ -15,7 +15,7 @@ describe('CheckboxWithDivider', () => {
 
     expect(getByRole('checkbox')).toBeInTheDocument()
     expect(getByText('19/01/2025 - My gaming diary')).toBeInTheDocument()
-    expect(container.querySelector('.long.line')).toBeInTheDocument()
+    expect(container.querySelector('.flex-grow.line')).toBeInTheDocument()
   })
 
   it('toggles when clicking the title, thanks to the native label', async () => {

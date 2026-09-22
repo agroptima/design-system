@@ -1,4 +1,5 @@
 @use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 
 .checkbox-with-divider {
@@ -11,8 +12,7 @@
     @include typography.body-bold;
   }
 
-  .long.line {
-    flex: 1;
-    border: 1px solid var(--neutral-color-200);
+  .line {
+    border: borders.$divider-border-line;
   }
 }

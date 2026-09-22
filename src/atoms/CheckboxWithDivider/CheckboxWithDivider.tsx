@@ -25,7 +25,7 @@ export function CheckboxWithDivider({
       >
         {title}
       </Checkbox>
-      <div className="long line" />
+      <div className="flex-grow line" />
     </div>
   )
 }
