@@ -37,7 +37,7 @@ export function Divider({
             </span>
           </div>
         )}
-        <div className="long line"></div>
+        <div className="flex-grow line"></div>
       </div>
       {children}
     </div>
