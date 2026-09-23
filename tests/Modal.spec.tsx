@@ -145,4 +145,50 @@ describe('Modal', () => {
     expect(screen.queryAllByRole('option')).toHaveLength(3)
     expect(screen.getByRole('option', { name: 'Item 3' })).toBeInTheDocument()
   })
+
+  it('clears the scroll lock when isOpen toggles to false while the modal stays mounted', async () => {
+    const originalInnerWidth = window.innerWidth
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1024,
+    })
+    Object.defineProperty(document.documentElement, 'clientWidth', {
+      configurable: true,
+      value: 1000,
+    })
+
+    const user = userEvent.setup()
+    const ToggleableModal = () => {
+      const [isOpen, setIsOpen] = React.useState(true)
+
+      return (
+        <Modal
+          id="scroll-lock-modal"
+          isOpen={isOpen}
+          title="Scroll lock modal"
+          buttons={[
+            {
+              label: 'Close',
+              onClick: () => setIsOpen(false),
+            },
+          ]}
+        >
+          content
+        </Modal>
+      )
+    }
+
+    render(<ToggleableModal />)
+
+    expect(document.documentElement).toHaveClass('modal-scroll')
+
+    await user.click(screen.getByRole('button', { name: 'Close' }))
+
+    expect(document.documentElement).not.toHaveClass('modal-scroll')
+
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: originalInnerWidth,
+    })
+  })
 })

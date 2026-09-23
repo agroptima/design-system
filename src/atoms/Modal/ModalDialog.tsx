@@ -29,14 +29,14 @@ export function ModalDialog({
   }
 
   useEffect(() => {
+    if (!isOpen) return
+
     keepScrollbarSpace()
-    window.addEventListener('resize', keepScrollbarSpace)
 
     return () => {
       removeScrollbarSpace()
-      window.removeEventListener('resize', keepScrollbarSpace)
     }
-  }, [])
+  }, [isOpen])
 
   useEffect(() => {
     const dialog = dialogRef.current
