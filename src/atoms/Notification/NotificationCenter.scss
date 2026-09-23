@@ -62,7 +62,7 @@
           > .button {
             @include typography.footnote-primary;
             color: var(--primary-color-600);
-            border: 0;
+            border: none;
             background-color: transparent;
             padding: 0;
             white-space: normal;
