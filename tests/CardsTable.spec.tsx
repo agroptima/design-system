@@ -128,4 +128,23 @@ describe('CardsTable', () => {
     expect(getAllByRole('row').length).toBeGreaterThan(1)
     expect(getAllByRole('cell').length).toBeGreaterThan(1)
   })
+
+  it('marks a header as desktop-only', () => {
+    const { getByRole } = render(
+      <CardsTable>
+        <CardsTableHead>
+          <CardsTableRow>
+            <CardsTableHeader desktopOnly>Game title</CardsTableHeader>
+          </CardsTableRow>
+        </CardsTableHead>
+        <CardsTableBody>
+          <CardsTableRow>
+            <CardsTableCell>Tekken 8</CardsTableCell>
+          </CardsTableRow>
+        </CardsTableBody>
+      </CardsTable>,
+    )
+
+    expect(getByRole('columnheader').className).toContain('desktop-only')
+  })
 })
