@@ -1,1 +1,12 @@
-$divider-border-line: 1px solid var(--neutral-color-200);
+$border-line-primary: 1px solid var(--primary-color-600);
+$border-line-disabled: 1px solid var(--neutral-color-400);
+$border-line-default: 1px solid var(--neutral-color-600);
+$border-line-transparent: 1px solid transparent;
+$border-line-error: 1px solid var(--error-color-1000);
+$border-line-primary-active: 1px solid var(--primary-color-1000);
+$border-line-warning: 1px solid var(--warning-color-1000);
+$border-line-info: 1px solid var(--info-color-600);
+$border-line-error-outlined: 1px solid var(--error-color-600);
+$border-line-neutral: 1px solid var(--neutral-color-100);
+// Also used for CheckableTag's own border, not just section separators.
+$border-line-separator: 1px solid var(--neutral-color-200);

@@ -1,4 +1,5 @@
 @use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/depth';
 
@@ -56,23 +57,23 @@
 
   &.primary {
     background: var(--neutral-white);
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid var(--neutral-color-200);
+    border-top: borders.$border-line-transparent;
+    border-bottom: borders.$border-line-separator;
     &:first-child {
-      border-top: 1px solid var(--neutral-color-200);
+      border-top: borders.$border-line-separator;
     }
     &:has(+ .active) {
       // Remove border-bottom if next sibling is active
-      border-bottom: 1px solid transparent;
+      border-bottom: borders.$border-line-transparent;
     }
     &.active {
       background-color: transparent;
-      border-top: 1px solid var(--primary-color-600);
-      border-bottom: 1px solid var(--primary-color-600);
+      border-top: borders.$border-line-primary;
+      border-bottom: borders.$border-line-primary;
     }
 
     &.error {
-      border: 1px solid var(--error-color-1000);
+      border: borders.$border-line-error;
       background-color: var(--error-color-50);
     }
 

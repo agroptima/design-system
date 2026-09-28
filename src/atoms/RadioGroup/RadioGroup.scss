@@ -1,4 +1,5 @@
 @use '../../settings/typography/form' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 
 .radio-group {
@@ -30,7 +31,7 @@
           width: 16px;
           height: 16px;
           background: #fff;
-          border: 1px solid var(--neutral-color-600);
+          border: borders.$border-line-default;
           border-radius: 50%;
         }
 
@@ -49,19 +50,19 @@
           }
 
           &:after {
-            border: 1px solid var(--primary-color-600);
+            border: borders.$border-line-primary;
           }
         }
 
         &:hover {
           &:after {
-            border: 1px solid var(--primary-color-600);
+            border: borders.$border-line-primary;
           }
         }
 
         &:disabled {
           &:after {
-            border: 1px solid var(--neutral-color-400);
+            border: borders.$border-line-disabled;
           }
 
           &:checked {
@@ -70,13 +71,13 @@
             }
 
             &:after {
-              border: 1px solid var(--neutral-color-400);
+              border: borders.$border-line-disabled;
             }
           }
 
           &:hover {
             &:after {
-              border: 1px solid var(--neutral-color-400);
+              border: borders.$border-line-disabled;
             }
           }
         }

@@ -1,4 +1,5 @@
 @use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/depth';
 @use '../../settings/mixins';
@@ -57,7 +58,7 @@ details summary::-webkit-details-marker {
     &.disabled {
       > .collapsible-header {
         background: var(--neutral-color-50);
-        border-bottom: 1px solid var(--neutral-color-200);
+        border-bottom: borders.$border-line-separator;
         color: var(--neutral-color-200);
         @include mixins.svg-color(var(--neutral-color-200));
       }
@@ -66,7 +67,7 @@ details summary::-webkit-details-marker {
     > .collapsible-header {
       color: var(--neutral-color-1000);
       background: transparent;
-      border-bottom: 1px solid var(--neutral-color-200);
+      border-bottom: borders.$border-line-separator;
       @include mixins.svg-color(var(--primary-color-600));
 
       &:hover {
@@ -82,7 +83,7 @@ details summary::-webkit-details-marker {
 
   &.secondary > .collapsible-content {
     padding: config.$space-3x config.$space-4x config.$space-6x;
-    border: 1px solid var(--neutral-color-200);
+    border: borders.$border-line-separator;
     border-top: none;
     border-bottom-left-radius: config.$corner-radius-m;
     border-bottom-right-radius: config.$corner-radius-m;

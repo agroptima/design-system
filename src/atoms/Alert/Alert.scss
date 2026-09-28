@@ -1,4 +1,5 @@
 @use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/depth';
 
@@ -77,7 +78,7 @@
   }
 
   &.info {
-    border: 1px solid var(--info-color-600);
+    border: borders.$border-line-info;
     background: var(--info-color-50);
   }
 
@@ -92,7 +93,7 @@
   }
 
   &.error {
-    border: 1px solid var(--error-color-1000);
+    border: borders.$border-line-error;
     background: var(--error-color-50);
   }
 

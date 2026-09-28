@@ -1,4 +1,5 @@
 @use '../../settings/typography/content' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 
 @mixin button-style($main-color, $secondary-color, $hover-color) {
@@ -33,7 +34,7 @@
   padding: config.$space-2x config.$space-3x;
   border-radius: config.$corner-radius-m;
   text-decoration: none;
-  border: 1px solid transparent;
+  border: borders.$border-line-transparent;
 
   > .icon {
     margin: 6px 2px;
@@ -48,7 +49,7 @@
   }
 
   &.primary-outlined {
-    border: 1px solid var(--primary-color-600);
+    border: borders.$border-line-primary;
     @include button-style(
       var(--neutral-white),
       var(--primary-color-600),
@@ -65,7 +66,7 @@
 
     &:not(:disabled):hover,
     &:not(:disabled):active {
-      border: 1px solid var(--primary-color-600);
+      border: borders.$border-line-primary;
     }
   }
 
@@ -104,7 +105,7 @@
   }
 
   &.error-outlined {
-    border: 1px solid var(--error-color-600);
+    border: borders.$border-line-error-outlined;
     @include button-style(
       var(--neutral-white),
       var(--error-color-600),
@@ -121,7 +122,7 @@
 
     &:not(:disabled):hover,
     &:not(:disabled):active {
-      border: 1px solid var(--error-color-600);
+      border: borders.$border-line-error-outlined;
     }
   }
 
@@ -195,7 +196,7 @@
   }
 
   &.warning-outlined {
-    border: 1px solid var(--warning-color-1000);
+    border: borders.$border-line-warning;
     @include button-style(
       var(--neutral-white),
       var(--neutral-color-900),
@@ -212,7 +213,7 @@
 
     &:not(:disabled):hover,
     &:not(:disabled):active {
-      border: 1px solid var(--warning-color-1000);
+      border: borders.$border-line-warning;
     }
   }
 
@@ -225,7 +226,7 @@
   }
 
   &.info-outlined {
-    border: 1px solid var(--info-color-600);
+    border: borders.$border-line-info;
     @include button-style(
       var(--neutral-white),
       var(--info-color-600),
@@ -242,7 +243,7 @@
 
     &:not(:disabled):hover,
     &:not(:disabled):active {
-      border: 1px solid var(--info-color-600);
+      border: borders.$border-line-info;
     }
   }
 
@@ -255,7 +256,7 @@
   }
 
   &.neutral-outlined {
-    border: 1px solid var(--neutral-color-100);
+    border: borders.$border-line-neutral;
     @include button-style(
       var(--neutral-white),
       var(--neutral-color-1000),
@@ -272,7 +273,7 @@
 
     &:not(:disabled):hover,
     &:not(:disabled):active {
-      border: 1px solid var(--neutral-color-100);
+      border: borders.$border-line-neutral;
     }
   }
 
@@ -309,7 +310,7 @@
   &.neutral-outlined {
     &:disabled {
       background: var(--neutral-color-50);
-      border: 1px solid var(--neutral-color-400);
+      border: borders.$border-line-disabled;
     }
   }
 }

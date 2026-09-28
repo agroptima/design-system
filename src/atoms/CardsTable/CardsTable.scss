@@ -1,6 +1,7 @@
 @use '../../settings/mixins';
 @use '../../settings/depth';
 @use '../../settings/typography/cards_table' as typography;
+@use '../../settings/borders';
 @use '../../settings/config';
 @use '../../settings/breakpoints';
 
@@ -101,7 +102,7 @@
     }
 
     .cards-table-head.cards-table-row {
-      border: 1px solid transparent;
+      border: borders.$border-line-transparent;
       .cards-table-cell {
         @include typography.cards-table-list-text;
       }
@@ -123,13 +124,13 @@
     }
 
     .cards-table-row > .cards-table-cell {
-      border-top: 1px solid transparent;
-      border-bottom: 1px solid transparent;
+      border-top: borders.$border-line-transparent;
+      border-bottom: borders.$border-line-transparent;
       &:first-child {
-        border-left: 1px solid transparent;
+        border-left: borders.$border-line-transparent;
       }
       &:last-child {
-        border-right: 1px solid transparent;
+        border-right: borders.$border-line-transparent;
       }
     }
 
@@ -197,7 +198,7 @@
 
     .cards-table-row.active {
       box-shadow: none;
-      border: 1px solid var(--primary-color-1000);
+      border: borders.$border-line-primary-active;
       > .cards-table-cell {
         border-color: transparent !important;
       }
