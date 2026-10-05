@@ -38,6 +38,7 @@ import Filter from './filter.svg'
 import Import from './import.svg'
 import Improvements from './improvements.svg'
 import Info from './info.svg'
+import Inventory from './inventory.svg'
 import Invoice from './invoice.svg'
 import Link from './link.svg'
 import Loading from './loading.svg'
@@ -116,6 +117,7 @@ export const icons = {
   Import,
   Improvements,
   Info,
+  Inventory,
   Invoice,
   Link,
   Loading,
