@@ -11,6 +11,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 * Move `next`, `react` and `react-dom` to `peerDependencies` so consuming apps use their own versions instead of installing duplicates.
 * Migrate ESLint config to the native flat config exported by `eslint-config-next` v16.
 * Sync `DateRangePicker` with `defaultValue` changes during render instead of in an effect.
+* Fix compiled `Input` CSS including a full copy of the `Button` styles. Shared button styles now live in `Button/_mixins.scss`, which outputs no CSS of its own.
 
 ## 1.2.42
 
