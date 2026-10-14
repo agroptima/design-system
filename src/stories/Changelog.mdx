@@ -4,6 +4,15 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Changelog
 
+## 2.0.0
+
+* **Breaking change:** Next.js 16 is now required. Consuming apps must be on `next@^16.0.0`, `react@^19.0.0` and `react-dom@^19.0.0`.
+* Update Next.js to v16, react-day-picker to v10 and TypeScript to v6. Update outdated dependencies.
+* Move `next`, `react` and `react-dom` to `peerDependencies` so consuming apps use their own versions instead of installing duplicates.
+* Migrate ESLint config to the native flat config exported by `eslint-config-next` v16.
+* Sync `DateRangePicker` with `defaultValue` changes during render instead of in an effect.
+* Fix compiled `Input` CSS including a full copy of the `Button` styles. Shared button styles now live in `Button/_mixins.scss`, which outputs no CSS of its own.
+
 ## 1.2.42
 
 * Add Inventory icon

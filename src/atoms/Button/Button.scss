@@ -1,47 +1,16 @@
-@use '../../settings/typography/content' as typography;
 @use '../../settings/borders';
 @use '../../settings/config';
-
-@mixin button-style($main-color, $secondary-color, $hover-color) {
-  background: $main-color;
-  color: $secondary-color;
-
-  > .icon {
-    > svg {
-      fill: $secondary-color;
-
-      path {
-        fill: $secondary-color;
-      }
-    }
-  }
-
-  &:not(:disabled):hover,
-  &:not(:disabled):active {
-    background: $hover-color;
-  }
-}
+@use 'mixins' as button;
 
 .button {
-  @include typography.body-bold;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  gap: config.$space-1x;
-  cursor: default;
-  height: fit-content;
-  padding: config.$space-2x config.$space-3x;
-  border-radius: config.$corner-radius-m;
-  text-decoration: none;
-  border: borders.$border-line-transparent;
+  @include button.base;
 
   > .icon {
     margin: 6px 2px;
   }
 
   &.primary {
-    @include button-style(
+    @include button.button-style(
       var(--primary-color-600),
       var(--neutral-white),
       var(--primary-color-800)
@@ -50,7 +19,7 @@
 
   &.primary-outlined {
     border: borders.$border-line-primary;
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--primary-color-600),
       var(--primary-color-50)
@@ -58,7 +27,7 @@
   }
 
   &.primary-ghost {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--primary-color-600),
       transparent
@@ -71,7 +40,7 @@
   }
 
   &.transparent {
-    @include button-style(
+    @include button.button-style(
       transparent,
       var(--neutral-color-1000),
       transparent
@@ -82,7 +51,7 @@
   }
 
   &.error {
-    @include button-style(
+    @include button.button-style(
       var(--error-color-1000),
       var(--neutral-color-1000),
       var(--error-color-700)
@@ -106,7 +75,7 @@
 
   &.error-outlined {
     border: borders.$border-line-error-outlined;
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--error-color-600),
       var(--error-color-50)
@@ -114,7 +83,7 @@
   }
 
   &.error-ghost {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--error-color-600),
       transparent
@@ -127,7 +96,7 @@
   }
 
   &.success {
-    @include button-style(
+    @include button.button-style(
       var(--success-color-1000),
       var(--neutral-color-900),
       var(--success-color-700)
@@ -152,7 +121,7 @@
   &.success-outlined {
     border: 1px solid var(--success-color-1000);
 
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--neutral-color-900),
       var(--success-color-50)
@@ -160,7 +129,7 @@
   }
 
   &.success-ghost {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--success-color-1000),
       transparent
@@ -173,7 +142,7 @@
   }
 
   &.warning {
-    @include button-style(
+    @include button.button-style(
       var(--warning-color-1000),
       var(--neutral-color-900),
       var(--warning-color-700)
@@ -197,7 +166,7 @@
 
   &.warning-outlined {
     border: borders.$border-line-warning;
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--neutral-color-900),
       var(--warning-color-50)
@@ -205,7 +174,7 @@
   }
 
   &.warning-ghost {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--warning-color-1000),
       transparent
@@ -218,7 +187,7 @@
   }
 
   &.info {
-    @include button-style(
+    @include button.button-style(
       var(--info-color-600),
       var(--neutral-white),
       var(--info-color-900)
@@ -227,7 +196,7 @@
 
   &.info-outlined {
     border: borders.$border-line-info;
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--info-color-600),
       var(--info-color-50)
@@ -235,7 +204,7 @@
   }
 
   &.info-ghost {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--info-color-600),
       transparent
@@ -248,7 +217,7 @@
   }
 
   &.neutral {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-color-100),
       var(--neutral-color-1000),
       var(--neutral-color-300)
@@ -257,7 +226,7 @@
 
   &.neutral-outlined {
     border: borders.$border-line-neutral;
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--neutral-color-1000),
       var(--neutral-color-50)
@@ -265,7 +234,7 @@
   }
 
   &.neutral-ghost {
-    @include button-style(
+    @include button.button-style(
       var(--neutral-white),
       var(--neutral-color-1000),
       transparent

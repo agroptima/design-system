@@ -1,7 +1,7 @@
 @use '../settings/typography/form' as typography;
 @use '../settings/borders';
 @use '../settings/config';
-@use './Button/Button';
+@use './Button/mixins' as button;
 @use '../settings/mixins';
 
 .input-group {
@@ -129,9 +129,23 @@
       color: var(--neutral-color-600);
 
       &::file-selector-button {
+        @include button.base;
         margin-right: config.$space-2x;
         padding-left: config.$space-3x + config.$icon-size-2x + config.$space-1x;
-        @extend .button;
+        border: borders.$border-line-primary;
+        background: var(--neutral-white);
+        color: var(--primary-color-600);
+      }
+
+      &:not(:disabled):hover::file-selector-button,
+      &:not(:disabled):active::file-selector-button {
+        background: var(--primary-color-50);
+      }
+
+      &:disabled::file-selector-button {
+        color: var(--neutral-color-400);
+        background: var(--neutral-color-50);
+        border: borders.$border-line-disabled;
       }
     }
   }

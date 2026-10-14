@@ -1,6 +1,6 @@
 import 'react-day-picker/style.css'
 import './DatePicker.scss'
-import { type JSX, useEffect, useState } from 'react'
+import { type JSX, useState } from 'react'
 import {
   type DateRange as DateRangeReactDayPicker,
   DayPicker,
@@ -62,6 +62,12 @@ export function DateRangePicker({
     toDateRange(defaultValue),
   )
   const [isOpen, setIsOpen] = useState<boolean>(!withInput)
+  const [prevDefaultValue, setPrevDefaultValue] = useState(defaultValue)
+
+  if (defaultValue !== prevDefaultValue) {
+    setPrevDefaultValue(defaultValue)
+    setSelected(toDateRange(defaultValue))
+  }
 
   function selectDate(dateRange: DateRangeReactDayPicker | undefined) {
     const selectedDateRange = {
@@ -71,10 +77,6 @@ export function DateRangePicker({
     setSelected(selectedDateRange)
     onSelect?.(toDateRangeISO(selectedDateRange))
   }
-
-  useEffect(() => {
-    setSelected(toDateRange(defaultValue))
-  }, [defaultValue])
 
   return (
     <div className={cssClasses}>
