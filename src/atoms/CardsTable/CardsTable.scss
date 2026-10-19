@@ -23,6 +23,7 @@
 .cards-table-list {
   border-collapse: separate;
   border-spacing: 0 config.$space-2x;
+  margin-block: calc(-1 * config.$space-2x);
   width: 100%;
 
   &.is-sticky {
@@ -163,6 +164,14 @@
       margin-block: config.$space-3x;
       padding: config.$space-2x config.$space-3x;
       gap: config.$space-1x;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .cards-table-cell {
