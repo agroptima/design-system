@@ -53,7 +53,7 @@
     "storybook": "^10.6.1",
     "storybook-addon-tag-badges": "^3.0.4",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "peerDependencies": {
     "next": "^16.0.0",
