@@ -1,7 +1,13 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 import { Button } from '../src/atoms/Button'
-import { Card, CardContent, CardFooter, CardHeader } from '../src/atoms/Card'
+import {
+  Card,
+  CardColumn,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from '../src/atoms/Card'
 
 describe('Product card', () => {
   it('renders the expected structure and data', () => {
@@ -60,5 +66,35 @@ describe('Product card', () => {
     expect(getByText(/PlayStation/i)).toBeInTheDocument()
     expect(getByText(/6,99€/i)).toBeInTheDocument()
     expect(getByText(/Buy/i)).toBeInTheDocument()
+  })
+})
+
+describe('Card layout', () => {
+  it('uses the product layout by default', () => {
+    const { container } = render(<Card>Content</Card>)
+
+    expect(container.firstChild).toHaveClass('card', 'product')
+  })
+
+  it('applies the lines layout', () => {
+    const { container } = render(<Card layout="lines">Content</Card>)
+
+    expect(container.firstChild).toHaveClass('card', 'lines')
+    expect(container.firstChild).not.toHaveClass('product')
+  })
+})
+
+describe('CardColumn', () => {
+  it('renders its children inside a card-column', () => {
+    const { getByText } = render(
+      <CardColumn className="custom">
+        <span>Quantity</span>
+      </CardColumn>,
+    )
+
+    expect(getByText('Quantity').parentElement).toHaveClass(
+      'card-column',
+      'custom',
+    )
   })
 })
