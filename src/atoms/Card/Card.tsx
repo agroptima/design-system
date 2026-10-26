@@ -5,7 +5,7 @@ import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 
-export type Layout = 'product' | 'lines'
+export type Layout = 'product' | 'line'
 
 export interface CardProps extends Omit<LinkProps, 'href'> {
   visible?: boolean

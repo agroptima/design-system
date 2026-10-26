@@ -28,8 +28,8 @@ const meta = {
           '<p>A Card component can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.</p>' +
           '<ul>' +
           ' <li>The Card has a hover effect when being a link, being `clickable` or not having any buttons.</li>' +
-          ' <li>Use `layout="lines"` for cards that represent document lines. Its content is laid out in a row: group the text in `CardColumn`s inside `CardContent`, and place any action (e.g. a delete `IconButton`) as a direct child of the `Card` so it stays on the right.</li>' +
-          ' <li>Inside a `lines` Card, add the `subtitle` class to secondary text to render it with the muted colour.</li>' +
+          ' <li>Use `layout="line"` for cards that represent a document line. Its content is laid out in a row: group the text in `CardColumn`s inside `CardContent`, and place any action (e.g. a delete `IconButton`) as a direct child of the `Card` so it stays on the right.</li>' +
+          ' <li>Inside a `line` Card, add the `subtitle` class to secondary text to render it with the muted colour.</li>' +
           '</ul>',
       },
     },
@@ -46,9 +46,9 @@ const meta = {
     },
     layout: {
       description:
-        "Content layout: 'product' stacks the content vertically (default), 'lines' places it in a row",
+        "Content layout: 'product' stacks the content vertically (default), 'line' places it in a row",
       control: 'radio',
-      options: ['product', 'lines'],
+      options: ['product', 'line'],
     },
     isActive: {
       description: 'Is component active?',
@@ -145,10 +145,10 @@ export const ProductCard: Story = {
   ),
 } as unknown as Story
 
-export const LinesCard: Story = {
+export const LineCard: Story = {
   render: () => (
     <div style={{ display: 'flex', width: '400px' }}>
-      <Card layout="lines">
+      <Card layout="line">
         <CardContent>
           <CardColumn>
             <CardHeader

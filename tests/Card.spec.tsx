@@ -76,10 +76,10 @@ describe('Card layout', () => {
     expect(container.firstChild).toHaveClass('card', 'product')
   })
 
-  it('applies the lines layout', () => {
-    const { container } = render(<Card layout="lines">Content</Card>)
+  it('applies the line layout', () => {
+    const { container } = render(<Card layout="line">Content</Card>)
 
-    expect(container.firstChild).toHaveClass('card', 'lines')
+    expect(container.firstChild).toHaveClass('card', 'line')
     expect(container.firstChild).not.toHaveClass('product')
   })
 })

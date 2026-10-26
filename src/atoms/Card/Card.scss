@@ -21,7 +21,7 @@ a.card {
     flex-direction: column;
   }
 
-  &.lines {
+  &.line {
     flex-direction: row;
     align-items: flex-start;
 
@@ -115,7 +115,7 @@ a.card {
       box-shadow: none;
     }
 
-    &.lines .subtitle {
+    &.line .subtitle {
       color: var(--neutral-color-400);
     }
   }
