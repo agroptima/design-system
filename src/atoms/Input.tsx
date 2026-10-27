@@ -22,6 +22,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   rightIcon?: IconType
   fullWidth?: boolean
   ellipsis?: boolean
+  loading?: boolean
 }
 
 export function Input({
@@ -41,6 +42,8 @@ export function Input({
   rightIcon,
   fullWidth = false,
   ellipsis = false,
+  loading = false,
+  readOnly,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
@@ -72,6 +75,7 @@ export function Input({
         hidden: type === 'hidden',
         'full-width': fullWidth,
         ellipsis: ellipsis,
+        loading: loading,
       })}
     >
       {!hideLabel && (
@@ -88,6 +92,8 @@ export function Input({
         <input
           id={identifier}
           disabled={disabled}
+          readOnly={loading || readOnly}
+          aria-busy={loading || undefined}
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}
