@@ -76,6 +76,11 @@ const meta = {
         'If true, the input will truncate the text with an ellipsis when it overflows',
       type: 'boolean',
     },
+    loading: {
+      description:
+        'Is the input value being loaded? Greys out the text and makes the input readonly (still focusable and submitted with the form)',
+      type: 'boolean',
+    },
   },
 }
 
@@ -165,6 +170,19 @@ export const Borderless: Story = {
     readOnly: true,
     helpText: 'This text can help you',
     name: 'delivery_data',
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const Loading: Story = {
+  args: {
+    label: 'Unit price',
+    defaultValue: '12.50',
+    helpText: 'This text can help you',
+    name: 'price',
+    type: 'number',
+    suffix: '€/Bottle',
+    loading: true,
   },
   parameters: figmaPrimaryDesign,
 }

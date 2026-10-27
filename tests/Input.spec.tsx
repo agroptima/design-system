@@ -101,4 +101,53 @@ describe('Input', () => {
 
     expect(getByText('Required input')).toHaveClass('form-label is-required')
   })
+
+  describe('loading', () => {
+    it('renders a readonly and busy input', () => {
+      const { getByRole } = render(
+        <Input label="Price" name="price" defaultValue="10" loading />,
+      )
+
+      const input = getByRole('textbox')
+      expect(input).toHaveAttribute('readonly')
+      expect(input).toHaveAttribute('aria-busy', 'true')
+      expect(input.closest('.input-group')).toHaveClass('loading')
+    })
+
+    it('does not let the user change the value', async () => {
+      const user = userEvent.setup()
+      const { getByRole } = render(
+        <Input label="Price" name="price" defaultValue="10" loading />,
+      )
+
+      await user.type(getByRole('textbox'), '5')
+
+      expect(getByRole('textbox')).toHaveValue('10')
+    })
+
+    it('keeps the input enabled so its value is still submitted', () => {
+      const { getByRole } = render(
+        <Input label="Price" name="price" defaultValue="10" loading />,
+      )
+
+      expect(getByRole('textbox')).toBeEnabled()
+    })
+
+    it('renders an editable input when it is not loading', () => {
+      const { getByRole } = render(<Input label="Price" name="price" />)
+
+      const input = getByRole('textbox')
+      expect(input).not.toHaveAttribute('readonly')
+      expect(input).not.toHaveAttribute('aria-busy')
+      expect(input.closest('.input-group')).not.toHaveClass('loading')
+    })
+
+    it('keeps the input readonly when readOnly is passed and it is not loading', () => {
+      const { getByRole } = render(
+        <Input label="Price" name="price" readOnly loading={false} />,
+      )
+
+      expect(getByRole('textbox')).toHaveAttribute('readonly')
+    })
+  })
 })
