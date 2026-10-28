@@ -13,10 +13,32 @@ a.card {
 
 .card {
   display: flex;
-  flex-direction: column;
   gap: config.$space-2x;
   padding: config.$space-3x;
   width: 100%;
+
+  &.product {
+    flex-direction: column;
+  }
+
+  &.line {
+    flex-direction: row;
+    align-items: flex-start;
+
+    .card-content {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      margin-bottom: 0;
+      justify-content: space-between;
+      gap: config.$space-2x;
+    }
+
+    .card-column {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
   p {
     margin: 0;
@@ -91,6 +113,10 @@ a.card {
       border: borders.$border-line-error-outlined;
       background-color: var(--error-color-50);
       box-shadow: none;
+    }
+
+    &.line .subtitle {
+      color: var(--neutral-color-400);
     }
   }
 }

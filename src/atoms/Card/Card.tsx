@@ -5,10 +5,13 @@ import { classNames } from '../../utils/classNames'
 
 export type Variant = 'primary'
 
+export type Layout = 'product' | 'line'
+
 export interface CardProps extends Omit<LinkProps, 'href'> {
   visible?: boolean
   className?: string
   variant?: Variant
+  layout?: Layout
   isDisabled?: boolean
   isActive?: boolean
   error?: boolean
@@ -22,6 +25,7 @@ export function Card({
   className,
   visible = true,
   variant = 'primary',
+  layout = 'product',
   isDisabled = false,
   isActive = false,
   error = false,
@@ -32,7 +36,7 @@ export function Card({
 }: CardProps) {
   if (!visible) return null
 
-  const cssClasses = classNames('card', variant, className, {
+  const cssClasses = classNames('card', variant, layout, className, {
     disabled: isDisabled,
     active: isActive,
     error: error,
