@@ -59,6 +59,11 @@ const meta = {
       description:
         'Optional array of errors. If passed, the errors are listed and invalid style is applied.',
     },
+    invalid: {
+      description:
+        'Applies the invalid style without listing any error. Useful when the error is shown elsewhere',
+      type: 'boolean',
+    },
     datePickerIcon: {
       description:
         'Optional icon added to input when input is applied to the date picker component selection',
@@ -147,6 +152,18 @@ export const WithErrors: Story = {
     type: 'email',
     id: 'email_input',
     errors: ['error1', 'error2'],
+  },
+  parameters: figmaPrimaryDesign,
+}
+
+export const Invalid: Story = {
+  args: {
+    label: 'Email',
+    placeholder: 'janedoe@mail.com',
+    helpText: 'This text can help you',
+    name: 'email',
+    type: 'email',
+    invalid: true,
   },
   parameters: figmaPrimaryDesign,
 }
