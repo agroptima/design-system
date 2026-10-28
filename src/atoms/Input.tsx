@@ -23,6 +23,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   fullWidth?: boolean
   ellipsis?: boolean
   loading?: boolean
+  invalid?: boolean
 }
 
 export function Input({
@@ -43,10 +44,12 @@ export function Input({
   fullWidth = false,
   ellipsis = false,
   loading = false,
+  invalid = false,
   readOnly,
   ...props
 }: InputProps): React.JSX.Element {
   const identifier = id || name
+  const isInvalid = invalid || Boolean(errors?.length)
   const [showPassword, setShowPassword] = useState(false)
 
   function handlePasswordIcon() {
@@ -71,7 +74,7 @@ export function Input({
     <div
       className={classNames('input-group', variant, className, {
         file: type === 'file',
-        invalid: errors?.length,
+        invalid: isInvalid,
         hidden: type === 'hidden',
         'full-width': fullWidth,
         ellipsis: ellipsis,
@@ -94,6 +97,7 @@ export function Input({
           disabled={disabled}
           readOnly={loading || readOnly}
           aria-busy={loading || undefined}
+          aria-invalid={isInvalid || undefined}
           type={handleInputType()}
           name={name}
           aria-label={accessibilityLabel || label}

@@ -4,6 +4,10 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Changelog
 
+## 2.0.5
+
+* Add `invalid` prop to `Input`. Applies the invalid style and sets `aria-invalid` without listing any error, useful when the error is shown elsewhere (e.g. an `Alert` that refers to several inputs). Inputs with `errors` now also set `aria-invalid`.
+
 ## 2.0.4
 
 * Add LineCard to Card component: Add `layout` prop to `Card` with values `product` and `line`, and apply suitable styles.

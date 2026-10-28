@@ -102,6 +102,35 @@ describe('Input', () => {
     expect(getByText('Required input')).toHaveClass('form-label is-required')
   })
 
+  describe('invalid', () => {
+    it('marks the input as invalid without listing any error', () => {
+      const { getByRole } = render(
+        <Input label="Email" name="email" helpText="Your email" invalid />,
+      )
+
+      const input = getByRole('textbox')
+      expect(input).toBeInvalid()
+      expect(input.closest('.input-group')).toHaveClass('invalid')
+      expect(getByRole('listitem')).toHaveTextContent('Your email')
+    })
+
+    it('marks the input as invalid when it has errors', () => {
+      const { getByRole } = render(
+        <Input label="Email" name="email" errors={['Required']} />,
+      )
+
+      expect(getByRole('textbox')).toBeInvalid()
+    })
+
+    it('renders a valid input by default', () => {
+      const { getByRole } = render(<Input label="Email" name="email" />)
+
+      const input = getByRole('textbox')
+      expect(input).not.toHaveAttribute('aria-invalid')
+      expect(input.closest('.input-group')).not.toHaveClass('invalid')
+    })
+  })
+
   describe('loading', () => {
     it('renders a readonly and busy input', () => {
       const { getByRole } = render(
