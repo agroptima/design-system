@@ -3,6 +3,8 @@ import { withThemeByClassName } from '@storybook/addon-themes'
 import type { Preview, ReactRenderer } from '@storybook/nextjs'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 
+const DEFAULT_THEME = 'pistachio'
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -27,13 +29,16 @@ const preview: Preview = {
       options: INITIAL_VIEWPORTS,
     },
   },
+  initialGlobals: {
+    theme: DEFAULT_THEME,
+  },
   decorators: [
     withThemeByClassName<ReactRenderer>({
       themes: {
         pistachio: 'pistachio',
         strawberry: 'strawberry',
       },
-      defaultTheme: 'pistachio',
+      defaultTheme: DEFAULT_THEME,
     }),
     (Story, context) => (
       <div className={context.globals.theme}>

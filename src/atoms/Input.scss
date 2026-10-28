@@ -162,6 +162,10 @@
     }
   }
 
+  &.loading .input-container input {
+    color: var(--neutral-color-400);
+  }
+
   &.borderless {
     .input-container {
       padding-left: 0;
