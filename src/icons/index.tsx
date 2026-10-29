@@ -8,6 +8,7 @@ import ArrowBack from './arrow-back.svg'
 import Calendar from './calendar.svg'
 import ChangePassword from './change-password.svg'
 import ChangeStatus from './change-status.svg'
+import Charge from './charge.svg'
 import Check from './check.svg'
 import CheckboxActive from './checkbox-active.svg'
 import CheckboxInactive from './checkbox-inactive.svg'
@@ -87,6 +88,7 @@ export const icons = {
   Calendar,
   ChangePassword,
   ChangeStatus,
+  Charge,
   Check,
   CheckboxActive,
   CheckboxInactive,
