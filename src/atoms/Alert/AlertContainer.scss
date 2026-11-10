@@ -10,6 +10,7 @@
   top: 73px;
   left: 0;
   width: 100%;
+  padding: 0 config.$space-3x;
   z-index: depth.$z-alert-container;
   align-items: center;
 }
