@@ -205,6 +205,10 @@
       order: 99;
     }
 
+    .hidden-mobile {
+      display: none;
+    }
+
     .cards-table-row.active {
       box-shadow: none;
       border: borders.$border-line-primary-active;

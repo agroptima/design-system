@@ -147,4 +147,22 @@ describe('CardsTable', () => {
 
     expect(getByRole('columnheader').className).toContain('desktop-only')
   })
+
+  it('marks a cell as hidden on mobile', () => {
+    const { getAllByRole } = render(
+      <CardsTable>
+        <CardsTableBody>
+          <CardsTableRow>
+            <CardsTableCell>The Witcher 3</CardsTableCell>
+            <CardsTableCell hiddenMobile>-</CardsTableCell>
+          </CardsTableRow>
+        </CardsTableBody>
+      </CardsTable>,
+    )
+
+    const [visibleCell, hiddenCell] = getAllByRole('cell')
+    expect(visibleCell.className).not.toContain('hidden-mobile')
+    expect(hiddenCell.className).toContain('hidden-mobile')
+    expect(hiddenCell).toHaveTextContent('-')
+  })
 })

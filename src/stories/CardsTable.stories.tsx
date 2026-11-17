@@ -536,3 +536,81 @@ export const MobileWithLabelAndHighlightedValue: Story = {
     </CardsTable>
   ),
 }
+
+export const MobileHiddenEmptyCells: Story = {
+  render: (args) => (
+    <CardsTable withTitle {...args}>
+      <CardsTableHead>
+        <CardsTableRow>
+          <CardsTableHeader>Game title</CardsTableHeader>
+          <CardsTableHeader>Genre</CardsTableHeader>
+          <CardsTableHeader>Customer service email</CardsTableHeader>
+          <CardsTableHeader>Price</CardsTableHeader>
+          <CardsTableHeader>Platform</CardsTableHeader>
+          <CardsTableHeader actions>Actions</CardsTableHeader>
+        </CardsTableRow>
+      </CardsTableHead>
+      <CardsTableBody>
+        <CardsTableRow>
+          <CardsTableCell titleWithActions={2}>
+            Metal Gear Solid 5: The Phantom Pain
+          </CardsTableCell>
+          <CardsTableCell>Stealth</CardsTableCell>
+          <CardsTableCell>konami@fakemail.com</CardsTableCell>
+          <CardsTableCell>6,99 €</CardsTableCell>
+          <CardsTableCell>PlayStation 4</CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+          </CardsTableCell>
+        </CardsTableRow>
+        <CardsTableRow>
+          <CardsTableCell titleWithActions={2}>The Witcher 3</CardsTableCell>
+          <CardsTableCell>Role-playing</CardsTableCell>
+          <CardsTableCell hiddenMobile>-</CardsTableCell>
+          <CardsTableCell hiddenMobile>-</CardsTableCell>
+          <CardsTableCell>PC</CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+          </CardsTableCell>
+        </CardsTableRow>
+        <CardsTableRow>
+          <CardsTableCell titleWithActions={2}>Tekken 8</CardsTableCell>
+          <CardsTableCell>Fighting</CardsTableCell>
+          <CardsTableCell>namco@fakemail.com</CardsTableCell>
+          <CardsTableCell hiddenMobile>-</CardsTableCell>
+          <CardsTableCell>Xbox Series X</CardsTableCell>
+          <CardsTableCell actions>
+            <IconButton
+              icon="Edit"
+              accessibilityLabel="Edit game"
+              href="link.com"
+            />
+            <IconButton
+              icon="Delete"
+              accessibilityLabel="Delete game"
+              href="link.com"
+            />
+          </CardsTableCell>
+        </CardsTableRow>
+      </CardsTableBody>
+    </CardsTable>
+  ),
+}

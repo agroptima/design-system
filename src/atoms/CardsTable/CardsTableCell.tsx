@@ -14,6 +14,7 @@ export interface CardsTableCellProps extends React.ComponentPropsWithoutRef<'td'
   actions?: boolean
   floatingLeftMobile?: boolean
   floatingRightMobile?: boolean
+  hiddenMobile?: boolean
   titleWithActions?: number
 }
 
@@ -24,6 +25,7 @@ export function CardsTableCell({
   align = Alignment.Left,
   floatingLeftMobile = false,
   floatingRightMobile = false,
+  hiddenMobile = false,
   children,
   className,
   ...props
@@ -51,6 +53,7 @@ export function CardsTableCell({
         actions,
         'floating-left-mobile': floatingLeftMobile,
         'floating-right-mobile': floatingRightMobile,
+        'hidden-mobile': hiddenMobile,
       })}
       {...actionsStopPropagation}
       {...props}
