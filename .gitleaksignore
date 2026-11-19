@@ -1,0 +1,42 @@
+# Historical findings reviewed on 2026-11-18: All are false positives
+# found only in the `gh-pages` branch (Storybook build output deployed by CI);
+# none of these files exist on `main`:
+#   - sourcegraph-access-token: 40-char git commit hashes inside source maps
+#     (comments like "// https://github.com/nodejs/node/commit/<sha>").
+#   - generic-api-key: code identifiers such as `randomKey` / `disabledKeys`
+#     in minified Storybook bundles and sb-manager chunks.
+# Format: <commit>:<file>:<rule>:<line>
+07abc66bc2a748dfe736cafc91de5bdd9bf0d1d9:8735.87c8cff7.iframe.bundle.js:generic-api-key:2
+253917049f3d77dd77ce64c288bf35790b7a0e67:8735.aa041ece.iframe.bundle.js:generic-api-key:2
+3168a156dbe5a528b112e58094ab01fe0b0ca923:1017.c7d6ec69.iframe.bundle.js:generic-api-key:47
+3168a156dbe5a528b112e58094ab01fe0b0ca923:3356.5b86bb49.iframe.bundle.js:generic-api-key:2
+3168a156dbe5a528b112e58094ab01fe0b0ca923:5262.54265952.iframe.bundle.js.map:sourcegraph-access-token:1
+6ae817364aaee88720f36ca5f8bc3b04afc0ac2b:8735.6caf6e49.iframe.bundle.js:generic-api-key:2
+98d4c4a84148088b5b57a91060153d902fc1ca5f:1648.367361f0.iframe.bundle.js:generic-api-key:47
+98d4c4a84148088b5b57a91060153d902fc1ca5f:3257.77fb124d.iframe.bundle.js:generic-api-key:2
+98d4c4a84148088b5b57a91060153d902fc1ca5f:4365.44bc5958.iframe.bundle.js.map:sourcegraph-access-token:1
+a0f1340018baca947e784fe6289bffc2a936d0b3:3257.4cc93739.iframe.bundle.js:generic-api-key:2
+a0f1340018baca947e784fe6289bffc2a936d0b3:8889.0a75bff1.iframe.bundle.js.map:sourcegraph-access-token:1
+a8cb71a92d88ca247e481fab3c3d529bd8fe22cd:1648.8103c8ce.iframe.bundle.js:generic-api-key:47
+a8cb71a92d88ca247e481fab3c3d529bd8fe22cd:3257.22ea3807.iframe.bundle.js:generic-api-key:2
+a8cb71a92d88ca247e481fab3c3d529bd8fe22cd:8889.91d14c2d.iframe.bundle.js.map:sourcegraph-access-token:1
+c67b1b7f53392b1e77a6e78828a85739c4f6cf5c:2500.4af62bf6.iframe.bundle.js:generic-api-key:47
+cdd0d1070addf9a193be3a543ed28fff22520ac0:2500.fa1b170c.iframe.bundle.js:generic-api-key:47
+cdd0d1070addf9a193be3a543ed28fff22520ac0:3356.bb64bb62.iframe.bundle.js:generic-api-key:2
+d3f271c991e090ea58cf65c33c366cc6fcc05b40:8735.46e86201.iframe.bundle.js:generic-api-key:2
+d732dfa6b4e5045971574e2f3c0f162c830052a0:3356.5b86bb49.iframe.bundle.js:generic-api-key:2
+d732dfa6b4e5045971574e2f3c0f162c830052a0:9350.77dbd94a.iframe.bundle.js.map:sourcegraph-access-token:1
+d8e8a0cf82f307baad040e91c9b830c710f8f8af:1017.d65aad26.iframe.bundle.js:generic-api-key:47
+d8e8a0cf82f307baad040e91c9b830c710f8f8af:6521.d10b0852.iframe.bundle.js:generic-api-key:2
+d8e8a0cf82f307baad040e91c9b830c710f8f8af:7024.1738bee3.iframe.bundle.js.map:sourcegraph-access-token:1
+d8f5b6e8bd54063dc141d894b7bec14c25f8a42f:2500.5ecbfb09.iframe.bundle.js:generic-api-key:47
+d8f5b6e8bd54063dc141d894b7bec14c25f8a42f:6521.d10b0852.iframe.bundle.js:generic-api-key:2
+e4be91d2b3f9c0464755e8f4a9e6f2ba1bffb0cb:6391.f993c524.iframe.bundle.js:generic-api-key:47
+e4be91d2b3f9c0464755e8f4a9e6f2ba1bffb0cb:7997.c657b6ff.iframe.bundle.js.map:sourcegraph-access-token:1
+e7fd5afe99abe1a5762a706f5244c8bb607e4310:1648.6bd8ad49.iframe.bundle.js:generic-api-key:47
+e7fd5afe99abe1a5762a706f5244c8bb607e4310:2870.e78d3ebc.iframe.bundle.js.map:sourcegraph-access-token:1
+e7fd5afe99abe1a5762a706f5244c8bb607e4310:6521.887d256b.iframe.bundle.js:generic-api-key:2
+eba106a6b8f775f33cf55e4d781fd7a4c6dfeaa7:735.89e7437f.iframe.bundle.js:generic-api-key:2
+f6b8b0646ee53a4563b33fe6e8f42f4e43d0e023:735.383edbd7.iframe.bundle.js:generic-api-key:2
+f7afc743f7653d4f283a12c43e88aa91230ea705:735.08896fca.iframe.bundle.js:generic-api-key:2
+fd217731d96cd6578ff9fad5f08a415df79f25ac:sb-manager/chunk-B3YDJJJH.js:generic-api-key:32
