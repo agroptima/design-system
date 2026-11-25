@@ -1,0 +1,10 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Generated Storybook build output (gh-pages deploys) - false positives"
+paths = [
+  '''.*\.iframe\.bundle\.js(\.map)?$''',
+  '''sb-manager/.*''',
+  '''sb-preview/.*''',
+]
